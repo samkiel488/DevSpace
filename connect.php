@@ -1,16 +1,21 @@
 <?php
+// Include Composer's autoloader for MongoDB
+require 'vendor/autoload.php'; 
 
-$host = "localhost";  // Database server (no change needed)
-$user = "root";       // Default MySQL username for XAMPP
-$pass = "";           // Default MySQL password for XAMPP is empty
-$db = "login";        // Your previous database name
+// MongoDB connection details
+$host = "mongodb+srv://devspace:devspace@samkiel.ij9vc8f.mongodb.net/?retryWrites=true&w=majority&appName=SAMKIEL";
 
-$conn = new mysqli($host, $user, $pass, $db);
+try {
+    // Create a MongoDB client
+    $client = new MongoDB\Client($host);
 
-// Check if the connection was successful
-if ($conn->connect_error) {
-    echo "Failed to connect to the database: " . $conn->connect_error;
-} else {
-    // Connection successful, you can proceed with your queries
+    // Select the database
+    $db = $client->selectDatabase('user'); // Replace 'login' with your actual database name
+
+    // Test the connection
+    echo "Connected to MongoDB successfully!";
+} catch (Exception $e) {
+    // Handle connection errors
+    echo "Failed to connect to MongoDB: " . $e->getMessage();
 }
 ?>
