@@ -28,3 +28,11 @@ const errorMessage = urlParams.get('error');
 if (errorMessage) {
     alert(errorMessage); // Show error as an alert
 }
+
+// script.js
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('https://devspace-ten.vercel.app/data')
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error('Error fetching data:', error));
+});
