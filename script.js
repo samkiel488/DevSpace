@@ -36,3 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
     .then((data) => console.log(data))
     .catch((error) => console.error('Error fetching data:', error));
 });
+
+fetch('https://devspace-ten.vercel.app/api/connect')
+   .then(response => response.json())
+   .then(data => console.log(data))
+   .catch(error => console.error('Error:', error));
+
