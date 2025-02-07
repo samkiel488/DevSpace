@@ -1,21 +1,27 @@
 <?php
-// Include Composer's autoloader for MongoDB
-require 'vendor/autoload.php'; 
+header('Content-Type: application/json'); // Set the response type to JSON
 
-// MongoDB connection details
-$host = "mongodb+srv://devspace:devspace@samkiel.ij9vc8f.mongodb.net/?retryWrites=true&w=majority&appName=SAMKIEL";
+$host = "mongodb+srv://devspace:devspace@samkiel.ij9vc8f.mongodb.net/?retryWrites=true&w=majority&appName=SAMKIEL"; // Your MongoDB URI
 
 try {
-    // Create a MongoDB client
+    // Create a MongoDB client and establish a connection
+    require 'vendor/autoload.php'; // Load MongoDB PHP library
     $client = new MongoDB\Client($host);
+    
+    // Test connection by selecting a database (no operation needed)
+    $db = $client->selectDatabase('user'); // Replace 'test' with your database name if needed
 
-    // Select the database
-    $db = $client->selectDatabase('user'); // Replace 'login' with your actual database name
-
-    // Test the connection
-    echo "Connected to MongoDB successfully!";
+    // Respond with a success message
+    echo json_encode([
+        "status" => "success",
+        "message" => "Connected to the database successfully!"
+    ]);
 } catch (Exception $e) {
-    // Handle connection errors
-    echo "Failed to connect to MongoDB: " . $e->getMessage();
+    // Respond with an error message if the connection fails
+    echo json_encode([
+        "status" => "error",
+        "message" => "Failed to connect to the database",
+        "error" => $e->getMessage()
+    ]);
 }
 ?>
