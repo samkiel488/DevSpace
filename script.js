@@ -31,7 +31,7 @@ if (errorMessage) {
 
 // script.js
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('https://devspace-ten.vercel.app/data')
+  fetch('https://devspace-ten.vercel.app/api/connect.php')
     .then((response) => response.json())
     .then((data) => console.log(data))
     .catch((error) => console.error('Error fetching data:', error));
