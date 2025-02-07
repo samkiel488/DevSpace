@@ -22,3 +22,9 @@ function nav() {
     }
     
 }
+
+const urlParams = new URLSearchParams(window.location.search);
+const errorMessage = urlParams.get('error');
+if (errorMessage) {
+    alert(errorMessage); // Show error as an alert
+}

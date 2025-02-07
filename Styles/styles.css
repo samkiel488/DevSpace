@@ -27,6 +27,16 @@ p.small {
     font-size: 25px;
 }
 
+.user {
+    text-align: left;
+    margin-left: 20px;
+    position: absolute;
+    color: gold;
+    cursor: pointer;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
 .logo {
     text-align: left;
     margin: 0%;

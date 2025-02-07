@@ -7,52 +7,48 @@
     <title>Login - D3V++</title>
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="Styles/login.css">
-
 </head>
 <body>
-<h1>
-    Welcome to DevSpace  
-</h1>
-<header>Connect, Learn, Create.</header> 
+    <div id="alert" class="alert"></div>
+    <h1>Welcome to DevSpace</h1>
+    <header>Connect, Learn, Create.</header>
 
-<section>
-    <div class="form-box">
-        <div class="form-value">
-            <form action="" method="post">
-                <h3>Login to DevSpace</h3>
-                <div class="inputbox">
-                    <input type="email" name="email" id="email" placeholder="Enter your email">
-                    <label for="email"> <i class="fa fa-envelope"></i> Email</label>
-                </div>
-                <div class="inputbox">
-                    <input type="password" name="password" id="password" placeholder="Enter password">
-                    <label for="password"> <i class="fa fa-lock"></i> Password</label>
-                </div>
-                <div class="forget">
-                    <label for="remember"><input type="checkbox">Remember Me</label>
-                       
-                     <p class="forgot"> <a href="#">Forget Password</a></label></p>
-                 
-                </div>
-                <button type="submit" name="login" id="login">Login</button>
-
-                                   
-            <p class="or">
-                ---------------- or ----------------
-            </p>
-                        <div class="icon">
-                            <i class="fab fa-google" ></i>
-                            <i class="fab fa-facebook"></i>
-                        </div>
-
-
-                <div class="register">
-                    <p>Don't Have an Account yet? <a href="Register.html">Register one Now</a></p>
-                </div>
-            </form>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="login.php" method="post" onsubmit="return validateLoginForm()">
+                    <h3>Login to DevSpace</h3>
+                    <div class="inputbox">
+                        <input type="email" name="email" id="email" placeholder="Enter your email" required>
+                        <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                    </div>
+                    <div class="inputbox">
+                        <input type="password" name="password" id="password" placeholder="Enter password" required>
+                        <label for="password"><i class="fa fa-lock"></i> Password</label>
+                    </div>
+                    <div class="forget">
+                        <label><input type="checkbox"> Remember Me</label>
+                        <p class="forgot"><a href="#">Forget Password</a></p>
+                    </div>
+                    <button type="submit" name="login" id="loginn">Login</button>
+                    <p class="or">---------------- or ----------------</p>
+                    <div class="icon">
+                        <i class="fab fa-google"></i>
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <div class="register">
+                        <p>Don't Have an Account yet? <a href="Register.html">Register one Now</a></p>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
-</section>
-    
+    </section>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const errorMessage = urlParams.get('error');
+        if (errorMessage) {
+            alert(errorMessage); // Show error as an alert
+        }
+    </script>
 </body>
 </html>

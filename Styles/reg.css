@@ -4,6 +4,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment:fixed;    
+    color: white;
 }
 
 h1 {
@@ -82,10 +83,19 @@ top: -1px;
     padding:0 35px 0 5px;
     color: #ff9900;
 }
+.or{
+    justify-content: center;
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}
 
 .icon {
     font-size: 30px;
     word-spacing: 20px;
+    text-align: center;
 }
 
 .inputbox ion-icon{
@@ -123,6 +133,11 @@ button{
     color: #fff;
     font-size: 15px;
     
+}
+
+a{
+    text-decoration: none;
+    color: white;
 }
 
 .register p a:hover{
