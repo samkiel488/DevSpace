@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline Mode</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #2a2a2a, #3a3a3a);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+        }
+        .container h1 {
+            font-size: 2rem;
+            color: #bb86fc;
+        }
+        .container p {
+            font-size: 1.2rem;
+            margin: 10px 0 20px;
+        }
+        .retry {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #ffffff;
+            background-color: #bb86fc;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .retry:hover {
+            background-color: #9c5de3;
+        }
+    </style>
+    <script src="https://cdn.counter.dev/script.js" data-id="c9f5bb36-7890-4d6a-92ff-48c2f87c1d6a" data-utcoffset="1"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>You Are Offline</h1>
+        <p>It seems like you are not connected to the internet. Please check your connection and try again.</p>
+        <button class="retry" onclick="location.reload();">Retry</button>
+    </div>
+</body>
+</html>

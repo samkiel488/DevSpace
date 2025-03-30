@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="Styles/styles.css">
     <script src="script.js"></script>
+    <script src="https://cdn.counter.dev/script.js" data-id="c9f5bb36-7890-4d6a-92ff-48c2f87c1d6a" data-utcoffset="1"></script>
 </head>
 <body>
     <a href="index.php">
@@ -19,7 +20,9 @@
         <img src="Church.jpg" alt="logo" title="Logo">
     </div>
 
-    <div class="nav" onclick="nav()">Ξ</div>
+    <div class="nav" onclick="nav()">
+        ▦
+    </div>
     <div class="realnav" id="realnav">
         <hr id="nav">
         <a href="index.php">Home</a> <hr id="nav">

@@ -4,6 +4,7 @@ include('connect.php'); // Database connection
 if (isset($_POST['register'])) {
     $fname = mysqli_real_escape_string($conn, $_POST['fName']);
     $lname = mysqli_real_escape_string($conn, $_POST['lName']);
+    $nick = mysqli_real_escape_string($conn, $_POST['nick']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Secure password hash
     $whatsapp = mysqli_real_escape_string($conn, $_POST['wa']); // WhatsApp number
@@ -21,9 +22,9 @@ if (isset($_POST['register'])) {
         header('Location: register.html?error=' . urlencode($error));
     } else {
         // Insert the user into the database
-        $insertQuery = "INSERT INTO users (fname, lname, email, password, whatsapp_number) VALUES (?, ?, ?, ?, ?)";
+        $insertQuery = "INSERT INTO users (fname, lname, nick, email, password, whatsapp_number) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($insertQuery);
-        $stmt->bind_param("sssss", $fname, $lname, $email, $password, $whatsapp);
+        $stmt->bind_param("ssssss", $fname, $lname, $nick, $email, $password, $whatsapp);
 
         if ($stmt->execute()) {
             header('Location: login.html');
