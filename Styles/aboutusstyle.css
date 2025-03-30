@@ -1,0 +1,197 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: black;
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover {
+    color: #007BFF;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Header */
+.main-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color:#333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.left-main-div img {
+    width: 150px;
+}
+
+.right-main-div {
+    display: flex;
+    gap: 15px;
+}
+
+.right-main-div a {
+    font-size: 16px;
+}
+
+/* About Us Section */
+.aboutus, .mission, .wwd, .wcu {
+    padding: 20px;
+    background-color: blue;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.aboutus h1, .mission h1, .wwd-text h1, .wcu h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: black;
+}
+
+.aboutus-text, .mission-text {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+.left-div, .left-div-mission {
+    flex: 1;
+    min-width: 300px;
+}
+
+.right-div, .right-div-mission {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* What We Do Section */
+.wwd-text h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2rem;
+    color: #007BFF;
+}
+
+.overall-wwd-div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.wwd-div {
+    flex: 1 1 calc(25% - 40px);
+    min-width: 250px;
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.wwd-div h3 {
+    margin: 15px 0;
+    color: #007BFF;
+}
+
+/* Why Choose Us Section */
+.wcu ul {
+    list-style: none;
+    padding: 0 20px;
+}
+
+.wcu ul li {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* Meet the Team Section */
+section:last-of-type {
+    text-align: center;
+    margin: 20px;
+}
+
+section:last-of-type h1 {
+    font-size: 2rem;
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+section:last-of-type a {
+    font-size: 1.2rem;
+    color: #007BFF;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #007BFF;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-div {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .right-main-div {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .aboutus-text, .mission-text {
+        flex-direction: column;
+    }
+
+    .left-div, .right-div, .left-div-mission, .right-div-mission {
+        min-width: 100%;
+    }
+
+    .overall-wwd-div {
+        flex-direction: column;
+    }
+
+    .wwd-div {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .aboutus h1, .mission h1, .wwd-text h1, .wcu h1, section:last-of-type h1 {
+        font-size: 1.5rem;
+    }
+
+    .wwd-div h3 {
+        font-size: 1.2rem;
+    }
+
+    .wcu ul li {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,181 @@
+body{
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    font-style: oblique;
+}
+
+b{
+    color: gold;
+}
+
+h2{
+    color: purple;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: initial;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  #openNav {
+    font-size:30px;
+    cursor: pointer;
+    text-align: right;
+    margin-right: 30px;
+    font-size: 28px;
+    color: mediumblue;
+    position: absolute;
+    right: 0;
+  } 
+
+h1 {
+    color: gold;
+    text-align: center;
+    font-style: normal;
+    font-family: cursive;
+}
+
+button {
+    background-color: black;
+    border-color: gold;
+    color: rgb(255, 255, 255);
+    width: 70px;
+    border-radius:40px;
+    
+}
+
+.big {
+    text-align: center;
+    color: blue;
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+p.small {
+    margin-top: -20px;
+    font-size: x-small;
+    color: rgb(181, 181, 238);
+    text-align: center;
+    text-decoration: none;
+}
+
+.back {
+    text-align: left;
+    margin-left: 20px;
+    position: absolute;
+    cursor: pointer;
+    color: blue;
+    font-size: 25px;
+}
+
+.profilehead{
+    color: gold;
+    font-size: 22px;
+}
+
+.inprogress{
+    color: red;
+    font-size: 36px;
+    margin: 10px;
+    padding: 50px;
+}
+
+.user {
+    text-align: left;
+    margin-left: 20px;
+    position: absolute;
+    color: gold;
+    cursor: pointer;
+    font-size: 5px;
+    margin-top: 10px;
+}
+
+.logo {
+    text-align: left;
+    margin: 0%;
+    width: 60%;
+    height: auto;
+    border-radius: 70%;
+    display: none;
+}
+
+.nav {
+    text-align: right;
+    margin-right: 30px;
+    cursor: pointer;
+    font-size: 28px;
+    color: mediumblue;
+}
+
+.realnav {
+    text-align: center;
+    padding: 20px;
+    display: none;
+}
+
+p marquee {
+    color: #0893f0;
+    font-weight: bold;
+}
+
+.intro {
+    padding: 20px;
+    margin: auto;
+}
+
+.joinintro {
+    font-size: 25px;
+    margin: 12px;
+    padding: 20px;
+}
+
+#no {
+    background-color: black;
+    color: wheat;
+    font-size: 26px;
+    padding: 5px;
+    margin: 4px;
+}
+
+a {
+    color: gold;
+    text-decoration: none;
+}
