@@ -1,0 +1,490 @@
+body {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, monospace, sans-serif;
+}
+
+.fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f9fa; /* Adjust as per your design */
+    padding: 10px; /* Adds some spacing around the elements */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    display: flex;
+    gap: 10px;
+    align-items: center; /* Align items vertically */
+}
+
+.fixed textarea {
+    flex: 1; /* Allows the textarea to take up available space */
+    resize: none; /* Prevent resizing */
+    height: 40px; /* Adjust as needed */
+    padding: 5px; /* Add spacing inside the textarea */
+}
+
+.fixed button {
+    padding: 10px 20px; /* Adjust button size */
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+
+.big {
+    text-align: center;
+    color: blue;
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+p.small {
+    margin-top: -20px;
+    font-size: x-small;
+    color: rgb(181, 181, 238);
+}
+
+.back {
+    text-align: left;
+    margin-left: 20px;
+    position: absolute;
+    cursor: pointer;
+    color: blue;
+    font-size: 25px;
+}
+
+.profilehead{
+    color: gold;
+    font-size: 22px;
+}
+
+.inprogress{
+    color: red;
+    font-size: 36px;
+    margin: 10px;
+    padding: 50px;
+}
+
+msgtime {
+    color: blue; /* Changed to light grey */
+}
+
+div.user {
+    text-align: right;
+    margin-left: 20px;
+    position: absolute;
+    color: gold;
+    cursor: pointer;
+    font-size: 31px;
+    margin-top: 10px;
+}
+
+@media screen and (max-width:768px) {
+    div.user {
+        text-align: left;
+        margin-left: 20px;
+        position: absolute;
+        color: gold;
+        cursor: pointer;
+        font-size: 10px;
+        margin-top: 10px;
+    }
+}
+
+.logo {
+    text-align: left;
+    margin: 0%;
+    width: 60%;
+    height: auto;
+    border-radius: 70%;
+    display: none;
+}
+
+.nav {
+    text-align: right;
+    margin-right: 30px;
+    cursor: pointer;
+    font-size: 28px;
+    color: mediumblue;
+    align-items: right;
+    justify-content: right;
+
+}
+
+.realnav {
+    text-align: center;
+    padding: 20px;
+    display: none;
+}
+
+/* For side nav*/
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  #openNav {
+    font-size:30px;
+    cursor: pointer;
+    text-align: right;
+    margin-right: 30px;
+    font-size: 28px;
+    color: mediumblue;
+    position: absolute;
+    right: 0;
+  } 
+
+p marquee {
+    color: #0893f0;
+    font-weight: bold;
+}
+
+.intro {
+    padding: 20px;
+    margin: auto;
+}
+
+.joinintro {
+    font-size: 25px;
+    margin: 12px;
+    padding: 20px;
+}
+
+#no {
+    background-color: black;
+    color: wheat;
+    font-size: 26px;
+    padding: 5px;
+    margin: 4px;
+}
+
+@keyframes borderLightning {
+    0% {
+        border-color: red;
+    }
+    25% {
+        border-color: orange;
+    }
+    50% {
+        border-color: yellow;
+    }
+    75% {
+        border-color: lime;
+    }
+    100% {
+        border-color: red;
+    }
+}
+
+.action {
+    margin-top: 26px;
+    color: blue;
+    font-weight: bold;
+    font-size: 34px;
+    border-radius: 20px;
+    border: 4px solid;
+    padding: 13px;
+    animation: borderLightning 2s infinite linear;
+}
+
+@keyframes borderLightningchat {
+    0% {
+        border-color: red;
+    }
+    25% {
+        border-color: orange;
+    }
+    50% {
+        border-color: yellow;
+    }
+    75% {
+        border-color: lime;
+    }
+    100% {
+        border-color: red;
+    }
+}
+
+.chatroom {
+    border: 2px solid white;
+    padding: 20px;
+    margin: 10px;
+    animation: borderLightningchat 2s infinite linear;
+}
+
+#chatroomhead {
+    color: white;
+    padding: 4px;
+    border: 4px dotted mediumblue;
+    font-size: 30px;
+}
+
+input[id=chat] {
+    width: 50%;
+    float: left;
+    height: 30px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+label[for=chat]{
+    float: left;
+}
+
+input[id=chat2] {
+    width: 50%;
+    float: right;
+    height: 30px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-top: 5px;
+}
+label[for=chat2]{
+    float: right;
+}
+
+.msgcontainer {
+    text-align-last: left;
+}
+
+#messages {
+    font-size: 15px;
+    border-radius: 13px;
+    margin: auto;
+}
+
+#chatpic {
+    width: 4%;
+    height: auto;
+    border-radius: 30%;
+}
+
+#chatpicspan {
+    color: white;
+}
+
+strong {
+    margin-bottom: 2px;
+}
+
+#messages p{
+    font-size: 15px;
+    border-radius: 5px;
+    border: 3px solid rgb(73, 5, 5);
+    background-color: rgb(27, 9, 9);
+    padding: 4px;
+    justify-content: left;
+}
+
+
+input[id=message] {
+    font-weight: bold;
+    width: 70%;
+    height: 23px;
+    font-size: 15px;
+    border-radius: 13px;
+    margin-top: 5px;
+}
+
+button[type=submit] {
+    font-weight: bold;
+    background-color: mediumblue;
+    border-top-right-radius: 90%;
+    border-bottom-right-radius: 90%;
+    font-size: 17px;
+    color: wheat;
+}
+
+.actionpay {
+    color: turquoise;
+    font-size: 27px;
+    margin-top: 23px;
+}
+
+.paynow {
+    background-color: black;
+    font-size: 26px;
+    color: wheat;
+    padding: 5px;
+    margin: 5px;
+}
+
+.walink {
+    font-size: 25px;
+    color: white;
+    margin: 12px;
+    padding: 20px;
+    padding: 20px;
+    display: none;
+}
+
+#good {
+    display: none;
+}
+
+#actionpay {
+    background-color: black;
+    font-size: 26px;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+}
+
+.ul {
+    text-decoration: underline;
+}
+
+.wajoin {
+    background-color: black;
+    font-size: 26px;
+    color: wheat;
+    padding: 5px;
+    margin: 5px;
+}
+
+.meet { 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    color: mediumblue;
+    justify-items: center;
+}
+
+.founders {
+    margin: auto;
+}
+
+p.founderss {
+    color: mediumblue;
+}
+
+img {
+    margin: 10px;
+    width: 50%;
+    height: auto;
+    border-radius: 15px;
+}
+
+mayowa {
+    height: 22vh;
+    width: 13vh;
+}
+
+fwesh {
+    height: 21vh;
+    width: 15vh;
+}
+
+.name {
+    margin-top: 0px;
+    color: gold;
+    justify-content: center;
+}
+
+#name {
+    margin-top: 0px;
+    color: gold;
+    margin-left: 230px;
+    text-align: left;
+    justify-content: center;
+}
+
+@media screen and (max-width:768px) {
+    #name {
+    margin-top: 0px;
+    color: gold;
+    margin-left: 30px;
+    text-align: left;
+    justify-content: center;
+    }
+}
+
+.viewmore {
+    font-size: 16px;
+    padding: 5px;
+    margin-bottom: 30px;
+    color: #0893f0;
+    background-color: black;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+.viewmore:hover {
+    color: rgb(248, 146, 146);
+    background-color: brown;
+    font-weight: bold;
+    border-radius: 30px;
+    border-width: 10px;
+}
+
+.join {
+    color: turquoise;
+    font-size: 18px;
+}
+
+.joinbtn {
+    margin-top: 8px;
+    font-size: 21px;
+    color: #0893f0;
+    background-color: black;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+.joinbtn:hover {
+    margin-top: 8px;
+    font-size: 21px;
+    color: rgb(248, 146, 146);
+    background-color: brown;
+    font-weight: bold;
+    border-radius: 30px;
+    border-width: 10px;
+}
+
+a{ 
+    text-decoration: none;
+    color: white;
+}
+
+footer {
+    margin-top: 20px;
+    padding-top: 10px;
+    margin-bottom: 30px;
+}
