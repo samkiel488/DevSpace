@@ -149,9 +149,12 @@ if (isset($_SESSION['user_id'])) {
                 const messagesDiv = document.getElementById('messages');
                 messagesDiv.innerHTML = ''; // Clear previous messages
                 if (messages.length > 0) {
-                    messages.forEach(msg => {
+                    messages.forEach((msg, index) => {
                         const formattedTime = timeAgo(msg.created_at);
                         const messageElement = document.createElement('p');
+                        if (index === messages.length - 1) {
+                            messageElement.id = "last-msg"
+                        }
                         messageElement.innerHTML = `<span id="chatpicspan"> <img src="images/default.jpeg" id="chatpic" alt="ѕαмкιєℓ.∂єν" title="ѕαмкιєℓ.∂єν"/></span><strong>  ${msg.username} <br> </strong> ${msg.message} <span id="msgtime" style="color: grey; padding-top:55%; margin-left:5px;" >${formattedTime}</span>`;
                         messagesDiv.appendChild(messageElement);
                     });
@@ -164,6 +167,9 @@ if (isset($_SESSION['user_id'])) {
                 const messagesDiv = document.getElementById('messages');
                 messagesDiv.innerHTML = '<p>Error loading messages. Please reload page.</p>';
             });
+
+        const lastMsg = document.getElementById("last-msg")
+        lastMsg?.scrollIntoView()
     }
 
     // Fetch messages immediately and then every 3 seconds
