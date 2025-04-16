@@ -17,10 +17,7 @@ export default function Form() {
 
           <form class="space-y-6" action="">
             <div>
-              <label
-                class="block text-sm font-medium text-gray-700"
-                for="email"
-              >
+              <label class="block text-sm font-medium text-black" for="email">
                 Email Address
               </label>
               <input
@@ -33,7 +30,7 @@ export default function Form() {
 
             <div>
               <label
-                class="block text-sm font-medium text-gray-700"
+                class="block text-sm font-medium text-black"
                 for="password"
               >
                 Password
