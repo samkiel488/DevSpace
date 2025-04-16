@@ -1,13 +1,13 @@
 import { useState } from "react";
 
 const headerList = [
-  "Home",
-  "About Us",
-  "Projects",
-  "Meet the Team",
-  "Blog",
-  "Contact Us",
-  "Join Us",
+  { heading: "Home", url: "./#" },
+  { heading: "About Us", url: "./#" },
+  { heading: "Projects", url: "./#" },
+  { heading: "Meet the Team", url: "./#" },
+  { heading: "Blog", url: "./#" },
+  { heading: "Contact Us", url: "./#" },
+  { heading: "Join Us", url: "./#" },
 ];
 
 export default function Header(props) {
@@ -28,12 +28,12 @@ export default function Header(props) {
             <nav className="hidden lg:block">
               <ul className="flex items-center gap-6 text-sm">
                 {headerList.map((item) => (
-                  <li key={item}>
+                  <li key={item.heading}>
                     <a
-                      href="/"
+                      href={item.url}
                       className="text-white transition hover:text-white/75"
                     >
-                      {item}
+                      {item.heading}
                     </a>
                   </li>
                 ))}
@@ -44,7 +44,7 @@ export default function Header(props) {
               <div className="sm:flex sm:gap-4">
                 <a
                   className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
-                  href="./#"
+                  href="/login"
                 >
                   Login
                 </a>
@@ -111,16 +111,16 @@ export default function Header(props) {
           <nav className="space-y-4">
             {headerList.map((item) => (
               <a
-                key={item}
-                href="./#"
+                key={item.heading}
+                href={item.url}
                 className="block text-lg font-medium hover:text-teal-400 transition"
               >
-                {item}
+                {item.heading}
               </a>
             ))}
             <div className="mt-6 space-y-2">
               <a
-                href="./#"
+                href="/login"
                 className="block w-full text-center rounded-md bg-teal-600 px-4 py-2 text-white font-medium hover:bg-teal-500"
               >
                 Login
