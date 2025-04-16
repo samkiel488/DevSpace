@@ -3,6 +3,7 @@ import AboutUs from "../componet/Home/aboutUs";
 import { useState } from "react";
 import Toggle from "../componet/toggle";
 import WhatWeDo from "../componet/Home/whatWeDo";
+import Footer from "../componet/footer";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -36,6 +37,7 @@ export default function App() {
       </div>
       <AboutUs />
       <WhatWeDo />
+      <Footer />
       <Toggle darkMode={darkMode} setDarkMode={setDarkMode} />
     </div>
   );
