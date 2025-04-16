@@ -1,13 +1,13 @@
 export default function Form() {
   return (
-    <div class="min-h-screen bg-white flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div class="min-h-screen bg-white  flex flex-col justify-center py-12 sm:px-6 lg:px-8 bg-[url('/images/hero-bg.jpeg')] bg-cover bg-center bg-no-repeat">
       <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <div class="bg-white py-8 px-4 shadow-lg sm:rounded-lg sm:px-10">
+        <div class="bg-white dark:bg-gray-200 py-8 px-4 shadow-lg sm:rounded-lg sm:px-10">
           <div class="text-center mb-8">
             <h2 class="text-2xl sm:text-3xl font-bold text-black">
-              Welcome Back
+              Welcome Back to DevSpace
             </h2>
-            <p class="mt-2 text-sm sm:text-base text-gray-600">
+            <p class="mt-2 text-sm sm:text-base text-black">
               Please sign in to your account
             </p>
           </div>
@@ -23,7 +23,7 @@ export default function Form() {
               <input
                 type="email"
                 id="email"
-                class="mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 focus:outline-red-500"
+                class="mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
                 required
               />
             </div>
@@ -39,7 +39,7 @@ export default function Form() {
                 <input
                   type="password"
                   id="password"
-                  class="block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 focus:outline-red-500"
+                  class="block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
                   required
                 />
                 <button
@@ -98,12 +98,11 @@ export default function Form() {
               </a>
             </div>
 
-            <button
+            <input
               type="submit"
-              class="w-full flex justify-center py-2 px-4 sm:py-3 border border-transparent rounded-lg shadow-sm text-sm sm:text-base font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-            >
-              <span>Sign In</span>
-            </button>
+              value="Sign In"
+              className="w-full flex justify-center py-2 px-4 sm:py-3 border border-transparent rounded-lg shadow-sm text-sm sm:text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:cursor-pointer"
+            />
           </form>
 
           <p class="mt-6 text-center text-sm">
