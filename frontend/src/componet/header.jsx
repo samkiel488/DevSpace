@@ -3,6 +3,7 @@ const headerList = [
   "Home",
   "About Us",
   "Projects",
+  "Meet the Team",
   "Blog",
   "Contact Us",
   "Join Us",
@@ -133,4 +134,4 @@ export default function Header(props) {
       )}
     </>
   );
-}   
+}
