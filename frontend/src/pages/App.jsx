@@ -2,6 +2,7 @@ import Header from "../componet/header";
 import AboutUs from "../componet/Home/aboutUs";
 import { useState } from "react";
 import Toggle from "../componet/toggle";
+import WhatWeDo from "../componet/Home/whatWeDo";
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
   return (
@@ -33,6 +34,7 @@ export default function App() {
         </main>
       </div>
       <AboutUs />
+      <WhatWeDo />
       <Toggle darkMode={darkMode} setDarkMode={setDarkMode} />
     </div>
   );
