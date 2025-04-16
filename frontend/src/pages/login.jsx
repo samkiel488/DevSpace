@@ -1,6 +1,6 @@
-import Footer from "../componet/footer";
-import Header from "../componet/header";
-import Form from "../componet/Login/form";
+import Footer from "../Componets/footer";
+import Header from "../Componets/header";
+import Form from "../Componets/Login/form";
 
 export default function Login() {
   return (

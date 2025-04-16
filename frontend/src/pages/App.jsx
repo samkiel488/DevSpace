@@ -1,9 +1,9 @@
-import Header from "../componet/header";
-import AboutUs from "../componet/Home/aboutUs";
+import Header from "../Componets/header";
+import AboutUs from "../Componets/Home/aboutUs";
 import { useState } from "react";
-import Toggle from "../componet/toggle";
-import WhatWeDo from "../componet/Home/whatWeDo";
-import Footer from "../componet/footer";
+import Toggle from "../Componets/toggle";
+import WhatWeDo from "../Componets/Home/whatWeDo";
+import Footer from "../Componets/footer";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);

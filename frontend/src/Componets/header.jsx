@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const headerList = [
-  { heading: "Home", url: "./#" },
+  { heading: "Home", url: "/" },
   { heading: "About Us", url: "./#" },
   { heading: "Projects", url: "./#" },
   { heading: "Meet the Team", url: "./#" },
