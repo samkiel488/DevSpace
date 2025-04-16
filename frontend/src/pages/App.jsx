@@ -3,6 +3,7 @@ import AboutUs from "../componet/Home/aboutUs";
 import { useState } from "react";
 import Toggle from "../componet/toggle";
 import WhatWeDo from "../componet/Home/whatWeDo";
+
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
   return (
