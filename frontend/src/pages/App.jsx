@@ -1,6 +1,7 @@
 import Header from "../componet/header";
 import AboutUs from "../componet/Home/aboutUs";
 import { useState } from "react";
+import Toggle from "../componet/toggle";
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
   return (
@@ -32,7 +33,8 @@ export default function App() {
         </main>
       </div>
       <AboutUs />
-      <button
+      <Toggle darkMode={darkMode} setDarkMode={setDarkMode} />
+      {/* <button
         className="fixed bottom-6 right-6 z-50 rounded-full bg-black text-white dark:bg-white dark:text-black p-3 shadow-lg transition duration-300 hover:cursor-pointer"
         onClick={() => setDarkMode(!darkMode)}
       >
@@ -67,7 +69,7 @@ export default function App() {
             />
           </svg>
         )}
-      </button>
+      </button> */}
     </div>
   );
 }
