@@ -1,6 +1,2 @@
 @import "tailwindcss";
-
-.hero-bg {
-    background-image: url('/images/hero-bg.jpg');
-    background-size: cover;
-}
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
