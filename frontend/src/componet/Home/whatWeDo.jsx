@@ -40,7 +40,7 @@ export default function WhatWeDo() {
   return (
     <div class="max-w-screen-[1440px] mx-auto bg-gray-200 dark:bg-slate-900 dark:text-white text-center pb-10">
       <p class="text-4xl font-semibold tracking-tight text-pretty sm:text-5xl mb-5 pt-5">
-        What We do
+        What We do ?
       </p>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 p-2 pl-10 pr-10">
