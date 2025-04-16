@@ -1,11 +1,11 @@
 import { useState } from "react";
 const headerList = [
-  "About",
-  "Careers",
-  "History",
-  "Services",
+  "Home",
+  "About Us",
   "Projects",
   "Blog",
+  "Contact Us",
+  "Join Us",
 ];
 
 export default function Header(props) {
@@ -133,4 +133,4 @@ export default function Header(props) {
       )}
     </>
   );
-}
+}   
