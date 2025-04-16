@@ -3,9 +3,9 @@ import { useState } from "react";
 export default function Form() {
   const [showPassword, setShowPassword] = useState(false);
   return (
-    <div class="min-h-screen bg-white  flex flex-col justify-center py-12 sm:px-6 lg:px-8 bg-[url('/images/hero-bg.jpeg')] bg-cover bg-center bg-no-repeat">
+    <div class="min-h-screen bg-white  flex flex-col justify-center py-12  pl-10 pr-10  sm:px-6  lg:px-8 bg-[url('/images/hero-bg.jpeg')] bg-cover bg-center bg-no-repeat">
       <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <div class="bg-white dark:bg-gray-200 py-8 px-4 shadow-lg sm:rounded-lg sm:px-10">
+        <div class="bg-white dark:bg-gray-200 py-8 px-4 shadow-lg rounded-2xl sm:rounded-lg sm:px-10">
           <div class="text-center mb-8">
             <h2 class="text-2xl sm:text-3xl font-bold text-black">
               Welcome Back to DevSpace
