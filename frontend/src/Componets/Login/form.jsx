@@ -15,12 +15,7 @@ export default function Form() {
             </p>
           </div>
 
-          <form
-            class="space-y-6"
-            onSubmit={() => {
-              alert("Form Submitted");
-            }}
-          >
+          <form class="space-y-6">
             <div>
               <label class="block text-sm font-medium text-black" for="email">
                 Email Address
