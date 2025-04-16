@@ -15,6 +15,7 @@
     "axois": "^0.0.1-security",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-router": "^7.5.0",
     "tailwindcss": "^4.1.4"
   },
   "devDependencies": {
