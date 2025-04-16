@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 const headerList = [
   "Home",
   "About Us",
@@ -15,16 +16,16 @@ export default function Header(props) {
   return (
     <>
       <header
-        className={`bg-${props.colorLightMode} dark:bg-${props.colorDarkMode}  z-30 relative`}
+        className={`bg-${props.colorLightMode} dark:bg-${props.colorDarkMode} z-30 relative`}
       >
         <div className="mx-auto flex h-20 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
-          <a className="block text-teal-600 dark:text-teal-300" href="./#">
+          <a className="block text-white dark:text-black" href="./#">
             <span className="sr-only">Home</span>
             <img src="/images/logo-bg.png" alt="Logo" className="h-20 w-auto" />
           </a>
 
-          <div className="flex flex-1 items-center justify-end md:justify-between">
-            <nav className="hidden md:block">
+          <div className="flex flex-1 items-center justify-end lg:justify-between">
+            <nav className="hidden lg:block">
               <ul className="flex items-center gap-6 text-sm">
                 {headerList.map((item) => (
                   <li key={item}>
@@ -55,8 +56,9 @@ export default function Header(props) {
                 </a>
               </div>
 
+              {/* Mobile menu toggle button - shown on md and below */}
               <button
-                className="block md:hidden rounded-sm bg-white/20 p-2.5 text-white transition hover:text-white/75"
+                className="block lg:hidden rounded-sm bg-white/20 p-2.5 text-white transition hover:text-white/75"
                 onClick={() => setMobileMenuOpen(true)}
               >
                 <span className="sr-only">Toggle menu</span>
@@ -80,7 +82,7 @@ export default function Header(props) {
       </header>
 
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-black/90 p-6 text-white">
+        <div className="fixed inset-0 z-50 bg-black/90 p-6 text-white lg:hidden">
           <div className="flex justify-between items-center mb-6">
             <a className="text-teal-300 font-bold text-lg" href="./#">
               <img
@@ -105,6 +107,7 @@ export default function Header(props) {
               </svg>
             </button>
           </div>
+
           <nav className="space-y-4">
             {headerList.map((item) => (
               <a
