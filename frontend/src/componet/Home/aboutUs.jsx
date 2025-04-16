@@ -6,11 +6,12 @@ export default function AboutUs() {
           <div className="lg:pt-4 lg:pr-8">
             <div className="lg:max-w-lg">
               <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-                A better workflow
+                About D3V++ Group
               </p>
               <p className="mt-6 text-lg/8 text-gray-600">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque,
-                iste dolor cupiditate blanditiis ratione.
+              D3V++ Group is a growing community of young developers passionate about coding, creativity, and connection. We're building a space where devs at all levels can learn, grow, and collaborate on real-world projects that matter.
+From coding challenges and group projects to mentorship and networking, we focus on helping each other level up—together. Whether you're into front-end, back-end, mobile, or just starting out, there's a place for you here.
+This is more than a tech group. It's a launchpad for future innovators.Welcome to D3V++ Group—let’s build something awesome.
               </p>
             </div>
           </div>
@@ -24,5 +25,5 @@ export default function AboutUs() {
         </div>
       </div>
     </div>
-  )
+  );
 }
