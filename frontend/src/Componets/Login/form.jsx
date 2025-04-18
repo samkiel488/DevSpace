@@ -1,14 +1,30 @@
 import { useState } from "react";
-
+const emailAddress = [
+  {
+    fName: "Ayomide",
+    lName: "Areo",
+    gmailAddress: "areoayomide1234@gmail.com",
+  },
+];
 export default function Form() {
   const [showPassword, setShowPassword] = useState(false);
+  const [inputedEmailAddress, setInputedEmailAddress] = useState("");
+  const [name, setName] = useState(null);
+  function getName() {
+    emailAddress.map((emailAddress) => {
+      if (emailAddress.gmailAddress === inputedEmailAddress) {
+        setName(emailAddress);
+      }
+    });
+  }
+
   return (
     <div class="min-h-screen bg-white  flex flex-col justify-center py-12  pl-10 pr-10  sm:px-6  lg:px-8 bg-[url('/images/hero-bg.jpeg')] bg-cover bg-center bg-no-repeat">
       <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <div class="bg-white dark:bg-gray-200 py-8 px-4 shadow-lg rounded-2xl sm:rounded-lg sm:px-10">
           <div class="text-center mb-8">
             <h2 class="text-2xl sm:text-3xl font-bold text-black">
-              Welcome Back to DevSpace
+              {name == null ? "Hey" : "Hello"}
             </h2>
             <p class="mt-2 text-sm sm:text-base text-black">
               Please sign in to your account
@@ -24,6 +40,10 @@ export default function Form() {
                 type="email"
                 id="email"
                 class="mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
+                onChange={(e) => {
+                  setInputedEmailAddress(e.target.value);
+                }}
+                onBlur={getName}
                 required
               />
             </div>
