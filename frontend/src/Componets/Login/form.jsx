@@ -9,7 +9,7 @@ const emailAddress = [
 export default function Form() {
   const [showPassword, setShowPassword] = useState(false);
   const [inputedEmailAddress, setInputedEmailAddress] = useState("");
-  const [name, setName] = useState(null);
+  const [name, setName] = useState("");
   function getName() {
     emailAddress.map((emailAddress) => {
       if (emailAddress.gmailAddress === inputedEmailAddress) {
@@ -24,7 +24,7 @@ export default function Form() {
         <div class="bg-white dark:bg-gray-200 py-8 px-4 shadow-lg rounded-2xl sm:rounded-lg sm:px-10">
           <div class="text-center mb-8">
             <h2 class="text-2xl sm:text-3xl font-bold text-black">
-              {name == null ? "Hey" : "Hello"}
+              {name == "" ? "Welcome Back to DevSpace" : "Hello"}
             </h2>
             <p class="mt-2 text-sm sm:text-base text-black">
               Please sign in to your account
