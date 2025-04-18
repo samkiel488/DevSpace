@@ -10,7 +10,7 @@ export default function RegisterForm() {
           </h1>
 
           <form action="#" className="w-full flex flex-col gap-4">
-            {/* First Name */}
+
             <div className="flex items-start flex-col justify-start">
               <label
                 htmlFor="firstName"
@@ -26,7 +26,6 @@ export default function RegisterForm() {
               />
             </div>
 
-            {/* Last Name */}
             <div className="flex items-start flex-col justify-start">
               <label
                 htmlFor="lastName"
