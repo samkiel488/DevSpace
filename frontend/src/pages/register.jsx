@@ -3,7 +3,7 @@ import Footer from "../Componets/footer";
 export default function Register() {
   return (
     <>
-      <Header />
+      <Header colorLightMode="black" colorDarkMode="black" />
       <Footer />
     </>
   );
