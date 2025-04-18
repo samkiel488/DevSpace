@@ -37,7 +37,7 @@ export default function Form() {
     if (foundUser) {
       setName(foundUser);
     } else {
-      setName(""); // Optionally, set to "" or display a message if no match is found
+      setName("");
     }
   }
 
