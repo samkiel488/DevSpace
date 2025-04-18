@@ -42,7 +42,6 @@ export default function RegisterForm() {
               />
             </div>
 
-            {/* Phone Number (number input, no dropdown) */}
             <div className="flex flex-col">
               <label
                 htmlFor="phoneNumber"
@@ -58,7 +57,6 @@ export default function RegisterForm() {
               />
             </div>
 
-            {/* Username */}
             <div className="flex items-start flex-col justify-start">
               <label
                 htmlFor="username"
