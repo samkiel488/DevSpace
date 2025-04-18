@@ -72,7 +72,6 @@ export default function RegisterForm() {
               />
             </div>
 
-            {/* Email */}
             <div className="flex items-start flex-col justify-start">
               <label
                 htmlFor="email"
@@ -133,6 +132,7 @@ export default function RegisterForm() {
               Login
             </a>
           </div>
+
         </div>
       </div>
     </div>
