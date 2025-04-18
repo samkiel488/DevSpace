@@ -27,7 +27,6 @@ export default function Form() {
   var [inputedEmailAddress, setInputedEmailAddress] = useState("");
   var [name, setName] = useState("");
 
-  // Function to find name based on email
   function getName() {
     const foundUser = emailAddress.find(
       (email) =>
@@ -36,7 +35,7 @@ export default function Form() {
     );
 
     if (foundUser) {
-      setName(foundUser); // If match is found, set the name
+      setName(foundUser);
     } else {
       setName(""); // Optionally, set to "" or display a message if no match is found
     }
@@ -61,7 +60,10 @@ export default function Form() {
 
           <form className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-black" htmlFor="email">
+              <label
+                className="block text-sm font-medium text-black"
+                htmlFor="email"
+              >
                 Email Address
               </label>
               <input
@@ -75,7 +77,10 @@ export default function Form() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-black" htmlFor="password">
+              <label
+                className="block text-sm font-medium text-black"
+                htmlFor="password"
+              >
                 Password
               </label>
               <div className="mt-1 relative">
@@ -136,7 +141,10 @@ export default function Form() {
                   id="remember"
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
-                <label htmlFor="remember" className="ml-2 block text-sm text-gray-700">
+                <label
+                  htmlFor="remember"
+                  className="ml-2 block text-sm text-gray-700"
+                >
                   Remember me
                 </label>
               </div>
@@ -154,7 +162,10 @@ export default function Form() {
 
           <p className="mt-6 text-center text-sm">
             Don't have an account?
-            <a href="#" className="font-medium text-blue-600 hover:text-blue-700">
+            <a
+              href="#"
+              className="font-medium text-blue-600 hover:text-blue-700"
+            >
               Sign up now
             </a>
           </p>
