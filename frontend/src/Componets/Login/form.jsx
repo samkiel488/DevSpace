@@ -1,11 +1,27 @@
 import { useState } from "react";
 const emailAddress = [
   {
-    fName: "Ayomide",
-    lName: "Areo",
-    gmailAddress: "areoayomide1234@gmail.com",
+    fName: "Lara",
+    lName: "James",
+    gmailAddress: "j@gmail.com",
+  },
+  {
+    fName: "David",
+    lName: "Olawale",
+    gmailAddress: "d@gmail.com",
+  },
+  {
+    fName: "Chioma",
+    lName: "Nwosu",
+    gmailAddress: "c@gmail.com",
+  },
+  {
+    fName: "Tunde",
+    lName: "Bamidele",
+    gmailAddress: "t@gmail.com",
   },
 ];
+
 export default function Form() {
   const [showPassword, setShowPassword] = useState(false);
   const [inputedEmailAddress, setInputedEmailAddress] = useState("");
@@ -29,7 +45,7 @@ export default function Form() {
                 : "Welcome Back to DevSpace"}
             </h2>
             <p className="mt-2 text-sm sm:text-base text-black">
-              Please sign in to your account
+             {name? " Please sign in to your account": "Do you have an account here?"}
             </p>
           </div>
 
