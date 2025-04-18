@@ -23,21 +23,27 @@ const emailAddress = [
 ];
 
 export default function Form() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [inputedEmailAddress, setInputedEmailAddress] = useState("");
-  const [name, setName] = useState("");
+  var [showPassword, setShowPassword] = useState(false);
+  var [inputedEmailAddress, setInputedEmailAddress] = useState("");
+  var [name, setName] = useState("");
+
+  // Function to find name based on email
   function getName() {
-    emailAddress.map((emailAddress) => {
-      if (emailAddress.gmailAddress === inputedEmailAddress) {
-        setName(emailAddress);
-      } else {
-        setName("");
-      }
-    });
+    const foundUser = emailAddress.find(
+      (email) =>
+        email.gmailAddress.toLocaleLowerCase() ===
+        inputedEmailAddress.toLocaleLowerCase()
+    );
+
+    if (foundUser) {
+      setName(foundUser); // If match is found, set the name
+    } else {
+      setName(""); // Optionally, set to "" or display a message if no match is found
+    }
   }
 
   return (
-    <div className="min-h-screen bg-white  flex flex-col justify-center py-12  pl-10 pr-10  sm:px-6  lg:px-8 bg-[url('/images/hero-bg.jpeg')] bg-cover bg-center bg-no-repeat">
+    <div className="min-h-screen bg-white flex flex-col justify-center py-12 pl-10 pr-10 sm:px-6 lg:px-8 bg-[url('/images/hero-bg.jpeg')] bg-cover bg-center bg-no-repeat">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white dark:bg-gray-200 py-8 px-4 shadow-lg rounded-2xl sm:rounded-lg sm:px-10">
           <div className="text-center mb-8">
@@ -55,29 +61,21 @@ export default function Form() {
 
           <form className="space-y-6">
             <div>
-              <label
-                className="block text-sm font-medium text-black"
-                htmlFor="email"
-              >
+              <label className="block text-sm font-medium text-black" htmlFor="email">
                 Email Address
               </label>
               <input
                 type="email"
                 id="email"
                 className="mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
-                onChange={(e) => {
-                  setInputedEmailAddress(e.target.value.toLocaleLowerCase());
-                }}
-                onBlur={getName}
+                onChange={(e) => setInputedEmailAddress(e.target.value)}
+                onBlur={getName} // Call getName when input loses focus
                 required
               />
             </div>
 
             <div>
-              <label
-                className="block text-sm font-medium text-black"
-                htmlFor="password"
-              >
+              <label className="block text-sm font-medium text-black" htmlFor="password">
                 Password
               </label>
               <div className="mt-1 relative">
@@ -90,9 +88,7 @@ export default function Form() {
                 <button
                   type="button"
                   className="absolute inset-y-0 right-0 pr-3 flex items-center"
-                  onClick={() => {
-                    setShowPassword(!showPassword);
-                  }}
+                  onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
                     <svg
@@ -140,10 +136,7 @@ export default function Form() {
                   id="remember"
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
-                <label
-                  htmlFor="remember"
-                  className="ml-2 block text-sm text-gray-700"
-                >
+                <label htmlFor="remember" className="ml-2 block text-sm text-gray-700">
                   Remember me
                 </label>
               </div>
@@ -161,10 +154,7 @@ export default function Form() {
 
           <p className="mt-6 text-center text-sm">
             Don't have an account?
-            <a
-              href="#"
-              className="font-medium text-blue-600 hover:text-blue-700"
-            >
+            <a href="#" className="font-medium text-blue-600 hover:text-blue-700">
               Sign up now
             </a>
           </p>
