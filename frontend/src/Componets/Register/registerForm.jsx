@@ -88,7 +88,6 @@ export default function RegisterForm() {
               />
             </div>
 
-            {/* Password */}
             <div className="flex items-start flex-col justify-start">
               <label
                 htmlFor="password"
@@ -104,7 +103,6 @@ export default function RegisterForm() {
               />
             </div>
 
-            {/* Confirm Password */}
             <div className="flex items-start flex-col justify-start">
               <label
                 htmlFor="confirmPassword"
@@ -120,7 +118,6 @@ export default function RegisterForm() {
               />
             </div>
 
-            {/* Submit */}
             <input
               type="submit"
               value="Register"
