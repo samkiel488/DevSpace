@@ -30,6 +30,8 @@ export default function Form() {
     emailAddress.map((emailAddress) => {
       if (emailAddress.gmailAddress === inputedEmailAddress) {
         setName(emailAddress);
+      } else {
+        setName("");
       }
     });
   }
@@ -40,12 +42,14 @@ export default function Form() {
         <div className="bg-white dark:bg-gray-200 py-8 px-4 shadow-lg rounded-2xl sm:rounded-lg sm:px-10">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-black">
-              {name
+              {typeof name === "object"
                 ? `Welcome back, ${name.fName} ${name.lName}`
                 : "Welcome Back to DevSpace"}
             </h2>
             <p className="mt-2 text-sm sm:text-base text-black">
-             {name? " Please sign in to your account": "Do you have an account here?"}
+              {name
+                ? " Please sign in to your account"
+                : "Do you have an account here?"}
             </p>
           </div>
 
@@ -62,7 +66,7 @@ export default function Form() {
                 id="email"
                 className="mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
                 onChange={(e) => {
-                  setInputedEmailAddress(e.target.value);
+                  setInputedEmailAddress(e.target.value.toLocaleLowerCase());
                 }}
                 onBlur={getName}
                 required
