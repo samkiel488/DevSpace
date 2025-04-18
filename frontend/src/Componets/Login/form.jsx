@@ -42,7 +42,7 @@ export default function Form() {
         <div className="bg-white dark:bg-gray-200 py-8 px-4 shadow-lg rounded-2xl sm:rounded-lg sm:px-10">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-black">
-              {typeof name === "object"
+              {name
                 ? `Welcome back, ${name.fName} ${name.lName}`
                 : "Welcome Back to DevSpace"}
             </h2>
