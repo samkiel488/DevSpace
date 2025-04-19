@@ -93,7 +93,7 @@ export default function RegisterForm() {
                 className="block text-sm text-black dark:text-black mr-2"
                 htmlFor="password"
               >
-                Password
+                Password:
               </label>
               <div className="mt-1 relative">
                 <input
