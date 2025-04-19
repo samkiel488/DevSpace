@@ -48,9 +48,10 @@ export default function Form() {
               <input
                 type="email"
                 id="email"
+                name="emailAddress"
                 className="mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
                 onChange={(e) => setInputedEmailAddress(e.target.value)}
-                onBlur={getName} // Call getName when input loses focus
+                onBlur={getName}
                 required
               />
             </div>
