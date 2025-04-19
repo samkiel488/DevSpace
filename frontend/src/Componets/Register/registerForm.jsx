@@ -82,6 +82,7 @@ export default function RegisterForm() {
                 type="text"
                 id="username"
                 name="username"
+                placeholder="Input your Favourite Nickname"
                 className="w-full px-3 dark:text-black dark:bg-gray-900 py-2 rounded-md border border-gray-300 dark:border-black focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
