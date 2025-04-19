@@ -5,12 +5,11 @@ export default function RegisterForm() {
     <div className="min-h-screen bg-white flex flex-col justify-center py-12 pl-10 pr-10 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')] bg-cover bg-center bg-no-repeat">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white dark:bg-black py-8 px-4 shadow-lg rounded-2xl sm:rounded-lg sm:px-10">
-          <h1 className="text-xl font-bold text-center text-black dark:text-black mb-8">
+          <h1 className="text-2xl font-bold text-center text-black dark:text-black mb-8">
             Create a DevSpace Account
           </h1>
 
           <form action="#" className="w-full flex flex-col gap-4">
-
             <div className="flex items-start flex-col justify-start">
               <label
                 htmlFor="firstName"
@@ -131,7 +130,6 @@ export default function RegisterForm() {
               Login
             </a>
           </div>
-
         </div>
       </div>
     </div>
