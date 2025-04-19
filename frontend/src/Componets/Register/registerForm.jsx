@@ -124,6 +124,7 @@ export default function RegisterForm() {
                   type={showPassword ? "text" : "password"}
                   id="password"
                   name="password"
+                  placeholder="Input your Password"
                   className="block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
                   required
                 />
@@ -183,6 +184,7 @@ export default function RegisterForm() {
                   type={showConfirmPassword ? "text" : "password"}
                   id="confirmPassword"
                   name="confirmPassword"
+                  placeholder="Retype your Password"
                   className="block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
                   required
                 />
