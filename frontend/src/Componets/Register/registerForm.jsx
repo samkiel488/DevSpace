@@ -98,6 +98,7 @@ export default function RegisterForm() {
                 <input
                   type={showPassword ? "text" : "password"}
                   id="password"
+                  name="password"
                   className="block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
                   required
                 />
@@ -145,26 +146,12 @@ export default function RegisterForm() {
               </div>
             </div>
 
-            {/* <div className="flex items-start flex-col justify-start">
-              <label
-                htmlFor="confirmPassword"
-                className="text-sm text-black dark:text-black mr-2"
-              >
-                Confirm Password:
-              </label>
-              <input
-                type="password"
-                id="confirmPassword"
-                name="confirmPassword"
-                className="w-full px-3 dark:text-black dark:bg-gray-900 py-2 rounded-md border border-gray-300 dark:border-black focus:outline-none focus:ring-1 focus:ring-blue-500"
-              />
-            </div> */}
             <div>
               <label
                 className="block text-sm font-medium text-black"
                 htmlFor="password"
               >
-               Confirm Password
+                Confirm Password
               </label>
               <div className="mt-1 relative">
                 <input
@@ -217,7 +204,7 @@ export default function RegisterForm() {
                 </button>
               </div>
             </div>
-            
+
             <input
               type="submit"
               value="Register"
