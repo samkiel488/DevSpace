@@ -13,7 +13,7 @@ export default function RegisterForm() {
     );
     setIsEmailUsed(foundEmail);
   }
-  
+
   return (
     <div className="min-h-screen bg-white flex flex-col justify-center py-12 pl-10 pr-10 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')] bg-cover bg-center bg-no-repeat">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -236,7 +236,7 @@ export default function RegisterForm() {
             <span className="text-sm text-gray-500 dark:text-gray-300">
               Already have an account?
             </span>
-            <a href="#" className="text-blue-500 hover:text-blue-600">
+            <a href="/login" className="text-blue-500 hover:text-blue-600">
               Login
             </a>
           </div>
