@@ -260,7 +260,7 @@ export default function RegisterForm() {
             <span className="text-sm text-gray-500 dark:text-gray-300">
               Already have an account?
             </span>
-            <a href="/login" className="text-blue-500 hover:text-blue-600">
+             <a href="/login" className="text-blue-500 hover:text-blue-600">
               Login
             </a>
           </div>
