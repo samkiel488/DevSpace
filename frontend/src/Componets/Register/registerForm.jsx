@@ -8,9 +8,12 @@ export default function RegisterForm() {
   const [isEmailUsed, setIsEmailUsed] = useState(false);
   const [inputedUsername, setInputedUsername] = useState("");
   const [isUserNameUsed, setIsUserNameUsed] = useState(false);
+
   function checkEmail() {
     const foundEmail = emailAddress.find(
-      (email) => email.gmailAddress === checkUserEmail
+      (email) =>
+        email.gmailAddress.toLocaleLowerCase() ===
+        checkUserEmail.toLocaleLowerCase()
     );
     setIsEmailUsed(foundEmail);
   }
@@ -260,7 +263,7 @@ export default function RegisterForm() {
             <span className="text-sm text-gray-500 dark:text-gray-300">
               Already have an account?
             </span>
-             <a href="/login" className="text-blue-500 hover:text-blue-600">
+            <a href="/login" className="text-blue-500 hover:text-blue-600">
               Login
             </a>
           </div>
