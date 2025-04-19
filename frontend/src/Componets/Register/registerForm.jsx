@@ -41,7 +41,7 @@ export default function RegisterForm() {
               />
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex items-start flex-col justify-start">
               <label
                 htmlFor="phoneNumber"
                 className="text-sm text-black dark:text-black mr-2 mb-1"
