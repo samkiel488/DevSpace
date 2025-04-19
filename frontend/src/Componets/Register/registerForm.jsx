@@ -6,12 +6,20 @@ export default function RegisterForm() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [checkUserEmail, setCheckUserEmail] = useState("");
   const [isEmailUsed, setIsEmailUsed] = useState(false);
-
+  const [inputedUsername, setInputedUsername] = useState("");
+  const [isUserNameUsed, setIsUserNameUsed] = useState(false);
   function checkEmail() {
     const foundEmail = emailAddress.find(
       (email) => email.gmailAddress === checkUserEmail
     );
     setIsEmailUsed(foundEmail);
+  }
+
+  function checkUsername() {
+    const foundUsername = emailAddress.find(
+      (email) => email.userName === inputedUsername
+    );
+    setIsUserNameUsed(foundUsername);
   }
 
   return (
@@ -84,7 +92,16 @@ export default function RegisterForm() {
                 name="username"
                 placeholder="Input your Favourite Nickname"
                 className="w-full px-3 dark:text-black dark:bg-gray-900 py-2 rounded-md border border-gray-300 dark:border-black focus:outline-none focus:ring-1 focus:ring-blue-500"
+                onChange={(e) => {
+                  setInputedUsername(e.target.value);
+                }}
+                onBlur={checkUsername}
               />
+              {isUserNameUsed ? (
+                <p className="text-sm text-red-500 dark:text-red-500 mr-2">
+                  Username has been taken
+                </p>
+              ) : null}
             </div>
 
             <div className="flex items-start flex-col justify-start">
