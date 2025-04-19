@@ -124,7 +124,7 @@ export default function Form() {
                 />
                 <label
                   htmlFor="remember"
-                  className="ml-2 block text-sm text-gray-700"
+                  className="ml-2 block text-sm text-black"
                 >
                   Remember me
                 </label>
