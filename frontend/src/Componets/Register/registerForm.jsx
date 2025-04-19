@@ -66,6 +66,7 @@ export default function RegisterForm() {
                 type="number"
                 id="phoneNumber"
                 name="phoneNumber"
+                placeholder="Input your Whatsapp Number"
                 className="w-full px-3 py-2 rounded-md border border-gray-300 dark:border-black dark:bg-gray-900 dark:text-black focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none"
               />
             </div>
