@@ -1,9 +1,14 @@
 import React from "react";
 import { useState } from "react";
+import emailAddress from "../defaultUser";
 export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
+  const [checkUserEmail, setCheckUserEmail] = useState("");
+  const [isEmailUsed, setIsEmailUsed] = useState(false);
+  function checkEmail() {
+    emailAddress
+  }
   return (
     <div className="min-h-screen bg-white flex flex-col justify-center py-12 pl-10 pr-10 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')] bg-cover bg-center bg-no-repeat">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -85,6 +90,9 @@ export default function RegisterForm() {
                 id="email"
                 name="email"
                 className="w-full px-3 dark:text-black dark:bg-gray-900 py-2 rounded-md border border-gray-300 dark:border-black focus:outline-none focus:ring-1 focus:ring-blue-500"
+                onBlur={(e) => {
+                  setCheckUserEmail(e.target.value);
+                }}
               />
             </div>
 
