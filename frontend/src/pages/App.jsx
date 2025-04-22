@@ -19,14 +19,14 @@ export default function App() {
             <h1 className="text-2l pt-5 tracking-tight font-medium text-white sm:text-2xl">
               A space where young devs grow, connect, and build cool stuff
             </h1>
-            <p className="mt-8 text-lg tracking-tight font-bold text-white/80 sm:text-xl">
+            <p className="mt-8 text-lg tracking-tight font-bold text-white sm:text-xl">
               Whether you're just getting started or leveling up your
               skills,you're in the right place. Collaborate on real projects,
               share ideas, and build a future fueled by code and creativity.
             </p>
             <div className="mt-8 flex items-center justify-center gap-x-6">
               <a
-                href="./#"
+                href="/login"
                 className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg"
               >
                 Get started
