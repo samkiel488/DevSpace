@@ -20,3 +20,5 @@ You will wait for it to download the files locally when done, you run :
 ```
 cd DevSpace
 ```
+
+## How the files Are Structured
