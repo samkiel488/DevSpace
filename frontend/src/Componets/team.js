@@ -7,6 +7,7 @@ const teamMembers = [
     facebookLink: "https://facebook.com",
     githubLink: "https://github.com",
     twitterLink: "https://x.com/",
+    imageurl: "https://picsum.photos/200",
   },
   {
     name: "lorem Ipsum",
@@ -16,6 +17,7 @@ const teamMembers = [
     facebookLink: "https://facebook.com",
     githubLink: "https://github.com",
     twitterLink: "https://x.com/",
+    imageurl: "https://picsum.photos/200",
   },
   {
     name: "lorem Ipsum",
@@ -25,6 +27,7 @@ const teamMembers = [
     facebookLink: "https://facebook.com",
     githubLink: "https://github.com",
     twitterLink: "https://x.com/",
+    imageurl: "https://picsum.photos/200",
   },
   {
     name: "lorem Ipsum",
@@ -34,6 +37,7 @@ const teamMembers = [
     facebookLink: "https://facebook.com",
     githubLink: "https://github.com",
     twitterLink: "https://x.com/",
+    imageurl: "https://picsum.photos/200",
   },
 ];
 
