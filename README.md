@@ -30,3 +30,7 @@ There fore our project would need a Frontend, backend and a database.
 ### Frontend
 
 In our frontend we are going to be using:
+
+1. React,
+2. Tailwindcss
+
