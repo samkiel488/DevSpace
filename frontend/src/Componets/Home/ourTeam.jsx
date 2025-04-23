@@ -6,11 +6,6 @@ export default function OurTeam() {
           <h1 class="text-3xl font-medium title-font mb-4 text-gray-900">
             OUR TEAM
           </h1>
-          {/* <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
-            Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-            gentrify, subway tile poke farm-to-table. Franzen you probably
-            haven't heard of them.
-          </p> */}
         </div>
         <div class="flex flex-wrap -m-4">
           <div class="sm:p-4 lg:w-1/4 md:w-1/2">
