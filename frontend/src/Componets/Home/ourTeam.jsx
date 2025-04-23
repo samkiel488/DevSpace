@@ -17,7 +17,7 @@ export default function OurTeam() {
                   <img
                     alt="team"
                     class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4"
-                    src=""
+                    src={members.imageurl}
                     style={{ width: "200px" }}
                   />
                   <div class="flex-grow sm:pl-8">
