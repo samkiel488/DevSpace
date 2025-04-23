@@ -53,3 +53,4 @@ In our frontend we are going to be using:
    ```
    npm install
    ```
+   This commands look at the package.json file and install all the node module used for the frontend Project
