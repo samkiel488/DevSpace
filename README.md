@@ -7,7 +7,7 @@ principles.
 The project leverages React for creating a dynamic interface that adapts seamlessly to different
 devices.
 
-## How to run It Locally
+## How to Downlad a Copy of the project locally
 
 To run this project locally, you need to :
 
@@ -24,3 +24,9 @@ cd DevSpace
 ## How the files Are Structured
 
 We know that the goal of this project is to create an interactive website where we can be able to chat post new project we made e.t.c
+
+There fore our project would need a Frontend, backend and a database.
+
+### Frontend
+
+In our frontend we are going to be using:
