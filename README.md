@@ -6,4 +6,5 @@ principles.
 The project leverages React for creating a dynamic interface that adapts seamlessly to different
 devices.
 
-## 
+## How to run It Locally
+To run this project locally 
