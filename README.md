@@ -59,7 +59,6 @@ In our frontend we are going to be using:
    npm run dev
    ```
    After this command runs sucessfully you can head over to :
-
-```
-http://localhost:5173
-```
+   ```
+   http://localhost:5173
+   ```
