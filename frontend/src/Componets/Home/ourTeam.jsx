@@ -1,95 +1,261 @@
 export default function OurTeam() {
   return (
-    <div class="w-full h-screen bg-white  dark:bg-slate-800 text-black dark:text-white py-24 sm:py-10">
-      <div class="w-full h-full py-20 flex flex-wrap justify-center items-center gap-2">
-        <div class="w-[20rem] mx-auto flex flex-col gap-2 px-4 border border-gray-300 border-gray-300 rounded-lg bg-white dark:bg-gray-900">
-          <div class="w-full flex justify-center items-center">
-            <img
-              class="w-[8rem] h-[8rem] rounded-full outline outline-offset-2 outline-1 outline-blue-400 shadow-lg relative -top-[4rem]"
-              src="https://lh3.googleusercontent.com/a/ACg8ocIexhmmTS8LcwWo1fPGY5Fl3KXpd-JuBE_Gj56P3rUR2g=s96-c"
-              alt="Profile Image"
-            />
-          </div>
-
-          <div class="w-full h-full text-center flex flex-col gap-4 relative -top-10">
-            <h1 class="uppercase text-lg font-semibold dark:text-white">
-              Software Developer
-            </h1>
-
-            <h2 class="text-xl font-serif capitalize font-semibold text-gray-700 dark:text-gray-300">
-              samuel abera
-            </h2>
-
-            <p class="text-gray-700 dark:text-gray-300">
-              Adaptable developer with experience in frontend (Nuxt.js) and
-              backend (Laravel/Nest.js). Passionate about web development, quick
-              learner, and committed to exceptional websites. Let's collaborate!
-            </p>
-
-            <button class="w-[60%] mx-auto bg-blue-500 text-white rounded-3xl px-4 py-2">
-              Follow
-            </button>
-          </div>
+    <section class=" body-font bg-white  dark:bg-slate-800 text-black dark:text-white py-2 sm:py-5">
+      <div class="container px-5 py-2 mx-auto">
+        <div class="flex flex-col text-center w-full mb-5">
+          <h1 class="text-3xl font-medium title-font mb-4 text-gray-900">
+            OUR TEAM
+          </h1>
+          {/* <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+            Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
+            gentrify, subway tile poke farm-to-table. Franzen you probably
+            haven't heard of them.
+          </p> */}
         </div>
-        <div class="w-[20rem] mx-auto flex flex-col gap-2 px-4 shadow-lg border border-gray-300 border-gray-300 rounded-lg bg-white dark:bg-gray-900">
-          <div class="w-full flex justify-center items-center">
-            <img
-              class="w-[8rem] h-[8rem] rounded-full outline outline-offset-2 outline-1 outline-blue-400 shadow-lg relative -top-[4rem]"
-              src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw2fHxwZW9wbGV8ZW58MHwwfHx8MTcxODQ3NDU1Mnww&ixlib=rb-4.0.3&q=80&w=1080"
-              alt="Profile Image"
-            />
+        <div class="flex flex-wrap -m-4">
+          <div class="sm:p-4 lg:w-1/4 md:w-1/2">
+            <div class="h-full flex flex-col items-center text-center">
+              <img
+                alt="team"
+                class="flex-shrink-0 rounded-lg w-200 h-56 object-cover object-center mb-4"
+                src="https://picsum.photos/200"
+                style={{ width: "200px" }}
+              />
+              <div class="w-full">
+                <h2 class="title-font font-medium text-lg text-dark dark:text-white">
+                  Alper Kamu
+                </h2>
+                <h3 class="text-black dark:text-white mb-3">UI Developer</h3>
+                <p class="mb-4">
+                  DIY tote bag drinking vinegar cronut adaptogen squid fanny
+                  pack vaporware.
+                </p>
+                <span class="inline-flex">
+                  <a class="text-black dark:text-white">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-5 h-5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                    </svg>
+                  </a>
+                  <a class="ml-2 text-black dark:text-white">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-5 h-5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                    </svg>
+                  </a>
+                  <a class="ml-2 text-black dark:text-white">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-5 h-5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                    </svg>
+                  </a>
+                </span>
+              </div>
+            </div>
           </div>
-
-          <div class="w-full h-full text-center flex flex-col gap-4 relative -top-10">
-            <h1 class="uppercase text-lg font-semibold dark:text-white">
-              Software Developer
-            </h1>
-
-            <h2 class="text-xl font-serif capitalize font-semibold text-gray-700 dark:text-gray-300">
-              Abc Esx
-            </h2>
-
-            <p class="text-gray-700 dark:text-gray-300">
-              Adaptable developer with experience in frontend (Nuxt.js) and
-              backend (Laravel/Nest.js). Passionate about web development, quick
-              learner, and committed to exceptional websites. Let's collaborate!
-            </p>
-
-            <button class="w-[60%] mx-auto bg-blue-500 text-white rounded-3xl px-4 py-2">
-              Follow
-            </button>
+          {/* <div class="p-4 lg:w-1/4 md:w-1/2">
+            <div class="h-full flex flex-col items-center text-center">
+              <img
+                alt="team"
+                class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
+                src="https://dummyimage.com/201x201"
+              />
+              <div class="w-full">
+                <h2 class="title-font font-medium text-lg text-gray-900">
+                  Holden Caulfield
+                </h2>
+                <h3 class="text-gray-500 mb-3">UI Developer</h3>
+                <p class="mb-4">
+                  DIY tote bag drinking vinegar cronut adaptogen squid fanny
+                  pack vaporware.
+                </p>
+                <span class="inline-flex">
+                  <a class="text-gray-500">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-5 h-5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                    </svg>
+                  </a>
+                  <a class="ml-2 text-gray-500">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-5 h-5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                    </svg>
+                  </a>
+                  <a class="ml-2 text-gray-500">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-5 h-5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                    </svg>
+                  </a>
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="w-[20rem] mx-auto flex flex-col gap-2 px-4 shadow-lg border border-gray-300 border-gray-300 rounded-lg bg-white dark:bg-gray-900">
-          <div class="w-full flex justify-center items-center">
-            <img
-              class="w-[8rem] h-[8rem] rounded-full outline outline-offset-2 outline-1 outline-blue-400 relative -top-[4rem]"
-              src="https://images.unsplash.com/photo-1463453091185-61582044d556?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxMHx8cGVvcGxlfGVufDB8MHx8fDE3MTg0NzQ1NTJ8MA&ixlib=rb-4.0.3&q=80&w=1080"
-              alt="Profile Image"
-            />
+          <div class="p-4 lg:w-1/4 md:w-1/2">
+            <div class="h-full flex flex-col items-center text-center">
+              <img
+                alt="team"
+                class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
+                src="https://dummyimage.com/202x202"
+              />
+              <div class="w-full">
+                <h2 class="title-font font-medium text-lg text-gray-900">
+                  Atticus Finch
+                </h2>
+                <h3 class="text-gray-500 mb-3">UI Developer</h3>
+                <p class="mb-4">
+                  DIY tote bag drinking vinegar cronut adaptogen squid fanny
+                  pack vaporware.
+                </p>
+                <span class="inline-flex">
+                  <a class="text-gray-500">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-5 h-5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                    </svg>
+                  </a>
+                  <a class="ml-2 text-gray-500">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-5 h-5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                    </svg>
+                  </a>
+                  <a class="ml-2 text-gray-500">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-5 h-5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                    </svg>
+                  </a>
+                </span>
+              </div>
+            </div>
           </div>
-
-          <div class="w-full h-full text-center flex flex-col gap-4 relative -top-10">
-            <h1 class="uppercase text-lg font-semibold dark:text-white">
-              Software Developer
-            </h1>
-
-            <h2 class="text-xl font-serif capitalize font-semibold text-gray-700 dark:text-gray-300">
-              Yzx Lms
-            </h2>
-
-            <p class="text-gray-700 dark:text-gray-300">
-              Adaptable developer with experience in frontend (Nuxt.js) and
-              backend (Laravel/Nest.js). Passionate about web development, quick
-              learner, and committed to exceptional websites. Let's collaborate!
-            </p>
-
-            <button class="w-[60%] mx-auto bg-blue-500 text-white rounded-3xl px-4 py-2">
-              Follow
-            </button>
-          </div>
+          <div class="p-4 lg:w-1/4 md:w-1/2">
+            <div class="h-full flex flex-col items-center text-center">
+              <img
+                alt="team"
+                class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
+                src="https://dummyimage.com/203x203"
+              />
+              <div class="w-full">
+                <h2 class="title-font font-medium text-lg text-gray-900">
+                  Henry Letham
+                </h2>
+                <h3 class="text-gray-500 mb-3">UI Developer</h3>
+                <p class="mb-4">
+                  DIY tote bag drinking vinegar cronut adaptogen squid fanny
+                  pack vaporware.
+                </p>
+                <span class="inline-flex">
+                  <a class="text-gray-500">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-5 h-5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                    </svg>
+                  </a>
+                  <a class="ml-2 text-gray-500">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-5 h-5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                    </svg>
+                  </a>
+                  <a class="ml-2 text-gray-500">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-5 h-5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                    </svg>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div> */}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
