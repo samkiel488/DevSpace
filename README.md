@@ -14,3 +14,9 @@ To run this project locally, you need to :
 ```
 git clone https://github.com/Ayomide-Philip/DevSpace.git
 ```
+
+You will wait for it to download the files locally when done, you run :
+
+```
+cd DevSpace
+```
