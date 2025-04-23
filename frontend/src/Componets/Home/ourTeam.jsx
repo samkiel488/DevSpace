@@ -13,7 +13,7 @@ export default function OurTeam() {
               <img
                 alt="team"
                 class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4"
-                src="https://dummyimage.com/200x200"
+                src="https://picsum.photos/200"
                 style={{ width: "200px" }}
               />
               <div class="flex-grow sm:pl-8">
