@@ -22,3 +22,5 @@ cd DevSpace
 ```
 
 ## How the files Are Structured
+
+We know that the goal of this project is to create an interactive website where we can be able to chat post new project we made e.t.c
