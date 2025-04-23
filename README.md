@@ -35,6 +35,7 @@ In our frontend we are going to be using:
 2. Tailwindcss
 
 ### How to run the Frontend File locally:
+
 1. First of all you need to have download a copy of the project locally.
 2. move to the directory of the project:
    ```
@@ -44,4 +45,11 @@ In our frontend we are going to be using:
    ```
    cd Frontend/
    ```
-4. After moving to the Frontend folder 
+4. After moving to the Frontend folder, you need to install all the node module used:
+   ```
+   npm i
+   ```
+   or
+   ```
+   npm install
+   ```
