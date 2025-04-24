@@ -10,52 +10,54 @@ export default function OurTeam() {
           </h1>
         </div>
         <div class="flex flex-wrap -m-4">
-          {teamMembers.map((members) => {
-            return (
-              <div class="p-4 lg:w-1/2">
-                <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-                  <img
-                    alt="team"
-                    class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4"
-                    src={members.imageurl}
-                    style={{ width: "200px" }}
-                  />
-                  <div class="flex-grow sm:pl-8">
-                    <h2 class="title-font font-medium text-lg text-black dark:text-white">
-                      {members.name}
-                    </h2>
-                    <h3 class="text-black dark:text-white mb-3">
-                      {members.role}
-                    </h3>
-                    <p class="mb-4">{members.description}</p>
-                    <span class="inline-flex">
-                      <a href={members.facebookLink}>
-                        <img
-                          src="/images/svg/facebook-svgrepo-com.svg"
-                          className="h-5 w-5"
-                          alt="facebookLogo"
-                        />
-                      </a>
-                      <a className="ml-2" href={members.githubLink}>
-                        <img
-                          src="/images/svg/github-icon-svgrepo-com.svg"
-                          alt="githubLogo"
-                          className="h-5 w-5"
-                        />
-                      </a>
-                      <a className="ml-2" href={members.twitterLink}>
-                        <img
-                          src="/images/svg/twitter-svgrepo-com.svg"
-                          alt="twitter-svgrepo-com"
-                          className="h-5 w-5"
-                        />
-                      </a>
-                    </span>
+          {teamMembers
+            .map((members) => {
+              return (
+                <div class="p-4 lg:w-1/2">
+                  <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                    <img
+                      alt="team"
+                      class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4"
+                      src={members.imageurl}
+                      style={{ width: "200px" }}
+                    />
+                    <div class="flex-grow sm:pl-8">
+                      <h2 class="title-font font-medium text-lg text-black dark:text-white">
+                        {members.name}
+                      </h2>
+                      <h3 class="text-black dark:text-white mb-3">
+                        {members.role}
+                      </h3>
+                      <p class="mb-4">{members.description}</p>
+                      <span class="inline-flex">
+                        <a href={members.facebookLink}>
+                          <img
+                            src="/images/svg/facebook-svgrepo-com.svg"
+                            className="h-5 w-5"
+                            alt="facebookLogo"
+                          />
+                        </a>
+                        <a className="ml-2" href={members.githubLink}>
+                          <img
+                            src="/images/svg/github-icon-svgrepo-com.svg"
+                            alt="githubLogo"
+                            className="h-5 w-5"
+                          />
+                        </a>
+                        <a className="ml-2" href={members.twitterLink}>
+                          <img
+                            src="/images/svg/twitter-svgrepo-com.svg"
+                            alt="twitter-svgrepo-com"
+                            className="h-5 w-5"
+                          />
+                        </a>
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+            .slice(0, 4)}
         </div>
       </div>
     </section>
