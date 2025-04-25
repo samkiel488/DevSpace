@@ -1,7 +1,6 @@
 export default function AboutUsHeading() {
   return (
     <div class="sm:flex items-center max-w-screen-xl bg-white  dark:bg-slate-800 text-black dark:text-white">
-        
       <div class="sm:w-1/2 p-10">
         <div class="image object-center text-center">
           <img
