@@ -1,5 +1,5 @@
 import Header from "../Componets/header";
-import AboutUs from "../Componets/Home/aboutUs";
+import AboutUsComponet from "../Componets/Home/aboutUs";
 import { useState } from "react";
 import Toggle from "../Componets/toggle";
 import WhatWeDo from "../Componets/Home/whatWeDo";
@@ -36,7 +36,7 @@ export default function App() {
           </div>
         </main>
       </div>
-      <AboutUs />
+      <AboutUsComponet />
       <WhatWeDo />
       <OurTeam />
       <Footer />
