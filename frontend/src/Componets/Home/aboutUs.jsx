@@ -1,4 +1,4 @@
-export default function AboutUs() {
+export default function AboutUsComponet() {
   return (
     <div className="overflow-hidden bg-white  dark:bg-slate-800 text-black dark:text-white py-24 sm:py-10">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
