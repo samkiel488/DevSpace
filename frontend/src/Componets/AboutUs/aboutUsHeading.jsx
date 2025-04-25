@@ -3,7 +3,10 @@ export default function AboutUsHeading() {
     <div class="sm:flex items-center max-w-screen-xl bg-white  dark:bg-slate-800 text-black dark:text-white">
       <div class="sm:w-1/2 p-10">
         <div class="image object-center text-center">
-          <img src="https://i.imgur.com/WbQnbas.png" className="w-300" />
+          <img
+            src="https://i.imgur.com/WbQnbas.png"
+            style={{ height: "400px" }}
+          />
         </div>
       </div>
       <div class="sm:w-1/2 p-5">
@@ -15,9 +18,11 @@ export default function AboutUsHeading() {
             About <span class="text-blue-500">Our Company</span>
           </h2>
           <p class="text-black dark:text-white">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid,
-            commodi doloremque, fugiat illum magni minus nisi nulla numquam
-            obcaecati placeat quia, repellat tempore voluptatum.
+            Welcome to D3V++, a passionate team of developers, designers, and
+            innovators committed to building cutting-edge technology solutions.
+            With expertise in software development, cybersecurity, web
+            development and UI/UX design, we strive to create seamless digital
+            experiences that empower businesses and individuals alike.
           </p>
         </div>
       </div>
