@@ -61,7 +61,7 @@ export default function OurTeam() {
         </div>
         <div className="mt-8 flex items-center justify-center gap-x-6">
           <a
-            href="/login"
+            href="/aboutus"
             className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg"
           >
             See More
