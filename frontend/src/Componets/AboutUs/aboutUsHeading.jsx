@@ -1,6 +1,6 @@
 export default function AboutUsHeading() {
   return (
-    <div class="sm:flex items-center">
+    <div class="sm:flex items-center max-w-screen-xl">
       <div class="sm:w-1/2 p-10">
         <div class="image object-center text-center">
           <img src="https://i.imgur.com/WbQnbas.png" />
@@ -8,7 +8,7 @@ export default function AboutUsHeading() {
       </div>
       <div class="sm:w-1/2 p-5">
         <div class="text">
-          <span class="text-gray-500 border-b-2 border-indigo-600 uppercase">
+          <span class="text-black border-b-2 border-indigo-600 uppercase">
             About us
           </span>
           <h2 class="my-4 font-bold text-3xl  sm:text-4xl ">
