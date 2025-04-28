@@ -4,7 +4,7 @@ const headerList = [
   { heading: "Home", url: "/" },
   { heading: "About Us", url: "/aboutus" },
   { heading: "Projects", url: "./#" },
-  { heading: "Meet the Team", url: "./#" },
+  { heading: "Meet the Team", url: "/meettheteam" },
   { heading: "Blog", url: "./#" },
   { heading: "Contact Us", url: "./#" },
   { heading: "Join Us", url: "./#" },
