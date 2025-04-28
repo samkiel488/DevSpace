@@ -3,7 +3,7 @@ const teamMembers = [
     name: "ѕαмкιєℓ.∂єν",
     role: "FullStack Developer",
     description:
-      "Whether you're just getting started or leveling up your skills,you're in the right place. Collaborate on real projects, share ideas, and build a future fueled by code and creativity.",
+      "A versatile developer skilled in HTML, CSS, JavaScript, React, PHP, and Python, capable of building dynamic, responsive web applications from front to back.",
     facebookLink: "https://facebook.com",
     githubLink: "https://github.com",
     twitterLink: "https://x.com/",
