@@ -1,7 +1,7 @@
 const teamMembers = [
   {
     name: "ѕαмкιєℓ.∂єν",
-    role: "Software Developer",
+    role: "FullStack Developer",
     description:
       "Whether you're just getting started or leveling up your skills,you're in the right place. Collaborate on real projects, share ideas, and build a future fueled by code and creativity.",
     facebookLink: "https://facebook.com",
