@@ -23,7 +23,7 @@ export default function OurTeamProfiles() {
                     alt="team"
                     style={{ width: "200px" }}
                     class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
-                    src="https://dummyimage.com/200x200"
+                    src={members.imageurl}
                   />
                   <div class="w-full">
                     <h2 class="title-font font-medium text-lg text-black dark:text-white">
