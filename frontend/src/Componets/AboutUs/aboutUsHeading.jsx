@@ -5,13 +5,14 @@ export default function AboutUsHeading() {
         <div className="image object-center text-center">
           <img
             src="http://devspace.ct.ws/images/aboutus1.jpg"
+            className=" rounded-2xl"
             style={{ height: "350px" }}
           />
         </div>
       </div>
       <div className="sm:w-1/2 p-5">
         <div className="text">
-          <span className="text-black dark:text-white border-b-2 border-blue-500 uppercase">
+          <span className="text-black dark:text-white border-b-2 border-blue-500 font uppercase">
             About us
           </span>
           <h2 className="my-4 font-bold text-3xl  sm:text-4xl ">
