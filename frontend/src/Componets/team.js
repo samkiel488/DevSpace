@@ -7,7 +7,8 @@ const teamMembers = [
     facebookLink: "https://facebook.com",
     githubLink: "https://github.com",
     twitterLink: "https://x.com/",
-    imageurl: "https://picsum.photos/200",
+    imageurl:
+      "https://devspace-ten.vercel.app/images/%D1%95%CE%B1%D0%BC%D0%BA%CE%B9%D1%94%E2%84%93.%E2%88%82%D1%94%CE%BD.jpg",
   },
   {
     name: "lorem Ipsum",
@@ -17,7 +18,7 @@ const teamMembers = [
     facebookLink: "https://facebook.com",
     githubLink: "https://github.com",
     twitterLink: "https://x.com/",
-    imageurl: "https://picsum.photos/200",
+    imageurl: "https://devspace-ten.vercel.app/images/CyPRus.jpg",
   },
   {
     name: "lorem Ipsum",
