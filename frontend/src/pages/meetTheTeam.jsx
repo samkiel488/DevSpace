@@ -7,8 +7,11 @@ export default function MeetTheTeam() {
   const [darkMode, setDarkMode] = useState(false);
   return (
     <div data-theme={darkMode ? "dark" : "light"}>
-      <Header colorLightMode="black" />
-      <Banner heading="Meet The Team of D3V++" />
+      <Header colorLightMode="black" colorDarkMode="black" />
+      <Banner
+        heading="Meet The Team of D3V++"
+        subHeading="Check out our teams of Developers."
+      />
       <Footer />
       <Toggle darkMode={darkMode} setDarkMode={setDarkMode} />
     </div>
