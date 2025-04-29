@@ -40,6 +40,26 @@ const teamMembers = [
     twitterLink: "https://x.com/",
     imageurl: "http://devspace.ct.ws/images/APE.jpg",
   },
+  {
+    name: " Ojure Mayowa Abdul-Basit",
+    role: "FullStack Developer",
+    description:
+      "A full stack developer proficient in Python, Java, PHP, and CSS, capable of building dynamic web applications from backend logic to frontend styling.",
+    facebookLink: "https://facebook.com",
+    githubLink: "https://github.com",
+    twitterLink: "https://x.com/",
+    imageurl: "http://devspace.ct.ws/images/Mayowa.jpg",
+  },
+  {
+    name: " Ojure Mayowa Abdul-Basit",
+    role: "FullStack Developer",
+    description:
+      "A full stack developer proficient in Python, Java, PHP, and CSS, capable of building dynamic web applications from backend logic to frontend styling.",
+    facebookLink: "https://facebook.com",
+    githubLink: "https://github.com",
+    twitterLink: "https://x.com/",
+    imageurl: "http://devspace.ct.ws/images/Mayowa.jpg",
+  },
 ];
 
 export default teamMembers;
