@@ -51,14 +51,14 @@ const teamMembers = [
     imageurl: "http://devspace.ct.ws/images/Mayowa.jpg",
   },
   {
-    name: " Ojure Mayowa Abdul-Basit",
+    name: " Areo Ayomide Philip",
     role: "FullStack Developer",
     description:
-      "A full stack developer proficient in Python, Java, PHP, and CSS, capable of building dynamic web applications from backend logic to frontend styling.",
+      "Full stack developer skilled in HTML, CSS, JavaScript, React, Node.js, and PostgreSQL, building responsive web apps with robust backend integration.",
     facebookLink: "https://facebook.com",
     githubLink: "https://github.com",
     twitterLink: "https://x.com/",
-    imageurl: "http://devspace.ct.ws/images/Mayowa.jpg",
+    imageurl: "http://devspace.ct.ws/images/Phillip.jpg",
   },
 ];
 
