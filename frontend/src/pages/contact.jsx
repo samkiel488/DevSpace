@@ -1,10 +1,10 @@
 import Footer from "../Componets/footer";
-
+import Header from "../Componets/header";
 export default function Contact() {
-    return(
-        <div>
-            <Headers colorLightMode="black" colorDarkMode="black" />
-            <Footer/>
-        </div>
-    )
+  return (
+    <>
+      <Header colorLightMode="black" colorDarkMode="transparent" />
+      <Footer />
+    </>
+  );
 }
