@@ -22,10 +22,10 @@ export default function OurTeamProfiles() {
               <div class="p-4 lg:w-1/4 md:w-1/2">
                 <div class="h-full flex flex-col items-center text-center">
                   <img
-                    alt="team"
+                    alt={members.imageurl}
                     style={{ width: "200px" }}
                     class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
-                    src={members.imageurl}
+                    src={`/images/Members/${members.imageurl}.jpg`}
                   />
                   <div class="w-full">
                     <h2 class="title-font font-medium text-lg text-black dark:text-white">
