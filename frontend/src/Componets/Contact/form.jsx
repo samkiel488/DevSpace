@@ -51,7 +51,7 @@ const Form = () => {
                   "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
               },
               {
-                label: "Phone",
+                label: "Phone:",
                 value: phone ? phone : "+1 234 567 890",
                 iconBg: "bg-green-900",
                 iconColor: "text-green-400",
@@ -108,6 +108,7 @@ const Form = () => {
                   placeholder="Enter your name"
                   className="w-full p-4 bg-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
                   onChange={(e) => setName(e.target.value)}
+                  value={name}
                 />
               </>
             )}
@@ -119,6 +120,7 @@ const Form = () => {
                   placeholder="Enter your email"
                   className="w-full p-4 bg-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
                   onChange={(e) => setEmail(e.target.value)}
+                  value={email}
                 />
               </>
             )}
@@ -133,6 +135,7 @@ const Form = () => {
                   placeholder="Enter Phone Number"
                   className="w-full p-4 bg-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
                   onChange={(e) => setPhone(e.target.value)}
+                  value={phone}
                 />
               </>
             )}
