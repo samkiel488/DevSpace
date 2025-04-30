@@ -3,7 +3,9 @@ import React, { useState } from "react";
 const Form = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [message, setMessage] = useState("");
-
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [name, setName] = useState("");
   const handleNext = () => {
     if (currentStep < 4) setCurrentStep(currentStep + 1);
   };
@@ -33,8 +35,16 @@ const Form = () => {
             <h2 className="text-2xl font-bold mb-2">Contact Information</h2>
             {[
               {
-                label: "Email",
-                value: "example@gmail.com",
+                label: "Name:",
+                value: name ? name : "John Doe",
+                iconBg: "bg-red-900",
+                iconColor: "text-red-400",
+                iconPath:
+                  "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z",
+              },
+              {
+                label: "Email:",
+                value: email ? email : "example@gmail.com",
                 iconBg: "bg-blue-900",
                 iconColor: "text-blue-400",
                 iconPath:
@@ -42,22 +52,14 @@ const Form = () => {
               },
               {
                 label: "Phone",
-                value: "0123456789",
+                value: phone ? phone : "+1 234 567 890",
                 iconBg: "bg-green-900",
                 iconColor: "text-green-400",
                 iconPath:
                   "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z",
               },
               {
-                label: "Location",
-                value: "Your Location",
-                iconBg: "bg-red-900",
-                iconColor: "text-red-400",
-                iconPath:
-                  "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z",
-              },
-              {
-                label: "Calendly",
+                label: "Join Us:",
                 value: (
                   <a href="#" className="text-blue-400 hover:underline">
                     Join Our Whatsapp Group
@@ -105,6 +107,7 @@ const Form = () => {
                   type="text"
                   placeholder="Enter your name"
                   className="w-full p-4 bg-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                  onChange={(e) => setName(e.target.value)}
                 />
               </>
             )}
@@ -115,6 +118,7 @@ const Form = () => {
                   type="email"
                   placeholder="Enter your email"
                   className="w-full p-4 bg-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </>
             )}
@@ -125,9 +129,10 @@ const Form = () => {
                 </h2>
                 <input
                   type="text"
-                  maxLength="11"
+                  maxLength="14"
                   placeholder="Enter Phone Number"
                   className="w-full p-4 bg-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                  onChange={(e) => setPhone(e.target.value)}
                 />
               </>
             )}
@@ -157,13 +162,18 @@ const Form = () => {
                   Back
                 </button>
               )}
+
               {currentStep < 4 ? (
-                <button
-                  onClick={handleNext}
-                  className="px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-xl transition duration-300 ml-auto"
-                >
-                  Next
-                </button>
+                ((currentStep === 1 && name) ||
+                  (currentStep === 2 && email) ||
+                  (currentStep === 3 && phone)) && (
+                  <button
+                    onClick={handleNext}
+                    className="px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-xl transition duration-300 ml-auto"
+                  >
+                    Next
+                  </button>
+                )
               ) : (
                 <button
                   onClick={handleSubmit}
