@@ -14,16 +14,8 @@ const Form = () => {
     if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
 
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    // Accessing form data
-    const form = e.target;
-    console.log("Form submitted!");
-    console.log("Name:", form.name.value); // Accessing name value
-    console.log("Email:", form.email.value); // Accessing email value
-    console.log("Phone:", form.phone.value); // Accessing phone value
-    console.log("Message:", form.message.value); // Accessing message value
+  function handleSubmit() {
+    alert("Hello " + name + " your message has been sent successfully");
   }
 
   return (
