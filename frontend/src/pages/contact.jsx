@@ -3,7 +3,7 @@ import Header from "../Componets/header";
 export default function Contact() {
   return (
     <>
-      <Header colorLightMode="black" colorDarkMode="transparent" />
+      <Header colorLightMode="black" colorDarkMode="black" />
       <Footer />
     </>
   );
