@@ -19,7 +19,7 @@ export default function OurTeamProfiles() {
         <div class="flex flex-wrap -m-4">
           {teamMembers.map((members) => {
             return (
-              <div class="p-4 lg:w-1/4 md:w-1/2">
+              <div class="p-4 lg:w-1/3 md:w-1/2">
                 <div class="h-full flex flex-col items-center text-center">
                   <img
                     alt={members.imageurl}
