@@ -17,7 +17,7 @@ const teamMembers = [
     facebookLink: "https://facebook.com",
     githubLink: "https://github.com",
     twitterLink: "https://x.com/",
-    imageurl: "https://devspace-ten.vercel.app/images/CyPRus.jpg",
+    imageurl: "CyPRus",
   },
   {
     name: "Atobajaye khaleed",
@@ -27,7 +27,7 @@ const teamMembers = [
     facebookLink: "https://facebook.com",
     githubLink: "https://github.com",
     twitterLink: "https://x.com/",
-    imageurl: "https://devspace-ten.vercel.app/images/Khallydah.jpg",
+    imageurl: "Khallydah",
   },
   {
     name: "Abraham Precious Emmanuel",
@@ -37,7 +37,7 @@ const teamMembers = [
     facebookLink: "https://facebook.com",
     githubLink: "https://github.com",
     twitterLink: "https://x.com/",
-    imageurl: "http://devspace.ct.ws/images/APE.jpg",
+    imageurl: "APE",
   },
   {
     name: " Ojure Mayowa Abdul-Basit",
@@ -47,7 +47,7 @@ const teamMembers = [
     facebookLink: "https://facebook.com",
     githubLink: "https://github.com",
     twitterLink: "https://x.com/",
-    imageurl: "http://devspace.ct.ws/images/Mayowa.jpg",
+    imageurl: "Mayowa",
   },
   {
     name: " Areo Ayomide Philip",
@@ -57,7 +57,7 @@ const teamMembers = [
     facebookLink: "https://facebook.com",
     githubLink: "https://github.com",
     twitterLink: "https://x.com/",
-    imageurl: "http://devspace.ct.ws/images/Phillip.jpg",
+    imageurl: "Phillip",
   },
 ];
 
