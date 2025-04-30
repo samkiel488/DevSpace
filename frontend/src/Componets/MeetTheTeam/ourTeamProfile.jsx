@@ -9,9 +9,11 @@ export default function OurTeamProfiles() {
             OUR TEAM
           </h1>
           <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
-            Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-            gentrify, subway tile poke farm-to-table. Franzen you probably
-            haven't heard of them.
+            At the heart of our success is a dedicated team of professionals who
+            bring passion, creativity, and expertise to everything they do.
+            Together, we strive to create meaningful impact through
+            collaboration, innovation, and a shared commitment to excellence.
+            Get to know the individuals who make it all possible below.
           </p>
         </div>
         <div class="flex flex-wrap -m-4">
