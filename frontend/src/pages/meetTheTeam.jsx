@@ -10,10 +10,10 @@ export default function MeetTheTeam() {
     <div data-theme={darkMode ? "dark" : "light"}>
       <Header colorLightMode="black" colorDarkMode="black" />
       <Banner
-        heading="Meet The Team of D3V++"
-        subHeading="Check out our teams of Developers."
+        heading="Meet the Team: The People Behind the Mission"
+        subHeading="Passionate professionals working together to drive innovation and deliver results."
       />
-      <OurTeamProfiles/>
+      <OurTeamProfiles />
       <Footer />
       <Toggle darkMode={darkMode} setDarkMode={setDarkMode} />
     </div>
