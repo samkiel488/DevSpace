@@ -14,10 +14,17 @@ const Form = () => {
     if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
 
-  const handleSubmit = () => {
-    console.log("Form submitted");
-    alert("Form submitted successfully!");
-  };
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    // Accessing form data
+    const form = e.target;
+    console.log("Form submitted!");
+    console.log("Name:", form.name.value); // Accessing name value
+    console.log("Email:", form.email.value); // Accessing email value
+    console.log("Phone:", form.phone.value); // Accessing phone value
+    console.log("Message:", form.message.value); // Accessing message value
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white p-4 flex flex-col items-center pb-8">
@@ -99,12 +106,13 @@ const Form = () => {
           </div>
 
           {/* Multi-step Form */}
-          <div className="bg-gray-800 p-8 rounded-3xl shadow-xl w-full md:w-1/2">
+          <form className="bg-gray-800 p-8 rounded-3xl shadow-xl w-full md:w-1/2">
             {currentStep === 1 && (
               <>
                 <h2 className="text-2xl font-bold mb-6">What's your name?</h2>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Enter your name"
                   className="w-full p-4 bg-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
                   onChange={(e) => setName(e.target.value)}
@@ -118,6 +126,7 @@ const Form = () => {
                 <input
                   type="email"
                   placeholder="Enter your email"
+                  name="email"
                   className="w-full p-4 bg-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
                   onChange={(e) => setEmail(e.target.value)}
                   value={email}
@@ -132,6 +141,7 @@ const Form = () => {
                 <input
                   type="text"
                   maxLength="14"
+                  name="phone"
                   placeholder="Enter Phone Number"
                   className="w-full p-4 bg-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
                   onChange={(e) => setPhone(e.target.value)}
@@ -146,6 +156,7 @@ const Form = () => {
                   placeholder="Type your message here..."
                   className="w-full p-4 bg-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
                   rows="4"
+                  name="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                 />
@@ -178,26 +189,12 @@ const Form = () => {
                   </button>
                 )
               ) : (
-                <button
-                  onClick={handleSubmit}
-                  className="px-6 py-3 bg-green-600 hover:bg-green-500 rounded-xl transition duration-300 flex items-center gap-2 ml-auto"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                    />
-                  </svg>
-                  Submit
-                </button>
+                <input
+                  type="submit"
+                  value="Submit"
+                  onSubmit={handleSubmit}
+                  className="px-6 py-3 bg-green-600 hover:bg-green-500 rounded-xl transition duration-300 flex items-center gap-2 ml-auto cursor-pointer"
+                />
               )}
             </div>
 
@@ -211,7 +208,7 @@ const Form = () => {
                 />
               ))}
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
