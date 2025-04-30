@@ -6,7 +6,7 @@ const headerList = [
   { heading: "Projects", url: "./#" },
   { heading: "Meet the Team", url: "/meettheteam" },
   { heading: "Blog", url: "./#" },
-  { heading: "Contact Us", url: "./#" },
+  { heading: "Contact Us", url: "/contact" },
   { heading: "Join Us", url: "./#" },
 ];
 
@@ -126,7 +126,7 @@ export default function Header(props) {
                 Login
               </a>
               <a
-                href="./register"
+                href="/register"
                 className="block w-full text-center rounded-md bg-white/10 px-4 py-2 font-medium hover:bg-white/20"
               >
                 Register
