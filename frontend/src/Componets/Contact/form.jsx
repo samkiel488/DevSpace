@@ -25,7 +25,7 @@ const Form = () => {
         <h1 className="text-5xl font-bold text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text mb-4">
           Let's Connect
         </h1>
-        <p className="text-center text-gray-400 text-xl mb-12">
+        <p className="text-center text-white dark:text-white text-xl mb-12">
           Choose your preferred way to reach out
         </p>
 
