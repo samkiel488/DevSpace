@@ -14,7 +14,8 @@ const Form = () => {
     if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
 
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault();
     alert("Hello " + name + " your message has been sent successfully");
   }
 
@@ -98,7 +99,10 @@ const Form = () => {
           </div>
 
           {/* Multi-step Form */}
-          <form className="bg-gray-800 p-8 rounded-3xl shadow-xl w-full md:w-1/2">
+          <form
+            onSubmit={handleSubmit}
+            className="bg-gray-800 p-8 rounded-3xl shadow-xl w-full md:w-1/2"
+          >
             {currentStep === 1 && (
               <>
                 <h2 className="text-2xl font-bold mb-6">What's your name?</h2>
@@ -184,7 +188,6 @@ const Form = () => {
                 <input
                   type="submit"
                   value="Submit"
-                  onSubmit={handleSubmit}
                   className="px-6 py-3 bg-green-600 hover:bg-green-500 rounded-xl transition duration-300 flex items-center gap-2 ml-auto cursor-pointer"
                 />
               )}
