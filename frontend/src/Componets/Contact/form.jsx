@@ -91,7 +91,7 @@ const Form = () => {
                 </div>
                 <div>
                   <p className="text-gray-400">{label}</p>
-                  <p>{value}</p>
+                  <p className=" break-all">{value}</p>
                 </div>
               </div>
             ))}
@@ -131,7 +131,7 @@ const Form = () => {
                   Enter your phone number
                 </h2>
                 <input
-                  type="text"
+                  type="number"
                   maxLength="14"
                   name="phone"
                   placeholder="Enter Phone Number"
