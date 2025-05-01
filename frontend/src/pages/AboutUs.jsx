@@ -1,4 +1,5 @@
 import AboutUsHeading from "../Componets/AboutUs/aboutUsHeading";
+import Mission from "../Componets/AboutUs/mission";
 import Footer from "../Componets/footer";
 import Header from "../Componets/header";
 import Toggle from "../Componets/toggle";
@@ -29,6 +30,7 @@ export default function AboutUs() {
         </div>
       </div>
       <AboutUsHeading />
+      <Mission />
       <Footer />
       <Toggle darkMode={darkMode} setDarkMode={setDarkMode} />
     </div>
