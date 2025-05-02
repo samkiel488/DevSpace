@@ -1,13 +1,13 @@
 import Header from "../Componets/header";
 import AboutUsComponet from "../Componets/Home/aboutUs";
-import { useState } from "react";
 import Toggle from "../Componets/toggle";
 import WhatWeDo from "../Componets/Home/whatWeDo";
 import Footer from "../Componets/footer";
 import OurTeam from "../Componets/Home/ourTeam";
-
+import useLocalStorage from "use-local-storage";
 export default function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const prefences = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [darkMode, setDarkMode] = useLocalStorage("darkMode", prefences);
   return (
     <div data-theme={darkMode ? "dark" : "light"}>
       <div className="relative bg-[url('/images/hero-bg.jpg')] bg-cover bg-center bg-no-repeat">
