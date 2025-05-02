@@ -20,53 +20,53 @@ const Form = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white p-4 flex flex-col items-center pb-8">
+    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 dark:from-[#0f172a] dark:to-[#1e293b] text-gray-900 dark:text-white p-4 flex flex-col items-center pb-8">
       <div className="w-full max-w-6xl mt-8">
-        <h1 className="text-5xl font-bold text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text mb-4">
+        <h1 className="text-5xl font-bold text-center bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text mb-4">
           Let's Connect
         </h1>
-        <p className="text-center text-white dark:text-white text-xl mb-12">
+        <p className="text-center text-gray-700 dark:text-gray-300 text-xl mb-12">
           Choose your preferred way to reach out
         </p>
 
         <div className="flex flex-col md:flex-row gap-8 w-full">
           {/* Contact Info */}
-          <div className="bg-gray-800 p-8 rounded-3xl shadow-xl w-full md:w-1/2 space-y-8">
+          <div className="bg-gray-100 dark:bg-gray-800 p-8 rounded-3xl shadow-xl w-full md:w-1/2 space-y-8">
             <h2 className="text-2xl font-bold mb-2">Contact Information</h2>
             {[
               {
                 label: "Name:",
                 value: name ? name : "John Doe",
-                iconBg: "bg-red-900",
-                iconColor: "text-red-400",
+                iconBg: "bg-red-100 dark:bg-red-900",
+                iconColor: "text-red-500 dark:text-red-400",
                 iconPath:
                   "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z",
               },
               {
                 label: "Email:",
                 value: email ? email : "example@gmail.com",
-                iconBg: "bg-blue-900",
-                iconColor: "text-blue-400",
+                iconBg: "bg-blue-100 dark:bg-blue-900",
+                iconColor: "text-blue-500 dark:text-blue-400",
                 iconPath:
                   "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
               },
               {
                 label: "Phone:",
                 value: phone ? phone : "+1 234 567 890",
-                iconBg: "bg-green-900",
-                iconColor: "text-green-400",
+                iconBg: "bg-green-100 dark:bg-green-900",
+                iconColor: "text-green-500 dark:text-green-400",
                 iconPath:
                   "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z",
               },
               {
                 label: "Join Us:",
                 value: (
-                  <a href="#" className="text-blue-400 hover:underline">
+                  <a href="#" className="text-blue-500 dark:text-blue-400 hover:underline">
                     Join Our Whatsapp Group
                   </a>
                 ),
-                iconBg: "bg-purple-900",
-                iconColor: "text-purple-400",
+                iconBg: "bg-purple-100 dark:bg-purple-900",
+                iconColor: "text-purple-500 dark:text-purple-400",
                 iconPath:
                   "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z",
               },
@@ -91,7 +91,7 @@ const Form = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-gray-400">{label}</p>
+                  <p className="text-gray-500 dark:text-gray-400">{label}</p>
                   <p className=" break-all">{value}</p>
                 </div>
               </div>
@@ -101,7 +101,7 @@ const Form = () => {
           {/* Multi-step Form */}
           <form
             onSubmit={handleSubmit}
-            className="bg-gray-800 p-8 rounded-3xl shadow-xl w-full md:w-1/2"
+            className="bg-gray-100 dark:bg-gray-800 p-8 rounded-3xl shadow-xl w-full md:w-1/2"
           >
             {currentStep === 1 && (
               <>
@@ -110,7 +110,7 @@ const Form = () => {
                   type="text"
                   name="name"
                   placeholder="Enter your name"
-                  className="w-full p-4 bg-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                  className="w-full p-4 bg-gray-200 dark:bg-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
                   onChange={(e) => setName(e.target.value)}
                   value={name}
                 />
@@ -123,7 +123,7 @@ const Form = () => {
                   type="email"
                   placeholder="Enter your email"
                   name="email"
-                  className="w-full p-4 bg-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                  className="w-full p-4 bg-gray-200 dark:bg-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
                   onChange={(e) => setEmail(e.target.value)}
                   value={email}
                 />
@@ -139,7 +139,7 @@ const Form = () => {
                   maxLength="14"
                   name="phone"
                   placeholder="Enter Phone Number"
-                  className="w-full p-4 bg-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                  className="w-full p-4 bg-gray-200 dark:bg-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
                   onChange={(e) => setPhone(e.target.value)}
                   value={phone}
                 />
@@ -150,13 +150,13 @@ const Form = () => {
                 <h2 className="text-2xl font-bold mb-6">Your message</h2>
                 <textarea
                   placeholder="Type your message here..."
-                  className="w-full p-4 bg-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                  className="w-full p-4 bg-gray-200 dark:bg-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
                   rows="4"
                   name="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                 />
-                <p className="mt-2 text-sm text-gray-500">
+                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                   Characters: {message.length}/1000
                 </p>
               </>
@@ -167,7 +167,7 @@ const Form = () => {
               {currentStep > 1 && (
                 <button
                   onClick={handleBack}
-                  className="px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-xl transition duration-300"
+                  className="px-6 py-3 bg-gray-300 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-xl transition duration-300"
                 >
                   Back
                 </button>
@@ -179,7 +179,7 @@ const Form = () => {
                   (currentStep === 3 && phone)) && (
                   <button
                     onClick={handleNext}
-                    className="px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-xl transition duration-300 ml-auto"
+                    className="px-6 py-3 bg-blue-500 hover:bg-blue-400 rounded-xl transition duration-300 ml-auto text-white"
                   >
                     Next
                   </button>
@@ -188,7 +188,7 @@ const Form = () => {
                 <input
                   type="submit"
                   value="Submit"
-                  className="px-6 py-3 bg-green-600 hover:bg-green-500 rounded-xl transition duration-300 flex items-center gap-2 ml-auto cursor-pointer"
+                  className="px-6 py-3 bg-green-500 hover:bg-green-400 rounded-xl transition duration-300 flex items-center gap-2 ml-auto cursor-pointer text-white"
                 />
               )}
             </div>
@@ -198,7 +198,9 @@ const Form = () => {
                 <div
                   key={step}
                   className={`h-2 ${
-                    currentStep === step ? "w-8 bg-blue-500" : "w-2 bg-gray-600"
+                    currentStep === step
+                      ? "w-8 bg-blue-500"
+                      : "w-2 bg-gray-400 dark:bg-gray-600"
                   } rounded-full transition-all`}
                 />
               ))}
