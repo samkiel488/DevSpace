@@ -61,7 +61,10 @@ const Form = () => {
               {
                 label: "Join Us:",
                 value: (
-                  <a href="#" className="text-blue-500 dark:text-blue-400 hover:underline">
+                  <a
+                    href="#"
+                    className="text-blue-500 dark:text-blue-400 hover:underline"
+                  >
                     Join Our Whatsapp Group
                   </a>
                 ),
