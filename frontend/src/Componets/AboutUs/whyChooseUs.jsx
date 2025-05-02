@@ -34,7 +34,7 @@ export default function WhyChooseUs() {
             return (
               <div class="relative">
                 <div class="absolute -inset-1"></div>
-                <div class="relative overflow-hidden bg-white shadow-md rounded-xl h-full">
+                <div class="relative overflow-hidden bg-gray-100 shadow-md rounded-xl h-full">
                   <div class="p-9">
                     <svg
                       class="w-12 h-12 mx-auto text-gray-400 sm:mx-0"
@@ -78,7 +78,7 @@ export default function WhyChooseUs() {
                     <h3 class="mt-6 text-2xl font-bold text-gray-900 sm:mt-10">
                       {item.heading}
                     </h3>
-                    <p class="mt-6 text-base text-gray-600">
+                    <p class="mt-6 text-base text-black">
                       {item.description}
                     </p>
                   </div>
