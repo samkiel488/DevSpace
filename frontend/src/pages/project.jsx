@@ -1,15 +1,17 @@
 import Footer from "../Componets/footer";
 import Header from "../Componets/header";
 import Toggle from "../Componets/toggle";
-
+import useLocalStorage from "use-local-storage";
 export default function Project() {
+  const prefences = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [darkMode, setDarkMode] = useLocalStorage("darkMode", prefences);
   return (
-    <div>
+    <div data-theme={darkMode ? "dark" : "light"}>
       <Header colorLightMode="black" colorDarkMode="black" />
       <section class="px-4 py-12 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-7xl">
           <div class="mb-12 text-center">
-            <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            <h2 class="text-3xl font-extrabold text-black sm:text-4xl">
               Our Projects
             </h2>
             <p class="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">
@@ -156,7 +158,7 @@ export default function Project() {
         </div>
       </section>
       <Footer />
-      <Toggle />
+      <Toggle darkMode={darkMode} setDarkMode={setDarkMode} />
     </div>
   );
 }
