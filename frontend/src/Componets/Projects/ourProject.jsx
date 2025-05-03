@@ -68,6 +68,75 @@ const designedProjects = [
     username: "Jonathan Reinink",
     date: "Aug 18",
   },
+  {
+    heading: "Website Redesign",
+    description:
+      "Complete redesign of corporate website with improved UX and modern aesthetics.",
+    category: ["Web Design", "UX"],
+    link: [
+      {
+        heading: "View Code",
+        link: "#",
+        color: "blue-600",
+        colorHover: "blue-700",
+      },
+      {
+        heading: "Preview Project",
+        link: "#",
+        color: "green-600",
+        colorHover: "green-700",
+      },
+    ],
+    imageUrl: "https://picsum.photos/536/354",
+    username: "Jonathan Reinink",
+    date: "Aug 18",
+  },
+  {
+    heading: "Mobile Application",
+    description:
+      "Cross-platform mobile app for health tracking with real-time analytics.",
+    category: ["React Native", "Health Tech"],
+    link: [
+      {
+        heading: "View Code",
+        link: "#",
+        color: "blue-600",
+        colorHover: "blue-700",
+      },
+      {
+        heading: "Preview Project",
+        link: "#",
+        color: "green-600",
+        colorHover: "green-700",
+      },
+    ],
+    imageUrl: "https://picsum.photos/536/354",
+    username: "Jonathan Reinink",
+    date: "Aug 18",
+  },
+  {
+    heading: "E-commerce Platform",
+    description:
+      "Custom e-commerce solution with integrated payment processing and inventory management.",
+    category: ["E-commerce", "Payment Gateway"],
+    link: [
+      {
+        heading: "View Code",
+        link: "#",
+        color: "blue-600",
+        colorHover: "blue-700",
+      },
+      {
+        heading: "Preview Project",
+        link: "#",
+        color: "green-600",
+        colorHover: "green-700",
+      },
+    ],
+    imageUrl: "https://picsum.photos/536/354",
+    username: "Jonathan Reinink",
+    date: "Aug 18",
+  },
 ];
 
 export default function OurProject() {
