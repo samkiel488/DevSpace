@@ -7,8 +7,18 @@ const designedProjects = [
       "Complete redesign of corporate website with improved UX and modern aesthetics.",
     category: ["Web Design", "UX"],
     link: [
-      { heading: "View Code", link: "#", color: "blue-600" },
-      { heading: "Preview Project", link: "#", color: "green-600" },
+      {
+        heading: "View Code",
+        link: "#",
+        color: "blue-600",
+        colorHover: "blue-700",
+      },
+      {
+        heading: "Preview Project",
+        link: "#",
+        color: "green-600",
+        colorHover: "green-700",
+      },
     ],
     imageUrl: "https://picsum.photos/536/354",
     name: "Jonathan Reinink",
@@ -20,8 +30,18 @@ const designedProjects = [
       "Cross-platform mobile app for health tracking with real-time analytics.",
     category: ["React Native", "Health Tech"],
     link: [
-      { heading: "View Code", link: "#", color: "blue-600" },
-      { heading: "Preview Project", link: "#", color: "green-600" },
+      {
+        heading: "View Code",
+        link: "#",
+        color: "blue-600",
+        colorHover: "blue-700",
+      },
+      {
+        heading: "Preview Project",
+        link: "#",
+        color: "green-600",
+        colorHover: "green-700",
+      },
     ],
     imageUrl: "https://picsum.photos/536/354",
     name: "Jonathan Reinink",
@@ -33,8 +53,18 @@ const designedProjects = [
       "Custom e-commerce solution with integrated payment processing and inventory management.",
     category: ["E-commerce", "Payment Gateway"],
     link: [
-      { heading: "View Code", link: "#", color: "blue-600" },
-      { heading: "Preview Project", link: "#", color: "green-600" },
+      {
+        heading: "View Code",
+        link: "#",
+        color: "blue-600",
+        colorHover: "blue-700",
+      },
+      {
+        heading: "Preview Project",
+        link: "#",
+        color: "green-600",
+        colorHover: "green-700",
+      },
     ],
     imageUrl: "https://picsum.photos/536/354",
     name: "Jonathan Reinink",
@@ -82,18 +112,23 @@ export default function OurProject() {
                     })}
                   </div>
                   <div class="mt-6 flex gap-4">
-                    <a
-                      href="#"
-                      class="inline-block px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg"
-                    >
-                      View Code
-                    </a>
-                    <a
+                    {projects.link.map((link) => {
+                      return (
+                        <a
+                          href={link.link}
+                          class={`inline-block px-5 py-2 text-sm font-medium text-white bg-${link.color} rounded-full shadow-md hover:bg-${link.colorHover} hover:shadow-lg`}
+                        >
+                          {link.heading}
+                        </a>
+                      );
+                    })}
+
+                    {/* <a
                       href="#"
                       class="inline-block px-5 py-2 text-sm font-medium text-white bg-green-600 rounded-full shadow-md hover:bg-green-700 hover:shadow-lg"
                     >
                       Preview Project
-                    </a>
+                    </a> */}
                   </div>
                 </div>
                 <div class="p-4 flex items-center border-t border-gray-200">
