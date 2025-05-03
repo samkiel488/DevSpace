@@ -138,52 +138,50 @@ export default function OurProject() {
           </div> */}
           {designedProjects.map((projects) => {
             return (
-              <div class="overflow-hidden rounded-lg bg-white shadow-md transition-transform duration-300 hover:scale-105">
-                <div class="h-48 overflow-hidden bg-purple-500">
+              <div class="overflow-hidden rounded-lg bg-white shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                <div class="relative h-48 overflow-hidden">
                   <img
                     src={projects.imageUrl}
-                    alt="Project 3"
+                    alt={projects.heading}
                     class="h-full w-full object-cover"
                   />
-                </div>
-                <div class="p-5">
-                  <h3 class="text-xl font-semibold text-gray-900">
-                    {projects.heading}
-                  </h3>
-                  <p class="mt-2 text-gray-600">{projects.description}</p>
-                  <div class="mt-4 flex flex-wrap gap-2">
-                    <span class="rounded-full bg-red-100 px-3 py-1 text-xs font-medium text-red-800">
-                      E-commerce
-                    </span>
-                    <span class="rounded-full bg-indigo-100 px-3 py-1 text-xs font-medium text-indigo-800">
-                      Payment Gateway
-                    </span>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+                  <div class="absolute bottom-2 left-2 text-white">
+                    <h3 class="text-lg font-bold">{projects.heading}</h3>
                   </div>
-                  <a
-                    href="#"
-                    class="mt-4 inline-flex items-center text-blue-600 hover:text-blue-800"
-                  >
-                    View case study
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="ml-1 h-5 w-5"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  </a>
                 </div>
-                <div class="p-3 flex items-center">
+                <div class="p-6">
+                  <p class="text-gray-700">{projects.description}</p>
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    {projects.category.map((category) => {
+                      return (
+                        <span class="rounded-full bg-indigo-100 px-3 py-1 text-xs font-medium text-indigo-800">
+                          {category}
+                        </span>
+                      );
+                    })}
+                  </div>
+                  <div class="mt-6 flex gap-4">
+                    <a
+                      href="#"
+                      class="inline-block px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg"
+                    >
+                      View Code
+                    </a>
+                    <a
+                      href="#"
+                      class="inline-block px-5 py-2 text-sm font-medium text-white bg-green-600 rounded-full shadow-md hover:bg-green-700 hover:shadow-lg"
+                    >
+                      Preview Project
+                    </a>
+                  </div>
+                </div>
+                <div class="p-4 flex items-center border-t border-gray-200">
                   <a href="#">
                     <img
-                      class="w-10 h-10 rounded-full mr-4"
+                      class="w-12 h-12 rounded-full mr-4 border-2 border-gray-300"
                       src="https://picsum.photos/200/300"
-                      alt="Avatar of Jonathan Reinink"
+                      alt={`Avatar of ${projects.name}`}
                     />
                   </a>
                   <div class="text-sm">
@@ -191,9 +189,9 @@ export default function OurProject() {
                       href="#"
                       class="text-gray-900 font-semibold leading-none hover:text-indigo-600"
                     >
-                      Jonathan Reinink
+                      {projects.name}
                     </a>
-                    <p class="text-gray-600">Aug 18</p>
+                    <p class="text-gray-500">{projects.date}</p>
                   </div>
                 </div>
               </div>
