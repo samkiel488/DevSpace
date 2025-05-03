@@ -122,13 +122,6 @@ export default function OurProject() {
                         </a>
                       );
                     })}
-
-                    {/* <a
-                      href="#"
-                      class="inline-block px-5 py-2 text-sm font-medium text-white bg-green-600 rounded-full shadow-md hover:bg-green-700 hover:shadow-lg"
-                    >
-                      Preview Project
-                    </a> */}
                   </div>
                 </div>
                 <div class="p-4 flex items-center border-t border-gray-200">
