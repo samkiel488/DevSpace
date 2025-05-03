@@ -4,10 +4,11 @@ import WhyChooseUs from "../Componets/AboutUs/whyChooseUs";
 import Footer from "../Componets/footer";
 import Header from "../Componets/header";
 import Toggle from "../Componets/toggle";
-import { useState } from "react";
+import useLocalStorage from "use-local-storage";
 
 export default function AboutUs() {
-  const [darkMode, setDarkMode] = useState(false);
+  const prefences = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [darkMode, setDarkMode] = useLocalStorage("darkMode", prefences);
   return (
     <div data-theme={darkMode ? "dark" : "light"}>
       <Header colorLightMode="black" colorDarkMode="black" />
