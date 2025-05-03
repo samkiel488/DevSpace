@@ -3,7 +3,7 @@ import { useState } from "react";
 const headerList = [
   { heading: "Home", url: "/" },
   { heading: "About Us", url: "/aboutus" },
-  { heading: "Projects", url: "./#" },
+  { heading: "Projects", url: "/projects" },
   { heading: "Meet the Team", url: "/meettheteam" },
   { heading: "Blog", url: "./#" },
   { heading: "Contact Us", url: "/contact" },
