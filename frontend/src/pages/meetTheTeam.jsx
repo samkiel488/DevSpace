@@ -1,4 +1,3 @@
-import Banner from "../Componets/banner";
 import Footer from "../Componets/footer";
 import Header from "../Componets/header";
 import OurTeamProfiles from "../Componets/MeetTheTeam/ourTeamProfile";
