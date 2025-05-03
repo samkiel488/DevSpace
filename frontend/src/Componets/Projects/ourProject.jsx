@@ -58,7 +58,7 @@ export default function OurProject() {
         <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {designedProjects.map((projects) => {
             return (
-              <div class="overflow-hidden rounded-lg bg-white shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+              <div class="overflow-hidden rounded-lg bg-white shadow-lg">
                 <div class="relative h-48 overflow-hidden">
                   <img
                     src={projects.imageUrl}
