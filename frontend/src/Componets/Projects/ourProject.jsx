@@ -189,7 +189,11 @@ export default function OurProject() {
                     <a
                       key={idx}
                       href={link.link}
-                      className={`inline-block px-5 py-2 text-sm font-medium text-white bg-${link.color} dark:bg-${link.color} rounded-full shadow-md hover:bg-${link.colorHover} dark:hover:bg-${link.colorHover} hover:shadow-lg transition-all duration-300 transform hover:scale-105`}
+                      className={`inline-block px-5 py-2 text-sm font-medium  ${
+                        link.heading === "Preview Project"
+                          ? "bg-black text-white hover:bg-black"
+                          : `bg-${link.color} dark:bg-${link.color} hover:bg-${link.colorHover} dark:hover:bg-${link.colorHover}`
+                      } rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105`}
                     >
                       {link.heading}
                     </a>
