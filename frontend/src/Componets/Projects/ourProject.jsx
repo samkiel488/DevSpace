@@ -135,11 +135,11 @@ export default function OurProject() {
                   <div class="text-sm">
                     <a
                       href="#"
-                      class="text-gray-900 font-semibold leading-none hover:text-indigo-600"
+                      class="text-black font-bold leading-none hover:text-indigo-600"
                     >
                       {projects.name}
                     </a>
-                    <p class="text-gray-500">{projects.date}</p>
+                    <p class="text-black">{projects.date}</p>
                   </div>
                 </div>
               </div>
