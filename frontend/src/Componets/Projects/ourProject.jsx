@@ -21,7 +21,7 @@ const designedProjects = [
             },
         ],
         imageUrl: "https://picsum.photos/536/354",
-        name: "Jonathan Reinink",
+        username: "Jonathan Reinink",
         date: "Aug 18",
     },
     {
@@ -44,7 +44,7 @@ const designedProjects = [
             },
         ],
         imageUrl: "https://picsum.photos/536/354",
-        name: "Jonathan Reinink",
+        username: "Jonathan Reinink",
         date: "Aug 18",
     },
     {
@@ -67,7 +67,7 @@ const designedProjects = [
             },
         ],
         imageUrl: "https://picsum.photos/536/354",
-        name: "Jonathan Reinink",
+        username: "Jonathan Reinink",
         date: "Aug 18",
     },
 ];
@@ -139,7 +139,7 @@ export default function OurProject() {
                                         href="#"
                                         className="text-gray-900 dark:text-white font-bold leading-none hover:text-indigo-600 dark:hover:text-indigo-400"
                                     >
-                                        {project.name}
+                                        {project.username}
                                     </a>
                                     <p className="text-gray-600 dark:text-gray-400">{project.date}</p>
                                 </div>
