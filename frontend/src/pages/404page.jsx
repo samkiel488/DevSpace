@@ -7,7 +7,7 @@ return (
         <Header colorLightMode="black" colorDarkMode="white" />
         <div className="text-center animate-fadeIn h-screen flex flex-col justify-center items-center bg-gray-900 text-white">
             <img
-                src="https://yemca-services.net/404.png"
+                src="/images/404page.png"
                 alt="404 Illustration"
                 className="mx-auto w-80 animate-[float_3s_infinite] shadow-xl rounded-lg"
             />
