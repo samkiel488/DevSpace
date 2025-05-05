@@ -44,17 +44,21 @@ export default function DashboardHeader({
               isDarkMode ? "bg-gray-800 text-white" : "bg-white text-gray-800"
             }`}
           >
-            {["Profile", "Settings", "Sign Out"].map((item, i) => (
+            {[
+              { heading: "Profile", url: "/ayomide/profile" },
+              { heading: "Settings" },
+              { heading: "Sign Out" },
+            ].map((item, i) => (
               <a
                 key={i}
-                href="#"
+                href={item.url ? item.url : "#"}
                 className={`block px-4 py-2 text-sm ${
                   isDarkMode
                     ? "hover:bg-gray-700"
                     : "hover:bg-gray-100 transition"
                 }`}
               >
-                {item}
+                {item.heading ? item.heading : item}
               </a>
             ))}
           </div>
