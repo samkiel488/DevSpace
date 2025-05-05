@@ -1,4 +1,9 @@
-export default function DashboardHeader({isDarkMode, toggleDropdown, isDropdownOpen, toggleSidebar}) {
+export default function DashboardHeader({
+  isDarkMode,
+  toggleDropdown,
+  isDropdownOpen,
+  toggleSidebar,
+}) {
   return (
     <header
       className={`flex items-center justify-between h-16 px-4 shadow-md ${
