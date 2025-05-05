@@ -1,4 +1,8 @@
-export default function SideBar({ isSidebarVisible, isDarkMode, toggleSidebar }) {
+export default function SideBar({
+  isSidebarVisible,
+  isDarkMode,
+  toggleSidebar,
+}) {
   return (
     <div
       className={`
@@ -48,12 +52,12 @@ export default function SideBar({ isSidebarVisible, isDarkMode, toggleSidebar })
           {
             label: "Home",
             icon: "M3 9.75L12 4l9 5.75V20a1 1 0 01-1 1h-5.25a.75.75 0 01-.75-.75V15a1 1 0 00-1-1h-2a1 1 0 00-1 1v5.25a.75.75 0 01-.75.75H4a1 1 0 01-1-1V9.75z",
-            route: "/dashboard",
+            route: "/username/home",
           },
           {
             label: "Messages",
-            icon: "M6 18L18 6M6 6l12 12",
-            route: "/messages",
+            icon: "M7 8h10M7 12h6M21 12c0 4.418-4.03 8-9 8a9.77 9.77 0 01-4.39-1.02L3 20l1.3-3.9A7.972 7.972 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z",
+            route: "/username/messages",
           },
         ].map((item, index) => (
           <a
