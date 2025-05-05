@@ -12,15 +12,19 @@ export default function SideBar({
         ${isDarkMode ? "bg-gray-800 text-white" : "bg-gray-200 text-gray-900"}
       `}
     >
-      {/* Header with My Dashboard */}
       <div
         className={`flex items-center justify-between h-16 px-4 font-bold text-lg ${
           isDarkMode ? "bg-gray-700" : "bg-gray-300"
         }`}
       >
-        <span className="text-xl">My Dashboard</span>
-
-        {/* Close button for mobile */}
+        {/* Website Logo */}
+        <div className="flex items-center justify-center w-full">
+          <img
+            src="/images/logo.png"
+            alt="Website Logo"
+            className="h-15 w-15 rounded-full"
+          />
+        </div>
         <button
           className={`md:hidden flex items-center justify-center w-8 h-8 rounded-full ${
             isDarkMode
