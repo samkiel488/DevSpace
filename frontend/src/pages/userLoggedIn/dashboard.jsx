@@ -2,10 +2,11 @@ import { useState } from "react";
 import Toggle from "../../Componets/toggle";
 import useLocalStorage from "use-local-storage";
 import SideBar from "../../Componets/Dashboard/sideBar";
+
 export default function Dashboard() {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
-  const prefences = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const [isDarkMode, setIsDarkMode] = useLocalStorage("darkMode", prefences);
+  const preferences = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [isDarkMode, setIsDarkMode] = useLocalStorage("darkMode", preferences);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -23,7 +24,7 @@ export default function Dashboard() {
       }`}
     >
       {/* Sidebar */}
-      <SideBar isSidebarVisible={isSidebarVisible} isDarkMode={isDarkMode} />
+      <SideBar isSidebarVisible={isSidebarVisible} isDarkMode={isDarkMode} toggleSidebar={toggleSidebar} />
 
       {/* Main Content */}
       <div className="flex flex-col flex-1">
@@ -64,9 +65,7 @@ export default function Dashboard() {
             {isDropdownOpen && (
               <div
                 className={`absolute right-0 mt-2 w-48 rounded-md shadow-lg py-2 z-50 ${
-                  isDarkMode
-                    ? "bg-gray-800 text-white"
-                    : "bg-white text-gray-800"
+                  isDarkMode ? "bg-gray-800 text-white" : "bg-white text-gray-800"
                 }`}
               >
                 {["Profile", "Settings", "Sign Out"].map((item, i) => (
@@ -74,9 +73,7 @@ export default function Dashboard() {
                     key={i}
                     href="#"
                     className={`block px-4 py-2 text-sm ${
-                      isDarkMode
-                        ? "hover:bg-gray-700"
-                        : "hover:bg-gray-100 transition"
+                      isDarkMode ? "hover:bg-gray-700" : "hover:bg-gray-100 transition"
                     }`}
                   >
                     {item}
