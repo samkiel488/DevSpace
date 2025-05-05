@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Toggle from "../../Componets/toggle";
 import useLocalStorage from "use-local-storage";
+import SideBar from "../../Componets/Dashboard/sideBar";
 export default function Dashboard() {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const prefences = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -22,7 +23,7 @@ export default function Dashboard() {
       }`}
     >
       {/* Sidebar */}
-      <div
+      {/* <div
         className={`${
           isSidebarVisible ? "translate-x-0" : "-translate-x-full"
         } fixed md:static md:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col h-full w-64 ${
@@ -67,7 +68,8 @@ export default function Dashboard() {
             </a>
           ))}
         </nav>
-      </div>
+      </div> */}
+      <SideBar isSidebarVisible={isSidebarVisible} isDarkMode={isDarkMode} />
 
       {/* Main Content */}
       <div className="flex flex-col flex-1">
