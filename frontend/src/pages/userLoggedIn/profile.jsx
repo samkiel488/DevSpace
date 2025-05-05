@@ -3,8 +3,7 @@ import Toggle from "../../Componets/toggle";
 import useLocalStorage from "use-local-storage";
 import SideBar from "../../Componets/Dashboard/sideBar";
 import DashboardHeader from "../../Componets/Dashboard/dashboardHeader";
-import DashboardProfileBody from "../../Componets/Dashboard/dashboardProfileBody";
-
+import DashboardProfileBody from "../../Componets/Dashboard/Profile/profileBody";
 export default function DashboardProfile() {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const preferences = window.matchMedia("(prefers-color-scheme: dark)").matches;
