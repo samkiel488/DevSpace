@@ -20,7 +20,7 @@ export default function AppRouter() {
       <Route path="/contact" element={<Contact />} />
       <Route path="/projects" element={<Project />} />
       <Route path="*" element={<Page404 />} />
-      <Route path="/username/home" element={<Home />} />
+      <Route path="/:username/home" element={<Home />} />
     </Routes>
   );
 }
