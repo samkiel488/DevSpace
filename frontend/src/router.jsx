@@ -21,6 +21,7 @@ export default function AppRouter() {
       <Route path="/projects" element={<Project />} />
       <Route path="*" element={<Page404 />} />
       <Route path="/:username/home" element={<Home />} />
+      <Route path="/:username/profile" element={<Home />} />
     </Routes>
   );
 }
