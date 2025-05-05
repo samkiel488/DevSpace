@@ -9,6 +9,7 @@ import Contact from "./pages/contact";
 import Project from "./pages/project";
 import Page404 from "./pages/404page";
 import Home from "./pages/userLoggedIn/home";
+import DashboardProfile from "./pages/userLoggedIn/profile";
 export default function AppRouter() {
   return (
     <Routes>
@@ -21,7 +22,7 @@ export default function AppRouter() {
       <Route path="/projects" element={<Project />} />
       <Route path="*" element={<Page404 />} />
       <Route path="/:username/home" element={<Home />} />
-      <Route path="/:username/profile" element={<Home />} />
+      <Route path="/:username/profile" element={<DashboardProfile />} />
     </Routes>
   );
 }
