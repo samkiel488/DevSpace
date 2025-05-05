@@ -22,7 +22,7 @@ export default function SideBar({
           <img
             src="/images/logo.png"
             alt="Website Logo"
-            className="h-15 w-15 rounded-full"
+            className="h-12 w-12 rounded-full"
           />
         </div>
         <button
