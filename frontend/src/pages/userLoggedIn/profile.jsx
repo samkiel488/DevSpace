@@ -3,7 +3,7 @@ import Toggle from "../../Componets/toggle";
 import useLocalStorage from "use-local-storage";
 import SideBar from "../../Componets/Dashboard/sideBar";
 import DashboardHeader from "../../Componets/Dashboard/dashboardHeader";
-import DashboardHomeBody from "../../Componets/Dashboard/Home/body";
+import DashboardProfileBody from "../../Componets/Dashboard/dashboardProfileBody";
 
 export default function DashboardProfile() {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
@@ -43,7 +43,7 @@ export default function DashboardProfile() {
         />
 
         {/* Main */}
-        <DashboardHomeBody isDarkMode={isDarkMode} />
+        <DashboardProfileBody isDarkMode={isDarkMode} />
       </div>
 
       {/* Toggle Component */}
