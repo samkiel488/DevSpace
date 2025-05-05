@@ -42,7 +42,7 @@ return (
             </div>
             <div className="md:w-2/3 md:pl-8">
                 <h2
-                    className={`text-2xl font-semibold mb-4 ${
+                    className={`text-3xl font-semibold mb-4 ${
                         isDarkMode ? "text-white" : "text-indigo-800"
                     }`}
                 >
