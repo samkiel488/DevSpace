@@ -8,6 +8,7 @@ import MeetTheTeam from "./pages/meetTheTeam";
 import Contact from "./pages/contact";
 import Project from "./pages/project";
 import Page404 from "./pages/404page";
+import Dashboard from "./pages/userLoggedIn/dashboard";
 export default function AppRouter() {
   return (
     <Routes>
@@ -19,6 +20,7 @@ export default function AppRouter() {
       <Route path="/contact" element={<Contact />} />
       <Route path="/projects" element={<Project />} />
       <Route path="*" element={<Page404 />} />
+      <Route path="/dashboard" element={<Dashboard />} />
     </Routes>
   );
 }
