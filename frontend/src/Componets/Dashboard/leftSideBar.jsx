@@ -51,7 +51,7 @@ export default function LeftSideBar() {
                 d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"
               />
             </svg>
-            <span className="truncate">Popular</span>
+            <span className="truncate">Message</span>
           </a>
           <a
             href="#"
@@ -105,67 +105,6 @@ export default function LeftSideBar() {
             </svg>
             <span className="truncate">Trending</span>
           </a>
-        </div>
-        <div className="pt-10">
-          <p
-            className="px-3 text-sm font-medium text-gray-500"
-            id="communities-headline"
-          >
-            Communities
-          </p>
-          <div
-            className="mt-3 space-y-2"
-            aria-labelledby="communities-headline"
-          >
-            <a
-              href="#"
-              className="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-            >
-              <span className="truncate">Movies</span>
-            </a>
-            <a
-              href="#"
-              className="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-            >
-              <span className="truncate">Food</span>
-            </a>
-            <a
-              href="#"
-              className="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-            >
-              <span className="truncate">Sports</span>
-            </a>
-            <a
-              href="#"
-              className="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-            >
-              <span className="truncate">Animals</span>
-            </a>
-            <a
-              href="#"
-              className="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-            >
-              <span className="truncate">Science</span>
-            </a>
-            <a
-              href="#"
-              className="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-            >
-              <span className="truncate">Dinosaurs</span>
-            </a>
-            <a
-              href="#"
-              className="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-            >
-              <span className="truncate">Talents</span>
-            </a>
-            <a
-              href="#"
-              className="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-            >
-              <span className="truncate">Gaming</span>
-            </a>
-          </div>
         </div>
       </nav>
     </div>
