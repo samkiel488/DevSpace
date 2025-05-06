@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import DashboardHeader from "../../Componets/Dashboard/header";
 import LeftSideBar from "../../Componets/Dashboard/leftSideBar";
 
-
 const Home = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -35,7 +34,6 @@ const Home = () => {
                     className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-base font-medium text-gray-900 shadow-sm focus:border-rose-500 focus:outline-none focus:ring-1 focus:ring-rose-500"
                   >
                     <option>Recent</option>
-                  
                   </select>
                 </div>
                 <div className="hidden sm:block">
@@ -54,7 +52,6 @@ const Home = () => {
                         className="bg-rose-500 absolute inset-x-0 bottom-0 h-0.5"
                       ></span>
                     </a>
-                  
                   </nav>
                 </div>
               </div>
@@ -379,7 +376,6 @@ const Home = () => {
                       </div>
                     </article>
                   </li>
-                  {/* Additional question items would follow the same structure */}
                 </ul>
               </div>
             </main>
