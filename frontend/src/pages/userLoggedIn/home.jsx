@@ -14,9 +14,9 @@ const Home = () => {
                 <div className="flex flex-shrink-0 items-center">
                   <a href="#">
                     <img
-                      className="block h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=rose&shade=500"
-                      alt="Your Company"
+                      className="block h-15 w-auto rounded-full"
+                      src="/images/logo.png"
+                      alt="logo"
                     />
                   </a>
                 </div>
