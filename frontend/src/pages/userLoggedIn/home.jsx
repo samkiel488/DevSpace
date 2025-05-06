@@ -98,12 +98,7 @@ const Home = () => {
                 </button>
               </div>
               <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-4">
-                <a
-                  href="#"
-                  className="text-sm font-medium text-gray-900 hover:underline"
-                >
-                  Go Premium
-                </a>
+          
                 <a
                   href="#"
                   className="ml-5 flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
@@ -287,12 +282,7 @@ const Home = () => {
                 New Post
               </a>
               <div className="mt-6 flex justify-center">
-                <a
-                  href="#"
-                  className="text-base font-medium text-gray-900 hover:underline"
-                >
-                  Go Premium
-                </a>
+            
               </div>
             </div>
           </nav>
