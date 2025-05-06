@@ -281,9 +281,6 @@ const Home = () => {
               >
                 New Post
               </a>
-              <div className="mt-6 flex justify-center">
-            
-              </div>
             </div>
           </nav>
         </header>
