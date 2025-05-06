@@ -24,7 +24,7 @@ const Home = () => {
             <LeftSideBar />
 
             {/* Main content */}
-            <main className="lg:col-span-9 xl:col-span-6">
+            <main className="lg:col-span-6 xl:col-span-10">
               <div className="px-4 sm:px-0">
                 <div className="sm:hidden">
                   <label htmlFor="question-tabs" className="sr-only">
@@ -245,9 +245,6 @@ const Home = () => {
                 </ul>
               </div>
             </main>
-
-            {/* Right sidebar (visible on xl screens) */}
-            <RightSideBar />
           </div>
         </div>
       </div>
