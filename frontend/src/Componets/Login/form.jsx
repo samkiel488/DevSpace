@@ -1,24 +1,27 @@
 import { useState } from "react";
-import emailAddress from "../defaultUser";
-
+import axios from "axios";
 export default function Form() {
   var [showPassword, setShowPassword] = useState(false);
   var [inputedEmailAddress, setInputedEmailAddress] = useState("");
   var [name, setName] = useState("");
 
-  function getName() {
-    const foundUser = emailAddress.find(
-      (email) =>
-        email.gmailAddress.toLocaleLowerCase() ===
-        inputedEmailAddress.toLocaleLowerCase()
-    );
+  const getName = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/auth/${inputedEmailAddress}`
+      );
+      if (response.data.foundUser) {
+        setName(response.data.foundUser);
+      } else {
+        setName("");
+      }
 
-    if (foundUser) {
-      setName(foundUser);
-    } else {
+      console.log(response.data.foundUser);
+    } catch (error) {
+      console.error("Error fetching user data:", error);
       setName("");
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-white flex flex-col justify-center py-12 pl-10 pr-10 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')] bg-cover bg-center bg-no-repeat">
