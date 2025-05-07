@@ -10,7 +10,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-const userName = ["ayomide", "dries", "vincent", "james", "micheal", "joshua"];
+const userName = ["ayomide", "sam", "vincent", "james", "micheal", "joshua"];
 const post = [
   {
     name: "Dries Vincent",
