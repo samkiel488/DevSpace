@@ -1,30 +1,113 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 export default function Form() {
   var [showPassword, setShowPassword] = useState(false);
   var [inputedEmailAddress, setInputedEmailAddress] = useState("");
   var [name, setName] = useState("");
   var [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const [alertMessage, setAlertMessage] = useState("");
+
   const getName = async () => {
+    if (!inputedEmailAddress || !/\S+@\S+\.\S+/.test(inputedEmailAddress)) {
+      setAlertMessage("Please enter a valid Gmail address.");
+      return;
+    }
+
     try {
       const response = await axios.get(
         `http://localhost:8080/auth/${inputedEmailAddress}`
       );
       if (response.data.foundUser) {
         setName(response.data.foundUser);
+        setAlertMessage(""); // Clear any previous alert message
       } else {
         setName("");
+        setAlertMessage("No user found with this email address.");
       }
-
-      console.log(response.data.foundUser);
     } catch (error) {
       console.error("Error fetching user data:", error);
       setName("");
+      setAlertMessage("No user found with this email address.");
     }
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (password === name.password) {
+      setAlertMessage("Authentication Successful! Redirecting...");
+      setTimeout(() => {
+        navigate(`/${name.userName}/home`);
+      }, 3000);
+    } else {
+      setAlertMessage("Incorrect password. Please try again.");
+    }
+  }
+
+  const handleEmailChange = (e) => {
+    const email = e.target.value;
+    setInputedEmailAddress(email);
+  };
+
+  const handleEmailBlur = () => {
+    if (!inputedEmailAddress || !/\S+@\S+\.\S+/.test(inputedEmailAddress)) {
+      setAlertMessage("Please enter a valid Gmail address.");
+    } else {
+      setAlertMessage(""); // Clear the error if valid email is entered
+      getName();
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    if (!e.target.value) {
+      setAlertMessage(""); // Clear error if password is empty
+    }
+  };
+
+  // Close the alert message
+  const closeAlert = () => {
+    setAlertMessage(""); // Clear the alert message
   };
 
   return (
     <div className="min-h-screen bg-white flex flex-col justify-center py-12 pl-10 pr-10 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')] bg-cover bg-center bg-no-repeat">
+      {/* Alert message positioned at the top-right corner */}
+      {alertMessage && (
+        <div
+          className={`fixed top-4 right-4 p-4 text-white rounded-lg shadow-lg max-w-xs w-full ${
+            alertMessage.includes("Success") ? "bg-green-500" : "bg-red-500"
+          }`}
+          style={{ zIndex: 9999 }}
+        >
+          <div className="flex justify-between items-center">
+            <p>{alertMessage}</p>
+            <button
+              onClick={closeAlert} // Close alert when clicked
+              className="text-white ml-2"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white dark:bg-gray-200 py-8 px-4 shadow-lg rounded-2xl sm:rounded-lg sm:px-10">
           <div className="text-center mb-8">
@@ -35,12 +118,12 @@ export default function Form() {
             </h2>
             <p className="mt-2 text-sm sm:text-base text-black">
               {name
-                ? " Please sign in to your account"
+                ? "Please sign in to your account"
                 : "Do you have an account here?"}
             </p>
           </div>
 
-          <form className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label
                 className="block text-sm font-medium text-black"
@@ -53,8 +136,9 @@ export default function Form() {
                 id="email"
                 name="emailAddress"
                 className="mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
-                onChange={(e) => setInputedEmailAddress(e.target.value)}
-                onBlur={getName}
+                value={inputedEmailAddress}
+                onChange={handleEmailChange}
+                onBlur={handleEmailBlur} // Run validation when the email field loses focus
                 required
               />
             </div>
@@ -73,7 +157,7 @@ export default function Form() {
                   name="password"
                   className="block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={handlePasswordChange}
                   required
                 />
                 <button
