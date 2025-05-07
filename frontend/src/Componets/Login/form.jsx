@@ -4,7 +4,7 @@ export default function Form() {
   var [showPassword, setShowPassword] = useState(false);
   var [inputedEmailAddress, setInputedEmailAddress] = useState("");
   var [name, setName] = useState("");
-
+  var [password, setPassword] = useState("");
   const getName = async () => {
     try {
       const response = await axios.get(
@@ -72,6 +72,8 @@ export default function Form() {
                   id="password"
                   name="password"
                   className="block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
                 <button
