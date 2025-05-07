@@ -16,6 +16,7 @@ const Home = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [post, setPost] = useState([]);
 
+  console.log("userName", userName);
   // If user is not logged in, redirect them to /register page
 
   useEffect(() => {
@@ -56,7 +57,7 @@ const Home = () => {
         <div className="py-10">
           <div className="mx-auto max-w-3xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-8 lg:px-8">
             {/* Sidebar (hidden on small screens) */}
-            <LeftSideBar />
+            <LeftSideBar userName={userName} />
 
             {/* Main content */}
             <main className="lg:col-span-7  xl:col-span-10">
