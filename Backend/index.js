@@ -9,8 +9,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
-const userName = ["ayomide", "sam", "vincent", "james", "micheal", "joshua"];
+app.use(express.json());
 const post = [
   {
     name: "Dries Vincent",
@@ -21,10 +20,19 @@ const post = [
   },
 ];
 
+const user = [
+  { username: "ayomide", gmailAddress: "ayomide@gmail.com", password: "admin" },
+  { username: "sam", gmailAddress: "sam@gmail.com", password: "admin" },
+  { username: "james", gmailAddress: "james@gmail.com", password: "admin" },
+  { username: "vincent", gmailAddress: "vincent@gmail.com", password: "admin" },
+  { username: "micheal", gmailAddress: "micheal@gmail.com", password: "admin" },
+  { username: "joshua", gmailAddress: "joshua@gmail.com", password: "admin" },
+];
+
 app.get("/users/:username", (req, res) => {
   const username = req.params.username;
 
-  const userExists = userName.find((user) => user === username);
+  const userExists = user.find((user) => user.username === username);
 
   if (userExists) {
     res.json({ post: post });
