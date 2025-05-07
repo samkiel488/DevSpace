@@ -40,7 +40,9 @@ export default function Form() {
     if (password === name.password) {
       setAlertMessage("Authentication Successful! Redirecting...");
       setTimeout(() => {
-        navigate(`/${name.userName}/home`);
+        navigate(`/${name.userName}/home`, {
+          state: { userName: name.userName, isUserLoggedIn: true },
+        });
       }, 3000);
     } else {
       setAlertMessage("Incorrect password. Please try again.");
