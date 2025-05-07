@@ -10,8 +10,29 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.get("/api", (req, res) => {
-  res.json({ message: "Hello from the server!" });
+const userName = ["ayomide", "dries", "vincent", "james", "micheal", "joshua"];
+const post = [
+  {
+    name: "Dries Vincent",
+    date: "December 9 at 11:43 AM",
+    postHeadline: "You should use alpinejs framework",
+    postText:
+      "Arradawark touches Spark was an incredible idea and a magnificent feat of engineering, but poor protocols and a disregard for human safety killed what could have otherwise been one of the best businesses of our generation.Ultimately, I think that if you wanted to run the park successfully and keep visitors safe, the most important thing to prioritize would be…",
+  },
+];
+
+app.get("/users/:username", (req, res) => {
+  const username = req.params.username;
+
+  // Use .find() to search for the username
+  const userExists = userName.find((user) => user === username);
+
+  if (userExists) {
+    res.json({ post: post });
+  } else {
+    // If user is not found, redirect to a 404 page
+    res.status(404).json({ message: "User not found" }); // Redirect to a 404 page on the frontend
+  }
 });
 
 app.listen(PORT, () => {
