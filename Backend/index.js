@@ -51,7 +51,21 @@ const user = [
   },
 ];
 
-app.get("/auth", (req, res) => {});
+app.get("/auth/:inputedEmailAddress", (req, res) => {
+  const inputedEmailAddress = req.params.inputedEmailAddress;
+
+  const foundUser = user.find(
+    (email) =>
+      email.gmailAddress.toLocaleLowerCase() ===
+      inputedEmailAddress.toLocaleLowerCase()
+  );
+
+  if (foundUser) {
+    res.json({foundUser:foundUser});
+  } else {
+    res.status(404).json({ message: "User not found" });
+  }
+});
 
 app.get("/users/:username", (req, res) => {
   const username = req.params.username;
