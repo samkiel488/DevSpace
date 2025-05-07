@@ -75,7 +75,6 @@ export default function Form() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col justify-center py-12 pl-10 pr-10 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')] bg-cover bg-center bg-no-repeat">
-      {/* Alert message positioned at the top-right corner */}
       {alertMessage && (
         <div
           className={`fixed top-4 right-4 p-4 text-white rounded-lg shadow-lg max-w-xs w-full ${
@@ -85,10 +84,7 @@ export default function Form() {
         >
           <div className="flex justify-between items-center">
             <p>{alertMessage}</p>
-            <button
-              onClick={closeAlert} // Close alert when clicked
-              className="text-white ml-2"
-            >
+            <button onClick={closeAlert} className="text-white ml-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
