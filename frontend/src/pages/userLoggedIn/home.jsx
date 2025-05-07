@@ -34,7 +34,7 @@ const Home = () => {
           }
         } catch (error) {
           console.error("Error fetching post:", error);
-          navigate("/register");
+          navigate("/login");
         }
       };
       fetchPost();
