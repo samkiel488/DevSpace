@@ -95,7 +95,6 @@ const Home = () => {
               <div className="mt-4">
                 <h1 className="sr-only">Recent questions</h1>
                 <ul role="list" className="space-y-4">
-                  {/* Question item */}
                   {post.map((item) => {
                     return (
                       <li className="bg-white px-4 py-6 shadow sm:rounded-lg sm:px-6">
