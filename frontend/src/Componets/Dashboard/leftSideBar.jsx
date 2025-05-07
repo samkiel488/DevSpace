@@ -1,4 +1,4 @@
-export default function LeftSideBar() {
+export default function LeftSideBar({ userName }) {
   return (
     <div className="hidden lg:col-span-3 lg:block xl:col-span-2">
       <nav
@@ -7,7 +7,7 @@ export default function LeftSideBar() {
       >
         <div className="space-y-1 pb-8">
           <a
-            href="#"
+            href={`/${userName}/home`}
             className="bg-gray-200 text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md"
             aria-current="page"
           >
