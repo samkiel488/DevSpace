@@ -3,31 +3,44 @@ import DashboardHeader from "../../Componets/Dashboard/header";
 import LeftSideBar from "../../Componets/Dashboard/leftSideBar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 const Home = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Destructure the state from location (checking for userName and isUserLoggedIn)
+  const { userName, isUserLoggedIn } = location.state || {};
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [post, setPost] = useState([]);
-  const username = "ayomide";
-  const navigate = useNavigate();
+
+  // If user is not logged in, redirect them to /register page
 
   useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:8080/users/${username}`
-        );
-        if (response.data.post.length > 0) {
-          setPost(response.data.post);
-        } else {
-          navigate("/404"); // Redirect to a 404 page on the frontend
+    if (!isUserLoggedIn) {
+      navigate("/login"); // Redirect to register page if not logged in
+    } else {
+      const fetchPost = async () => {
+        try {
+          const response = await axios.get(
+            `http://localhost:8080/users/${userName}`
+          );
+          if (response.data.post.length > 0) {
+            setPost(response.data.post);
+          } else {
+            navigate("/404");
+          }
+        } catch (error) {
+          console.error("Error fetching post:", error);
+          navigate("/register");
         }
-      } catch (error) {
-        console.error("Error fetching post:", error);
-        navigate("/404"); // Redirect to a 404 page on the frontend
-      }
-    };
-    fetchPost(), [];
-  });
+      };
+      fetchPost();
+    }
+  }, [isUserLoggedIn, userName, navigate]);
+
   return (
     <div className="h-full bg-gray-100">
       <div className="min-h-full">
