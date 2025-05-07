@@ -21,18 +21,42 @@ const post = [
 ];
 
 const user = [
-  { username: "ayomide", gmailAddress: "ayomide@gmail.com", password: "admin" },
-  { username: "sam", gmailAddress: "sam@gmail.com", password: "admin" },
-  { username: "james", gmailAddress: "james@gmail.com", password: "admin" },
-  { username: "vincent", gmailAddress: "vincent@gmail.com", password: "admin" },
-  { username: "micheal", gmailAddress: "micheal@gmail.com", password: "admin" },
-  { username: "joshua", gmailAddress: "joshua@gmail.com", password: "admin" },
+  {
+    fName: "Ayomide",
+    lName: "James",
+    gmailAddress: "ayomide@gmail.com",
+    userName: "ayomide",
+    password: "admin",
+  },
+  {
+    fName: "David",
+    lName: "Olawale",
+    gmailAddress: "d@gmail.com",
+    userName: "davido",
+    password: "admin123",
+  },
+  {
+    fName: "Chioma",
+    lName: "Nwosu",
+    gmailAddress: "c@gmail.com",
+    userName: "chiom",
+    password: "admin456",
+  },
+  {
+    fName: "Tunde",
+    lName: "Bamidele",
+    gmailAddress: "t@gmail.com",
+    userName: "bami",
+    password: "admin789",
+  },
 ];
+
+app.get("/auth", (req, res) => {});
 
 app.get("/users/:username", (req, res) => {
   const username = req.params.username;
 
-  const userExists = user.find((user) => user.username === username);
+  const userExists = user.find((user) => user.userName === username);
 
   if (userExists) {
     res.json({ post: post });
