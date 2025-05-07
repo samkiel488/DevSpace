@@ -24,14 +24,12 @@ const post = [
 app.get("/users/:username", (req, res) => {
   const username = req.params.username;
 
-  // Use .find() to search for the username
   const userExists = userName.find((user) => user === username);
 
   if (userExists) {
     res.json({ post: post });
   } else {
-    // If user is not found, redirect to a 404 page
-    res.status(404).json({ message: "User not found" }); // Redirect to a 404 page on the frontend
+    res.status(404).json({ message: "User not found" });
   }
 });
 
