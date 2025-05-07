@@ -59,45 +59,15 @@ const Home = () => {
             <LeftSideBar />
 
             {/* Main content */}
-            <main className="lg:col-span-6 xl:col-span-10">
-              <div className="px-4 sm:px-0">
-                <div className="sm:hidden">
-                  <label htmlFor="question-tabs" className="sr-only">
-                    Select a tab
-                  </label>
-                  <select
-                    id="question-tabs"
-                    className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-base font-medium text-gray-900 shadow-sm focus:border-rose-500 focus:outline-none focus:ring-1 focus:ring-rose-500"
-                  >
-                    <option>Recent</option>
-                  </select>
-                </div>
-                <div className="hidden sm:block">
-                  <nav
-                    className="isolate flex divide-x divide-gray-200 rounded-lg shadow"
-                    aria-label="Tabs"
-                  >
-                    <a
-                      href="#"
-                      aria-current="page"
-                      className="text-gray-900 rounded-l-lg group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-6 text-sm font-medium text-center hover:bg-gray-50 focus:z-10"
-                    >
-                      <span>Recent</span>
-                      <span
-                        aria-hidden="true"
-                        className="bg-rose-500 absolute inset-x-0 bottom-0 h-0.5"
-                      ></span>
-                    </a>
-                  </nav>
-                </div>
-              </div>
-
+            <main className="lg:col-span-7  xl:col-span-10">
               <div className="mt-4">
-                <h1 className="sr-only">Recent questions</h1>
+                <h1 className="text-2xl font-bold text-gray-900 text-center">
+                  Recent Posts
+                </h1>
                 <ul role="list" className="space-y-4">
                   {post.map((item) => {
                     return (
-                      <li className="bg-white px-4 py-6 shadow sm:rounded-lg sm:px-6">
+                      <li className="bg-white px-4 py-6 m-5 shadow sm:rounded-lg sm:px-6">
                         <article aria-labelledby="question-title-81614">
                           <div>
                             <div className="flex space-x-3">
