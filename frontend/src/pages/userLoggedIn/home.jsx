@@ -16,7 +16,7 @@ const Home = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [post, setPost] = useState([]);
-  
+
   useEffect(() => {
     // Set the cookies when the user logs in
     if (isUserLoggedIn) {
@@ -58,7 +58,6 @@ const Home = () => {
       navigate("/login");
     }
   }, [navigate, location.pathname]);
-
 
   return (
     <div className="h-full bg-gray-100">
@@ -122,9 +121,7 @@ const Home = () => {
                           <div className="mt-2 space-y-4 text-sm text-gray-700">
                             <p>{item.postText}</p>
                           </div>
-                          <div className="mt-6 flex justify-between space-x-8">
-                            {/* Action buttons */}
-                          </div>
+                          <div className="mt-6 flex justify-between space-x-8"></div>
                         </article>
                       </li>
                     );
