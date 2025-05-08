@@ -22,7 +22,7 @@ export default function Form() {
       );
       if (response.data.foundUser) {
         setName(response.data.foundUser);
-        setAlertMessage(""); // Clear any previous alert message
+        setAlertMessage("");
       } else {
         setName("");
         setAlertMessage("No user found with this email address.");
