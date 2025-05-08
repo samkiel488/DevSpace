@@ -25,6 +25,13 @@ const post = [
     postText:
       "Arradawark touches Spark was an incredible idea and a magnificent feat of engineering, but poor protocols and a disregard for human safety killed what could have otherwise been one of the best businesses of our generation.Ultimately, I think that if you wanted to run the park successfully and keep visitors safe, the most important thing to prioritize would be…",
   },
+  {
+    name: "Dries Vincent",
+    date: "December 9 at 11:43 AM",
+    postHeadline: "You should use alpinejs framework",
+    postText:
+      "Arradawark touches Spark was an incredible idea and a magnificent feat of engineering, but poor protocols and a disregard for human safety killed what could have otherwise been one of the best businesses of our generation.Ultimately, I think that if you wanted to run the park successfully and keep visitors safe, the most important thing to prioritize would be…",
+  },
 ];
 
 const user = [
