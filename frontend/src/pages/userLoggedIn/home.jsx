@@ -59,6 +59,12 @@ const Home = () => {
     }
   }, [navigate, location.pathname]);
 
+  function handleLogout() {
+    Cookies.remove("userName");
+    Cookies.remove("isUserLoggedIn");
+    navigate("/login");
+  }
+
   return (
     <div className="h-full bg-gray-100">
       <div className="min-h-full">
@@ -68,6 +74,7 @@ const Home = () => {
           setDropdownOpen={setDropdownOpen}
           dropdownOpen={dropdownOpen}
           setMobileMenuOpen={setMobileMenuOpen}
+          handleLogout={handleLogout}
         />
 
         {/* Main content */}
