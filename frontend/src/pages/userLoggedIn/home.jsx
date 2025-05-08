@@ -22,7 +22,11 @@ const Home = () => {
     const storedUserName = Cookies.get("userName");
     const storedIsUserLoggedIn = Cookies.get("isUserLoggedIn") === "true"; // js-cookie stores values as strings
 
-    if (storedIsUserLoggedIn && storedUserName) {
+    if (
+      storedIsUserLoggedIn &&
+      storedUserName &&
+      location.pathname === `/${storedUserName}/home`
+    ) {
       // If the user is logged in, proceed with fetching posts
       const fetchPost = async () => {
         try {
@@ -44,7 +48,7 @@ const Home = () => {
       // If not logged in, redirect to login page
       navigate("/login");
     }
-  }, [navigate]);
+  }, [navigate, location.pathname]);
 
   useEffect(() => {
     // Set the cookies when the user logs in
