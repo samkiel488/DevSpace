@@ -16,6 +16,7 @@ const Home = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [post, setPost] = useState([]);
+  
   useEffect(() => {
     // Set the cookies when the user logs in
     if (isUserLoggedIn) {
