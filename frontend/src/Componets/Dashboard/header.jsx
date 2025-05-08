@@ -4,6 +4,7 @@ export default function DashboardHeader({
   mobileMenuOpen,
   dropdownOpen,
   handleLogout,
+  userName,
 }) {
   return (
     <header className="bg-white shadow-sm lg:static lg:overflow-y-visible">
@@ -221,7 +222,7 @@ export default function DashboardHeader({
             </div>
             <div className="ml-3">
               <div className="text-base font-medium text-gray-800">
-                Chelsea Hagon
+                {userName}
               </div>
               <div className="text-sm font-medium text-gray-500">
                 chelsea.hagon@example.com
@@ -265,6 +266,7 @@ export default function DashboardHeader({
             <a
               href="#"
               className="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900"
+              onClick={handleLogout}
             >
               Sign out
             </a>
