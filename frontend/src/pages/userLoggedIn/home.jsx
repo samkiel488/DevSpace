@@ -16,6 +16,14 @@ const Home = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [post, setPost] = useState([]);
+  useEffect(() => {
+    // Set the cookies when the user logs in
+    if (isUserLoggedIn) {
+      // Set the cookies with an expiration of 1 day
+      Cookies.set("userName", userName, { expires: 30 });
+      Cookies.set("isUserLoggedIn", isUserLoggedIn, { expires: 30 });
+    }
+  }, [userName, isUserLoggedIn]); // This effect runs when either userName or isUserLoggedIn changes
 
   useEffect(() => {
     // Check if the user is already logged in by checking the cookies
@@ -50,14 +58,6 @@ const Home = () => {
     }
   }, [navigate, location.pathname]);
 
-  useEffect(() => {
-    // Set the cookies when the user logs in
-    if (isUserLoggedIn) {
-      // Set the cookies with an expiration of 1 day
-      Cookies.set("userName", userName, { expires: 30 });
-      Cookies.set("isUserLoggedIn", isUserLoggedIn, { expires: 30 });
-    }
-  }, [userName, isUserLoggedIn]); // This effect runs when either userName or isUserLoggedIn changes
 
   return (
     <div className="h-full bg-gray-100">
