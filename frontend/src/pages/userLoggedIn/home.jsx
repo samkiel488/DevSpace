@@ -4,6 +4,7 @@ import LeftSideBar from "../../Componets/Dashboard/leftSideBar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const Home = () => {
   const location = useLocation();
@@ -16,8 +17,9 @@ const Home = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [post, setPost] = useState([]);
 
-  console.log("userName", userName);
-  // If user is not logged in, redirect them to /register page
+  Cookies.set("userName", userName, { expires: 1 }); // Set the cookie with a 1-day expiration
+  Cookies.set("isUserLoggedIn", isUserLoggedIn, { expires: 1 }); // Set the cookie with a 1-day expiration
+
 
   useEffect(() => {
     if (!isUserLoggedIn) {
