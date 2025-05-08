@@ -75,6 +75,7 @@ const Home = () => {
           dropdownOpen={dropdownOpen}
           setMobileMenuOpen={setMobileMenuOpen}
           handleLogout={handleLogout}
+          userName={userName}
         />
 
         {/* Main content */}
