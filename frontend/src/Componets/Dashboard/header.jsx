@@ -3,6 +3,7 @@ export default function DashboardHeader({
   setMobileMenuOpen,
   mobileMenuOpen,
   dropdownOpen,
+  handleLogout,
 }) {
   return (
     <header className="bg-white shadow-sm lg:static lg:overflow-y-visible">
@@ -158,9 +159,9 @@ export default function DashboardHeader({
                     Settings
                   </a>
                   <a
-                    href="#"
                     className="block py-2 px-4 text-sm text-gray-700"
                     role="menuitem"
+                    onClick={handleLogout}
                   >
                     Sign out
                   </a>
