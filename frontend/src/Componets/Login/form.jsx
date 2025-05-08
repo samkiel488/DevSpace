@@ -66,7 +66,7 @@ export default function Form() {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
     if (!e.target.value) {
-      setAlertMessage(""); // Clear error if password is empty
+      setAlertMessage("");
     }
   };
 
