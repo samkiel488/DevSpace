@@ -20,17 +20,21 @@ export default function Form() {
       const response = await axios.get(
         `http://localhost:8080/auth/${inputedEmailAddress}`
       );
+
       if (response.data.foundUser) {
         setName(response.data.foundUser);
         setAlertMessage("");
-      } else {
-        setName("");
-        setAlertMessage("No user found with this email address.");
       }
     } catch (error) {
-      console.error("Error fetching user data:", error);
-      setName("");
-      setAlertMessage("No user found with this email address.");
+      if (error.response && error.response.status === 404) {
+        setName("");
+        setAlertMessage("No user found with this email address.");
+      } else {
+        setName("");
+        setAlertMessage(
+          "There was an error fetching user data. Please try again."
+        );
+      }
     }
   };
 
