@@ -70,30 +70,32 @@ const Home = () => {
   }
 
   return (
-    <div className="h-full bg-gray-100 dark:bg-gray-900">
-      <div className="min-h-full">
-        {/* Header */}
-        <DashboardHeader
-          mobileMenuOpen={mobileMenuOpen}
-          setDropdownOpen={setDropdownOpen}
-          dropdownOpen={dropdownOpen}
-          setMobileMenuOpen={setMobileMenuOpen}
-          handleLogout={handleLogout}
-          userName={userName}
-        />
+    <div className={darkMode ? "dark" : ""}>
+      <div data-theme={darkMode ? "dark" : "light"} className="h-full bg-gray-100 dark:bg-gray-900">
+        <div className="min-h-full">
+          {/* Header */}
+          <DashboardHeader
+            mobileMenuOpen={mobileMenuOpen}
+            setDropdownOpen={setDropdownOpen}
+            dropdownOpen={dropdownOpen}
+            setMobileMenuOpen={setMobileMenuOpen}
+            handleLogout={handleLogout}
+            userName={userName}
+          />
 
-        {/* Main content */}
-        <div className="py-10 mt-15">
-          <div className="mx-auto max-w-3xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-8 lg:px-8">
-            {/* Sidebar (hidden on small screens) */}
-            <LeftSideBar userName={userName} />
+          {/* Main content */}
+          <div className="py-10 mt-15">
+            <div className="mx-auto max-w-3xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-8 lg:px-8">
+              {/* Sidebar (hidden on small screens) */}
+              <LeftSideBar userName={userName} />
 
-            {/* Main content */}
-            <HomeMain post={post} />
+              {/* Main content */}
+              <HomeMain post={post} />
+            </div>
           </div>
         </div>
+        <Toggle darkMode={darkMode} setDarkMode={setDarkMode} />
       </div>
-      <Toggle darkMode={darkMode} setDarkMode={setDarkMode} />
     </div>
   );
 };
