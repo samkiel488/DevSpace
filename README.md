@@ -62,3 +62,5 @@ In our frontend we are going to be using:
    ```
    http://localhost:5173
    ```
+
+## How to run the Backend File locally:
