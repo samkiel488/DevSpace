@@ -22,9 +22,9 @@ const Home = () => {
   useEffect(() => {
     // Set the cookies when the user logs in
     if (isUserLoggedIn) {
-      // Set the cookies with an expiration of 1 day
-      Cookies.set("userName", userName, { expires: 30 });
-      Cookies.set("isUserLoggedIn", isUserLoggedIn, { expires: 30 });
+      // Set the cookies with an expiration of 7 days
+      Cookies.set("userName", userName, { expires: 7 });
+      Cookies.set("isUserLoggedIn", isUserLoggedIn, { expires: 7 });
     }
   }, [userName, isUserLoggedIn]); // This effect runs when either userName or isUserLoggedIn changes
 
