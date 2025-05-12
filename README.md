@@ -73,8 +73,15 @@ In our backend we are going to be using:
 ### How to run the Backend File locally:
 
 1. First of all you need to have download a copy of the project locally and be in the DevSpace directory
-2. Go to your terminal and type:
+2. Since in the project directory you need to move to the Backend folder to be able to run the run the command to view it locally
    ```
    cd Backend/
    ```
-3.
+3. install all needed node modules using:
+   ```
+   npm i
+   ```
+   or
+   ```
+   npm install
+   ```
