@@ -71,3 +71,10 @@ In our backend we are going to be using:
 2. Express
 
 ### How to run the Backend File locally:
+
+1. First of all you need to have download a copy of the project locally and be in the DevSpace directory
+2. Go to your terminal and type:
+   ```
+   cd Backend/
+   ```
+3.
