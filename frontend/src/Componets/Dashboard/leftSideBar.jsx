@@ -39,14 +39,14 @@ export default function LeftSideBar({ userName, isDarkMode }) {
             href="#"
             className={`${
               isDarkMode
-                ? 'text-gray-300 hover:bg-gray-600'
+                ? 'text-gray-300 hover:bg-gray-700'
                 : 'text-gray-700 hover:bg-gray-50'
             } group flex items-center px-3 py-2 text-sm font-medium rounded-md`}
           >
             <svg
               className={`${
                 isDarkMode
-                  ? 'text-gray-400 group-hover:text-gray-300'
+                  ? 'text-gray-500 group-hover:text-gray-400'
                   : 'text-gray-400 group-hover:text-gray-500'
               } flex-shrink-0 -ml-1 mr-3 h-6 w-6`}
               xmlns="http://www.w3.org/2000/svg"
