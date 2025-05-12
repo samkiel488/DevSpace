@@ -7,7 +7,7 @@ export default function DashboardHeader({
   userName,
 }) {
   return (
-    <header className="bg-white shadow-sm lg:static lg:overflow-y-visible">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm ">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative flex justify-between lg:gap-8 xl:grid xl:grid-cols-12">
           <div className="flex md:absolute md:inset-y-0 md:left-0 lg:static xl:col-span-2">
@@ -55,7 +55,6 @@ export default function DashboardHeader({
             </div>
           </div>
           <div className="flex items-center md:absolute md:inset-y-0 md:right-0 lg:hidden">
-            {/* Mobile menu button */}
             <button
               type="button"
               className="-mx-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500"
@@ -63,7 +62,6 @@ export default function DashboardHeader({
               aria-expanded={mobileMenuOpen}
             >
               <span className="sr-only">Open menu</span>
-              {/* Icon when menu is closed. */}
               <svg
                 className={`${mobileMenuOpen ? "hidden" : "block"} h-6 w-6`}
                 xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +77,6 @@ export default function DashboardHeader({
                   d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
                 />
               </svg>
-              {/* Icon when menu is open. */}
               <svg
                 className={`${mobileMenuOpen ? "block" : "hidden"} h-6 w-6`}
                 xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +116,6 @@ export default function DashboardHeader({
                 />
               </svg>
             </a>
-
             <div className="relative ml-5 flex-shrink-0">
               <div>
                 <button
@@ -181,7 +177,7 @@ export default function DashboardHeader({
 
       {/* Mobile menu (lg:hidden) */}
       <nav
-        className={`lg:hidden ${mobileMenuOpen ? "block" : "hidden"}`}
+        className={`lg:hidden ${mobileMenuOpen ? "block" : "hidden"} pb-5`}
         aria-label="Global"
       >
         <div className="mx-auto max-w-3xl space-y-1 px-2 pt-2 pb-3 sm:px-4">
