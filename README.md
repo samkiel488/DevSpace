@@ -27,7 +27,7 @@ We know that the goal of this project is to create an interactive website where 
 
 There fore our project would need a Frontend, backend and a database.
 
-### Frontend
+## Frontend
 
 In our frontend we are going to be using:
 
@@ -63,4 +63,11 @@ In our frontend we are going to be using:
    http://localhost:5173
    ```
 
-## How to run the Backend File locally:
+## Backend
+
+In our backend we are going to be using:
+
+1. NodeJs,
+2. Express
+
+### How to run the Backend File locally:
