@@ -79,7 +79,7 @@ const Home = () => {
         />
 
         {/* Main content */}
-        <div className="py-10">
+        <div className="py-10 mt-15">
           <div className="mx-auto max-w-3xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-8 lg:px-8">
             {/* Sidebar (hidden on small screens) */}
             <LeftSideBar userName={userName} />
