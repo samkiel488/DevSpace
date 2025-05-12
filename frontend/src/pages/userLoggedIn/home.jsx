@@ -18,25 +18,24 @@ const Home = () => {
 
   // Destructure the state from location (checking for userName and isUserLoggedIn)
   const { userName, isUserLoggedIn } = location.state || {};
-
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [post, setPost] = useState([]);
+  const [retrivedUserName, setRetrivedUserName] = useState();
 
   useEffect(() => {
-    // Set the cookies when the user logs in
-    if (isUserLoggedIn) {
-      // Set the cookies with an expiration of 7 days
+    if (isUserLoggedIn && userName) {
       Cookies.set("userName", userName, { expires: 7 });
       Cookies.set("isUserLoggedIn", isUserLoggedIn, { expires: 7 });
     }
-  }, [userName, isUserLoggedIn]); // This effect runs when either userName or isUserLoggedIn changes
+  }, [userName, isUserLoggedIn]);
+  // This effect runs when either userName or isUserLoggedIn changes
 
   useEffect(() => {
     // Check if the user is already logged in by checking the cookies
     const storedUserName = Cookies.get("userName");
     const storedIsUserLoggedIn = Cookies.get("isUserLoggedIn") === "true"; // js-cookie stores values as strings
-
+    setRetrivedUserName(storedUserName);
     if (
       storedIsUserLoggedIn &&
       storedUserName &&
@@ -71,7 +70,10 @@ const Home = () => {
 
   return (
     <div className={darkMode ? "dark" : ""}>
-      <div data-theme={darkMode ? "dark" : "light"} className="h-full bg-gray-100 dark:bg-gray-900">
+      <div
+        data-theme={darkMode ? "dark" : "light"}
+        className="h-full bg-gray-100 dark:bg-gray-900"
+      >
         <div className="min-h-full">
           {/* Header */}
           <DashboardHeader
@@ -80,7 +82,7 @@ const Home = () => {
             dropdownOpen={dropdownOpen}
             setMobileMenuOpen={setMobileMenuOpen}
             handleLogout={handleLogout}
-            userName={userName}
+            userName={userName ? userName : retrivedUserName}
           />
 
           {/* Main content */}
