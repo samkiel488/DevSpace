@@ -6,10 +6,13 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 import HomeMain from "../../Componets/Dashboard/Home/homeMain";
-
+import Toggle from "../../Componets/toggle";
+import useLocalStorage from "use-local-storage";
 const url = import.meta.env.VITE_API_URL;
 
 const Home = () => {
+  const prefences = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [darkMode, setDarkMode] = useLocalStorage("darkMode", prefences);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -90,6 +93,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Toggle darkMode={darkMode} setDarkMode={setDarkMode} />
     </div>
   );
 };
