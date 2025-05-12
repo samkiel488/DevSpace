@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 
+const url = import.meta.env.VITE_API_URL;
+
 const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -39,9 +41,7 @@ const Home = () => {
       // If the user is logged in, proceed with fetching posts
       const fetchPost = async () => {
         try {
-          const response = await axios.get(
-            `http://localhost:8080/users/${storedUserName}`
-          );
+          const response = await axios.get(`${url}/users/${storedUserName}`);
           if (response.data.post.length > 0) {
             setPost(response.data.post);
           } else {
