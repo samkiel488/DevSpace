@@ -70,7 +70,7 @@ const Home = () => {
   }
 
   return (
-    <div className="h-full bg-gray-100">
+    <div className="h-full bg-gray-100 dark:bg-gray-900">
       <div className="min-h-full">
         {/* Header */}
         <DashboardHeader
