@@ -7,7 +7,7 @@ export default function DashboardHeader({
   userName,
 }) {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm ">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm dark:bg-gray-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative flex justify-between lg:gap-8 xl:grid xl:grid-cols-12">
           <div className="flex md:absolute md:inset-y-0 md:left-0 lg:static xl:col-span-2">
@@ -30,7 +30,7 @@ export default function DashboardHeader({
                 <div className="relative">
                   <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                     <svg
-                      className="h-5 w-5 text-gray-400"
+                      className="h-5 w-5 text-gray-400 dark:text-gray-500"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
@@ -46,7 +46,7 @@ export default function DashboardHeader({
                   <input
                     id="search"
                     name="search"
-                    className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:border-rose-500 focus:text-gray-900 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-rose-500 sm:text-sm"
+                    className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:border-rose-500 focus:text-gray-900 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-rose-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:placeholder-gray-400 dark:focus:border-rose-500 dark:focus:ring-rose-500 sm:text-sm"
                     placeholder="Search"
                     type="search"
                   />
@@ -57,7 +57,7 @@ export default function DashboardHeader({
           <div className="flex items-center md:absolute md:inset-y-0 md:right-0 lg:hidden">
             <button
               type="button"
-              className="-mx-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500"
+              className="-mx-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500 dark:hover:bg-gray-700 dark:text-gray-300"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-expanded={mobileMenuOpen}
             >
@@ -97,7 +97,7 @@ export default function DashboardHeader({
           <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-4">
             <a
               href="#"
-              className="ml-5 flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
+              className="ml-5 flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 dark:bg-gray-700 dark:text-gray-300 dark:hover:text-white"
             >
               <span className="sr-only">View notifications</span>
               <svg
@@ -120,7 +120,7 @@ export default function DashboardHeader({
               <div>
                 <button
                   type="button"
-                  className="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
+                  className="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 dark:bg-gray-700"
                   id="user-menu-button"
                   aria-haspopup="true"
                   aria-expanded="false"
@@ -136,27 +136,27 @@ export default function DashboardHeader({
               </div>
               {dropdownOpen && (
                 <div
-                  className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-700"
                   role="menu"
                   aria-orientation="vertical"
                   aria-labelledby="user-menu-button"
                 >
                   <a
                     href="#"
-                    className="block py-2 px-4 text-sm text-gray-700"
+                    className="block py-2 px-4 text-sm text-gray-700 dark:text-gray-300"
                     role="menuitem"
                   >
                     Your Profile
                   </a>
                   <a
                     href="#"
-                    className="block py-2 px-4 text-sm text-gray-700"
+                    className="block py-2 px-4 text-sm text-gray-700 dark:text-gray-300"
                     role="menuitem"
                   >
                     Settings
                   </a>
                   <a
-                    className="block py-2 px-4 text-sm text-gray-700"
+                    className="block py-2 px-4 text-sm text-gray-700 dark:text-gray-300"
                     role="menuitem"
                     onClick={handleLogout}
                   >
@@ -184,30 +184,30 @@ export default function DashboardHeader({
           <a
             href="#"
             aria-current="page"
-            className="bg-gray-100 text-gray-900 block rounded-md py-2 px-3 text-base font-medium"
+            className="bg-gray-100 text-gray-900 block rounded-md py-2 px-3 text-base font-medium dark:bg-gray-700 dark:text-gray-300"
           >
             Home
           </a>
           <a
             href="#"
-            className="hover:bg-gray-50 block rounded-md py-2 px-3 text-base font-medium"
+            className="hover:bg-gray-50 block rounded-md py-2 px-3 text-base font-medium dark:hover:bg-gray-700 dark:text-gray-300"
           >
             Popular
           </a>
           <a
             href="#"
-            className="hover:bg-gray-50 block rounded-md py-2 px-3 text-base font-medium"
+            className="hover:bg-gray-50 block rounded-md py-2 px-3 text-base font-medium dark:hover:bg-gray-700 dark:text-gray-300"
           >
             Communities
           </a>
           <a
             href="#"
-            className="hover:bg-gray-50 block rounded-md py-2 px-3 text-base font-medium"
+            className="hover:bg-gray-50 block rounded-md py-2 px-3 text-base font-medium dark:hover:bg-gray-700 dark:text-gray-300"
           >
             Trending
           </a>
         </div>
-        <div className="border-t border-gray-200 pt-4">
+        <div className="border-t border-gray-200 pt-4 dark:border-gray-600">
           <div className="mx-auto flex max-w-3xl items-center px-4 sm:px-6">
             <div className="flex-shrink-0">
               <img
@@ -217,16 +217,16 @@ export default function DashboardHeader({
               />
             </div>
             <div className="ml-3">
-              <div className="text-base font-medium text-gray-800">
+              <div className="text-base font-medium text-gray-500 dark:text-gray-400">
                 {userName}
               </div>
-              <div className="text-sm font-medium text-gray-500">
+              <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
                 chelsea.hagon@example.com
               </div>
             </div>
             <button
               type="button"
-              className="ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
+              className="ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 dark:bg-gray-700 dark:text-gray-300"
             >
               <span className="sr-only">View notifications</span>
               <svg
@@ -249,19 +249,19 @@ export default function DashboardHeader({
           <div className="mx-auto mt-3 max-w-3xl space-y-1 px-2 sm:px-4">
             <a
               href="#"
-              className="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900"
+              className="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white"
             >
               Your Profile
             </a>
             <a
               href="#"
-              className="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900"
+              className="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white"
             >
               Settings
             </a>
             <a
               href="#"
-              className="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900"
+              className="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white"
               onClick={handleLogout}
             >
               Sign out
