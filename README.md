@@ -78,10 +78,25 @@ In our backend we are going to be using:
    cd Backend/
    ```
 3. install all needed node modules using:
+
    ```
    npm i
    ```
+
    or
+
    ```
    npm install
    ```
+
+4. After that run:
+
+```
+  npm run dev
+```
+
+or
+
+```
+nodemon index.js
+```
