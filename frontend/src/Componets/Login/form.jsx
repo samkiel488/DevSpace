@@ -80,7 +80,7 @@ export default function Form() {
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col justify-center py-12 pl-10 pr-10 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')] bg-cover bg-center bg-no-repeat">
+    <div className="min-h-screen bg-white flex flex-col justify-center py-12 pl-10 pr-10 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')]  bg-cover bg-center bg-no-repeat">
       {alertMessage && (
         <div
           className={`fixed top-4 right-4 p-4 text-white rounded-lg shadow-lg max-w-xs w-full ${
@@ -140,7 +140,7 @@ export default function Form() {
                 className="mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
                 value={inputedEmailAddress}
                 onChange={handleEmailChange}
-                onBlur={handleEmailBlur} // Run validation when the email field loses focus
+                onBlur={handleEmailBlur}
                 required
               />
             </div>
