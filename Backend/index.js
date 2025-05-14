@@ -100,7 +100,17 @@ app.get("/users/:username", (req, res) => {
 });
 
 app.post("/verify", (req, res) => {
-  console.log(req.body);
+  const { emailAddress, password } = req.body;
+
+  const users = user.find(
+    (user) => user.gmailAddress === emailAddress && user.password === password
+  );
+
+  if (users) {
+    res.json({ success: true });
+  } else {
+    res.json({ success: false });
+  }
 });
 
 app.listen(PORT, () => {
