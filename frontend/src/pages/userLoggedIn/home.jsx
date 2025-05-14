@@ -68,7 +68,7 @@ const Home = () => {
   }
 
   return (
-    <div className={darkMode ? "dark" : ""}>
+    <div className={darkMode ? "dark" : "light"}>
       <div
         data-theme={darkMode ? "dark" : "light"}
         className="h-full bg-gray-100 dark:bg-gray-900"
