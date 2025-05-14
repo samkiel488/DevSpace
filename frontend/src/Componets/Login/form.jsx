@@ -38,18 +38,29 @@ export default function Form() {
     }
   };
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:8080/verify", {
+        emailAddress: inputedEmailAddress,
+        password: password,
+      });
+      if (response.data.success) {
+        setAlertMessage("Authentication Successful! Redirecting...");
+        setTimeout(() => {
+          navigate(`/${name.userName}/home`, {
+            state: { userName: name.userName, isUserLoggedIn: true },
+          });
+        }, 3000);
+      } else {
+        setAlertMessage("Incorrect password. Please try again.");
+      }
+    } catch (error) {
+      console.log(error);
 
-    if (password === name.password) {
-      setAlertMessage("Authentication Successful! Redirecting...");
-      setTimeout(() => {
-        navigate(`/${name.userName}/home`, {
-          state: { userName: name.userName, isUserLoggedIn: true },
-        });
-      }, 3000);
-    } else {
-      setAlertMessage("Incorrect password. Please try again.");
+      setAlertMessage(
+        "There was an error verifying your credentials. Please try again."
+      );
     }
   }
 
