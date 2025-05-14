@@ -1,10 +1,11 @@
 import express from "express";
 import cors from "cors";
-
+import { configDotenv } from "dotenv";
+configDotenv();
 const app = express();
 const PORT = 8080;
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: process.env.FRONTEND_API_URL,
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
 };
 
