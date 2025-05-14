@@ -75,7 +75,13 @@ app.get("/auth/:inputedEmailAddress", (req, res) => {
   );
 
   if (foundUser) {
-    res.json({ foundUser: foundUser });
+    res.json({
+      foundUser: {
+        fName: foundUser.fName,
+        lName: foundUser.lName,
+        userName: foundUser.userName,
+      },
+    });
   } else {
     res.status(404).json({ message: "User not found" });
   }
@@ -91,6 +97,10 @@ app.get("/users/:username", (req, res) => {
   } else {
     res.status(404).json({ message: "User not found" });
   }
+});
+
+app.post("/verify", (req, res) => {
+  console.log(req.body);
 });
 
 app.listen(PORT, () => {
