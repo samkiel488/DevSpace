@@ -9,6 +9,7 @@ export default function Form() {
   var [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [alertMessage, setAlertMessage] = useState("");
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const getName = async () => {
     if (!inputedEmailAddress || !/\S+@\S+\.\S+/.test(inputedEmailAddress)) {
@@ -17,9 +18,7 @@ export default function Form() {
     }
 
     try {
-      const response = await axios.get(
-        `http://localhost:8080/auth/${inputedEmailAddress}`
-      );
+      const response = await axios.get(`${apiUrl}/auth/${inputedEmailAddress}`);
 
       if (response.data.foundUser) {
         setName(response.data.foundUser);
@@ -41,7 +40,7 @@ export default function Form() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8080/verify", {
+      const response = await axios.post(`${apiUrl}/verify`, {
         emailAddress: inputedEmailAddress,
         password: password,
       });
