@@ -16,7 +16,6 @@ const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Destructure the state from location (checking for userName and isUserLoggedIn)
   const { userName, isUserLoggedIn } = location.state || {};
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
