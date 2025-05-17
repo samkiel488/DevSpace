@@ -9,6 +9,7 @@ export default function Form() {
   var [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [alertMessage, setAlertMessage] = useState("");
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const getName = async () => {
     if (!inputedEmailAddress || !/\S+@\S+\.\S+/.test(inputedEmailAddress)) {
@@ -17,9 +18,7 @@ export default function Form() {
     }
 
     try {
-      const response = await axios.get(
-        `http://localhost:8080/auth/${inputedEmailAddress}`
-      );
+      const response = await axios.get(`${apiUrl}/auth/${inputedEmailAddress}`);
 
       if (response.data.foundUser) {
         setName(response.data.foundUser);
@@ -38,18 +37,29 @@ export default function Form() {
     }
   };
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+    try {
+      const response = await axios.post(`${apiUrl}/verify`, {
+        emailAddress: inputedEmailAddress,
+        password: password,
+      });
+      if (response.data.success) {
+        setAlertMessage("Authentication Successful! Redirecting...");
+        setTimeout(() => {
+          navigate(`/${name.userName}/home`, {
+            state: { userName: name.userName, isUserLoggedIn: true },
+          });
+        }, 3000);
+      } else {
+        setAlertMessage("Incorrect password. Please try again.");
+      }
+    } catch (error) {
+      console.log(error);
 
-    if (password === name.password) {
-      setAlertMessage("Authentication Successful! Redirecting...");
-      setTimeout(() => {
-        navigate(`/${name.userName}/home`, {
-          state: { userName: name.userName, isUserLoggedIn: true },
-        });
-      }, 3000);
-    } else {
-      setAlertMessage("Incorrect password. Please try again.");
+      setAlertMessage(
+        "There was an error verifying your credentials. Please try again."
+      );
     }
   }
 
@@ -80,7 +90,7 @@ export default function Form() {
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col justify-center py-12 pl-10 pr-10 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')] bg-cover bg-center bg-no-repeat">
+    <div className="min-h-screen bg-white flex flex-col justify-center py-12 pl-10 pr-10 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')]  bg-cover bg-center bg-no-repeat">
       {alertMessage && (
         <div
           className={`fixed top-4 right-4 p-4 text-white rounded-lg shadow-lg max-w-xs w-full ${
@@ -140,7 +150,7 @@ export default function Form() {
                 className="mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
                 value={inputedEmailAddress}
                 onChange={handleEmailChange}
-                onBlur={handleEmailBlur} // Run validation when the email field loses focus
+                onBlur={handleEmailBlur}
                 required
               />
             </div>
