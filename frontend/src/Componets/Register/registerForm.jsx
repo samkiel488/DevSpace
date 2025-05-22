@@ -77,7 +77,7 @@ export default function RegisterForm() {
     }
   }
   const closeAlert = () => {
-    setAlertMessage(""); // Clear the alert message
+    setAlertMessage("");
   };
 
   return (
