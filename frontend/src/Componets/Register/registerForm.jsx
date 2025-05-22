@@ -28,6 +28,7 @@ export default function RegisterForm() {
       const response = await axios.post(`${apiUrl}/register`, {
         password: firstInputedPassword,
         userName: inputedUsername,
+        gmailAddress: checkEmail,
       });
       console.log(response.data);
     } catch (error) {
