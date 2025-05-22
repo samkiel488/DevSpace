@@ -1,5 +1,4 @@
 import { useState } from "react";
-import emailAddress from "../defaultUser";
 import axios from "axios";
 export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -62,11 +61,20 @@ export default function RegisterForm() {
     }
   }
 
-  function checkUsername() {
-    const foundUsername = emailAddress.find(
-      (email) => email.userName === inputedUsername
-    );
-    setIsUserNameUsed(foundUsername);
+  async function checkUsername() {
+    try {
+      const userNameUsed = await axios.post(`${apiUrl}/verify/username`, {
+        userName: inputedUsername,
+      });
+      if (userNameUsed.data === true) {
+        setIsUserNameUsed(true);
+      } else {
+        setIsUserNameUsed(false);
+      }
+    } catch (error) {
+      console.log(error);
+      setAlertMessage("")
+    }
   }
   const closeAlert = () => {
     setAlertMessage(""); // Clear the alert message
