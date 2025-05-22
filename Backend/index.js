@@ -127,8 +127,7 @@ app.post("/register", (req, res) => {
     password: password,
   };
 
-  user.push(newUser);
-  res.json(true);
+  res.json({ success: true });
 });
 
 app.listen(PORT, () => {
