@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router";
 export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -13,6 +14,7 @@ export default function RegisterForm() {
   const [lName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [alertMessage, setAlertMessage] = useState("");
+  const navigate = useNavigate();
   const apiUrl = import.meta.env.VITE_API_URL;
   function handleFormSubmitted(e) {
     e.preventDefault();
@@ -39,8 +41,15 @@ export default function RegisterForm() {
         lName: lName,
         phoneNumber: phoneNumber,
       });
-      console.log(response.data);
-      setAlertMessage("Account Created Sucessfully");
+      if (response.data === true) {
+        setTimeout(() => {
+          navigate(`/${inputedUsername}/home`, {
+            state: { userName: inputedUsername, isUserLoggedIn: true },
+          });
+        }, 3000);
+      } else {
+        navigate("/login");
+      }
     } catch (error) {
       console.log(error);
     }
