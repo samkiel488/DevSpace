@@ -1,6 +1,6 @@
 import { useState } from "react";
 import emailAddress from "../defaultUser";
-
+import axios from "axios";
 export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -11,6 +11,7 @@ export default function RegisterForm() {
   const [firstInputedPassword, setFirstInputedPassword] = useState();
   const [confirmInputedPassword, setConfirmInputedPassword] = useState();
   const [alertMessage, setAlertMessage] = useState("");
+  const apiUrl = import.meta.env.VITE_API_URL;
   function handleFormSubmitted(e) {
     e.preventDefault();
     if (firstInputedPassword.length < 8) {
@@ -22,8 +23,14 @@ export default function RegisterForm() {
     }
   }
 
-  function addNewAccount() {
-    alert("You are able to register a new account");
+  async function addNewAccount() {
+    try {
+      const response = await axios.post(`${apiUrl}/register`, {
+        
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   function checkEmail() {
