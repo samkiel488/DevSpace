@@ -12,6 +12,7 @@ export default function RegisterForm() {
   const [confirmInputedPassword, setConfirmInputedPassword] = useState();
   const [fName, setFirstName] = useState("");
   const [lName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [alertMessage, setAlertMessage] = useState("");
   const apiUrl = import.meta.env.VITE_API_URL;
   function handleFormSubmitted(e) {
@@ -33,6 +34,7 @@ export default function RegisterForm() {
         gmailAddress: checkEmail,
         fName: fName,
         lName: lName,
+        phoneNumber: phoneNumber,
       });
       console.log(response.data);
     } catch (error) {
@@ -148,6 +150,9 @@ export default function RegisterForm() {
                 id="phoneNumber"
                 name="phoneNumber"
                 placeholder="Input your Whatsapp Number"
+                onChange={(e) => {
+                  setPhoneNumber(e.target.value);
+                }}
                 className="w-full px-3 py-2 rounded-md border border-gray-300 dark:border-black dark:bg-gray-900 dark:text-black focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none"
               />
             </div>
