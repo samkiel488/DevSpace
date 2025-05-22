@@ -1,6 +1,6 @@
-import React from "react";
 import { useState } from "react";
-import emailAddress from "../defaultUser";
+import axios from "axios";
+import { useNavigate } from "react-router";
 export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -8,32 +8,127 @@ export default function RegisterForm() {
   const [isEmailUsed, setIsEmailUsed] = useState(false);
   const [inputedUsername, setInputedUsername] = useState("");
   const [isUserNameUsed, setIsUserNameUsed] = useState(false);
-
-  function checkEmail() {
-    const foundEmail = emailAddress.find(
-      (email) =>
-        email.gmailAddress.toLocaleLowerCase() ===
-        checkUserEmail.toLocaleLowerCase()
-    );
-    setIsEmailUsed(foundEmail);
+  const [firstInputedPassword, setFirstInputedPassword] = useState();
+  const [confirmInputedPassword, setConfirmInputedPassword] = useState();
+  const [fName, setFirstName] = useState("");
+  const [lName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [alertMessage, setAlertMessage] = useState("");
+  const navigate = useNavigate();
+  const apiUrl = import.meta.env.VITE_API_URL;
+  function handleFormSubmitted(e) {
+    e.preventDefault();
+    if (firstInputedPassword.length < 8) {
+      setAlertMessage("The password should be more than 8 character.");
+    } else if (firstInputedPassword !== confirmInputedPassword) {
+      setAlertMessage("The password are not corresponding....");
+    } else if (isUserNameUsed || isEmailUsed) {
+      setAlertMessage(
+        "The Username or Email has being used to create an account."
+      );
+    } else {
+      addNewAccount();
+    }
   }
 
-  function checkUsername() {
-    const foundUsername = emailAddress.find(
-      (email) => email.userName === inputedUsername
-    );
-    setIsUserNameUsed(foundUsername);
+  async function addNewAccount() {
+    try {
+      const response = await axios.post(`${apiUrl}/register`, {
+        password: firstInputedPassword,
+        userName: inputedUsername,
+        gmailAddress: checkUserEmail,
+        fName: fName,
+        lName: lName,
+        phoneNumber: phoneNumber,
+      });
+      if (response.data === true) {
+        setTimeout(() => {
+          navigate(`/${inputedUsername}/home`, {
+            state: { userName: inputedUsername, isUserLoggedIn: true },
+          });
+        }, 3000);
+      } else {
+        navigate("/login");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
+
+  async function checkEmail() {
+    try {
+      const foundEmail = await axios.get(`${apiUrl}/auth/${checkUserEmail}`);
+      if (foundEmail) {
+        setIsEmailUsed(true);
+      }
+    } catch (error) {
+      if (error.status === 404) {
+        setAlertMessage("");
+        setIsEmailUsed(false);
+      } else {
+        setAlertMessage("There is network Connectivity Problem");
+      }
+    }
+  }
+
+  async function checkUsername() {
+    try {
+      const userNameUsed = await axios.post(`${apiUrl}/verify/username`, {
+        userName: inputedUsername,
+      });
+      if (userNameUsed.data === true) {
+        setIsUserNameUsed(true);
+      } else {
+        setIsUserNameUsed(false);
+      }
+    } catch (error) {
+      console.log(error);
+      setAlertMessage("Network Connectivity Problem");
+    }
+  }
+  const closeAlert = () => {
+    setAlertMessage("");
+  };
 
   return (
     <div className="min-h-screen bg-white flex flex-col justify-center py-12 pl-10 pr-10 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')] bg-cover bg-center bg-no-repeat">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
+        {alertMessage && (
+          <div
+            className="fixed top-4 right-4 p-4 text-white rounded-lg shadow-lg max-w-xs w-full ${
+           bg-red-500"
+            style={{ zIndex: 9999 }}
+          >
+            <div className="flex justify-between items-center">
+              <p>{alertMessage}</p>
+              <button onClick={closeAlert} className="text-white ml-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        )}
         <div className="bg-white dark:bg-black py-8 px-4 shadow-lg rounded-2xl sm:rounded-lg sm:px-10">
           <h1 className="text-2xl font-bold text-center text-black dark:text-black mb-8">
             Create a DevSpace Account
           </h1>
 
-          <form action="#" className="w-full flex flex-col gap-4">
+          <form
+            onSubmit={handleFormSubmitted}
+            className="w-full flex flex-col gap-4"
+          >
             <div className="flex items-start flex-col justify-start">
               <label
                 htmlFor="firstName"
@@ -46,7 +141,11 @@ export default function RegisterForm() {
                 id="firstName"
                 name="firstName"
                 placeholder="Input your First Name"
+                onChange={(e) => {
+                  setFirstName(e.target.value);
+                }}
                 className="w-full px-3 dark:text-black dark:bg-gray-900 py-2 rounded-md border border-gray-300 dark:border-black focus:outline-none focus:ring-1 focus:ring-blue-500"
+                required
               />
             </div>
 
@@ -62,7 +161,11 @@ export default function RegisterForm() {
                 id="lastName"
                 name="lastName"
                 placeholder="Input your Surname"
+                onChange={(e) => {
+                  setLastName(e.target.value);
+                }}
                 className="w-full px-3 dark:text-black dark:bg-gray-900 py-2 rounded-md border border-gray-300 dark:border-black focus:outline-none focus:ring-1 focus:ring-blue-500"
+                required
               />
             </div>
 
@@ -78,7 +181,11 @@ export default function RegisterForm() {
                 id="phoneNumber"
                 name="phoneNumber"
                 placeholder="Input your Whatsapp Number"
+                onChange={(e) => {
+                  setPhoneNumber(e.target.value);
+                }}
                 className="w-full px-3 py-2 rounded-md border border-gray-300 dark:border-black dark:bg-gray-900 dark:text-black focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none"
+                required
               />
             </div>
 
@@ -99,6 +206,7 @@ export default function RegisterForm() {
                   setInputedUsername(e.target.value);
                 }}
                 onBlur={checkUsername}
+                required
               />
               {isUserNameUsed ? (
                 <p className="text-sm text-red-500 dark:text-red-500 mr-2">
@@ -124,6 +232,7 @@ export default function RegisterForm() {
                 onChange={(e) => {
                   setCheckUserEmail(e.target.value);
                 }}
+                required
               />
               {isEmailUsed ? (
                 <p className="text-sm text-red-500 dark:text-red-500 mr-2">
@@ -146,6 +255,9 @@ export default function RegisterForm() {
                   name="password"
                   placeholder="Input your Password"
                   className="block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
+                  onChange={(e) => {
+                    setFirstInputedPassword(e.target.value);
+                  }}
                   required
                 />
                 <button
@@ -205,6 +317,10 @@ export default function RegisterForm() {
                   id="confirmPassword"
                   name="confirmPassword"
                   placeholder="Retype your Password"
+                  onChange={(e) => {
+                    setConfirmInputedPassword(e.target.value);
+                  }}
+                  value={confirmInputedPassword}
                   className="block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
                   required
                 />

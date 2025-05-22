@@ -1,11 +1,13 @@
 import express from "express";
 import cors from "cors";
+import { configDotenv } from "dotenv";
 
+configDotenv();
 const app = express();
 const PORT = 8080;
 const corsOptions = {
-  origin: "http://localhost:5173",
-  methods: ["GET", "POST"],
+  origin: process.env.FRONTEND_API_URL,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
 };
 
 app.use(cors(corsOptions));
@@ -75,7 +77,13 @@ app.get("/auth/:inputedEmailAddress", (req, res) => {
   );
 
   if (foundUser) {
-    res.json({ foundUser: foundUser });
+    res.json({
+      foundUser: {
+        fName: foundUser.fName,
+        lName: foundUser.lName,
+        userName: foundUser.userName,
+      },
+    });
   } else {
     res.status(404).json({ message: "User not found" });
   }
@@ -90,6 +98,57 @@ app.get("/users/:username", (req, res) => {
     res.json({ post: post });
   } else {
     res.status(404).json({ message: "User not found" });
+  }
+});
+
+app.post("/verify", (req, res) => {
+  const { emailAddress, password } = req.body;
+
+  const users = user.find(
+    (user) => user.gmailAddress === emailAddress && user.password === password
+  );
+
+  if (users) {
+    res.json({ success: true });
+  } else {
+    res.json({ success: false });
+  }
+});
+
+app.post("/register", (req, res) => {
+  const { password, userName, gmailAddress, fName, lName, phoneNumber } =
+    req.body;
+
+  const newUser = {
+    fName: fName,
+    lName: lName,
+    gmailAddress: gmailAddress,
+    userName: userName,
+    password: password,
+  };
+
+  var userExistAlready = user.find(
+    (u) => u.gmailAddress === newUser.gmailAddress
+  );
+
+  if (Boolean(userExistAlready) === true) {
+    res.json(false);
+  } else {
+    user.push(newUser);
+    res.json(true);
+  }
+});
+
+app.post("/verify/username", (req, res) => {
+  const { userName } = req.body;
+
+  const checkUsername = user.find((u) => {
+    return u.userName === userName;
+  });
+  if (checkUsername) {
+    res.json(true);
+  } else {
+    res.json(false);
   }
 });
 
