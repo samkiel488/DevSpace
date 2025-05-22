@@ -1,6 +1,6 @@
-import React from "react";
 import { useState } from "react";
 import emailAddress from "../defaultUser";
+
 export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -8,6 +8,14 @@ export default function RegisterForm() {
   const [isEmailUsed, setIsEmailUsed] = useState(false);
   const [inputedUsername, setInputedUsername] = useState("");
   const [isUserNameUsed, setIsUserNameUsed] = useState(false);
+  const [firstInputedPassword, setFirstInputedPassword] = useState();
+  const [confirmInputedPassword, setConfirmInputedPassword] = useState();
+  function handleFormSubmitted(e) {
+    e.preventDefault();
+    firstInputedPassword === confirmInputedPassword
+      ? console.log(false)
+      : setConfirmInputedPassword("");
+  }
 
   function checkEmail() {
     const foundEmail = emailAddress.find(
@@ -33,7 +41,10 @@ export default function RegisterForm() {
             Create a DevSpace Account
           </h1>
 
-          <form action="#" className="w-full flex flex-col gap-4">
+          <form
+            onSubmit={handleFormSubmitted}
+            className="w-full flex flex-col gap-4"
+          >
             <div className="flex items-start flex-col justify-start">
               <label
                 htmlFor="firstName"
@@ -146,6 +157,9 @@ export default function RegisterForm() {
                   name="password"
                   placeholder="Input your Password"
                   className="block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
+                  onChange={(e) => {
+                    setFirstInputedPassword(e.target.value);
+                  }}
                   required
                 />
                 <button
@@ -205,6 +219,10 @@ export default function RegisterForm() {
                   id="confirmPassword"
                   name="confirmPassword"
                   placeholder="Retype your Password"
+                  onChange={(e) => {
+                    setConfirmInputedPassword(e.target.value);
+                  }}
+                  value={confirmInputedPassword}
                   className="block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
                   required
                 />
