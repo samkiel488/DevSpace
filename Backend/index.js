@@ -130,6 +130,8 @@ app.post("/register", (req, res) => {
   res.json({ success: true });
 });
 
+app.post("/verify/username", (req, res) => {});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port localhost:${PORT}`);
 });
