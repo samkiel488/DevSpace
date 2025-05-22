@@ -32,6 +32,7 @@ export default function RegisterForm() {
         userName: inputedUsername,
         gmailAddress: checkEmail,
         fName: fName,
+        lName: lName,
       });
       console.log(response.data);
     } catch (error) {
