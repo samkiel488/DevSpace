@@ -26,8 +26,10 @@ export default function RegisterForm() {
   async function addNewAccount() {
     try {
       const response = await axios.post(`${apiUrl}/register`, {
-        
+        password: firstInputedPassword,
+        userName: inputedUsername,
       });
+      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
