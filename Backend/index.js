@@ -135,8 +135,6 @@ app.post("/register", (req, res) => {
     res.json(false);
   } else {
     user.push(newUser);
-    console.log(user);
-
     res.json({ success: true });
   }
 });
