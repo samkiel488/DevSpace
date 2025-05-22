@@ -11,6 +11,7 @@ export default function RegisterForm() {
   const [firstInputedPassword, setFirstInputedPassword] = useState();
   const [confirmInputedPassword, setConfirmInputedPassword] = useState();
   const [fName, setFirstName] = useState("");
+  const [lName, setLastName] = useState("");
   const [alertMessage, setAlertMessage] = useState("");
   const apiUrl = import.meta.env.VITE_API_URL;
   function handleFormSubmitted(e) {
@@ -127,6 +128,9 @@ export default function RegisterForm() {
                 id="lastName"
                 name="lastName"
                 placeholder="Input your Surname"
+                onChange={(e) => {
+                  setLastName(e.target.value);
+                }}
                 className="w-full px-3 dark:text-black dark:bg-gray-900 py-2 rounded-md border border-gray-300 dark:border-black focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
