@@ -10,11 +10,20 @@ export default function RegisterForm() {
   const [isUserNameUsed, setIsUserNameUsed] = useState(false);
   const [firstInputedPassword, setFirstInputedPassword] = useState();
   const [confirmInputedPassword, setConfirmInputedPassword] = useState();
+  const [alertMessage, setAlertMessage] = useState("");
   function handleFormSubmitted(e) {
     e.preventDefault();
-    firstInputedPassword === confirmInputedPassword
-      ? console.log(false)
-      : setConfirmInputedPassword("");
+    if (firstInputedPassword.length < 8) {
+      setAlertMessage("The password should be more than 8 character.");
+    } else if (firstInputedPassword !== confirmInputedPassword) {
+      setAlertMessage("The password are not corresponding....");
+    } else {
+      addNewAccount();
+    }
+  }
+
+  function addNewAccount() {
+    alert("You are able to register a new account");
   }
 
   function checkEmail() {
@@ -32,10 +41,40 @@ export default function RegisterForm() {
     );
     setIsUserNameUsed(foundUsername);
   }
+  const closeAlert = () => {
+    setAlertMessage(""); // Clear the alert message
+  };
 
   return (
     <div className="min-h-screen bg-white flex flex-col justify-center py-12 pl-10 pr-10 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')] bg-cover bg-center bg-no-repeat">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
+        {alertMessage && (
+          <div
+            className="fixed top-4 right-4 p-4 text-white rounded-lg shadow-lg max-w-xs w-full ${
+           bg-red-500"
+            style={{ zIndex: 9999 }}
+          >
+            <div className="flex justify-between items-center">
+              <p>{alertMessage}</p>
+              <button onClick={closeAlert} className="text-white ml-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        )}
         <div className="bg-white dark:bg-black py-8 px-4 shadow-lg rounded-2xl sm:rounded-lg sm:px-10">
           <h1 className="text-2xl font-bold text-center text-black dark:text-black mb-8">
             Create a DevSpace Account
