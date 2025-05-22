@@ -20,7 +20,7 @@ export default function RegisterForm() {
       setAlertMessage("The password should be more than 8 character.");
     } else if (firstInputedPassword !== confirmInputedPassword) {
       setAlertMessage("The password are not corresponding....");
-    } else if (isUserNameUsed && isEmailUsed) {
+    } else if (isUserNameUsed || isEmailUsed) {
       setAlertMessage(
         "The Username or Email has being used to create an account."
       );
@@ -40,7 +40,7 @@ export default function RegisterForm() {
         phoneNumber: phoneNumber,
       });
       console.log(response.data);
-      alert("Account Created Sucessfully");
+      setAlertMessage("Account Created Sucessfully");
     } catch (error) {
       console.log(error);
     }
