@@ -145,6 +145,7 @@ export default function RegisterForm() {
                   setFirstName(e.target.value);
                 }}
                 className="w-full px-3 dark:text-black dark:bg-gray-900 py-2 rounded-md border border-gray-300 dark:border-black focus:outline-none focus:ring-1 focus:ring-blue-500"
+                required
               />
             </div>
 
@@ -164,6 +165,7 @@ export default function RegisterForm() {
                   setLastName(e.target.value);
                 }}
                 className="w-full px-3 dark:text-black dark:bg-gray-900 py-2 rounded-md border border-gray-300 dark:border-black focus:outline-none focus:ring-1 focus:ring-blue-500"
+                required
               />
             </div>
 
@@ -183,6 +185,7 @@ export default function RegisterForm() {
                   setPhoneNumber(e.target.value);
                 }}
                 className="w-full px-3 py-2 rounded-md border border-gray-300 dark:border-black dark:bg-gray-900 dark:text-black focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none"
+                required
               />
             </div>
 
@@ -203,6 +206,7 @@ export default function RegisterForm() {
                   setInputedUsername(e.target.value);
                 }}
                 onBlur={checkUsername}
+                required
               />
               {isUserNameUsed ? (
                 <p className="text-sm text-red-500 dark:text-red-500 mr-2">
@@ -228,6 +232,7 @@ export default function RegisterForm() {
                 onChange={(e) => {
                   setCheckUserEmail(e.target.value);
                 }}
+                required
               />
               {isEmailUsed ? (
                 <p className="text-sm text-red-500 dark:text-red-500 mr-2">
