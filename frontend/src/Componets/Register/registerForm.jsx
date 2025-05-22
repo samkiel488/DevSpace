@@ -31,7 +31,7 @@ export default function RegisterForm() {
       const response = await axios.post(`${apiUrl}/register`, {
         password: firstInputedPassword,
         userName: inputedUsername,
-        gmailAddress: checkEmail,
+        gmailAddress: checkUserEmail,
         fName: fName,
         lName: lName,
         phoneNumber: phoneNumber,
