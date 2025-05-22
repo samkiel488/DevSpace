@@ -73,7 +73,7 @@ export default function RegisterForm() {
       }
     } catch (error) {
       console.log(error);
-      setAlertMessage("")
+      setAlertMessage("Network Connectivity Problem");
     }
   }
   const closeAlert = () => {
