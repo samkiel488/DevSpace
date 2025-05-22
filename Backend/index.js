@@ -115,6 +115,11 @@ app.post("/verify", (req, res) => {
   }
 });
 
+app.post("/register", (req, res) => {
+  const { fName, lName, gmailAddress, password } = req.body;
+  log(req.body);
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port localhost:${PORT}`);
 });
