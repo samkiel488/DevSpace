@@ -130,7 +130,18 @@ app.post("/register", (req, res) => {
   res.json({ success: true });
 });
 
-app.post("/verify/username", (req, res) => {});
+app.post("/verify/username", (req, res) => {
+  const { userName } = req.body;
+
+  const checkUsername = user.find((u) => {
+    return u.userName === userName;
+  });
+  if (checkUsername) {
+    res.json(true);
+  } else {
+    res.json(false);
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port localhost:${PORT}`);
