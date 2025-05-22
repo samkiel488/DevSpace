@@ -42,13 +42,17 @@ export default function RegisterForm() {
     }
   }
 
-  function checkEmail() {
-    const foundEmail = emailAddress.find(
-      (email) =>
-        email.gmailAddress.toLocaleLowerCase() ===
-        checkUserEmail.toLocaleLowerCase()
-    );
-    setIsEmailUsed(foundEmail);
+  async function checkEmail() {
+    try {
+      const foundEmail = await axios.get(`${apiUrl}/auth/${checkUserEmail}`);
+      if (foundEmail) {
+        setIsEmailUsed(true);
+      }
+    } catch (error) {
+      if (error.status === 404) {
+        setIsEmailUsed(false);
+      }
+    }
   }
 
   function checkUsername() {
