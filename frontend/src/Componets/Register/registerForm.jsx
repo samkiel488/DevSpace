@@ -51,6 +51,8 @@ export default function RegisterForm() {
     } catch (error) {
       if (error.status === 404) {
         setIsEmailUsed(false);
+      } else {
+        setAlertMessage("There is network Connectivity Problem");
       }
     }
   }
