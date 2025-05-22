@@ -116,8 +116,19 @@ app.post("/verify", (req, res) => {
 });
 
 app.post("/register", (req, res) => {
-  const [password, userName, gmailAddress, fName, lName, phoneNumber] =
+  const { password, userName, gmailAddress, fName, lName, phoneNumber } =
     req.body;
+
+  const newUser = {
+    fName: fName,
+    lName: lName,
+    gmailAddress: gmailAddress,
+    userName: userName,
+    password: password,
+  };
+
+  user.push(newUser);
+  res.json(true);
 });
 
 app.listen(PORT, () => {
