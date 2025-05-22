@@ -127,7 +127,18 @@ app.post("/register", (req, res) => {
     password: password,
   };
 
-  res.json({ success: true });
+  var userExistAlready = user.find(
+    (u) => u.gmailAddress === newUser.gmailAddress
+  );
+
+  if (Boolean(userExistAlready) === true) {
+    res.json(false);
+  } else {
+    user.push(newUser);
+    console.log(user);
+
+    res.json({ success: true });
+  }
 });
 
 app.post("/verify/username", (req, res) => {
