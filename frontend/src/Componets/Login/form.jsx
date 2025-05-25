@@ -18,7 +18,9 @@ export default function Form() {
     }
 
     try {
-      const response = await axios.get(`${apiUrl}/auth/${inputedEmailAddress}`);
+      const response = await axios.post(`${apiUrl}/auth/emailAddress`, {
+        inputedEmailAddress: inputedEmailAddress,
+      });
 
       if (response.data.foundUser) {
         setName(response.data.foundUser);
