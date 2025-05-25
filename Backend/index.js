@@ -67,8 +67,8 @@ const user = [
   },
 ];
 
-app.get("/auth/:inputedEmailAddress", (req, res) => {
-  const inputedEmailAddress = req.params.inputedEmailAddress;
+app.post("/auth/emailAddress", (req, res) => {
+  const {inputedEmailAddress} = req.body;
 
   const foundUser = user.find(
     (email) =>
