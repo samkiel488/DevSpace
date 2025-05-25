@@ -57,7 +57,9 @@ export default function RegisterForm() {
 
   async function checkEmail() {
     try {
-      const foundEmail = await axios.get(`${apiUrl}/auth/${checkUserEmail}`);
+      const foundEmail = await axios.post(`${apiUrl}/auth/emailAddress`, {
+        inputedEmailAddress: checkUserEmail,
+      });
       if (foundEmail) {
         setIsEmailUsed(true);
       }
