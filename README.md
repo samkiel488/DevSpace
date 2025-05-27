@@ -54,7 +54,8 @@ In our frontend we are going to be using:
    npm install
    ```
    This commands look at the package.json file and install all the node module used for the frontend Project
-5. After install the node module since it was vite we used we can run the folllowing command to view it locally on our browser:
+   
+6. After install the node module since it was vite we used we can run the folllowing command to view it locally on our browser:
    ```
    npm run dev
    ```
