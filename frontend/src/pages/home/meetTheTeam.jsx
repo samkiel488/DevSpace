@@ -1,4 +1,4 @@
-import OurTeamProfiles from "../Componets/MeetTheTeam/ourTeamProfile";
+import OurTeamProfiles from "../../Componets/MeetTheTeam/ourTeamProfile";
 
 export default function MeetTheTeam() {
   return (

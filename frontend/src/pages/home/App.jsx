@@ -1,6 +1,6 @@
-import AboutUsComponet from "../Componets/Home/aboutUs";
-import WhatWeDo from "../Componets/Home/whatWeDo";
-import OurTeam from "../Componets/Home/ourTeam";
+import AboutUsComponet from "../../Componets/Home/aboutUs";
+import WhatWeDo from "../../Componets/Home/whatWeDo";
+import OurTeam from "../../Componets/Home/ourTeam";
 export default function App() {
   return (
     <>

@@ -1,4 +1,4 @@
-import OurProject from "../Componets/Projects/ourProject";
+import OurProject from "../../Componets/Projects/ourProject";
 
 export default function Project() {
   return (

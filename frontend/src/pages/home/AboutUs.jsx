@@ -1,6 +1,6 @@
-import AboutUsHeading from "../Componets/AboutUs/aboutUsHeading";
-import Mission from "../Componets/AboutUs/mission";
-import WhyChooseUs from "../Componets/AboutUs/whyChooseUs";
+import AboutUsHeading from "../../Componets/AboutUs/aboutUsHeading";
+import Mission from "../../Componets/AboutUs/mission";
+import WhyChooseUs from "../../Componets/AboutUs/whyChooseUs";
 
 export default function AboutUs() {
   return (

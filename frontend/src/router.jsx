@@ -1,13 +1,12 @@
-import App from "./pages/App";
-import Login from "./pages/login";
-import Register from "./pages/register";
-import AboutUs from "./pages/AboutUs";
-import MeetTheTeam from "./pages/meetTheTeam";
-import Contact from "./pages/contact";
-import Project from "./pages/project";
-import Page404 from "./pages/404page";
-import Home from "./pages/userLoggedIn/home";
-import Share from "./pages/share";
+import App from "./pages/home/App";
+import Login from "./pages/home/login";
+import Register from "./pages/home/register";
+import AboutUs from "./pages/home/AboutUs";
+import MeetTheTeam from "./pages/home/meetTheTeam";
+import Contact from "./pages/home/contact";
+import Project from "./pages/home/project";
+import Page404 from "./pages/home/404page";
+import Share from "./pages/home/share";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomeLayout from "./Componets/HomeLayout";
 
