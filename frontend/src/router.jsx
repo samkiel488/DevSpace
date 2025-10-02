@@ -25,6 +25,7 @@ export default function AppRouter() {
             { path: "/contact", element: <Contact /> },
             { path: "/projects", element: <Project /> },
             { path: "/login", element: <Login /> },
+            { path: "/register", element: <Register /> },
           ],
         },
         { path: "*", element: <Page404 /> },
