@@ -2,17 +2,28 @@ import jwt from "jsonwebtoken";
 import HashPassword from "../lib/hashPassword.js";
 import User from "../models/auth.models.js";
 import { JWT_EXPIRES_IN, JWT_SECRET } from "../config/env.config.js";
+import bcrypt from "bcryptjs";
 
 export async function SignUp(req, res, next) {
   try {
     const { name, email, username, password } = req.body;
-    const existingUser = await User.findOne({ email });
+    const existingUser = await User.findOne({
+      or(array) {
+        [username, email];
+      },
+    });
     console.log(existingUser);
 
-    if (existingUser) {
+    if (existingUser.email === email) {
       return res
         .status(400)
         .json({ success: false, error: "User already exists" });
+    }
+
+    if (existingUser.username === username) {
+      return res
+        .status(400)
+        .json({ success: false, error: "Username has been used" });
     }
 
     const user = await User.create({
@@ -22,13 +33,45 @@ export async function SignUp(req, res, next) {
       password: await HashPassword(password),
     });
 
-    console.log(user);
+    const token = jwt.sign({ id: user._id }, JWT_SECRET, {
+      expiresIn: JWT_EXPIRES_IN,
+    });
+
+    return res
+      .status(201)
+      .json({ success: true, data: { user: { id: user._id }, token } });
+  } catch (err) {
+    next(err);
+  }
+}
+
+export async function SignIn(req, res, next) {
+  try {
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res
+        .status(400)
+        .json({ success: false, error: "User does not exists" });
+    }
+
+    const validatingPassword = await bcrypt.compare(password, user.password);
+
+    if (!validatingPassword) {
+      return res
+        .status(400)
+        .json({ success: false, error: "Invalid Password" });
+    }
 
     const token = jwt.sign({ id: user._id }, JWT_SECRET, {
       expiresIn: JWT_EXPIRES_IN,
     });
 
-    return res.status(201).json({ success: true, data: { user, token } });
+    return res
+      .status(200)
+      .json({ success: true, data: { user: { id: user._id }, token } });
   } catch (err) {
     next(err);
   }
