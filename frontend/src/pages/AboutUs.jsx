@@ -1,17 +1,10 @@
 import AboutUsHeading from "../Componets/AboutUs/aboutUsHeading";
 import Mission from "../Componets/AboutUs/mission";
 import WhyChooseUs from "../Componets/AboutUs/whyChooseUs";
-import Footer from "../Componets/footer";
-import Header from "../Componets/header";
-import Toggle from "../Componets/toggle";
-import useLocalStorage from "use-local-storage";
 
 export default function AboutUs() {
-  const prefences = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const [darkMode, setDarkMode] = useLocalStorage("darkMode", prefences);
   return (
-    <div data-theme={darkMode ? "dark" : "light"}>
-      <Header colorLightMode="black" colorDarkMode="black" />
+    <>
       <div className="relative bg-gradient-to-r from-purple-600 to-blue-600 h-screen text-white overflow-hidden">
         <div className="absolute inset-0">
           <img
@@ -34,8 +27,6 @@ export default function AboutUs() {
       <AboutUsHeading />
       <Mission />
       <WhyChooseUs />
-      <Footer />
-      <Toggle darkMode={darkMode} setDarkMode={setDarkMode} />
-    </div>
+    </>
   );
 }

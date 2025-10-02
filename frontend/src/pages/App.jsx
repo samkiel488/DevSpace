@@ -1,17 +1,10 @@
-import Header from "../Componets/header";
 import AboutUsComponet from "../Componets/Home/aboutUs";
-import Toggle from "../Componets/toggle";
 import WhatWeDo from "../Componets/Home/whatWeDo";
-import Footer from "../Componets/footer";
 import OurTeam from "../Componets/Home/ourTeam";
-import useLocalStorage from "use-local-storage";
 export default function App() {
-  const prefences = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const [darkMode, setDarkMode] = useLocalStorage("darkMode", prefences);
   return (
-    <div data-theme={darkMode ? "dark" : "light"}>
+    <>
       <div className="relative bg-[url('/images/hero-bg.jpg')] bg-cover bg-center bg-no-repeat">
-        <Header colorLightMode="transparent" colorDarkMode="transparent" />
         <main className="relative isolate px-6 pt-12 pb-20 lg:px-8 text-white text-center z-10">
           <div className="mx-auto max-w-3xl pt-10">
             <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-6xl">
@@ -39,8 +32,6 @@ export default function App() {
       <AboutUsComponet />
       <WhatWeDo />
       <OurTeam />
-      <Footer />
-      <Toggle darkMode={darkMode} setDarkMode={setDarkMode} />
-    </div>
+    </>
   );
 }
