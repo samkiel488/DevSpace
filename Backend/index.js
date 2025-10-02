@@ -7,8 +7,9 @@ import { connectToMongoDB } from "./database/mongoDb.database.js";
 import { errorHandler } from "./middleware/errorHandler.middleware.js";
 connectToMongoDB();
 const app = express();
-app.use(cors(corsOptions));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors(corsOptions));
 
 app.use("/auth", authRouter);
 app.use(errorHandler);
