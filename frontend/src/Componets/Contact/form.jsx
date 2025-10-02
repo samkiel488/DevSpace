@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Form = () => {
   const [currentStep, setCurrentStep] = useState(1);

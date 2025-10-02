@@ -21,6 +21,10 @@ export default function AppRouter() {
           children: [
             { element: <App />, index: true },
             { path: "aboutus", element: <AboutUs /> },
+            { path: "/meettheteam", element: <MeetTheTeam /> },
+            { path: "/contact", element: <Contact /> },
+            { path: "/projects", element: <Project /> },
+            { path: "/login", element: <Login /> },
           ],
         },
         { path: "*", element: <Page404 /> },

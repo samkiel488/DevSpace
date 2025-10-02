@@ -1,19 +1,25 @@
-import Footer from "../Componets/footer";
-import Header from "../Componets/header";
 import OurTeamProfiles from "../Componets/MeetTheTeam/ourTeamProfile";
-import Toggle from "../Componets/toggle";
-
-import useLocalStorage from "use-local-storage";
 
 export default function MeetTheTeam() {
-  const prefences = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const [darkMode, setDarkMode] = useLocalStorage("darkMode", prefences);
   return (
-    <div data-theme={darkMode ? "dark" : "light"}>
-      <Header colorLightMode="black" colorDarkMode="black" />
-      <OurTeamProfiles />
-      <Footer />
-      <Toggle darkMode={darkMode} setDarkMode={setDarkMode} />
-    </div>
+    <section class=" bg-white  dark:bg-slate-800 text-black dark:text-white body-font">
+      <div class="container px-5 py-10 mx-auto">
+        <div class="flex flex-col text-center w-full mb-10">
+          <h1 class="text-3xl font-medium title-font mb-4 text-black dark:text-white">
+            OUR TEAM
+          </h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+            At the heart of our success is a dedicated team of professionals who
+            bring passion, creativity, and expertise to everything they do.
+            Together, we strive to create meaningful impact through
+            collaboration, innovation, and a shared commitment to excellence.
+            Get to know the individuals who make it all possible below.
+          </p>
+        </div>
+        <div class="flex flex-wrap -m-4">
+          <OurTeamProfiles />
+        </div>
+      </div>
+    </section>
   );
 }
