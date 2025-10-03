@@ -12,7 +12,6 @@ export async function SignUp(req, res, next) {
         [username, email];
       },
     });
-    console.log(existingUser);
 
     if (existingUser.email === email) {
       return res
@@ -46,7 +45,7 @@ export async function SignUp(req, res, next) {
 
     return res
       .status(201)
-      .json({ success: true, data: { user: { id: user._id }, token } });
+      .json({ success: true, data: { user: { id: user._id, name: user.name, username: user.username }  } });
   } catch (err) {
     next(err);
   }
@@ -85,7 +84,7 @@ export async function SignIn(req, res, next) {
 
     return res
       .status(200)
-      .json({ success: true, data: { user: { id: user._id }, token } });
+      .json({ success: true, data: { user: { id: user._id, name: user.name, username: user.username } } });
   } catch (err) {
     next(err);
   }

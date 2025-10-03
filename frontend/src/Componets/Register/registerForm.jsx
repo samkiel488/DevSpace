@@ -1,6 +1,7 @@
+import { Form } from "react-router-dom";
 export default function RegisterForm() {
   return (
-    <div className="min-h-screen bg-white flex flex-col justify-center py-12 pl-10 pr-10 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')] bg-cover bg-center bg-no-repeat">
+    <div className="min-h-screen bg-white flex flex-col justify-center py-12 p-3 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')] bg-cover bg-center bg-no-repeat">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white  py-8 px-4 shadow-lg rounded-2xl sm:rounded-lg sm:px-10">
           <h1 className="text-2xl font-bold text-center text-black dark:text-black mb-2">
@@ -10,19 +11,19 @@ export default function RegisterForm() {
             We are happy to have you onboard
           </p>
 
-          <form className="w-full flex flex-col gap-4">
+          <Form method="post" className="w-full flex flex-col gap-4">
             <div className="flex items-start flex-col justify-start">
               <label
-                htmlFor="firstName"
+                htmlFor="name"
                 className="text-sm text-black dark:text-black mr-2"
               >
                 First Name:
               </label>
               <input
                 type="text"
-                id="firstName"
-                name="firstName"
-                placeholder="Input your First Name"
+                id="name"
+                name="name"
+                placeholder="Input your Fullname"
                 className="w-full px-3 dark:text-black  py-2 rounded-md border border-gray-300 dark:border-black focus:outline-none focus:ring-1 focus:ring-blue-500"
                 required
               />
@@ -69,12 +70,12 @@ export default function RegisterForm() {
               >
                 Password:
               </label>
-              <div className="mt-1 relative">
+              <div className="mt-1 mb-5 relative">
                 <input
                   id="password"
                   name="password"
                   placeholder="Input your Password"
-                  className="block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
+                  className="block w-full px-3 dark:text-black  py-2 rounded-md border border-gray-300 dark:border-black focus:outline-none focus:ring-1 focus:ring-blue-500"
                   required
                 />
               </div>
@@ -83,9 +84,9 @@ export default function RegisterForm() {
             <input
               type="submit"
               value="Register"
-              className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md shadow-sm"
+              className="bg-blue-500 cursor-pointer hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md shadow-sm"
             />
-          </form>
+          </Form>
 
           <div className="mt-4 text-center">
             <span className="text-sm text-gray-800 dark:text-gray-800">
@@ -99,4 +100,30 @@ export default function RegisterForm() {
       </div>
     </div>
   );
+}
+
+export async function RegisterFormAction({ request }) {
+  const formData = await request.formData();
+  const email = formData.get("email");
+  const name = formData.get("name");
+  const username = formData.get("username");
+  const password = formData.get("password");
+
+  try {
+    const req = await fetch("http://localhost:3000/auth/signup", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({ email, username, password, name }),
+      method: "post",
+    });
+
+    const response = await req.json();
+    if (!response.success) {
+      alert(response.error);
+    }
+  } catch (err) {
+    console.log(err);
+  }
 }

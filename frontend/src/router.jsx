@@ -11,6 +11,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomeLayout from "./Componets/HomeLayout";
 import DashboardHome from "./pages/dashboard";
 import { LoginFormAction } from "./Componets/Login/form";
+import { RegisterFormAction } from "./Componets/Register/registerForm";
 
 export default function AppRouter() {
   return (
@@ -26,7 +27,11 @@ export default function AppRouter() {
             { path: "/contact", element: <Contact /> },
             { path: "/projects", element: <Project /> },
             { path: "/login", element: <Login />, action: LoginFormAction },
-            { path: "/register", element: <Register /> },
+            {
+              path: "/register",
+              element: <Register />,
+              action: RegisterFormAction,
+            },
             { path: "*", element: <Page404 /> },
           ],
         },
@@ -42,17 +47,5 @@ export default function AppRouter() {
         },
       ])}
     />
-    // <Routes>
-    //   <Route path="/" element={<App />} />
-    //   <Route path="/login" element={<Login />} />
-    //   <Route path="/register" element={<Register />} />
-    //   <Route path="/aboutus" element={<AboutUs />} />
-    //   <Route path="/meettheteam" element={<MeetTheTeam />} />
-    //   <Route path="/contact" element={<Contact />} />
-    //   <Route path="/projects" element={<Project />} />
-    //   <Route path="*" element={<Page404 />} />
-    //   <Route path="/:username/home" element={<Home />} />
-    //   <Route path="/share/:username" element={<Share />} />
-    // </Routes>
   );
 }

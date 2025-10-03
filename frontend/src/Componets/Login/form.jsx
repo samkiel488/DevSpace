@@ -50,25 +50,6 @@ export default function LoginForm() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-2 sm:space-y-0">
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  id="remember"
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                />
-                <label
-                  htmlFor="remember"
-                  className="ml-2 block text-sm text-black"
-                >
-                  Remember me
-                </label>
-              </div>
-              <a href="#" className="text-sm text-blue-600 hover:text-blue-700">
-                Forgot password?
-              </a>
-            </div>
-
             <input
               type="submit"
               value="Sign In"
@@ -77,7 +58,7 @@ export default function LoginForm() {
           </Form>
 
           <p className="mt-6 text-center text-sm">
-            Don't have an account?
+            Don't have an account?{" "}
             <a
               href="/register"
               className="font-medium text-blue-600 hover:text-blue-700"
@@ -95,8 +76,6 @@ export async function LoginFormAction({ request }) {
   const formData = await request.formData();
   const email = formData.get("emailAddress");
   const password = formData.get("password");
-
-  console.log(email);
 
   try {
     const req = await fetch("http://localhost:3000/auth/signin", {
