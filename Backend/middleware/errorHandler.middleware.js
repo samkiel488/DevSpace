@@ -1,18 +1,18 @@
 export const errorHandler = (err, req, res, next) => {
   let statusCode = err.statusCode || 500;
-  let message = err.message || "Internal Server Error";
+  let error = err.message || "Internal Server Error";
 
   // MongoDB Duplicate Key Error
   if (err.code === 11000) {
     statusCode = 400;
     const field = Object.keys(err.keyValue)[0];
-    message = `Duplicate field value: '${field}' must be unique.`;
+    error = `Duplicate field value: '${field}' must be unique.`;
   }
 
   // Mongoose Validation Error
   if (err.name === "ValidationError") {
     statusCode = 400;
-    message = Object.values(err.errors)
+    error = Object.values(err.errors)
       .map((val) => val.message)
       .join(", ");
   }
@@ -20,7 +20,7 @@ export const errorHandler = (err, req, res, next) => {
   // Mongoose Cast Error (invalid ObjectId)
   if (err.name === "CastError") {
     statusCode = 400;
-    message = `Invalid ${err.path}: ${err.value}`;
+    error = `Invalid ${err.path}: ${err.value}`;
   }
 
   // Send the response

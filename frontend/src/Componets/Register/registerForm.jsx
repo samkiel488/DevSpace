@@ -1,4 +1,5 @@
 import { Form } from "react-router-dom";
+import { toast } from "react-toastify";
 export default function RegisterForm() {
   return (
     <div className="min-h-screen bg-white flex flex-col justify-center py-12 p-3 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')] bg-cover bg-center bg-no-repeat">
@@ -121,7 +122,8 @@ export async function RegisterFormAction({ request }) {
 
     const response = await req.json();
     if (!response.success) {
-      alert(response.error);
+      console.log(response);
+      return toast.error(response.error);
     }
   } catch (err) {
     console.log(err);
