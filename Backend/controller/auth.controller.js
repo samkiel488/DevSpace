@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import HashPassword from "../lib/hashPassword.js";
 import User from "../models/auth.models.js";
-import { JWT_EXPIRES_IN, JWT_SECRET } from "../config/env.config.js";
+import {COOKIES_NAME, JWT_EXPIRES_IN, JWT_SECRET} from "../config/env.config.js";
 import bcrypt from "bcryptjs";
 
 export async function SignUp(req, res, next) {
@@ -37,7 +37,7 @@ export async function SignUp(req, res, next) {
       expiresIn: JWT_EXPIRES_IN,
     });
 
-    res.cookie("My_Jwt", token, {
+    res.cookie(COOKIES_NAME, token, {
       httpOnly: true,
       secure: false,
       sameSite: "lax",
@@ -76,7 +76,7 @@ export async function SignIn(req, res, next) {
       expiresIn: JWT_EXPIRES_IN,
     });
 
-    res.cookie("My_Jwt", token, {
+    res.cookie(COOKIES_NAME, token, {
       httpOnly: true,
       secure: false,
       sameSite: "lax",

@@ -107,7 +107,6 @@ export async function LoginFormAction({ request }) {
         "Content-Type": "application/json",
       },
     });
-
     const response = await req.json();
     console.log(response);
   } catch (err) {
