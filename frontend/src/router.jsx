@@ -9,6 +9,7 @@ import Page404 from "./pages/home/404page";
 import Share from "./pages/home/share";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomeLayout from "./Componets/HomeLayout";
+import DashboardHome from "./pages/dashboard";
 
 export default function AppRouter() {
   return (
@@ -25,9 +26,19 @@ export default function AppRouter() {
             { path: "/projects", element: <Project /> },
             { path: "/login", element: <Login /> },
             { path: "/register", element: <Register /> },
+            { path: "*", element: <Page404 /> },
           ],
         },
-        { path: "*", element: <Page404 /> },
+        {
+          path: "/dashboard",
+          id: "dashboard",
+          children: [
+            {
+              index: true,
+              element: <DashboardHome />,
+            },
+          ],
+        },
       ])}
     />
     // <Routes>
