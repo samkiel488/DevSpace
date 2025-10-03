@@ -1,4 +1,5 @@
-import { Form } from "react-router-dom";
+import { Form, redirect } from "react-router-dom";
+import { toast } from "react-toastify";
 export default function LoginForm() {
   return (
     <div className="min-h-screen bg-white flex flex-col justify-center py-12 p-3 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')]  bg-cover bg-center bg-no-repeat">
@@ -87,7 +88,10 @@ export async function LoginFormAction({ request }) {
       },
     });
     const response = await req.json();
-    console.log(response);
+    if (!response.success) {
+      return toast.error(response.error);
+    }
+    return redirect("/dashboard");
   } catch (err) {
     console.log(err);
   }

@@ -1,4 +1,4 @@
-import { Form } from "react-router-dom";
+import { Form, redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 export default function RegisterForm() {
   return (
@@ -125,6 +125,8 @@ export async function RegisterFormAction({ request }) {
       console.log(response);
       return toast.error(response.error);
     }
+
+    return redirect("/dashboard");
   } catch (err) {
     console.log(err);
   }
