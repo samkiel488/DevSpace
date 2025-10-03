@@ -37,6 +37,13 @@ export async function SignUp(req, res, next) {
       expiresIn: JWT_EXPIRES_IN,
     });
 
+    res.cookie("My_Jwt", token, {
+      httpOnly: true,
+      secure: false,
+      sameSite: "lax",
+      maxAge: 60 * 60 * 1000,
+    });
+
     return res
       .status(201)
       .json({ success: true, data: { user: { id: user._id }, token } });
@@ -67,6 +74,13 @@ export async function SignIn(req, res, next) {
 
     const token = jwt.sign({ id: user._id }, JWT_SECRET, {
       expiresIn: JWT_EXPIRES_IN,
+    });
+
+    res.cookie("My_Jwt", token, {
+      httpOnly: true,
+      secure: false,
+      sameSite: "lax",
+      maxAge: 60 * 60 * 1000,
     });
 
     return res

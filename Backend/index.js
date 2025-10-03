@@ -5,11 +5,14 @@ import { corsOptions } from "./config/cors.config.js";
 import authRouter from "./router/auth.router.js";
 import { connectToMongoDB } from "./database/mongoDb.database.js";
 import { errorHandler } from "./middleware/errorHandler.middleware.js";
+import cookieParser from "cookie-parser";
+
 connectToMongoDB();
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors(corsOptions));
+app.use(cookieParser());
 
 app.use("/auth", authRouter);
 app.use(errorHandler);

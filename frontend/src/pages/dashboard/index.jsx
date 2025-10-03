@@ -1,37 +1,74 @@
+import { useState } from "react";
+
 export default function DashboardHome() {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prev) => !prev);
+  };
+
   return (
-    <section>
-      <div className="flex w-full h-20 bg-black justify-between items-center p-2 pr-4">
-        <div className="flex justify-center items-center gap-1">
-          <img src="/images/logo-bg.png" className="h-17 w-17" />
-          <p className="text-white font-bold">D3V++</p>
-        </div>
-        <div className="text-white flex gap-6 items-center">
-          <ul className="flex flex-row gap-5 justify-center items-center font-semibold">
-            <li>
-              <a href="/dashboard">Home</a>
-            </li>
-            <li>
-              <a href="#">Create</a>
-            </li>
-            <li>
-              <a href="#">Project</a>
-            </li>
-          </ul>
-          <div className="flex relative justify-center items-center">
-            <img
-              src="/images/blank-profile-picture-973460_960_720.webp"
-              alt="profile"
-              className="h-10 w-10 rounded-full"
-            />
-            <div className="absolute flex flex-col gap-3 bg-gray-100 text-black font-sans w-60 right-4 top-12 p-4">
-              <p>Profile</p>
-              <p>Settings</p>
-              <p>Log Out</p>
+    <>
+      <header className="w-full bg-black shadow-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-5">
+          <div className="flex justify-between items-center h-20">
+            <div className="flex items-center gap-2">
+              <img src="/images/logo-bg.png" alt="Logo" className="h-10 w-10" />
+              <span className="text-white text-xl font-bold">D3V++</span>
+            </div>
+
+            <div className="flex gap-5">
+              <nav className="hidden md:flex items-center space-x-8 text-white font-medium">
+                <a href="/dashboard" className="hover:text-gray-400 transition">
+                  Home
+                </a>
+                <a href="#" className="hover:text-gray-400 transition">
+                  Create
+                </a>
+                <a href="#" className="hover:text-gray-400 transition">
+                  Project
+                </a>
+              </nav>
+
+              <div className="relative">
+                <button onClick={toggleDropdown} className="focus:outline-none">
+                  <img
+                    src="/images/blank-profile-picture-973460_960_720.webp"
+                    alt="User Profile"
+                    className="h-10 w-10 rounded-full border border-gray-300 cursor-pointer"
+                  />
+                </button>
+
+                {isDropdownOpen && (
+                  <div className="absolute right-0 mt-3 w-48 bg-white rounded-md shadow-lg py-2 z-50">
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      Profile
+                    </a>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      Settings
+                    </a>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      Log Out
+                    </a>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </header>
+      <section className="bg-blue-600 flex h-[400px] md:h-[500px] w-full flex-col justify-center items-center-safe">
+        <div>Hello World</div>
+      </section>
+    </>
   );
 }

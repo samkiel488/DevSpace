@@ -10,6 +10,7 @@ import Share from "./pages/home/share";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomeLayout from "./Componets/HomeLayout";
 import DashboardHome from "./pages/dashboard";
+import { LoginFormAction } from "./Componets/Login/form";
 
 export default function AppRouter() {
   return (
@@ -24,7 +25,7 @@ export default function AppRouter() {
             { path: "/meettheteam", element: <MeetTheTeam /> },
             { path: "/contact", element: <Contact /> },
             { path: "/projects", element: <Project /> },
-            { path: "/login", element: <Login /> },
+            { path: "/login", element: <Login />, action: LoginFormAction },
             { path: "/register", element: <Register /> },
             { path: "*", element: <Page404 /> },
           ],

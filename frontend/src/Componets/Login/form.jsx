@@ -1,6 +1,7 @@
-export default function Form() {
+import { Form } from "react-router-dom";
+export default function LoginForm() {
   return (
-    <div className="min-h-screen bg-white flex flex-col justify-center py-12 pl-10 pr-10 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')]  bg-cover bg-center bg-no-repeat">
+    <div className="min-h-screen bg-white flex flex-col justify-center py-12 p-3 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')]  bg-cover bg-center bg-no-repeat">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white  py-8 px-4 shadow-lg rounded-2xl sm:rounded-lg sm:px-10">
           <div className="text-center mb-8">
@@ -14,7 +15,7 @@ export default function Form() {
             </p>
           </div>
 
-          <form className="space-y-6">
+          <Form className="space-y-6" method="post">
             <div>
               <label
                 className="block text-sm font-medium text-black"
@@ -73,7 +74,7 @@ export default function Form() {
               value="Sign In"
               className="w-full flex justify-center py-2 px-4 sm:py-3 border border-transparent rounded-lg shadow-sm text-sm sm:text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:cursor-pointer"
             />
-          </form>
+          </Form>
 
           <p className="mt-6 text-center text-sm">
             Don't have an account?
@@ -88,4 +89,28 @@ export default function Form() {
       </div>
     </div>
   );
+}
+
+export async function LoginFormAction({ request }) {
+  const formData = await request.formData();
+  const email = formData.get("emailAddress");
+  const password = formData.get("password");
+
+  console.log(email);
+
+  try {
+    const req = await fetch("http://localhost:3000/auth/signin", {
+      method: "post",
+      body: JSON.stringify({ email, password }),
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const response = await req.json();
+    console.log(response);
+  } catch (err) {
+    console.log(err);
+  }
 }
