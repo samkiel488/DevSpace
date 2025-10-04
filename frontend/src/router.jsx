@@ -9,7 +9,7 @@ import Page404 from "./pages/home/404page";
 import Share from "./pages/home/share";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomeLayout from "./Componets/HomeLayout";
-import DashboardHome from "./pages/dashboard";
+import DashboardHome, { DashboardLoader } from "./pages/dashboard";
 import { LoginFormAction } from "./Componets/Login/form";
 import { RegisterFormAction } from "./Componets/Register/registerForm";
 
@@ -42,6 +42,7 @@ export default function AppRouter() {
             {
               index: true,
               element: <DashboardHome />,
+              loader: DashboardLoader,
             },
           ],
         },

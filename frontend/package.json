@@ -17,6 +17,7 @@
     "js-cookies": "^1.0.4",
     "local-storage": "^2.0.0",
     "localStorage": "^1.0.4",
+    "lucide-react": "^0.544.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.5.0",

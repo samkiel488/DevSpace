@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import { redirect } from "react-router-dom";
+import { VITE_API_URL } from "../../config";
 export default function DashboardHome() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -71,4 +72,19 @@ export default function DashboardHome() {
       </section>
     </>
   );
+}
+
+export async function DashboardLoader() {
+  try {
+    const req = await fetch(`${VITE_API_URL}/projects`, {
+      method: "get",
+      credentials: "include",
+    });
+    const response = await req.json();
+    if (!response.success && !req.ok) {
+      return redirect("/login");
+    }
+  } catch (err) {
+    console.log(err);
+  }
 }

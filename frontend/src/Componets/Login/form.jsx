@@ -1,6 +1,9 @@
 import { Form, redirect } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Eye, EyeClosed } from "lucide-react";
+import { useState } from "react";
 export default function LoginForm() {
+  const [viewPassword, setViewPassword] = useState(false);
   return (
     <div className="min-h-screen bg-white flex flex-col justify-center py-12 p-3 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')]  bg-cover bg-center bg-no-repeat">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -28,6 +31,7 @@ export default function LoginForm() {
                 type="email"
                 id="email"
                 name="emailAddress"
+                placeholder="Input your Email Address"
                 className="mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
                 required
               />
@@ -42,12 +46,21 @@ export default function LoginForm() {
               </label>
               <div className="mt-1 relative">
                 <input
-                  type="password"
+                  type={viewPassword? "text": "password"}
                   id="password"
                   name="password"
+                  placeholder="Input your Password"
                   className="block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-500"
                   required
                 />
+                <div
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer"
+                  onClick={() => {
+                    setViewPassword(!viewPassword);
+                  }}
+                >
+                  {viewPassword ? <EyeClosed /> : <Eye />}
+                </div>
               </div>
             </div>
 
@@ -93,6 +106,7 @@ export async function LoginFormAction({ request }) {
     }
     return redirect("/dashboard");
   } catch (err) {
-    console.log(err);
+    console.log(err.message);
+    return toast.error("Network Error");
   }
 }
