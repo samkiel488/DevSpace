@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { Form, redirect } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Eye, EyeClosed } from "lucide-react";
 export default function RegisterForm() {
+  const [viewPassword, setViewPassword] = useState(false);
   return (
     <div className="min-h-screen bg-white flex flex-col justify-center py-12 p-3 sm:px-6 lg:px-8 bg-[url('/images/background-image.jpg')] bg-cover bg-center bg-no-repeat">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -18,7 +21,7 @@ export default function RegisterForm() {
                 htmlFor="name"
                 className="text-sm text-black dark:text-black mr-2"
               >
-                First Name:
+                Fullname:
               </label>
               <input
                 type="text"
@@ -75,10 +78,20 @@ export default function RegisterForm() {
                 <input
                   id="password"
                   name="password"
+                  type={viewPassword ? "text" : "password"}
                   placeholder="Input your Password"
                   className="block w-full px-3 dark:text-black  py-2 rounded-md border border-gray-300 dark:border-black focus:outline-none focus:ring-1 focus:ring-blue-500"
                   required
                 />
+                <button
+                  type="button"
+                  className="absolute right-2 transform top-1/2 -translate-y-1/2 cursor-pointer"
+                  onClick={() => {
+                    setViewPassword(!viewPassword);
+                  }}
+                >
+                  {viewPassword ? <EyeClosed /> : <Eye />}
+                </button>
               </div>
             </div>
 

@@ -1,10 +1,9 @@
 import {Router} from "express";
 import {ProtectMiddleware} from "../middleware/protect.middleware.js";
+import {getAllProjects} from "../controller/project.controller.js";
 
 const projectRouter = Router();
 
-projectRouter.get("/",ProtectMiddleware,(req, res)=>{
-    res.json({success: true, message: "Welcome to the project"});
-})
+projectRouter.get("/",ProtectMiddleware,getAllProjects);
 
 export default projectRouter;
