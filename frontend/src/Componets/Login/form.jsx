@@ -46,7 +46,7 @@ export default function LoginForm() {
               </label>
               <div className="mt-1 relative">
                 <input
-                  type={viewPassword? "text": "password"}
+                  type={viewPassword ? "text" : "password"}
                   id="password"
                   name="password"
                   placeholder="Input your Password"
