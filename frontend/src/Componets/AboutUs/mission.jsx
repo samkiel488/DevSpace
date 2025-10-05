@@ -20,7 +20,7 @@ export default function Mission() {
           <img
             className="object-cover object-center rounded-lg shadow-lg"
             alt="hero"
-            src="http://devspace.ct.ws/images/aboutus3.jpeg"
+            src="images/aboutus3.jpeg"
             style={{ height: "400px" }}
           />
         </div>
