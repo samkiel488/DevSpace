@@ -4,7 +4,7 @@ import {getAllProjects, postNewProject} from "../controller/project.controller.j
 
 const projectRouter = Router();
 
-projectRouter.get("/",ProtectMiddleware,getAllProjects);
+projectRouter.get("/",getAllProjects);
 projectRouter.post("/", ProtectMiddleware,postNewProject);
 
 export default projectRouter;
