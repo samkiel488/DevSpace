@@ -3,7 +3,6 @@ export default async function checkInput({ field: { name, value }, res }) {
     return res
       .status(400)
       .json({ success: false, message: `Please enter a ${name}` });
-    return true;
   }
-  return false;
+  return;
 }
