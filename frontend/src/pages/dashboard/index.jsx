@@ -86,5 +86,6 @@ export async function DashboardLoader() {
     }
   } catch (err) {
     console.log(err);
+    return redirect("/login");
   }
 }

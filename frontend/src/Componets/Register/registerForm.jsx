@@ -135,7 +135,6 @@ export async function RegisterFormAction({ request }) {
 
     const response = await req.json();
     if (!response.success) {
-      console.log(response);
       return toast.error(response.error);
     }
 

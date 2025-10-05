@@ -8,7 +8,6 @@ import { errorHandler } from "./middleware/errorHandler.middleware.js";
 import cookieParser from "cookie-parser";
 import projectRouter from "./router/project.router.js";
 
-connectToMongoDB();
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -20,9 +19,10 @@ app.use("/projects", projectRouter);
 app.use(errorHandler);
 
 app.get("/", (req, res) => {
-  res.json({ message: "Hello From backend" });
+  res.json({ success: true, message: "Hello From backend" });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
+  await connectToMongoDB();
   console.log(`Server is running on port http://localhost:${PORT}`);
 });
