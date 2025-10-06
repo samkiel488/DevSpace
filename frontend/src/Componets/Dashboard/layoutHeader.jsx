@@ -29,19 +29,29 @@ export default function LayoutHeader() {
               <nav className="h-full flex items-center">
                 <ul className=" flex gap-x-4 text-white h-full items-center">
                   <li>
-                    <a href="#">Feeds</a>
+                    <a href="#" className="hover:underline ">
+                      Feeds
+                    </a>
                   </li>
                   <li>
-                    <a href="#">Projects</a>
+                    <a href="#" className="hover:underline ">
+                      Projects
+                    </a>
                   </li>
                   <li>
-                    <a href="#">Blog</a>
+                    <a href="#" className="hover:underline ">
+                      Blog
+                    </a>
                   </li>
                   <li>
-                    <a href="#">Chat</a>
+                    <a href="#" className="hover:underline ">
+                      Chat
+                    </a>
                   </li>
                   <li>
-                    <a href="#">Leaderboard</a>
+                    <a href="#" className="hover:underline ">
+                      Leaderboard
+                    </a>
                   </li>
                 </ul>
               </nav>
@@ -80,7 +90,7 @@ export default function LayoutHeader() {
                 <div className="absolute top-14 right-0 w-48 bg-white rounded shadow-lg border border-gray-200 ">
                   <ul className="text-black">
                     <li className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-all">
-                      <a href="#" className="block">
+                      <a href="/profile" className="block">
                         Profile
                       </a>
                     </li>
