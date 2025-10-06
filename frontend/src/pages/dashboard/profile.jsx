@@ -34,8 +34,54 @@ export default function Profile() {
             </div>
           </div>
         </div>
-        <div>
-          <h1>Hello World</h1>
+        <div className="px-3 sm:px-10 py-3">
+          <div className="grid grid-cols-1  sm:grid-cols-[30%_70%] gap-4  mb-10">
+            <div className="p-3 flex flex-col gap-4">
+              <div className="flex flex-col gap-2 bg-gray-100 p-3 rounded-xl">
+                <h1 className="text-lg font-semibold">Skills</h1>
+                <div className="flex gap-3 flex-wrap">
+                  <div className="bg-green-500 p-1 px-3 rounded-xl text-sm">
+                    Frontend Developer
+                  </div>
+                  <div className="bg-green-500 p-1 px-3 rounded-xl text-sm">
+                    Backend Developer
+                  </div>
+                  <div className="bg-green-500 p-1 px-3 rounded-xl text-sm">
+                    Fullstack Developer
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col gap-2 bg-gray-100 p-3 rounded-xl">
+                <h1 className="text-lg font-semibold">Tools</h1>
+                <div className="flex gap-3 flex-wrap">
+                  <div className="bg-green-500 p-1 px-3 rounded-xl text-sm">
+                    Next Js
+                  </div>
+                  <div className="bg-green-500 p-1 px-3 rounded-xl text-sm">
+                    Tailwindcss
+                  </div>
+                  <div className="bg-green-500 p-1 px-3 rounded-xl text-sm">
+                    React
+                  </div>
+                  <div className="bg-green-500 p-1 px-3 rounded-xl text-sm">
+                    Node Js
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col bg-gray-100 p-3 rounded-xl gap-2">
+              <h1 className="text-lg font-semibold">About Me</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+                quasi perspiciatis doloremque ipsa vel fuga veniam rerum dolor
+                exercitationem? Illo, sunt nemo? Voluptatum tenetur illo
+                explicabo quasi vel adipisci commodi amet assumenda inventore
+                tempore! Earum voluptatum ab veniam, adipisci possimus
+                cupiditate aperiam odit id nobis facere, minus fugit ducimus
+                repudiandae!
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </>
