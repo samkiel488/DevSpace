@@ -104,7 +104,7 @@ export async function LoginFormAction({ request }) {
     if (!response.success) {
       return toast.error(response.error);
     }
-    return redirect("/dashboard");
+    return redirect("/feeds");
   } catch (err) {
     console.log(err.message);
     return toast.error("Network Error");

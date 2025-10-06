@@ -20,8 +20,8 @@ export default function DashboardHome() {
 
             <div className="flex gap-5">
               <nav className="hidden md:flex items-center space-x-8 text-white font-medium">
-                <a href="/dashboard" className="hover:text-gray-400 transition">
-                  Home
+                <a href="/feeds" className="hover:text-gray-400 transition">
+                  Feeds
                 </a>
                 <a href="#" className="hover:text-gray-400 transition">
                   Create
@@ -76,7 +76,7 @@ export default function DashboardHome() {
 
 export async function DashboardLoader() {
   try {
-    const req = await fetch(`${VITE_API_URL}/projects`, {
+    const req = await fetch(`http://localhost:3000/projects`, {
       method: "get",
       credentials: "include",
     });

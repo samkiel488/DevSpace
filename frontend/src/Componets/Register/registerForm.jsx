@@ -138,7 +138,7 @@ export async function RegisterFormAction({ request }) {
       return toast.error(response.error);
     }
 
-    return redirect("/dashboard");
+    return redirect("/feeds");
   } catch (err) {
     console.log(err);
   }

@@ -37,8 +37,8 @@ export default function AppRouter() {
           ],
         },
         {
-          path: "/dashboard",
-          id: "dashboard",
+          path: "/feeds",
+          id: "feeds",
           children: [
             {
               index: true,
