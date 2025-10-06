@@ -21,14 +21,14 @@ export default function Profile() {
         <div className="mt-10 p-2 md:mt-0 md:pl-47">
           <div className="flex w-full px-2 flex-col sm:flex-row">
             <div className="flex flex-col flex-wrap items-center w-full sm:items-start">
-              <h1 className="text-2xl">Areo Ayomide Philip</h1>
-              <p>Frontend Developer</p>
+              <h1 className="text-2xl font-semibold">Areo Ayomide Philip</h1>
+              <p className="font-[350]">Frontend Developer</p>
             </div>
             <div className="flex justify-center sm:justify-end-safe gap-3 p-2">
-              <button className="link">
+              <button className="dark-button">
                 <Twitter />
               </button>
-              <button className="link">
+              <button className="dark-button">
                 <Github />
               </button>
             </div>
@@ -36,7 +36,7 @@ export default function Profile() {
         </div>
         <div className="px-3 sm:px-10 py-3">
           <div className="grid grid-cols-1  sm:grid-cols-[30%_70%] gap-4  mb-10">
-            <div className="p-3 flex flex-col gap-4">
+            <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-2 bg-gray-100 p-3 rounded-xl">
                 <h1 className="text-lg font-semibold">Skills</h1>
                 <div className="flex gap-3 flex-wrap">
@@ -71,7 +71,7 @@ export default function Profile() {
             </div>
             <div className="flex flex-col bg-gray-100 p-3 rounded-xl gap-2">
               <h1 className="text-lg font-semibold">About Me</h1>
-              <p>
+              <p className="font-[400] px-2">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
                 quasi perspiciatis doloremque ipsa vel fuga veniam rerum dolor
                 exercitationem? Illo, sunt nemo? Voluptatum tenetur illo

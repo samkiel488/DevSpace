@@ -14,7 +14,7 @@ input[type="number"] {
 }
 
 @layer components {
-    .link {
+    .dark-button {
         @apply bg-black text-white border-1 border-white hover:bg-white hover:text-black hover:border-black p-2 rounded-full cursor-pointer;
     }
 }
