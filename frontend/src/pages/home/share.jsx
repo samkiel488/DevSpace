@@ -1,4 +1,4 @@
-import { Github, Twitter } from "lucide-react";
+import { Github, Link, Linkedin, Twitter } from "lucide-react";
 
 export default function Share() {
   return (
@@ -20,17 +20,14 @@ export default function Share() {
             />
           </div>
           <div className="flex justify-end-safe gap-3 p-2">
-            <a
-              href="#"
-              className="bg-black text-white border-1 border-white hover:bg-white hover:text-black hover:border-black p-2 rounded-full"
-            >
+            <a href="#" className="dark-button">
               <Twitter />
             </a>
-            <a
-              href="#"
-              className="bg-black text-white border-1 border-white hover:bg-white hover:text-black hover:border-black p-2 rounded-full"
-            >
+            <a href="#" className="dark-button">
               <Github />
+            </a>
+            <a href="#" className="dark-button">
+              <Linkedin />
             </a>
           </div>
           <div className="flex flex-col px-4">

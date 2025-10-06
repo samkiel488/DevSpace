@@ -38,7 +38,9 @@ export default function Profile() {
           <div className="grid grid-cols-1  sm:grid-cols-[30%_70%] gap-4  mb-10">
             <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-2 bg-gray-100 p-3 rounded-xl">
-                <h1 className="text-lg font-semibold">Skills</h1>
+                <h1 className="text-lg font-semibold border-b-1 border-b-gray-600 mb-2">
+                  Skills
+                </h1>
                 <div className="flex gap-3 flex-wrap">
                   <div className="bg-green-500 p-1 px-3 rounded-xl text-sm">
                     Frontend Developer
@@ -52,7 +54,9 @@ export default function Profile() {
                 </div>
               </div>
               <div className="flex flex-col gap-2 bg-gray-100 p-3 rounded-xl">
-                <h1 className="text-lg font-semibold">Tools</h1>
+                <h1 className="text-lg font-semibold border-b-1 border-b-gray-600 mb-2">
+                  Tools
+                </h1>
                 <div className="flex gap-3 flex-wrap">
                   <div className="bg-green-500 p-1 px-3 rounded-xl text-sm">
                     Next Js
@@ -70,7 +74,9 @@ export default function Profile() {
               </div>
             </div>
             <div className="flex flex-col bg-gray-100 p-3 rounded-xl gap-2">
-              <h1 className="text-lg font-semibold">About Me</h1>
+              <h1 className="text-lg font-semibold border-b-1 border-b-gray-600 mb-2">
+                About Me
+              </h1>
               <p className="font-[400] px-2">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
                 quasi perspiciatis doloremque ipsa vel fuga veniam rerum dolor

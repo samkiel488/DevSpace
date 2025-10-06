@@ -61,7 +61,7 @@ export default function LayoutHeader() {
             <div className="hidden md:flex">
               <a
                 href="#"
-                className="bg-white  border-1 border-black text-black px-4 py-2 rounded-xl flex justify-center items-center"
+                className="light-button"
               >
                 <Plus />
                 Create
