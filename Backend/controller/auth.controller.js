@@ -1,7 +1,11 @@
 import jwt from "jsonwebtoken";
 import HashPassword from "../lib/hashPassword.js";
 import User from "../models/auth.models.js";
-import {COOKIES_NAME, JWT_EXPIRES_IN, JWT_SECRET} from "../config/env.config.js";
+import {
+  COOKIES_NAME,
+  JWT_EXPIRES_IN,
+  JWT_SECRET,
+} from "../config/env.config.js";
 import bcrypt from "bcryptjs";
 
 export async function SignUp(req, res, next) {
@@ -43,9 +47,12 @@ export async function SignUp(req, res, next) {
       maxAge: 60 * 60 * 1000,
     });
 
-    return res
-      .status(201)
-      .json({ success: true, data: { user: { id: user._id, name: user.name, username: user.username }  } });
+    return res.status(201).json({
+      success: true,
+      data: {
+        user: { id: user._id, name: user.name, username: user.username },
+      },
+    });
   } catch (err) {
     next(err);
   }
@@ -82,9 +89,34 @@ export async function SignIn(req, res, next) {
       maxAge: 60 * 60 * 1000,
     });
 
-    return res
-      .status(200)
-      .json({ success: true, data: { user: { id: user._id, name: user.name, username: user.username } } });
+    return res.status(200).json({
+      success: true,
+      data: {
+        user: { id: user._id, name: user.name, username: user.username },
+      },
+    });
+  } catch (err) {
+    next(err);
+  }
+}
+
+export async function isUserLoggedIn(req, res, next) {
+  try {
+    const { id } = req.user;
+    if (!id) {
+      return res
+        .status(401)
+        .json({ success: false, error: "User not logged in" });
+    }
+    const user = await User.findById(id).select("_id username name");
+
+    if (!user) {
+      return res
+        .status(401)
+        .json({ success: false, error: "User Unauthorized" });
+    }
+
+    return res.status(200).json({ success: true, data: { user } });
   } catch (err) {
     next(err);
   }
