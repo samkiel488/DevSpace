@@ -27,6 +27,7 @@ export default function AppRouter() {
             { path: "/contact", element: <Contact /> },
             { path: "/projects", element: <Project /> },
             { path: "/login", element: <Login />, action: LoginFormAction },
+            { path: "/share/:id", element: <Share /> },
             {
               path: "/register",
               element: <Register />,
