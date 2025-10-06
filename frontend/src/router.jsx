@@ -13,6 +13,7 @@ import FeedsHome, { FeedsLoader } from "./pages/dashboard";
 import { LoginFormAction } from "./Componets/Login/form";
 import { RegisterFormAction } from "./Componets/Register/registerForm";
 import Layout, { LayoutLoader } from "./Componets/Dashboard/layout";
+import Profile from "./pages/dashboard/profile";
 
 export default function AppRouter() {
   return (
@@ -46,6 +47,10 @@ export default function AppRouter() {
             {
               path: "/feeds",
               element: <FeedsHome />,
+            },
+            {
+              path: "/profile",
+              element: <Profile />,
             },
           ],
         },

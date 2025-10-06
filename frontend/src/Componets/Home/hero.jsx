@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <div className="relative bg-[url('/images/hero-bg.jpg')] bg-cover bg-center bg-no-repeat h-[400px] sm:h-[500px] flex justify-center items-center">
+    <div className="relative bg-[url('/images/hero-bg.jpg')] bg-cover bg-center bg-no-repeat h-[500px] flex justify-center items-center">
       <main className="relative isolate px-6 pt-12 pb-20 lg:px-8 text-white text-center z-10">
         <div className="mx-auto max-w-3xl pt-10">
           <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-6xl">
