@@ -1,4 +1,4 @@
-import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Github, Instagram, Link, Linkedin, Twitter } from "lucide-react";
 
 export default function Profile() {
   return (
@@ -36,6 +36,9 @@ export default function Profile() {
               </button>
               <button className="dark-button">
                 <Linkedin />
+              </button>
+              <button className="dark-button">
+                <Link />
               </button>
             </div>
           </div>

@@ -87,7 +87,7 @@ export default function LayoutHeader() {
                 className="w-12 h-12 rounded-full border-2 border-gray-300 cursor-pointer transition-transform transform hover:scale-110"
               />
               {isDropdownOpen && (
-                <div className="absolute top-14 right-0 w-48 bg-white rounded shadow-lg border border-gray-200 ">
+                <div className="absolute top-14 right-0 w-48 bg-white rounded shadow-lg border border-gray-200 z-5">
                   <ul className="text-black">
                     <li className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-all">
                       <a href="/profile" className="block">

@@ -33,6 +33,9 @@ export default function Share() {
           <a href="#" className="dark-button">
             <Instagram />
           </a>
+          <a href="#" className="dark-button">
+            <Link />
+          </a>
         </div>
         <div className="flex flex-col justify-center items-center sm:items-start px-4 mb-3">
           <div className="flex items-center gap-1 sm:flex-row flex-col">
