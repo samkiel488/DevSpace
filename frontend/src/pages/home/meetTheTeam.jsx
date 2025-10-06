@@ -16,7 +16,9 @@ export default function MeetTheTeam() {
             Get to know the individuals who make it all possible below.
           </p>
         </div>
-        <div class="flex flex-wrap -m-4">
+      </div>{" "}
+      <div className="flex justify-center items-center w-full">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 justify-center items-center p-3">
           <OurTeamProfiles />
         </div>
       </div>
