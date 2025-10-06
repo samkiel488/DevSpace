@@ -9,7 +9,7 @@ import Page404 from "./pages/home/404page";
 import Share from "./pages/home/share";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomeLayout from "./Componets/HomeLayout";
-import FeedsHome, { FeedsLoader } from "./pages/dashboard";
+import FeedsHome from "./pages/dashboard";
 import { LoginFormAction } from "./Componets/Login/form";
 import { RegisterFormAction } from "./Componets/Register/registerForm";
 import Layout, { LayoutLoader } from "./Componets/Dashboard/layout";
