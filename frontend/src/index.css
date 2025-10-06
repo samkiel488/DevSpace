@@ -12,3 +12,9 @@ input[type="number"]::-webkit-inner-spin-button {
 input[type="number"] {
     -moz-appearance: textfield;
 }
+
+@layer components {
+    .link {
+        @apply bg-black text-white border-1 border-white hover:bg-white hover:text-black hover:border-black p-2 rounded-full cursor-pointer;
+    }
+}
