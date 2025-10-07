@@ -100,7 +100,7 @@ export default function Profile() {
           </div>
         </div>
         <div className="py-4 px-3 sm:px-10">
-          <h1 className="font-semibold text-2xl text-center">
+          <h1 className="font-semibold text-2xl text-center mb-5">
             Recent Projects
           </h1>
           <div className="grid grid-cols-1 sm:grid-col-2 md:grid-cols-3 gap-4">
