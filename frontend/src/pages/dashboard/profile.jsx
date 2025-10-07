@@ -1,9 +1,10 @@
 import { Github, Instagram, Link, Linkedin, Twitter } from "lucide-react";
+import ProjectCard from "../../Componets/projectCard";
 
 export default function Profile() {
   return (
     <>
-      <div className="flex w-full flex-col gap-2">
+      <div className="flex w-full flex-col gap-2 mb-10">
         <div className="flex w-full relative">
           <img
             src="/images/hero-bg.jpg"
@@ -25,25 +26,25 @@ export default function Profile() {
               <p className="font-[350]">Frontend Developer</p>
             </div>
             <div className="flex justify-center sm:justify-end-safe gap-3 p-2">
-              <button className="dark-button">
+              <button className="dark-rounded-button">
                 <Twitter />
               </button>
-              <button className="dark-button">
+              <button className="dark-rounded-button">
                 <Github />
               </button>
-              <button className="dark-button">
+              <button className="dark-rounded-button">
                 <Instagram />
               </button>
-              <button className="dark-button">
+              <button className="dark-rounded-button">
                 <Linkedin />
               </button>
-              <button className="dark-button">
+              <button className="dark-rounded-button">
                 <Link />
               </button>
             </div>
           </div>
         </div>
-        <div className="px-3 sm:px-10 py-3">
+        <div className="px-3 sm:px-10">
           <div className="grid grid-cols-1  sm:grid-cols-[30%_70%] gap-4  mb-10">
             <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-2 bg-gray-100 p-3 rounded-xl">
@@ -96,6 +97,17 @@ export default function Profile() {
                 repudiandae!
               </p>
             </div>
+          </div>
+        </div>
+        <div className="py-4 px-3 sm:px-10">
+          <h1 className="font-semibold text-2xl text-center">
+            Recent Projects
+          </h1>
+          <div className="grid grid-cols-1 sm:grid-col-2 md:grid-cols-3 gap-4">
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
           </div>
         </div>
       </div>
