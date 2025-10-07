@@ -33,27 +33,22 @@ const profileSchema = new mongoose.Schema(
     github: {
       type: String,
       trim: true,
-      minLength: 10,
     },
     instagram: {
       type: String,
       trim: true,
-      minLength: 10,
     },
     twitter: {
       type: String,
       trim: true,
-      minLength: 10,
     },
     linkedin: {
       type: String,
       trim: true,
-      minLength: 10,
     },
     portfolio: {
       type: String,
       trim: true,
-      minLength: 10,
     },
   },
   { timestamps: true }
