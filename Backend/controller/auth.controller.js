@@ -11,19 +11,22 @@ import bcrypt from "bcryptjs";
 export async function SignUp(req, res, next) {
   try {
     const { name, email, username, password } = req.body;
+    const existingUser = await User.findOne({
+      or(array) {
+        [username, email];
+      },
+    });
 
-    const existingEmail = await User.findOne({ email });
-    if (existingEmail) {
+    if (existingUser?.email === email) {
       return res
         .status(400)
-        .json({ success: false, error: "Email already exists" });
+        .json({ success: false, error: "User already exists" });
     }
 
-    const existingUsername = await User.findOne({ username });
-    if (existingUsername) {
+    if (existingUser?.username === username) {
       return res
         .status(400)
-        .json({ success: false, error: "Username already exists" });
+        .json({ success: false, error: "Username has been used" });
     }
 
     const user = await User.create({
