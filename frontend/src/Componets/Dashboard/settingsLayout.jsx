@@ -10,7 +10,7 @@ export default function SettingLayout() {
 
   return (
     <>
-      <div className="flex w-full flex-col gap-2 mb-10">
+      <div className="flex w-full flex-col gap-2 pb-5 bg-white dark:bg-slate-800 dark:text-white text-black">
         <div className="flex w-full relative">
           <img
             src="/images/hero-bg.jpg"
@@ -19,7 +19,7 @@ export default function SettingLayout() {
           />
           <div className="absolute -bottom-10 left-1/2 sm:-bottom-20 sm:left-10 flex transform -translate-x-1/2 sm:translate-0">
             <img
-              src="/images/Members/APE.jpg"
+              src="/images/blank-profile-picture-973460_960_720.webp"
               alt={`Profile Picture for Ape`}
               className="h-25 w-25 sm:w-35 sm:h-35 object-cover rounded-full"
             />

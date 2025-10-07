@@ -9,7 +9,7 @@ export default function Skills() {
   const [inputedSkill, setInputedSkill] = useState("");
   return (
     <div className="mb-5 pt-3">
-      <label className="mb-5 block text-base font-semibold text-[#07074D] sm:text-xl">
+      <label className="mb-5 block text-base font-semibold text-black dark:text-white sm:text-xl">
         <div className="flex justify-between">
           <h1>Skills</h1>
           <span

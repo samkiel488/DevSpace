@@ -5,7 +5,7 @@ export default function Settings() {
     <SettingGrid>
       <div className="flex flex-col items-center justify-center">
         <h1 className="font-semibold text-2xl">Edit Details</h1>
-        <div className="mx-auto w-full max-w-[550px] bg-white">
+        <div className="mx-auto w-full max-w-[550px]">
           <SettingsForm />
         </div>
       </div>

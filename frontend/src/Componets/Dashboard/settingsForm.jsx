@@ -15,7 +15,7 @@ export default function SettingsForm() {
       <div className="mb-5">
         <label
           htmlFor="name"
-          className="mb-3 block text-base font-medium text-[#07074D]"
+          className="mb-3 block text-base font-medium text-black dark:text-white"
         >
           Full Name
         </label>
@@ -33,7 +33,7 @@ export default function SettingsForm() {
       <div className="mb-5">
         <label
           htmlFor="email"
-          className="mb-3 block text-base font-medium text-[#07074D]"
+          className="mb-3 block text-base font-medium text-black dark:text-white"
         >
           Email Address
         </label>
@@ -51,7 +51,7 @@ export default function SettingsForm() {
       <div className="mb-5">
         <label
           htmlFor="category"
-          className="mb-3 block text-base font-medium text-[#07074D]"
+          className="mb-3 block text-base font-medium text-black dark:text-white"
         >
           Category
         </label>
@@ -69,7 +69,7 @@ export default function SettingsForm() {
       <div className="mb-5">
         <label
           htmlFor="bio"
-          className="mb-3 block text-base font-medium text-[#07074D]"
+          className="mb-3 block text-base font-medium text-black dark:text-white"
         >
           Bio:
         </label>

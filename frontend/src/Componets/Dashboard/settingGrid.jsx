@@ -6,7 +6,7 @@ export default function SettingGrid({ children }) {
     <div className="px-3 sm:px-10">
       <div className="grid grid-cols-1  sm:grid-cols-[30%_70%] gap-4  mb-10">
         <div className="flex flex-col gap-4">
-          <div className="flex flex-col gap-2 bg-gray-100 p-3 rounded-xl">
+          <div className="flex flex-col gap-2 bg-gray-100 dark:bg-slate-700 dark:text-white p-3 rounded-xl ">
             <h1 className="text-lg font-semibold border-b-1 border-b-gray-600 mb-2">
               Skills
             </h1>
@@ -29,7 +29,7 @@ export default function SettingGrid({ children }) {
               )}
             </div>
           </div>
-          <div className="flex flex-col gap-2 bg-gray-100 p-3 rounded-xl">
+          <div className="flex flex-col gap-2 bg-gray-100 p-3 rounded-xl dark:bg-slate-700 dark:text-white">
             <h1 className="text-lg font-semibold border-b-1 border-b-gray-600 mb-2">
               Tools
             </h1>

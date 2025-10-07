@@ -1,6 +1,6 @@
 export default function ProjectCard() {
   return (
-    <div className="flex flex-col gap-y-2 justify-center bg-gray-200 rounded-xl">
+    <div className="flex flex-col gap-y-2 justify-center bg-gray-200 rounded-xl dark:bg-slate-700">
       <div className="flex flex-col relative w-full">
         <img
           src="/images/hero-bg.jpg"

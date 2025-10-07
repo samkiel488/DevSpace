@@ -5,7 +5,7 @@ export default function SocialMedia() {
   const { profile } = useRouteLoaderData("profile");
   return (
     <div className="mb-5">
-      <h1 className="mb-3 font-semibold text-xl block  text-[#07074D]">
+      <h1 className="mb-3 font-semibold text-xl block  text-black dark:text-white">
         Social Media:
       </h1>
       <div className="flex gap-y-5 flex-col">

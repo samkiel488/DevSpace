@@ -8,8 +8,8 @@ export default function Profile() {
   return (
     <>
       <SettingGrid>
-        <div className="flex flex-col bg-gray-100 p-3 rounded-xl gap-2">
-          <h1 className="text-lg font-semibold border-b-1 border-b-gray-600 mb-2">
+        <div className="flex flex-col bg-gray-100 p-3 rounded-xl gap-2  dark:bg-slate-700 dark:text-white">
+          <h1 className="text-lg font-semibold border-b-1 border-b-gray-600 mb-2 ">
             About Me
           </h1>
           <div className="font-[400] px-2">
@@ -27,7 +27,7 @@ export default function Profile() {
         <h1 className="font-semibold text-2xl text-center mb-5">
           Recent Projects
         </h1>
-        <div className="grid grid-cols-1 sm:grid-col-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-col-2 md:grid-cols-3 gap-4 gap-y-10">
           <ProjectCard />
           <ProjectCard />
           <ProjectCard />
