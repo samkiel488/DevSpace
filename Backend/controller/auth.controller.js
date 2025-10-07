@@ -121,3 +121,57 @@ export async function isUserLoggedIn(req, res, next) {
     next(err);
   }
 }
+
+export async function uploadProfile(req, res, next) {
+  try {
+    const { id } = req.user;
+    if (!req.file) {
+      return res.status(400).json({ success: false, error: "No file uploaded" });
+    }
+
+    const user = await User.findByIdAndUpdate(
+      id,
+      { profilePic: req.file.path },
+      { new: true }
+    );
+
+    if (!user) {
+      return res.status(404).json({ success: false, error: "User not found" });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Profile picture uploaded successfully",
+      data: { profilePic: user.profilePic },
+    });
+  } catch (err) {
+    next(err);
+  }
+}
+
+export async function uploadBackground(req, res, next) {
+  try {
+    const { id } = req.user;
+    if (!req.file) {
+      return res.status(400).json({ success: false, error: "No file uploaded" });
+    }
+
+    const user = await User.findByIdAndUpdate(
+      id,
+      { backgroundPic: req.file.path },
+      { new: true }
+    );
+
+    if (!user) {
+      return res.status(404).json({ success: false, error: "User not found" });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Background picture uploaded successfully",
+      data: { backgroundPic: user.backgroundPic },
+    });
+  } catch (err) {
+    next(err);
+  }
+}
