@@ -38,22 +38,3 @@ export default function Profile() {
   );
 }
 
-export async function ProfileLoader() {
-  try {
-    const request = await fetch("http://localhost:3000/profile/me", {
-      method: "get",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    });
-
-    const response = await request.json();
-    if (!response.success && !request.ok) {
-      return { profile: {} };
-    }
-    return response.data;
-  } catch (err) {
-    console.log(err);
-  }
-}

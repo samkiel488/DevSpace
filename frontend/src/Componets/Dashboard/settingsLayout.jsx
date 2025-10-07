@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { Outlet, useLoaderData, useRouteLoaderData } from "react-router";
 import copyToClipboard from "../../libs/copyLinktoClipboard";
+import SettingsBanner from "./settingBanner";
 
 export default function SettingLayout() {
   const {
@@ -19,20 +20,7 @@ export default function SettingLayout() {
   return (
     <>
       <div className="flex w-full flex-col gap-2 pb-5 bg-white dark:bg-slate-800 dark:text-white text-black">
-        <div className="flex w-full relative">
-          <img
-            src="/images/hero-bg.jpg"
-            alt="hero"
-            className="h-60 w-full object-cover"
-          />
-          <div className="absolute -bottom-10 left-1/2 sm:-bottom-20 sm:left-10 flex transform -translate-x-1/2 sm:translate-0">
-            <img
-              src="/images/blank-profile-picture-973460_960_720.webp"
-              alt={`Profile Picture for Ape`}
-              className="h-25 w-25 sm:w-35 sm:h-35 object-cover rounded-full"
-            />
-          </div>
-        </div>
+        <SettingsBanner />
         <div className="mt-10 p-2 md:mt-0 md:pl-47">
           <div className="flex w-full px-2 flex-col sm:flex-row">
             <div className="flex flex-col flex-wrap items-center w-full sm:items-start">
@@ -79,4 +67,24 @@ export default function SettingLayout() {
       </div>
     </>
   );
+}
+
+export async function ProfileLoader() {
+  try {
+    const request = await fetch("http://localhost:3000/profile/me", {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+
+    const response = await request.json();
+    if (!response.success && !request.ok) {
+      return { profile: {} };
+    }
+    return response.data;
+  } catch (err) {
+    console.log(err);
+  }
 }

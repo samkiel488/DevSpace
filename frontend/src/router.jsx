@@ -13,9 +13,11 @@ import FeedsHome from "./pages/dashboard";
 import { LoginFormAction } from "./Componets/Login/form";
 import { RegisterFormAction } from "./Componets/Register/registerForm";
 import Layout, { LayoutLoader } from "./Componets/Dashboard/layout";
-import Profile, { ProfileLoader } from "./pages/dashboard/profile";
+import Profile from "./pages/dashboard/profile";
 import Settings from "./pages/dashboard/settings";
-import SettingLayout from "./Componets/Dashboard/settingsLayout";
+import SettingLayout, {
+  ProfileLoader,
+} from "./Componets/Dashboard/settingsLayout";
 import { SettingsFormAction } from "./Componets/Dashboard/settingsForm";
 
 export default function AppRouter() {
