@@ -32,7 +32,10 @@ export default function SettingLayout() {
               <p className="font-[350]">{profile?.role}</p>
             </div>
             <div className="flex justify-center sm:justify-end-safe gap-3 p-2">
-              <a href={profile?.twitter} className="dark-rounded-button">
+              <a
+                href={profile?.twitter}
+                className="dark-rounded-button dark:light-rounded-button"
+              >
                 <Twitter />
               </a>
               <a href={profile?.github} className="dark-rounded-button">

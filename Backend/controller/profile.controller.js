@@ -155,3 +155,21 @@ export async function editUserProfile(req, res, next) {
     next(err);
   }
 }
+
+export async function getProfileByUserId(req, res, next) {
+  try {
+    const { id } = req.params;
+
+    const profile = await Profile.findById(id).populate("user","name username _id");
+
+    if (!profile) {
+      return res
+        .status(404)
+        .json({ success: false, error: "Profile not found" });
+    }
+
+    return res.status(200).json({ success: true, data: { profile } });
+  } catch (err) {
+    next(err);
+  }
+}

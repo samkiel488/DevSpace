@@ -6,7 +6,7 @@ import MeetTheTeam from "./pages/home/meetTheTeam";
 import Contact from "./pages/home/contact";
 import Project from "./pages/home/project";
 import Page404 from "./pages/home/404page";
-import Share from "./pages/home/share";
+import Share, { ShareLoader } from "./pages/home/share";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomeLayout from "./Componets/HomeLayout";
 import FeedsHome from "./pages/dashboard";
@@ -32,7 +32,7 @@ export default function AppRouter() {
             { path: "/contact", element: <Contact /> },
             { path: "/projects", element: <Project /> },
             { path: "/login", element: <Login />, action: LoginFormAction },
-            { path: "/share/:id", element: <Share /> },
+            { path: "/share/:id", element: <Share />, loader: ShareLoader },
             {
               path: "/register",
               element: <Register />,
