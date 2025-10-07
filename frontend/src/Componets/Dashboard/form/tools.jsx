@@ -1,10 +1,20 @@
 import { Plus, Trash } from "lucide-react";
 import { useState } from "react";
 import { useRouteLoaderData } from "react-router";
+import handleDelete from "../../../libs/handleDelete";
 export default function Tools() {
   const { profile } = useRouteLoaderData("profile");
   const [userTools, setUserTools] = useState(profile?.tools || []);
   const [inputedTools, setInputedTools] = useState("");
+
+  // function handleDelete(index) {
+  //   setUserTools((prev) => {
+  //     return prev.filter((tools) => {
+  //       return tools !== userTools[index];
+  //     });
+  //   });
+  // }
+
   return (
     <div className="mb-5 pt-3">
       <label className="mb-5 block text-base font-semibold text-[#07074D] sm:text-xl">
@@ -57,6 +67,9 @@ export default function Tools() {
                   <button
                     type="button"
                     className="absolute right-2 top-3 dark-rounded-button"
+                    onClick={() => {
+                      handleDelete(idx, setUserTools, userTools);
+                    }}
                   >
                     <Trash className="w-3 h-3" />
                   </button>

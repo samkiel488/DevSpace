@@ -1,6 +1,7 @@
-import { Plus } from "lucide-react";
+import { Plus, Trash } from "lucide-react";
 import { useState } from "react";
 import { useRouteLoaderData } from "react-router";
+import handleDelete from "../../../libs/handleDelete";
 export default function Skills() {
   const { profile } = useRouteLoaderData("profile");
 
@@ -46,7 +47,7 @@ export default function Skills() {
           {userSkills.length !== 0 &&
             userSkills.map((skills, idx) => {
               return (
-                <div className="mb-5" key={idx}>
+                <div className="mb-5 relative" key={idx}>
                   <input
                     key={idx}
                     type="text"
@@ -55,6 +56,15 @@ export default function Skills() {
                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-black outline-none focus:border-blue-600 focus:shadow-md"
                     readOnly
                   />
+                  <button
+                    type="button"
+                    className="absolute right-2 top-3 dark-rounded-button"
+                    onClick={() => {
+                      handleDelete(idx, setUserSkills, userSkills);
+                    }}
+                  >
+                    <Trash className="w-3 h-3" />
+                  </button>
                 </div>
               );
             })}
