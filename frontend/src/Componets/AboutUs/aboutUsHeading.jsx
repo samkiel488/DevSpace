@@ -6,7 +6,7 @@ export default function AboutUsHeading() {
           <img
             className="object-cover object-center rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
             alt="hero"
-            src="http://devspace.ct.ws/images/aboutus1.jpg"
+            src="images/aboutus1.jpg"
             style={{ height: "400px" }}
           />
         </div>

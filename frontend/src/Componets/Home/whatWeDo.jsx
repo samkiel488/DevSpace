@@ -38,15 +38,18 @@ const whatWeDoData = [
 ];
 export default function WhatWeDo() {
   return (
-    <div class="max-w-screen-[1440px] mx-auto bg-gray-200 dark:bg-slate-900 dark:text-white text-center pb-10">
-      <p class="text-4xl font-semibold tracking-tight text-pretty sm:text-5xl mb-5 pt-5">
+    <div className="max-w-screen-[1440px] mx-auto bg-gray-200 dark:bg-slate-900 dark:text-white text-center pb-10">
+      <p className="text-4xl font-semibold tracking-tight text-pretty sm:text-5xl mb-5 pt-5">
         What We do ?
       </p>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 p-2 pl-10 pr-10">
-        {whatWeDoData.map((data) => {
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 p-2 pl-10 pr-10">
+        {whatWeDoData.map((data, idx) => {
           return (
-            <div className="p-7 bg-[#FAFAFA] shadow-lg flex flex-col items-center justify-center rounded-2xl">
+            <div
+              key={idx}
+              className="p-7 bg-[#FAFAFA] shadow-lg flex flex-col items-center justify-center rounded-2xl"
+            >
               <div className="w-20">
                 <img src={`/images/svg/${data.image}.svg`} alt={data.image} />
               </div>

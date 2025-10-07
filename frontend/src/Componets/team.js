@@ -5,8 +5,8 @@ const teamMembers = [
     description:
       "A versatile developer skilled in HTML, CSS, JavaScript, React, PHP, and Python, capable of building dynamic, responsive web applications from front to back.",
     facebookLink: "https://facebook.com",
-    githubLink: "https://github.com",
-    twitterLink: "https://x.com/",
+    githubLink: "https://github.com,.samkiel488",
+    twitterLink: "https://x.com/samkiel_dev",
     imageurl: "ѕαмкιєℓ.∂єν",
   },
   {
