@@ -150,7 +150,6 @@ export async function SettingsFormAction({ request }) {
     }
   }
 
-  console.log(true);
   const editUser = await fetch("http://localhost:3000/profile", {
     method: "PATCH",
     body: JSON.stringify({
