@@ -93,7 +93,7 @@ export default function SettingsForm() {
       <div>
         <button
           type="submit"
-          className="hover:shadow-form w-full rounded-md bg-blue-600 py-3 px-8 text-center text-base font-semibold text-white outline-none"
+          className="hover:shadow-form w-full rounded-md bg-blue-600 py-3 px-8 text-center text-base font-semibold text-white outline-none cursor-pointer"
         >
           Save Changes
         </button>
@@ -151,4 +151,30 @@ export async function SettingsFormAction({ request }) {
   }
 
   console.log(true);
+  const editUser = await fetch("http://localhost:3000/profile", {
+    method: "PATCH",
+    body: JSON.stringify({
+      role: category,
+      bio,
+      instagram,
+      github,
+      twitter,
+      linkedin,
+      portfolio,
+      skills,
+      tools,
+    }),
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const editedUser = await editUser.json();
+  console.log(editedUser);
+  if (!editedUser.success && !editUser.ok) {
+    return toast.error(editedUser.error);
+  }
+
+  return toast.success(editedUser.message);
 }
