@@ -50,7 +50,7 @@ export async function ProfileLoader() {
 
     const response = await request.json();
     if (!response.success && !request.ok) {
-      return { profile: [] };
+      return { profile: {} };
     }
     return response.data;
   } catch (err) {

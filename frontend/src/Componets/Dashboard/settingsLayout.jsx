@@ -7,7 +7,6 @@ export default function SettingLayout() {
   } = useRouteLoaderData("feeds");
 
   const { profile } = useLoaderData();
-  console.log(profile);
 
   return (
     <>

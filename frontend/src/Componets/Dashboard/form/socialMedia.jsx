@@ -1,6 +1,8 @@
 import { Github, Instagram, Linkedin, Twitter, Link } from "lucide-react";
+import { useRouteLoaderData } from "react-router";
 
 export default function SocialMedia() {
+  const { profile } = useRouteLoaderData("profile");
   return (
     <div className="mb-5">
       <h1 className="mb-3 font-semibold text-xl block  text-[#07074D]">
@@ -16,6 +18,7 @@ export default function SocialMedia() {
             name="github"
             id="github"
             placeholder="Enter your profile link"
+            defaultValue={profile?.github}
             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-black outline-none focus:border-blue-600 focus:shadow-md"
           />
         </div>
@@ -29,6 +32,7 @@ export default function SocialMedia() {
             name="instagram"
             id="instagram"
             placeholder="Enter your profile link"
+            defaultValue={profile?.instagram}
             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-black outline-none focus:border-blue-600 focus:shadow-md"
           />
         </div>
@@ -42,6 +46,7 @@ export default function SocialMedia() {
             name="twitter"
             id="twitter"
             placeholder="Enter your profile link"
+            defaultValue={profile?.twitter}
             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-black outline-none focus:border-blue-600 focus:shadow-md"
           />
         </div>
@@ -55,6 +60,7 @@ export default function SocialMedia() {
             name="linkedin"
             id="linkedin"
             placeholder="Enter your profile link"
+            defaultValue={profile?.linkedin}
             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-black outline-none focus:border-blue-600 focus:shadow-md"
           />
         </div>
@@ -68,6 +74,7 @@ export default function SocialMedia() {
             name="portfolio"
             id="portfolio"
             placeholder="Enter your profile link"
+            defaultValue={profile?.portfolio}
             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-black outline-none focus:border-blue-600 focus:shadow-md"
           />
         </div>

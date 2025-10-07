@@ -8,6 +8,8 @@ export default function SettingsForm() {
     users: { name, email },
   } = useRouteLoaderData("feeds");
 
+  const { profile } = useRouteLoaderData("profile");
+
   return (
     <Form method="post">
       <div className="mb-5">
@@ -58,6 +60,7 @@ export default function SettingsForm() {
           name="category"
           id="category"
           placeholder="Enter your category"
+          defaultValue={profile?.role}
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-black outline-none focus:border-blue-600 focus:shadow-md"
           required
         />
@@ -76,6 +79,7 @@ export default function SettingsForm() {
           placeholder="Enter your bio"
           rows={5}
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-black outline-none focus:border-blue-600 focus:shadow-md resize-none"
+          defaultValue={profile?.bio}
           required
         />
       </div>
@@ -110,32 +114,41 @@ export async function SettingsFormAction({ request }) {
   const skills = formData.getAll("skills[]");
   const tools = formData.getAll("tools[]");
 
-  try {
-    const req = await fetch("http://localhost:3000/profile", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify({
-        role: category,
-        bio,
-        instagram,
-        github,
-        twitter,
-        linkedin,
-        portfolio,
-        skills,
-        tools,
-      }),
-    });
+  const doesProfileExist = await fetch("http://localhost:3000/profile/me", {
+    credentials: "include",
+  });
 
-    const response = await req.json();
-    console.log(response);
-    if (!response.status) {
-      return toast.error(response.error);
+  const profileExist = await doesProfileExist.json();
+
+  if (!profileExist.success) {
+    try {
+      const req = await fetch("http://localhost:3000/profile", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          role: category,
+          bio,
+          instagram,
+          github,
+          twitter,
+          linkedin,
+          portfolio,
+          skills,
+          tools,
+        }),
+      });
+
+      const response = await req.json();
+      if (!response.status) {
+        return toast.error(response.error);
+      }
+    } catch (err) {
+      console.log(err);
     }
-  } catch (err) {
-    console.log(err);
   }
+
+  console.log(true);
 }

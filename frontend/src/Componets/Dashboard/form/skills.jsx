@@ -1,7 +1,10 @@
 import { Plus } from "lucide-react";
 import { useState } from "react";
+import { useRouteLoaderData } from "react-router";
 export default function Skills() {
-  const [userSkills, setUserSkills] = useState([]);
+  const { profile } = useRouteLoaderData("profile");
+
+  const [userSkills, setUserSkills] = useState(profile?.skills || []);
   const [inputedSkill, setInputedSkill] = useState("");
   return (
     <div className="mb-5 pt-3">

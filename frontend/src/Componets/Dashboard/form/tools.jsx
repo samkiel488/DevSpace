@@ -1,7 +1,9 @@
-import { Plus } from "lucide-react";
+import { Plus, Trash } from "lucide-react";
 import { useState } from "react";
+import { useRouteLoaderData } from "react-router";
 export default function Tools() {
-  const [userTools, setUserTools] = useState([]);
+  const { profile } = useRouteLoaderData("profile");
+  const [userTools, setUserTools] = useState(profile?.tools || []);
   const [inputedTools, setInputedTools] = useState("");
   return (
     <div className="mb-5 pt-3">
@@ -43,7 +45,7 @@ export default function Tools() {
           {userTools.length !== 0 &&
             userTools.map((tools, idx) => {
               return (
-                <div className="mb-5" key={idx}>
+                <div className="mb-5 relative" key={idx}>
                   <input
                     key={idx}
                     type="text"
@@ -52,6 +54,12 @@ export default function Tools() {
                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-black outline-none focus:border-blue-600 focus:shadow-md"
                     readOnly
                   />
+                  <button
+                    type="button"
+                    className="absolute right-2 top-3 dark-rounded-button"
+                  >
+                    <Trash className="w-3 h-3" />
+                  </button>
                 </div>
               );
             })}
