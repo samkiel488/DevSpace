@@ -1,11 +1,12 @@
 import { Camera } from "lucide-react";
 import { useRef } from "react";
-import { useRouteLoaderData } from "react-router";
+import { useLocation, useRouteLoaderData } from "react-router";
 import { toast } from "react-toastify";
 export default function SettingsBanner() {
   const backgroundPicture = useRef();
   const profilePicture = useRef();
   const { users } = useRouteLoaderData("feeds");
+  const { pathname } = useLocation();
 
   async function handleBackGroundUpload(image) {
     let formData = new FormData();
@@ -63,25 +64,27 @@ export default function SettingsBanner() {
           alt="hero"
           className="h-60 w-full object-cover"
         />
-        <div
-          className="absolute dark-rounded-button  right-3 bottom-2"
-          onClick={() => {
-            backgroundPicture.current.click();
-          }}
-        >
-          <input
-            type="file"
-            name="background picture"
-            ref={backgroundPicture}
-            id="backgroundImage"
-            className="hidden"
-            accept="image/*"
-            onChange={(e) => {
-              handleBackGroundUpload(e.target.files[0]);
+        {pathname === "/settings" && (
+          <div
+            className="absolute dark-rounded-button  right-3 bottom-2"
+            onClick={() => {
+              backgroundPicture.current.click();
             }}
-          />
-          <Camera />
-        </div>
+          >
+            <input
+              type="file"
+              name="background picture"
+              ref={backgroundPicture}
+              id="backgroundImage"
+              className="hidden"
+              accept="image/*"
+              onChange={(e) => {
+                handleBackGroundUpload(e.target.files[0]);
+              }}
+            />
+            <Camera />
+          </div>
+        )}
       </div>
       <div className="absolute -bottom-10 left-1/2 sm:-bottom-20 sm:left-10 flex transform -translate-x-1/2 sm:translate-0">
         <div className="relative">
@@ -91,28 +94,30 @@ export default function SettingsBanner() {
                 ? users?.profilePic
                 : "/images/blank-profile-picture-973460_960_720.webp"
             }
-            alt={`Profile Picture for Ape`}
+            alt={`Profile Picture ${users?.name}`}
             className="h-25 w-25 sm:w-35 sm:h-35 object-cover rounded-full"
           />
-          <div
-            className="absolute dark-rounded-button !p-1 right-0 top-18 sm:top-25 sm:right-1.5"
-            onClick={() => {
-              profilePicture.current.click();
-            }}
-          >
-            <input
-              type="file"
-              name="profilePicture"
-              id="profilePicture"
-              ref={profilePicture}
-              className="hidden"
-              accept="image/*"
-              onChange={(e) => {
-                handleProfilePictureUpload(e.target.files[0]);
+          {pathname === "/settings" && (
+            <div
+              className="absolute dark-rounded-button !p-1 right-0 top-18 sm:top-25 sm:right-1.5"
+              onClick={() => {
+                profilePicture.current.click();
               }}
-            />
-            <Camera className="w-4 h-4" />
-          </div>
+            >
+              <input
+                type="file"
+                name="profilePicture"
+                id="profilePicture"
+                ref={profilePicture}
+                className="hidden"
+                accept="image/*"
+                onChange={(e) => {
+                  handleProfilePictureUpload(e.target.files[0]);
+                }}
+              />
+              <Camera className="w-4 h-4" />
+            </div>
+          )}
         </div>
       </div>
     </div>
