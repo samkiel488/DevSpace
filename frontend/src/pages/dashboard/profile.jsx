@@ -1,9 +1,10 @@
 import { Github, Instagram, Link, Linkedin, Twitter } from "lucide-react";
 import ProjectCard from "../../Componets/projectCard";
 import SettingGrid from "../../Componets/Dashboard/settingGrid";
-import { redirect } from "react-router";
+import { useRouteLoaderData } from "react-router";
 
 export default function Profile() {
+  const { profile } = useRouteLoaderData("profile");
   return (
     <>
       <SettingGrid>
@@ -11,14 +12,15 @@ export default function Profile() {
           <h1 className="text-lg font-semibold border-b-1 border-b-gray-600 mb-2">
             About Me
           </h1>
-          <p className="font-[400] px-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quasi
-            perspiciatis doloremque ipsa vel fuga veniam rerum dolor
-            exercitationem? Illo, sunt nemo? Voluptatum tenetur illo explicabo
-            quasi vel adipisci commodi amet assumenda inventore tempore! Earum
-            voluptatum ab veniam, adipisci possimus cupiditate aperiam odit id
-            nobis facere, minus fugit ducimus repudiandae!
-          </p>
+          <div className="font-[400] px-2">
+            {profile?.bio ? (
+              `${profile?.bio}`
+            ) : (
+              <div className="flex w-full h-full justify-center items-center font-[350]">
+                You don&apos;t have a bio yet
+              </div>
+            )}
+          </div>
         </div>
       </SettingGrid>
       <div className="py-4 px-3 sm:px-10">
@@ -47,10 +49,8 @@ export async function ProfileLoader() {
     });
 
     const response = await request.json();
-    console.log(response);
-
     if (!response.success && !request.ok) {
-      return redirect("/settings");
+      return { profile: [] };
     }
     return response.data;
   } catch (err) {

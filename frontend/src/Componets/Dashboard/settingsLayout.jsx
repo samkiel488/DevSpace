@@ -1,10 +1,14 @@
 import { Github, Instagram, Link, Linkedin, Twitter } from "lucide-react";
-import { Outlet, useRouteLoaderData } from "react-router";
+import { Outlet, useLoaderData, useRouteLoaderData } from "react-router";
 
 export default function SettingLayout() {
   const {
     users: { name },
   } = useRouteLoaderData("feeds");
+
+  const { profile } = useLoaderData();
+  console.log(profile);
+
   return (
     <>
       <div className="flex w-full flex-col gap-2 mb-10">
@@ -26,24 +30,24 @@ export default function SettingLayout() {
           <div className="flex w-full px-2 flex-col sm:flex-row">
             <div className="flex flex-col flex-wrap items-center w-full sm:items-start">
               <h1 className="text-2xl font-semibold">{name}</h1>
-              <p className="font-[350]">Frontend Developer</p>
+              <p className="font-[350]">{profile?.role}</p>
             </div>
             <div className="flex justify-center sm:justify-end-safe gap-3 p-2">
-              <button className="dark-rounded-button">
+              <a href={profile?.twitter} className="dark-rounded-button">
                 <Twitter />
-              </button>
-              <button className="dark-rounded-button">
+              </a>
+              <a href={profile?.github} className="dark-rounded-button">
                 <Github />
-              </button>
-              <button className="dark-rounded-button">
+              </a>
+              <a href={profile.instagram} className="dark-rounded-button">
                 <Instagram />
-              </button>
-              <button className="dark-rounded-button">
+              </a>
+              <a href={profile?.linkedin} className="dark-rounded-button">
                 <Linkedin />
-              </button>
-              <button className="dark-rounded-button">
+              </a>
+              <a href={profile?.portfolio} className="dark-rounded-button">
                 <Link />
-              </button>
+              </a>
             </div>
           </div>
         </div>

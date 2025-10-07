@@ -55,11 +55,11 @@ export default function AppRouter() {
               path: "/",
               id: "profile",
               element: <SettingLayout />,
+              loader: ProfileLoader,
               children: [
                 {
                   path: "/profile",
                   element: <Profile />,
-                  loader: ProfileLoader,
                 },
                 {
                   path: "/settings",
