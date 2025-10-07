@@ -1,6 +1,7 @@
 import { Github, Instagram, Link, Linkedin, Twitter } from "lucide-react";
 import ProjectCard from "../../Componets/projectCard";
 import SettingGrid from "../../Componets/Dashboard/settingGrid";
+import { redirect } from "react-router";
 
 export default function Profile() {
   return (
@@ -33,4 +34,26 @@ export default function Profile() {
       </div>
     </>
   );
+}
+
+export async function ProfileLoader() {
+  try {
+    const request = await fetch("http://localhost:3000/profile/me", {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+
+    const response = await request.json();
+    console.log(response);
+
+    if (!response.success && !request.ok) {
+      return redirect("/settings");
+    }
+    return response.data;
+  } catch (err) {
+    console.log(err);
+  }
 }

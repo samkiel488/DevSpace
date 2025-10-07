@@ -1,5 +1,21 @@
 import Profile from "../models/profile.models.js";
 
+export async function getMyProfile(req, res, next) {
+    try {
+        const {id} = req.user;
+
+        const profile = await Profile.findOne({user: id});
+        console.log(profile);
+        if (!profile) {
+            return res.status(400).json({success: false, message: "Profile not found"});
+        }
+
+        return res.status(200).json({success: true, data: {profile}});
+    }catch (err){
+        next(err);
+    }
+}
+
 export async function postNewProfile(req, res, next) {
   try {
     const { id } = req.user;

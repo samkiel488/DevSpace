@@ -1,7 +1,6 @@
 import { Form, useRouteLoaderData } from "react-router";
 import Tools from "./form/tools";
 import Skills from "./form/skills";
-import { Instagram } from "lucide-react";
 import SocialMedia from "./form/socialMedia";
 import { toast } from "react-toastify";
 export default function SettingsForm() {
