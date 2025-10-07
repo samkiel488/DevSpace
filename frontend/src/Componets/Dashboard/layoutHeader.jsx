@@ -59,10 +59,7 @@ export default function LayoutHeader() {
           </div>
           <div className="flex text-white justify-center items-center px-3 gap-4">
             <div className="hidden md:flex">
-              <a
-                href="#"
-                className="light-button"
-              >
+              <a href="#" className="light-button">
                 <Plus />
                 Create
               </a>
@@ -112,7 +109,7 @@ export default function LayoutHeader() {
         </div>
       </header>
       {isSidebarOpen && (
-        <div className="fixed top-0 left-0 bg-slate-600 h-full w-[80%] p-6 pt-2 transition-transform transform md:hidden">
+        <div className="fixed top-0 left-0 bg-slate-600 h-full w-[80%] p-6 pt-2 transition-transform transform md:hidden z-10">
           <div className="flex justify-between items-center mb-2">
             <img src="/images/logo-bg.png" className="h-15 w-15" />
             <X

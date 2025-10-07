@@ -21,19 +21,19 @@ export default function Share() {
           </div>
         </div>
         <div className="flex sm:justify-end-safe justify-center gap-3 p-2 mt-15 sm:mt-0">
-          <a href="#" className="dark-button">
+          <a href="#" className="dark-rounded-button">
             <Twitter />
           </a>
-          <a href="#" className="dark-button">
+          <a href="#" className="dark-rounded-button">
             <Github />
           </a>
-          <a href="#" className="dark-button">
+          <a href="#" className="dark-rounded-button">
             <Linkedin />
           </a>
-          <a href="#" className="dark-button">
+          <a href="#" className="dark-rounded-button">
             <Instagram />
           </a>
-          <a href="#" className="dark-button">
+          <a href="#" className="dark-rounded-button">
             <Link />
           </a>
         </div>
