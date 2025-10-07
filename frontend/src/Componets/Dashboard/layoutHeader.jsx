@@ -92,7 +92,7 @@ export default function LayoutHeader() {
                       </a>
                     </li>
                     <li className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-all">
-                      <a href="#" className="block">
+                      <a href="/settings" className="block">
                         Settings
                       </a>
                     </li>

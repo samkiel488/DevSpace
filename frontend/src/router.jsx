@@ -14,6 +14,8 @@ import { LoginFormAction } from "./Componets/Login/form";
 import { RegisterFormAction } from "./Componets/Register/registerForm";
 import Layout, { LayoutLoader } from "./Componets/Dashboard/layout";
 import Profile from "./pages/dashboard/profile";
+import Settings from "./pages/dashboard/settings";
+import SettingLayout from "./Componets/Dashboard/settingsLayout";
 
 export default function AppRouter() {
   return (
@@ -49,8 +51,18 @@ export default function AppRouter() {
               element: <FeedsHome />,
             },
             {
-              path: "/profile",
-              element: <Profile />,
+              path: "/",
+              element: <SettingLayout />,
+              children: [
+                {
+                  path: "/profile",
+                  element: <Profile />,
+                },
+                {
+                  path: "/settings",
+                  element: <Settings />,
+                },
+              ],
             },
           ],
         },

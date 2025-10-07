@@ -7,6 +7,7 @@ import { connectToMongoDB } from "./database/mongoDb.database.js";
 import { errorHandler } from "./middleware/errorHandler.middleware.js";
 import cookieParser from "cookie-parser";
 import projectRouter from "./router/project.router.js";
+import profileRouter from "./router/profile.router.js";
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -16,6 +17,7 @@ app.use(cookieParser());
 
 app.use("/auth", authRouter);
 app.use("/projects", projectRouter);
+app.use("/profile", profileRouter);
 app.use(errorHandler);
 
 app.get("/", (req, res) => {
