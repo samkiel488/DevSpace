@@ -2,8 +2,18 @@ import Profile from "../models/profile.models.js";
 
 export async function postNewProfile(req, res, next) {
   try {
-    // const { id } = req.user;
-    const { role, bio, skills, tools, socialHandles } = req.body;
+    const { id } = req.user;
+    const {
+      role,
+      bio,
+      skills,
+      tools,
+      github,
+      instagram,
+      twitter,
+      linkedin,
+      portfolio,
+    } = req.body;
 
     if (!role) {
       return res
@@ -27,15 +37,24 @@ export async function postNewProfile(req, res, next) {
     }
 
     const profile = await Profile.create({
+        user: id,
       role,
       bio,
       skills,
       tools,
-      socialHandles,
+      github,
+      instagram,
+      twitter,
+      linkedin,
+      portfolio,
     });
 
     return res.status(200).json({ success: true, data: { profile } });
   } catch (err) {
+      if(err.code == 11000){
+          return res.status(400).json({ success: false, error: "User can not have multiple Profile" });
+      }
+      console.log(err)
     next(err);
   }
 }

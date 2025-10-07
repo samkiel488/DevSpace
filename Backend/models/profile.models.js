@@ -2,12 +2,12 @@ import mongoose from "mongoose";
 
 const profileSchema = new mongoose.Schema(
   {
-    // user: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "User",
-    //   required: true,
-    //     unique: true,
-    // },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+        unique: true,
+    },
     role: {
       type: String,
       required: true,
@@ -30,13 +30,30 @@ const profileSchema = new mongoose.Schema(
       type: [String],
       required: true,
     },
-    socialHandles: {
-      type: [
-        {
-          name: String,
-          url: String,
-        },
-      ],
+    github: {
+      type: String,
+      trim: true,
+      minLength: 10,
+    },
+    instagram: {
+      type: String,
+      trim: true,
+      minLength: 10,
+    },
+    twitter: {
+      type: String,
+      trim: true,
+      minLength: 10,
+    },
+    linkedin: {
+      type: String,
+      trim: true,
+      minLength: 10,
+    },
+    portfolio: {
+      type: String,
+      trim: true,
+      minLength: 10,
     },
   },
   { timestamps: true }

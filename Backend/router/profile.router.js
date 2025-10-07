@@ -4,6 +4,6 @@ import { postNewProfile } from "../controller/profile.controller.js";
 
 const profileRouter = Router();
 
-profileRouter.post("/", postNewProfile);
+profileRouter.post("/", ProtectMiddleware, postNewProfile);
 
 export default profileRouter;

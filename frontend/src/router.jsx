@@ -16,6 +16,7 @@ import Layout, { LayoutLoader } from "./Componets/Dashboard/layout";
 import Profile from "./pages/dashboard/profile";
 import Settings from "./pages/dashboard/settings";
 import SettingLayout from "./Componets/Dashboard/settingsLayout";
+import { SettingsFormAction } from "./Componets/Dashboard/settingsForm";
 
 export default function AppRouter() {
   return (
@@ -61,6 +62,7 @@ export default function AppRouter() {
                 {
                   path: "/settings",
                   element: <Settings />,
+                  action: SettingsFormAction,
                 },
               ],
             },

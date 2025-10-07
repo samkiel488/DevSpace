@@ -108,7 +108,7 @@ export async function isUserLoggedIn(req, res, next) {
         .status(401)
         .json({ success: false, error: "User not logged in" });
     }
-    const user = await User.findById(id).select("_id username name");
+    const user = await User.findById(id).select("_id username name email");
 
     if (!user) {
       return res
