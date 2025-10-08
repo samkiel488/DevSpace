@@ -120,8 +120,6 @@ export async function SettingsFormAction({ request }) {
 
   const profileExist = await doesProfileExist.json();
 
-  console.log(profileExist);
-
   if (!profileExist.success) {
     try {
       const req = await fetch("http://localhost:3000/profile", {
@@ -144,7 +142,6 @@ export async function SettingsFormAction({ request }) {
       });
 
       const response = await req.json();
-      console.log(response);
 
       if (!response.status) {
         return toast.error(response.error);
