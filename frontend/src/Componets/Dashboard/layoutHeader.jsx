@@ -11,7 +11,10 @@ import {
   User,
   X,
 } from "lucide-react";
+import { useLoaderData } from "react-router";
 export default function LayoutHeader() {
+  const { users } = useLoaderData();
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -85,7 +88,11 @@ export default function LayoutHeader() {
             <div className="relative">
               <img
                 onClick={toggleDropdown}
-                src="/images/blank-profile-picture-973460_960_720.webp"
+                src={
+                  users?.profilePic
+                    ? users?.profilePic
+                    : "/images/blank-profile-picture-973460_960_720.webp"
+                }
                 alt="Profile Picture"
                 className="w-12 h-12 rounded-full border-2 border-gray-300 cursor-pointer transition-transform transform hover:scale-110"
               />

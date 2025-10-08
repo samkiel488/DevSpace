@@ -41,7 +41,7 @@ export default function MemberCard({
               <Share />
             </button>
           </div>
-          <p className=" font-[350]">{bio}</p>
+          <p className=" font-[350]">{bio ? bio : "No Bio yet!"}</p>
           <div className="flex flex-col md:flex-row gap-y-5 justify-between items-center">
             <a className="bg-green-800 px-2 py-1 text-sm rounded-xl text-white text-center cursor-pointer hover:text-green-800 hover:bg-white border-1">
               {role}

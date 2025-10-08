@@ -7,8 +7,6 @@ import { useState } from "react";
 export default function Members() {
   const { profile } = useLoaderData();
   const [userProfile, setUserProfile] = useState(profile);
-  console.log(userProfile);
-
   return (
     <section className="py-10 px-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center gap-4 gap-y-10 dark:bg-slate-800">
       {userProfile.map(
