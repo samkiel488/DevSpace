@@ -20,6 +20,7 @@ import SettingLayout, {
 } from "./Componets/Dashboard/settingsLayout";
 import { SettingsFormAction } from "./Componets/Dashboard/settingsForm";
 import Members, { MemberLoader } from "./pages/dashboard/members";
+import MemberProfile, { MemberProfileLoader } from "./pages/home/MemberProfile";
 
 export default function AppRouter() {
   return (
@@ -68,6 +69,12 @@ export default function AppRouter() {
                 {
                   path: "/profile",
                   element: <Profile />,
+                },
+                {
+                  path: "/profile/:id",
+                  element: <MemberProfile />,
+                  loader: MemberProfileLoader,
+                  id: "memberProfile",
                 },
                 {
                   path: "/settings",
