@@ -10,7 +10,7 @@ import {
 
 const profileRouter = Router();
 
-profileRouter.get("/", getAllProfile);
+profileRouter.get("/",ProtectMiddleware, getAllProfile);
 profileRouter.get("/me", ProtectMiddleware, getMyProfile);
 profileRouter.post("/", ProtectMiddleware, postNewProfile);
 profileRouter.patch("/", ProtectMiddleware, editUserProfile);
