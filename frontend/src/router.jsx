@@ -19,6 +19,7 @@ import SettingLayout, {
   ProfileLoader,
 } from "./Componets/Dashboard/settingsLayout";
 import { SettingsFormAction } from "./Componets/Dashboard/settingsForm";
+import Members from "./pages/dashboard/members";
 
 export default function AppRouter() {
   return (
@@ -52,6 +53,10 @@ export default function AppRouter() {
             {
               path: "/feeds",
               element: <FeedsHome />,
+            },
+            {
+              path: "/members",
+              element: <Members />,
             },
             {
               path: "/",

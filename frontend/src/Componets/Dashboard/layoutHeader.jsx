@@ -35,7 +35,7 @@ export default function LayoutHeader() {
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:underline ">
+                    <a href="/members" className="hover:underline ">
                       Members
                     </a>
                   </li>
@@ -137,7 +137,7 @@ export default function LayoutHeader() {
             </li>
             <li>
               <a
-                href="#"
+                href="/members"
                 className="flex items-center space-x-3 text-lg font-medium hover:text-gray-300 transition duration-200"
               >
                 <User />
