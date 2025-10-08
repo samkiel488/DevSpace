@@ -3,7 +3,7 @@ import { Share } from "lucide-react";
 export default function MemberCard() {
   return (
     <div className="flex justify-center">
-      <div className="flex bg-slate-300 gap-2 rounded-xl flex-col">
+      <div className="flex bg-slate-300 dark:bg-slate-700 dark:text-white gap-2 rounded-xl flex-col">
         <div className="flex flex-col">
           <img
             src="/images/blank-profile-picture-973460_960_720.webp"
@@ -19,7 +19,7 @@ export default function MemberCard() {
                 Anonymous
               </span>
             </div>
-            <button className="dark-rounded-button">
+            <button type="button" className="dark-rounded-button">
               <Share />
             </button>
           </div>
