@@ -1,3 +1,5 @@
+import { Share } from "lucide-react";
+
 export default function MemberCard() {
   return (
     <div className="flex justify-center">
@@ -17,6 +19,9 @@ export default function MemberCard() {
                 Anonymous
               </span>
             </div>
+            <button className="dark-rounded-button">
+              <Share />
+            </button>
           </div>
           <p className=" font-[350]">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
@@ -27,10 +32,10 @@ export default function MemberCard() {
             nisi dicta necessitatibus fuga! Ab, adipisci quam.
           </p>
           <div className="flex justify-between items-center">
-            <span className="bg-green-800 px-2 py-1 text-sm rounded-xl text-white text-center">
+            <a className="bg-green-800 px-2 py-1 text-sm rounded-xl text-white text-center cursor-pointer hover:text-green-800 hover:bg-white border-1">
               Full-Stack Developer
-            </span>
-            <button className="dark-button cursor-pointer">View Profile</button>
+            </a>
+            <a className="dark-button cursor-pointer">View Profile</a>
           </div>
         </div>
       </div>
