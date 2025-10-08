@@ -19,7 +19,7 @@ const profileSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
-      minLength: 5,
+      minLength: 20,
       maxLength: 500,
     },
     skills: {

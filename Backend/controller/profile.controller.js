@@ -46,12 +46,12 @@ export async function postNewProfile(req, res, next) {
     if (skills.length === 0) {
       return res
         .status(400)
-        .json({ success: false, message: "No Skill was Found" });
+        .json({ success: false, error: "No Skill was Found" });
     }
     if (tools.length === 0) {
       return res
         .status(400)
-        .json({ success: false, message: "No Tool was Found" });
+        .json({ success: false, error: "No Tool was Found" });
     }
 
     const profile = await Profile.create({
