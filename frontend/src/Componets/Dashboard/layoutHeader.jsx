@@ -8,6 +8,7 @@ import {
   Presentation,
   Rss,
   Spotlight,
+  User,
   X,
 } from "lucide-react";
 export default function LayoutHeader() {
@@ -29,8 +30,13 @@ export default function LayoutHeader() {
               <nav className="h-full flex items-center">
                 <ul className=" flex gap-x-4 text-white h-full items-center">
                   <li>
-                    <a href="#" className="hover:underline ">
+                    <a href="/feeds" className="hover:underline ">
                       Feeds
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:underline ">
+                      Members
                     </a>
                   </li>
                   <li>
@@ -122,11 +128,20 @@ export default function LayoutHeader() {
           <ul className="space-y-6 text-white">
             <li>
               <a
-                href="#"
+                href="/feeds"
                 className="flex items-center space-x-3 text-lg font-medium hover:text-gray-300 transition duration-200"
               >
                 <House />
                 <span>Feeds</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="flex items-center space-x-3 text-lg font-medium hover:text-gray-300 transition duration-200"
+              >
+                <User />
+                <span>Members</span>
               </a>
             </li>
             <li>

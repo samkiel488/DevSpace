@@ -1,59 +1,14 @@
 import { Camera } from "lucide-react";
 import { useRef } from "react";
 import { useLocation, useRouteLoaderData } from "react-router";
-import { toast } from "react-toastify";
+import handlePictureUpload from "../../libs/handlePictureUpload";
+
 export default function SettingsBanner() {
   const backgroundPicture = useRef();
   const profilePicture = useRef();
   const { users } = useRouteLoaderData("feeds");
   const { pathname } = useLocation();
 
-  async function handleBackGroundUpload(image) {
-    let formData = new FormData();
-    formData.append("backgroundPic", image);
-    try {
-      const request = await fetch(
-        "http://localhost:3000/auth/upload/background",
-        {
-          method: "POST",
-          credentials: "include",
-          body: formData,
-        }
-      );
-
-      const data = await request.json();
-      if (data.success) {
-        toast.success(data.message);
-        window.location.reload();
-      }
-      toast.error(data.error);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  async function handleProfilePictureUpload(image) {
-    const formData = new FormData();
-    formData.append("profilePic", image);
-
-    try {
-      const request = await fetch("http://localhost:3000/auth/upload/profile", {
-        method: "POST",
-        body: formData,
-        credentials: "include",
-      });
-      const data = await request.json();
-      console.log(data);
-
-      if (data.success) {
-        toast.success(data.message);
-        window.location.reload();
-      }
-      toast.error(data.error);
-    } catch (err) {
-      console.log(err);
-    }
-  }
   return (
     <div className="flex w-full relative">
       <div className="flex w-full relative">
@@ -79,7 +34,11 @@ export default function SettingsBanner() {
               className="hidden"
               accept="image/*"
               onChange={(e) => {
-                handleBackGroundUpload(e.target.files[0]);
+                handlePictureUpload({
+                  image: e.target.files[0],
+                  url: "http://localhost:3000/auth/upload/background",
+                  placeholder: "backgroundPic",
+                });
               }}
             />
             <Camera />
@@ -112,7 +71,11 @@ export default function SettingsBanner() {
                 className="hidden"
                 accept="image/*"
                 onChange={(e) => {
-                  handleProfilePictureUpload(e.target.files[0]);
+                  handlePictureUpload({
+                    image: e.target.files[0],
+                    url: "http://localhost:3000/auth/upload/profile ",
+                    placeholder: "profilePic",
+                  });
                 }}
               />
               <Camera className="w-4 h-4" />
