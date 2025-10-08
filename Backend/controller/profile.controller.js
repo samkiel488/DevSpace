@@ -69,7 +69,7 @@ export async function postNewProfile(req, res, next) {
 
     return res.status(200).json({ success: true, data: { profile } });
   } catch (err) {
-    if (err.code == 11000) {
+    if (err.code === 11000) {
       return res
         .status(400)
         .json({ success: false, error: "User can not have multiple Profile" });

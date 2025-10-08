@@ -54,7 +54,7 @@ export default function SettingsBanner() {
                 : "/images/blank-profile-picture-973460_960_720.webp"
             }
             alt={`Profile Picture ${users?.name}`}
-            className="h-25 w-25 sm:w-35 sm:h-35 object-cover rounded-full"
+            className="h-25 w-25 sm:w-35 sm:h-35 object-cover rounded-full bg-transparent"
           />
           {pathname === "/settings" && (
             <div
