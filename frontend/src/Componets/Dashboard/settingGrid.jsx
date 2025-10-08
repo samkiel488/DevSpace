@@ -1,7 +1,4 @@
-import { useRouteLoaderData } from "react-router";
-
-export default function SettingGrid({ children }) {
-  const { profile } = useRouteLoaderData("profile");
+export default function SettingGrid({ children, profile }) {
   return (
     <div className="px-3 sm:px-10">
       <div className="grid grid-cols-1  sm:grid-cols-[30%_70%] gap-4  mb-10">

@@ -1,12 +1,11 @@
 import { Camera } from "lucide-react";
 import { useRef } from "react";
-import { useLocation, useRouteLoaderData } from "react-router";
+import { useLocation } from "react-router";
 import handlePictureUpload from "../../libs/handlePictureUpload";
 
-export default function SettingsBanner() {
+export default function SettingsBanner({ users }) {
   const backgroundPicture = useRef();
   const profilePicture = useRef();
-  const { users } = useRouteLoaderData("feeds");
   const { pathname } = useLocation();
 
   return (
