@@ -160,7 +160,7 @@ export async function getProfileByUserId(req, res, next) {
   try {
     const { id } = req.params;
 
-    const profile = await Profile.findById(id).populate("user","name username _id");
+    const profile = await Profile.findById(id).populate("user","name username _id profilePic backgroundPic");
 
     if (!profile) {
       return res

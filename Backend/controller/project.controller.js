@@ -80,7 +80,7 @@ export async function getProjectById(req, res, next) {
 
     const project = await Project.findById(id).populate(
       "user",
-      "_id name username"
+      "_id name username profilePic backgroundPic"
     );
 
     if (!project) {
