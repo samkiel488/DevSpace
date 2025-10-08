@@ -11,3 +11,7 @@ export default function Members() {
     </section>
   );
 }
+
+export async function MemberLoader() {
+  console.log("Member Loader");
+}

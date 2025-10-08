@@ -160,7 +160,10 @@ export async function getProfileByUserId(req, res, next) {
   try {
     const { id } = req.params;
 
-    const profile = await Profile.findById(id).populate("user","name username _id profilePic backgroundPic");
+    const profile = await Profile.findById(id).populate(
+      "user",
+      "name username _id profilePic backgroundPic"
+    );
 
     if (!profile) {
       return res
@@ -168,6 +171,17 @@ export async function getProfileByUserId(req, res, next) {
         .json({ success: false, error: "Profile not found" });
     }
 
+    return res.status(200).json({ success: true, data: { profile } });
+  } catch (err) {
+    next(err);
+  }
+}
+
+export async function getAllProfile(req, res, next) {
+  try {
+    const profile = await Profile.find()
+      .select("_id role bio ")
+      .populate("user", "profilePic name username -_id");
     return res.status(200).json({ success: true, data: { profile } });
   } catch (err) {
     next(err);
