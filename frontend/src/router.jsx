@@ -10,7 +10,7 @@ import Share, { ShareLoader } from "./pages/home/share";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomeLayout from "./Componets/HomeLayout";
 import FeedsHome from "./pages/dashboard";
-import { LoginFormAction } from "./Componets/Login/form";
+import { LoginFormAction, LoginLoader } from "./Componets/Login/form";
 import { RegisterFormAction } from "./Componets/Register/registerForm";
 import Layout, { LayoutLoader } from "./Componets/Dashboard/layout";
 import Profile from "./pages/dashboard/profile";
@@ -37,7 +37,12 @@ export default function AppRouter() {
             { path: "/meettheteam", element: <MeetTheTeam /> },
             { path: "/contact", element: <Contact /> },
             { path: "/projects", element: <Project /> },
-            { path: "/login", element: <Login />, action: LoginFormAction },
+            {
+              path: "/login",
+              element: <Login />,
+              action: LoginFormAction,
+              loader: LoginLoader,
+            },
             { path: "/share/:id", element: <Share />, loader: ShareLoader },
             {
               path: "/register",

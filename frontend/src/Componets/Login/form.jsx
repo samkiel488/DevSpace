@@ -112,3 +112,24 @@ export async function LoginFormAction({ request }) {
     return toast.error("Network Error");
   }
 }
+
+export async function LoginLoader() {
+  try {
+    const request = await fetch("http://localhost:3000/auth/loggedIn", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "GET",
+      credentials: "include",
+    });
+
+    const response = await request.json();
+    if (!response.success && !request.ok) {
+      return;
+    }
+
+    return redirect("/feeds");
+  } catch (err) {
+    console.log(err);
+  }
+}
