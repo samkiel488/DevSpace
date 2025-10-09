@@ -12,7 +12,7 @@ export default function AboutUsHeading() {
         </div>
         <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
           <h1 className="title-font sm:text-5xl text-4xl mb-6 font-bold text-black dark:text-white">
-            About <span className="text-blue-500">D3V++ Group</span>
+            About <span className="text-blue-500">D3V++ Teams</span>
           </h1>
           <p className="mb-8 leading-relaxed text-lg">
             Welcome to <span className="font-semibold">D3V++</span>, a

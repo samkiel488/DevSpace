@@ -4,7 +4,7 @@ export default function Hero() {
       <main className="relative isolate px-6 pt-12 pb-20 lg:px-8 text-white text-center z-10">
         <div className="mx-auto max-w-3xl pt-10">
           <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-6xl">
-            Welcome to D3V++ Group
+            Welcome to D3V++ Teams
           </h1>
           <h1 className="text-2l pt-5 tracking-tight font-medium text-white sm:text-2xl">
             A space where young devs grow, connect, and build cool stuff

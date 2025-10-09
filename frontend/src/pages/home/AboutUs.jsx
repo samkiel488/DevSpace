@@ -17,7 +17,7 @@ export default function AboutUs() {
 
         <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
           <h1 className="text-5xl font-bold leading-tight mb-4">
-            About D3V++ Group
+            About D3V++ Teams
           </h1>
           <p className="text-lg text-white mb-8">
             Discover amazing features and services that await you.
