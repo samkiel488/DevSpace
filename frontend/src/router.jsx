@@ -23,6 +23,7 @@ import Members, { MemberLoader } from "./pages/dashboard/members";
 import ProfileId, {
   ProfileIdLoader,
 } from "./pages/dashboard/profile/profileId";
+import NotificationsPage from "./pages/notifications";
 
 export default function AppRouter() {
   return (
@@ -61,6 +62,10 @@ export default function AppRouter() {
             {
               path: "/feeds",
               element: <FeedsHome />,
+            },
+            {
+              path: "/notifications",
+              element: <NotificationsPage />,
             },
             {
               path: "/members",

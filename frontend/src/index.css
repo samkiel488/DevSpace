@@ -29,3 +29,18 @@ input[type="number"] {
         @apply bg-black text-white border-1 border-white hover:bg-white hover:text-black hover:border-black px-4 py-2 rounded-xl flex justify-center items-center;
     }
 }
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slide-up {
+    animation: slide-up 0.6s ease-out;
+}

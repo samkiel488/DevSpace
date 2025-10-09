@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import HashPassword from "../lib/hashPassword.js";
 import User from "../models/auth.models.js";
+import Notification from "../models/notification.models.js";
 import {
   COOKIES_NAME,
   JWT_EXPIRES_IN,
@@ -34,6 +35,16 @@ export async function SignUp(req, res, next) {
       email,
       username,
       password: await HashPassword(password),
+      profileCompleted: false,
+    });
+
+    // Create welcome notification
+    await Notification.create({
+      userId: user._id,
+      type: "welcome",
+      title: "Welcome to DevSpace!",
+      message: `Hi ${name}, welcome to DevSpace! Complete your profile to get activated.`,
+      data: { link: "/settings" },
     });
 
     const token = jwt.sign({ id: user._id }, JWT_SECRET, {
@@ -143,6 +154,18 @@ export async function uploadProfile(req, res, next) {
       return res.status(404).json({ success: false, error: "User not found" });
     }
 
+    // Check if profile is now complete
+    if (user.backgroundPic && user.profilePic) {
+      await User.findByIdAndUpdate(id, { profileCompleted: true });
+      // Create activation notification
+      await Notification.create({
+        userId: id,
+        type: "activation",
+        title: "Profile Completed!",
+        message: "Congratulations! Your profile is now complete. Welcome to the community!",
+      });
+    }
+
     return res.status(200).json({
       success: true,
       message: "Profile picture uploaded successfully",
@@ -170,6 +193,18 @@ export async function uploadBackground(req, res, next) {
 
     if (!user) {
       return res.status(404).json({ success: false, error: "User not found" });
+    }
+
+    // Check if profile is now complete
+    if (user.backgroundPic && user.profilePic) {
+      await User.findByIdAndUpdate(id, { profileCompleted: true });
+      // Create activation notification
+      await Notification.create({
+        userId: id,
+        type: "activation",
+        title: "Profile Completed!",
+        message: "Congratulations! Your profile is now complete. Welcome to the community!",
+      });
     }
 
     return res.status(200).json({

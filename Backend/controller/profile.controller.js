@@ -181,7 +181,11 @@ export async function getAllProfile(req, res, next) {
   try {
     const profile = await Profile.find()
       .select("_id role bio ")
-      .populate("user", "profilePic name username -_id");
+      .populate({
+        path: "user",
+        select: "profilePic name username -_id"
+      })
+      .then(profiles => profiles.filter(profile => profile.user !== null));
     return res.status(200).json({ success: true, data: { profile } });
   } catch (err) {
     next(err);
