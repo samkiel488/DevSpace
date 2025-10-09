@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Bell,
   House,
@@ -8,15 +8,81 @@ import {
   Presentation,
   Rss,
   Spotlight,
+  User,
   X,
 } from "lucide-react";
+import { useLoaderData, useNavigate } from "react-router";
+import { toast } from "react-toastify";
 export default function LayoutHeader() {
+  const navigate = useNavigate();
+  const { users } = useLoaderData();
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(0);
+
+  useEffect(() => {
+    fetchUnreadCount();
+  }, []);
+
+  const fetchUnreadCount = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/notifications/unread", {
+        credentials: "include",
+      });
+      const data = await response.json();
+      if (data.success) {
+        setUnreadCount(data.data.count);
+      }
+    } catch (error) {
+      console.error("Error fetching unread count:", error);
+    }
+  };
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
   };
+
+  async function HandleLogOut() {
+    const toastId = toast.loading("Logging out...");
+    try {
+      const request = await fetch("http://localhost:3000/auth/logout", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "GET",
+        credentials: "include",
+      });
+      const response = await request.json();
+      console.log(response);
+      if (!response.success && !request.ok) {
+        toast.update(toastId, {
+          render: response.error || "Logout failed",
+          type: "error",
+          isLoading: false,
+          autoClose: 3000,
+        });
+        return;
+      }
+      // Clear local data
+      localStorage.clear();
+      toast.update(toastId, {
+        render: "Logged out successfully",
+        type: "success",
+        isLoading: false,
+        autoClose: 2000,
+      });
+      setTimeout(() => navigate("/login"), 2000);
+    } catch (err) {
+      console.log(err);
+      toast.update(toastId, {
+        render: "Logout failed",
+        type: "error",
+        isLoading: false,
+        autoClose: 3000,
+      });
+    }
+  }
   return (
     <>
       <header className="w-full bg-slate-600 shadow-md h-20">
@@ -29,8 +95,13 @@ export default function LayoutHeader() {
               <nav className="h-full flex items-center">
                 <ul className=" flex gap-x-4 text-white h-full items-center">
                   <li>
-                    <a href="#" className="hover:underline ">
+                    <a href="/feeds" className="hover:underline ">
                       Feeds
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/members" className="hover:underline ">
+                      Members
                     </a>
                   </li>
                   <li>
@@ -73,13 +144,27 @@ export default function LayoutHeader() {
                 />
               </a>
             </div>
-            <div className="flex">
-              <Bell />
+            <div className="flex relative">
+              <button
+                onClick={() => navigate("/notifications")}
+                className="relative p-2 hover:bg-slate-700 rounded-lg transition-colors"
+              >
+                <Bell className="h-6 w-6" />
+                {unreadCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                    {unreadCount > 99 ? "99+" : unreadCount}
+                  </span>
+                )}
+              </button>
             </div>
             <div className="relative">
               <img
                 onClick={toggleDropdown}
-                src="/images/blank-profile-picture-973460_960_720.webp"
+                src={
+                  users?.profilePic
+                    ? users?.profilePic
+                    : "/images/blank-profile-picture-973460_960_720.webp"
+                }
                 alt="Profile Picture"
                 className="w-12 h-12 rounded-full border-2 border-gray-300 cursor-pointer transition-transform transform hover:scale-110"
               />
@@ -97,7 +182,13 @@ export default function LayoutHeader() {
                       </a>
                     </li>
                     <li className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-all">
-                      <a href="#" className="block">
+                      <a
+                        href="#"
+                        className="block"
+                        onClick={async () => {
+                          await HandleLogOut();
+                        }}
+                      >
                         Logout
                       </a>
                     </li>
@@ -122,11 +213,20 @@ export default function LayoutHeader() {
           <ul className="space-y-6 text-white">
             <li>
               <a
-                href="#"
+                href="/feeds"
                 className="flex items-center space-x-3 text-lg font-medium hover:text-gray-300 transition duration-200"
               >
                 <House />
                 <span>Feeds</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/members"
+                className="flex items-center space-x-3 text-lg font-medium hover:text-gray-300 transition duration-200"
+              >
+                <User />
+                <span>Members</span>
               </a>
             </li>
             <li>

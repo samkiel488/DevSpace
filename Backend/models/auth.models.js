@@ -6,21 +6,21 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
-      minlength: 5,
+      minlength: 2,
       maxlength: 100,
     },
     email: {
       type: String,
       required: true,
       trim: true,
-      minlength: 5,
+      minlength: 2,
       unique: true,
     },
     username: {
       type: String,
       required: true,
       trim: true,
-      minlength: 5,
+      minlength: 2,
       maxlength: 100,
     },
     password: {
@@ -34,6 +34,10 @@ const userSchema = new mongoose.Schema(
     backgroundPic: {
       type: String,
       default: null,
+    },
+    profileCompleted: {
+      type: Boolean,
+      default: false,
     },
   },
   { timestamps: true }

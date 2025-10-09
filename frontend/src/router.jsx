@@ -10,7 +10,7 @@ import Share, { ShareLoader } from "./pages/home/share";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomeLayout from "./Componets/HomeLayout";
 import FeedsHome from "./pages/dashboard";
-import { LoginFormAction } from "./Componets/Login/form";
+import { LoginFormAction, LoginLoader } from "./Componets/Login/form";
 import { RegisterFormAction } from "./Componets/Register/registerForm";
 import Layout, { LayoutLoader } from "./Componets/Dashboard/layout";
 import Profile from "./pages/dashboard/profile";
@@ -19,6 +19,11 @@ import SettingLayout, {
   ProfileLoader,
 } from "./Componets/Dashboard/settingsLayout";
 import { SettingsFormAction } from "./Componets/Dashboard/settingsForm";
+import Members, { MemberLoader } from "./pages/dashboard/members";
+import ProfileId, {
+  ProfileIdLoader,
+} from "./pages/dashboard/profile/profileId";
+import NotificationsPage from "./pages/notifications";
 
 export default function AppRouter() {
   return (
@@ -33,7 +38,12 @@ export default function AppRouter() {
             { path: "/meettheteam", element: <MeetTheTeam /> },
             { path: "/contact", element: <Contact /> },
             { path: "/projects", element: <Project /> },
-            { path: "/login", element: <Login />, action: LoginFormAction },
+            {
+              path: "/login",
+              element: <Login />,
+              action: LoginFormAction,
+              loader: LoginLoader,
+            },
             { path: "/share/:id", element: <Share />, loader: ShareLoader },
             {
               path: "/register",
@@ -52,6 +62,20 @@ export default function AppRouter() {
             {
               path: "/feeds",
               element: <FeedsHome />,
+            },
+            {
+              path: "/notifications",
+              element: <NotificationsPage />,
+            },
+            {
+              path: "/members",
+              element: <Members />,
+              loader: MemberLoader,
+            },
+            {
+              path: "/profile/:id",
+              element: <ProfileId />,
+              loader: ProfileIdLoader,
             },
             {
               path: "/",

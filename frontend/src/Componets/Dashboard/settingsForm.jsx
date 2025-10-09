@@ -142,6 +142,7 @@ export async function SettingsFormAction({ request }) {
       });
 
       const response = await req.json();
+
       if (!response.status) {
         return toast.error(response.error);
       }

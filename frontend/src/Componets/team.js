@@ -3,7 +3,7 @@ const teamMembers = [
     name: "Samuel Ezekiel",
     role: "FullStack Developer",
     description:
-      "A versatile developer skilled in HTML, CSS, JavaScript, React, PHP, and Python, capable of building dynamic, responsive web applications from front to back.",
+      "Software Engineer | Full-Stack Developer (React, Next.js, Tailwind, JavaScript, Node.js, MongoDB, Python, Java, Kotlin, MySQL) | Web & Mobile App Builder | AI & Machine Learning Enthusiast 🚀",
     facebookLink: "https://facebook.com",
     githubLink: "https://github.com,.samkiel488",
     twitterLink: "https://x.com/samkiel_dev",

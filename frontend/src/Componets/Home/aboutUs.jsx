@@ -6,10 +6,10 @@ export default function AboutUsComponet() {
           <div className="lg:pt-4 lg:pr-8">
             <div className="lg:max-w-lg">
               <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty sm:text-5xl">
-                About D3V++ Group
+                About D3V++ Teams
               </p>
               <p className="mt-6 text-lg/8">
-                D3V++ Group is a growing community of young developers
+                D3V++ Teamsis a growing community of young developers
                 passionate about coding, creativity, and connection. We're
                 building a space where devs at all levels can learn, grow, and
                 collaborate on real-world projects that matter. From coding
@@ -17,7 +17,7 @@ export default function AboutUsComponet() {
                 focus on helping each other level up—together. Whether you're
                 into front-end, back-end, mobile, or just starting out, there's
                 a place for you here. This is more than a tech group. It's a
-                launchpad for future innovators.Welcome to D3V++ Group—let’s
+                launchpad for future innovators.Welcome to D3V++ Teams—let’s
                 build something awesome.
               </p>
             </div>

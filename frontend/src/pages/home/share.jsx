@@ -12,14 +12,22 @@ export default function Share() {
           <div className="w-full relative flex flex-col gap-2">
             <div className="flex">
               <img
-                src="/images/background-image.jpg"
+                src={
+                  data?.data?.profile?.user?.backgroundPic
+                    ? data?.data?.profile?.user?.backgroundPic
+                    : "/images/background-image.jpg"
+                }
                 alt="background-image"
                 className="rounded-xl w-full h-45 object-cover "
               />
             </div>
             <div className="flex absolute left-1/2 transform -translate-x-1/2 sm:translate-0 sm:left-5 top-35 mb-10">
               <img
-                src="/images/Members/APE.jpg"
+                src={
+                  data?.data?.profile?.user?.profilePic
+                    ? data?.data?.profile?.user?.profilePic
+                    : "/images/blank-profile-picture-973460_960_720.webp"
+                }
                 alt="profile picture"
                 className="h-25 w-25 rounded-full object-cover"
               />

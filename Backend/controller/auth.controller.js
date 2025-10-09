@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import HashPassword from "../lib/hashPassword.js";
 import User from "../models/auth.models.js";
+import Notification from "../models/notification.models.js";
 import {
   COOKIES_NAME,
   JWT_EXPIRES_IN,
@@ -34,6 +35,16 @@ export async function SignUp(req, res, next) {
       email,
       username,
       password: await HashPassword(password),
+      profileCompleted: false,
+    });
+
+    // Create welcome notification
+    await Notification.create({
+      userId: user._id,
+      type: "welcome",
+      title: "Welcome to DevSpace!",
+      message: `Hi ${name}, welcome to DevSpace! Complete your profile to get activated.`,
+      data: { link: "/settings" },
     });
 
     const token = jwt.sign({ id: user._id }, JWT_SECRET, {
@@ -108,7 +119,9 @@ export async function isUserLoggedIn(req, res, next) {
         .status(401)
         .json({ success: false, error: "User not logged in" });
     }
-    const user = await User.findById(id).select("_id username name email profilePic backgroundPic");
+    const user = await User.findById(id).select(
+      "_id username name email profilePic backgroundPic"
+    );
 
     if (!user) {
       return res
@@ -126,7 +139,9 @@ export async function uploadProfile(req, res, next) {
   try {
     const { id } = req.user;
     if (!req.file) {
-      return res.status(400).json({ success: false, error: "No file uploaded" });
+      return res
+        .status(400)
+        .json({ success: false, error: "No file uploaded" });
     }
 
     const user = await User.findByIdAndUpdate(
@@ -137,6 +152,18 @@ export async function uploadProfile(req, res, next) {
 
     if (!user) {
       return res.status(404).json({ success: false, error: "User not found" });
+    }
+
+    // Check if profile is now complete
+    if (user.backgroundPic && user.profilePic) {
+      await User.findByIdAndUpdate(id, { profileCompleted: true });
+      // Create activation notification
+      await Notification.create({
+        userId: id,
+        type: "activation",
+        title: "Profile Completed!",
+        message: "Congratulations! Your profile is now complete. Welcome to the community!",
+      });
     }
 
     return res.status(200).json({
@@ -153,7 +180,9 @@ export async function uploadBackground(req, res, next) {
   try {
     const { id } = req.user;
     if (!req.file) {
-      return res.status(400).json({ success: false, error: "No file uploaded" });
+      return res
+        .status(400)
+        .json({ success: false, error: "No file uploaded" });
     }
 
     const user = await User.findByIdAndUpdate(
@@ -166,13 +195,40 @@ export async function uploadBackground(req, res, next) {
       return res.status(404).json({ success: false, error: "User not found" });
     }
 
+    // Check if profile is now complete
+    if (user.backgroundPic && user.profilePic) {
+      await User.findByIdAndUpdate(id, { profileCompleted: true });
+      // Create activation notification
+      await Notification.create({
+        userId: id,
+        type: "activation",
+        title: "Profile Completed!",
+        message: "Congratulations! Your profile is now complete. Welcome to the community!",
+      });
+    }
+
     return res.status(200).json({
       success: true,
       message: "Background picture uploaded successfully",
       data: { backgroundPic: user.backgroundPic },
     });
   } catch (err) {
-      console.log(err);
+    console.log(err);
+    next(err);
+  }
+}
+
+export async function logOut(req, res, next) {
+  try {
+    const { id } = req.user;
+    if (!id) {
+      return res
+        .status(401)
+        .json({ success: false, error: "User not logged in" });
+    }
+    res.clearCookie(COOKIES_NAME);
+    return res.status(200).json({success: true , message:"LogOut Successfully"})
+  } catch (err) {
     next(err);
   }
 }

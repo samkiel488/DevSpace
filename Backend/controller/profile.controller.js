@@ -46,12 +46,12 @@ export async function postNewProfile(req, res, next) {
     if (skills.length === 0) {
       return res
         .status(400)
-        .json({ success: false, message: "No Skill was Found" });
+        .json({ success: false, error: "No Skill was Found" });
     }
     if (tools.length === 0) {
       return res
         .status(400)
-        .json({ success: false, message: "No Tool was Found" });
+        .json({ success: false, error: "No Tool was Found" });
     }
 
     const profile = await Profile.create({
@@ -69,7 +69,7 @@ export async function postNewProfile(req, res, next) {
 
     return res.status(200).json({ success: true, data: { profile } });
   } catch (err) {
-    if (err.code == 11000) {
+    if (err.code === 11000) {
       return res
         .status(400)
         .json({ success: false, error: "User can not have multiple Profile" });
@@ -160,7 +160,10 @@ export async function getProfileByUserId(req, res, next) {
   try {
     const { id } = req.params;
 
-    const profile = await Profile.findById(id).populate("user","name username _id");
+    const profile = await Profile.findById(id).populate(
+      "user",
+      "name username _id profilePic backgroundPic"
+    );
 
     if (!profile) {
       return res
@@ -168,6 +171,21 @@ export async function getProfileByUserId(req, res, next) {
         .json({ success: false, error: "Profile not found" });
     }
 
+    return res.status(200).json({ success: true, data: { profile } });
+  } catch (err) {
+    next(err);
+  }
+}
+
+export async function getAllProfile(req, res, next) {
+  try {
+    const profile = await Profile.find()
+      .select("_id role bio ")
+      .populate({
+        path: "user",
+        select: "profilePic name username -_id"
+      })
+      .then(profiles => profiles.filter(profile => profile.user !== null));
     return res.status(200).json({ success: true, data: { profile } });
   } catch (err) {
     next(err);
