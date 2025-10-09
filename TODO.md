@@ -1,0 +1,4 @@
+- [x] Modify footer.jsx to add quick links section with Home, About Us, Projects, Meet the Team, Contact
+- [x] Restructure footer layout to three columns: logo/copyright, quick links, social icons
+- [x] Import Link from react-router-dom for navigation
+- [x] Style with Tailwind CSS for responsiveness
