@@ -11,8 +11,10 @@ import {
   User,
   X,
 } from "lucide-react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
+import { toast } from "react-toastify";
 export default function LayoutHeader() {
+  const navigate = useNavigate();
   const { users } = useLoaderData();
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -21,6 +23,26 @@ export default function LayoutHeader() {
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
   };
+
+  async function HandleLogOut() {
+    try {
+      const request = await fetch("http://localhost:3000/auth/logout", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "GET",
+        credentials: "include",
+      });
+      const response = await request.json();
+      console.log(response);
+      if (!response.success && !request.ok) {
+        return toast.error(response.error);
+      }
+      return navigate("/login");
+    } catch (err) {
+      console.log(err);
+    }
+  }
   return (
     <>
       <header className="w-full bg-slate-600 shadow-md h-20">
@@ -110,7 +132,13 @@ export default function LayoutHeader() {
                       </a>
                     </li>
                     <li className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-all">
-                      <a href="#" className="block">
+                      <a
+                        href="#"
+                        className="block"
+                        onClick={async () => {
+                          await HandleLogOut();
+                        }}
+                      >
                         Logout
                       </a>
                     </li>

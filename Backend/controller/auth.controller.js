@@ -108,7 +108,9 @@ export async function isUserLoggedIn(req, res, next) {
         .status(401)
         .json({ success: false, error: "User not logged in" });
     }
-    const user = await User.findById(id).select("_id username name email profilePic backgroundPic");
+    const user = await User.findById(id).select(
+      "_id username name email profilePic backgroundPic"
+    );
 
     if (!user) {
       return res
@@ -126,7 +128,9 @@ export async function uploadProfile(req, res, next) {
   try {
     const { id } = req.user;
     if (!req.file) {
-      return res.status(400).json({ success: false, error: "No file uploaded" });
+      return res
+        .status(400)
+        .json({ success: false, error: "No file uploaded" });
     }
 
     const user = await User.findByIdAndUpdate(
@@ -153,7 +157,9 @@ export async function uploadBackground(req, res, next) {
   try {
     const { id } = req.user;
     if (!req.file) {
-      return res.status(400).json({ success: false, error: "No file uploaded" });
+      return res
+        .status(400)
+        .json({ success: false, error: "No file uploaded" });
     }
 
     const user = await User.findByIdAndUpdate(
@@ -172,7 +178,22 @@ export async function uploadBackground(req, res, next) {
       data: { backgroundPic: user.backgroundPic },
     });
   } catch (err) {
-      console.log(err);
+    console.log(err);
+    next(err);
+  }
+}
+
+export async function logOut(req, res, next) {
+  try {
+    const { id } = req.user;
+    if (!id) {
+      return res
+        .status(401)
+        .json({ success: false, error: "User not logged in" });
+    }
+    res.clearCookie(COOKIES_NAME);
+    return res.status(200).json({success: true , message:"LogOut Successfully"})
+  } catch (err) {
     next(err);
   }
 }
