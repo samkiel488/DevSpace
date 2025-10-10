@@ -49,6 +49,7 @@ export async function SignUp(req, res, next) {
       success: true,
       data: {
         user: { id: user._id, name: user.name, username: user.username, profileCompleted: user.profileCompleted },
+        token,
       },
     });
   } catch (err) {
@@ -91,6 +92,7 @@ export async function SignIn(req, res, next) {
       success: true,
       data: {
         user: { id: user._id, name: user.name, username: user.username, profileCompleted: user.profileCompleted },
+        token,
       },
     });
   } catch (err) {

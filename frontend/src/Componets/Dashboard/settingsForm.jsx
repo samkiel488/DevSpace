@@ -184,9 +184,11 @@ export async function SettingsFormAction({ request }) {
 
       const response = await req.json();
 
-      if (!response.status) {
-        return toast.error(response.error);
+      if (!response.success) {
+        return toast.error(response.error || "Failed to create profile");
       }
+
+      toast.success("Profile created successfully!");
     } catch (err) {
       console.log(err);
     }

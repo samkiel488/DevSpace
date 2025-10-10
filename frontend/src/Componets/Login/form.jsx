@@ -1,38 +1,37 @@
-import { Form, redirect, useNavigation } from "react-router-dom";
+import { Form, redirect } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Eye, EyeClosed, Loader2, Mail } from "lucide-react";
+import { Eye, EyeClosed, Loader2, Mail, Lock } from "lucide-react";
 import { useState } from "react";
+
 export default function LoginForm() {
   const [viewPassword, setViewPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
-  const navigation = useNavigation();
-  const isSubmitting = navigation.state === "submitting";
 
   const validateForm = (formData) => {
     const newErrors = {};
     const email = formData.get("emailAddress");
     const password = formData.get("password");
 
-    if (!email) {
-      newErrors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      newErrors.email = "Email is invalid";
+    if (!email || !email.includes("@")) {
+      newErrors.email = "Please enter a valid email address";
     }
 
-    if (!password) {
-      newErrors.password = "Password is required";
+    if (!password || password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters";
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     const formData = new FormData(e.target);
     if (!validateForm(formData)) {
       e.preventDefault();
       return;
     }
+    setLoading(true);
   };
 
   return (
@@ -49,26 +48,26 @@ export default function LoginForm() {
       <Form className="space-y-6" method="post" onSubmit={handleSubmit}>
         <div>
           <label
-            className="block text-sm font-medium text-gray-900 dark:text-white flex items-center gap-2"
+            className="block text-sm font-medium text-gray-900 dark:text-white"
             htmlFor="email"
           >
-            <Mail className="h-4 w-4" />
             Email Address
           </label>
-          <input
-            type="email"
-            id="email"
-            name="emailAddress"
-            placeholder="Input your Email Address"
-            className={`mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:outline-none transition-all duration-300 ${
-              errors.email
-                ? "border-red-500 focus:ring-red-500 focus:border-red-500"
-                : "border-gray-300 dark:border-gray-600 focus:ring-teal-500 focus:border-teal-500"
-            }`}
-            required
-          />
+          <div className="mt-1 relative">
+            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+            <input
+              type="email"
+              id="email"
+              name="emailAddress"
+              placeholder="Input your Email Address"
+              className={`block w-full pl-10 pr-3 py-2 sm:px-4 sm:py-3 border rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none ${
+                errors.email ? "border-red-500" : "border-gray-300 dark:border-gray-600"
+              }`}
+              required
+            />
+          </div>
           {errors.email && (
-            <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.email}</p>
+            <p className="mt-1 text-sm text-red-600">{errors.email}</p>
           )}
         </div>
 
@@ -80,18 +79,16 @@ export default function LoginForm() {
             Password
           </label>
           <div className="mt-1 relative">
+            <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
             <input
               type={viewPassword ? "text" : "password"}
               id="password"
               name="password"
               placeholder="Input your Password"
-              className={`block w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:outline-none transition-all duration-300 pr-10 ${
-                errors.password
-                  ? "border-red-500 focus:ring-red-500 focus:border-red-500"
-                  : "border-gray-300 dark:border-gray-600 focus:ring-teal-500 focus:border-teal-500"
+              className={`block w-full pl-10 pr-10 py-2 sm:px-4 sm:py-3 border rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none ${
+                errors.password ? "border-red-500" : "border-gray-300 dark:border-gray-600"
               }`}
               required
-              disabled={isSubmitting}
             />
             <div
               className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
@@ -99,21 +96,27 @@ export default function LoginForm() {
                 setViewPassword(!viewPassword);
               }}
             >
-              {viewPassword ? <EyeClosed className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+              {viewPassword ? <EyeClosed /> : <Eye />}
             </div>
           </div>
           {errors.password && (
-            <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.password}</p>
+            <p className="mt-1 text-sm text-red-600">{errors.password}</p>
           )}
         </div>
 
         <button
           type="submit"
-          disabled={isSubmitting}
-          className="w-full flex justify-center items-center gap-2 py-2 px-4 sm:py-3 border border-transparent rounded-xl shadow-sm text-sm sm:text-base font-medium text-white bg-teal-600 hover:bg-teal-700 disabled:bg-teal-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 hover:cursor-pointer disabled:cursor-not-allowed"
+          disabled={loading}
+          className="w-full flex justify-center items-center py-2 px-4 sm:py-3 border border-transparent rounded-xl shadow-sm text-sm sm:text-base font-medium text-white bg-teal-600 hover:bg-teal-700 hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 disabled:bg-teal-400 disabled:cursor-not-allowed disabled:hover:scale-100"
         >
-          {isSubmitting && <Loader2 className="animate-spin h-5 w-5" />}
-          {isSubmitting ? "Signing in..." : "Sign In"}
+          {loading ? (
+            <>
+              <Loader2 className="animate-spin mr-2 h-5 w-5" />
+              Signing in...
+            </>
+          ) : (
+            "Sign In"
+          )}
         </button>
       </Form>
 
@@ -154,33 +157,43 @@ export async function LoginFormAction({ request }) {
     });
     const response = await req.json();
     if (!response.success) {
-      let errorMessage = response.error;
-      if (errorMessage === "User does not exists" || errorMessage === "Invalid Password") {
-        errorMessage = "Incorrect email or password.";
-      }
-      return toast.error(errorMessage);
+      toast.error(response.error === "User does not exists" ? "Incorrect email or password." : response.error);
+      return null;
     }
+
     // Store user data in localStorage
-    localStorage.setItem('user', JSON.stringify(response.data.user));
-    toast.success("Login successful!");
+    const user = response.data.user;
+    localStorage.setItem("token", response.data.token);
+    localStorage.setItem("user", JSON.stringify({
+      id: user.id,
+      name: user.name,
+      email,
+      username: user.username,
+      profileCompleted: user.profileCompleted
+    }));
+
     // Check profileCompleted
-    if (!response.data.user.profileCompleted) {
+    if (!user.profileCompleted) {
       toast.warn("Your account isn’t activated yet. Please complete your profile details in the Settings page to activate your account.");
+
       // Add to notifications
-      const notifications = JSON.parse(localStorage.getItem('notifications') || '[]');
+      const notifications = JSON.parse(localStorage.getItem("notifications") || "[]");
       notifications.push({
         id: Date.now(),
         message: "Your account isn’t activated yet. Please complete your profile details in the Settings page to activate your account.",
         timestamp: new Date().toISOString(),
         read: false,
-        type: 'system'
+        type: "system"
       });
-      localStorage.setItem('notifications', JSON.stringify(notifications));
+      localStorage.setItem("notifications", JSON.stringify(notifications));
     }
+
+    toast.success("Login successful!");
     return redirect("/feeds");
   } catch (err) {
     console.log(err.message);
-    return toast.error("Connection failed. Please check your internet.");
+    toast.error("Connection failed. Please check your internet.");
+    return null;
   }
 }
 
