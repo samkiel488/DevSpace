@@ -12,9 +12,7 @@ export async function SignUp(req, res, next) {
   try {
     const { name, email, username, password } = req.body;
     const existingUser = await User.findOne({
-      or(array) {
-        [username, email];
-      },
+      $or: [{ username }, { email }]
     });
 
     if (existingUser?.email === email) {
@@ -173,6 +171,15 @@ export async function uploadBackground(req, res, next) {
     });
   } catch (err) {
       console.log(err);
+    next(err);
+  }
+}
+
+export async function Logout(req, res, next) {
+  try {
+    res.clearCookie(COOKIES_NAME);
+    return res.status(200).json({ success: true, message: "Logged out successfully" });
+  } catch (err) {
     next(err);
   }
 }
