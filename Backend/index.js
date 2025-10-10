@@ -19,7 +19,7 @@ app.use(cookieParser());
 app.use("/auth", authRouter);
 app.use("/projects", projectRouter);
 app.use("/profile", profileRouter);
-app.use("/feeds", feedRouter);
+app.use("/api/feeds", feedRouter);
 app.use(errorHandler);
 
 app.get("/", (req, res) => {

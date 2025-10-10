@@ -1,35 +1,38 @@
-import { useEffect } from "react";
-import { toast } from "react-hot-toast";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import axios from "axios";
+import FeedsInput from "../../Componets/Dashboard/FeedsInput";
+import FeedList from "../../Componets/Dashboard/FeedList";
+
+
+const API_URL = 'http://localhost:3000/api';
 
 export default function FeedsHome() {
+  const [feeds, setFeeds] = useState([]);
+
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user") || "{}");
-    if (user && !user.profileCompleted) {
-      toast(
-        <span>
-          Your account isn’t activated yet. Complete your details in{" "}
-          <a href="/settings" className="underline text-blue-400">Settings</a>.
-        </span>,
-        { icon: "⚠️", duration: 4000 }
-      );
-
-      const reminder = {
-        id: Date.now(),
-        title: "Complete your account setup",
-        message: "Visit your Settings page to complete your details and activate your account.",
-        href: "/settings",
-        timestamp: new Date().toISOString(),
-        read: false,
-      };
-
-      const existing = JSON.parse(localStorage.getItem("notifications")) || [];
-      localStorage.setItem("notifications", JSON.stringify([reminder, ...existing]));
-    }
+    fetchFeeds();
   }, []);
 
+  const fetchFeeds = async () => {
+    try {
+      const res = await axios.get(`${API_URL}/feeds`, { withCredentials: true });
+      setFeeds(res.data.data);
+    } catch {
+      toast.error("Failed to load feeds");
+    }
+  };
+
+  const handleNewFeed = (newFeed) => {
+    setFeeds([newFeed, ...feeds]);
+  };
+
   return (
-    <section className="bg-blue-600 flex h-[400px] md:h-[500px] w-full flex-col justify-center items-center-safe">
-      <div>Hello World</div>
-    </section>
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8">
+      <div className="max-w-md mx-auto w-11/12 sm:w-full">
+        <FeedsInput onNewFeed={handleNewFeed} />
+        <FeedList feeds={feeds} />
+      </div>
+    </div>
   );
 }

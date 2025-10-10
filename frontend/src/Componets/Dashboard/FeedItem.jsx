@@ -43,24 +43,24 @@ const FeedItem = ({ feed }) => {
   };
 
   return (
-    <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
+    <div className="bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-sm mb-3 hover:shadow-md transition-shadow duration-200">
       <div className="flex items-center mb-2">
         <img
           src={feed.author.profilePic || "/images/default.jpeg"}
           alt={feed.author.name}
           className="w-8 h-8 rounded-full mr-2"
         />
-        <span className="text-white font-semibold">{feed.author.name}</span>
-        <span className="text-gray-400 text-sm ml-auto">
+        <span className="text-gray-800 dark:text-white font-semibold">{feed.author.name}</span>
+        <span className="text-gray-500 dark:text-gray-400 text-sm ml-auto">
           {new Date(feed.createdAt).toLocaleDateString()}
         </span>
       </div>
-      <p className="text-white mb-4">{feed.content}</p>
+      <p className="text-gray-800 dark:text-gray-100 mb-4">{feed.content}</p>
       <div className="flex gap-4">
         <button
           onClick={handleLike}
           className={`flex items-center gap-1 transition ${
-            isLiked ? "text-red-500" : "text-gray-400 hover:text-red-500"
+            isLiked ? "text-red-500" : "text-gray-400 dark:text-gray-400 hover:text-red-500"
           }`}
         >
           <Heart size={16} fill={isLiked ? "currentColor" : "none"} />
@@ -68,14 +68,14 @@ const FeedItem = ({ feed }) => {
         </button>
         <button
           onClick={() => setShowComments(!showComments)}
-          className="flex items-center gap-1 text-gray-400 hover:text-blue-500 transition"
+          className="flex items-center gap-1 text-gray-400 dark:text-gray-400 hover:text-blue-500 transition"
         >
           <MessageCircle size={16} />
           {comments.length}
         </button>
         <button
           onClick={handleShare}
-          className="flex items-center gap-1 text-gray-400 hover:text-green-500 transition"
+          className="flex items-center gap-1 text-gray-400 dark:text-gray-400 hover:text-green-500 transition"
         >
           <Share2 size={16} />
         </button>
@@ -83,19 +83,19 @@ const FeedItem = ({ feed }) => {
       {showComments && (
         <div className="mt-4">
           {comments.map((c, index) => (
-            <div key={index} className="bg-gray-700 p-2 rounded mb-2">
+            <div key={index} className="bg-gray-100 dark:bg-gray-700 p-2 rounded mb-2">
               <div className="flex items-center mb-1">
                 <img
                   src={c.user.profilePic || "/images/default.jpeg"}
                   alt={c.user.name}
                   className="w-6 h-6 rounded-full mr-2"
                 />
-                <span className="text-white text-sm font-semibold">{c.user.name}</span>
-                <span className="text-gray-400 text-xs ml-auto">
+                <span className="text-gray-800 dark:text-white text-sm font-semibold">{c.user.name}</span>
+                <span className="text-gray-500 dark:text-gray-400 text-xs ml-auto">
                   {new Date(c.date).toLocaleDateString()}
                 </span>
               </div>
-              <p className="text-white text-sm">{c.text}</p>
+              <p className="text-gray-800 dark:text-gray-100 text-sm">{c.text}</p>
             </div>
           ))}
           <div className="flex gap-2">
@@ -103,7 +103,7 @@ const FeedItem = ({ feed }) => {
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
               placeholder="Add a comment..."
-              className="flex-1 p-2 bg-gray-600 text-white rounded focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              className="flex-1 p-2 bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-white rounded focus:ring-2 focus:ring-blue-500 focus:outline-none"
             />
             <button
               onClick={handleComment}
