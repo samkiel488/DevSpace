@@ -50,7 +50,7 @@ export async function SignUp(req, res, next) {
     return res.status(201).json({
       success: true,
       data: {
-        user: { id: user._id, name: user.name, username: user.username },
+        user: { id: user._id, name: user.name, username: user.username, profileCompleted: user.profileCompleted },
       },
     });
   } catch (err) {
@@ -92,7 +92,7 @@ export async function SignIn(req, res, next) {
     return res.status(200).json({
       success: true,
       data: {
-        user: { id: user._id, name: user.name, username: user.username },
+        user: { id: user._id, name: user.name, username: user.username, profileCompleted: user.profileCompleted },
       },
     });
   } catch (err) {
@@ -108,7 +108,7 @@ export async function isUserLoggedIn(req, res, next) {
         .status(401)
         .json({ success: false, error: "User not logged in" });
     }
-    const user = await User.findById(id).select("_id username name email profilePic backgroundPic");
+    const user = await User.findById(id).select("_id username name email profilePic backgroundPic profileCompleted");
 
     if (!user) {
       return res

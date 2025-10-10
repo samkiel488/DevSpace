@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Bell,
   House,
@@ -11,15 +11,35 @@ import {
   User,
   X,
 } from "lucide-react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 export default function LayoutHeader() {
   const { users } = useLoaderData();
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(0);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const updateUnread = () => {
+      const notifications = JSON.parse(localStorage.getItem('notifications') || '[]');
+      setUnreadCount(notifications.filter(n => !n.read).length);
+    };
+    updateUnread();
+    window.addEventListener('storage', updateUnread);
+    return () => window.removeEventListener('storage', updateUnread);
+  }, []);
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
+  };
+
+  const handleLogout = () => {
+    localStorage.clear();
+    toast.success("Logged out successfully");
+    navigate("/login");
   };
   return (
     <>
@@ -82,8 +102,15 @@ export default function LayoutHeader() {
                 />
               </a>
             </div>
-            <div className="flex">
-              <Bell />
+            <div className="relative">
+              <Link to="/notifications" className="relative">
+                <Bell className="h-6 w-6 cursor-pointer" />
+                {unreadCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                    {unreadCount > 99 ? '99+' : unreadCount}
+                  </span>
+                )}
+              </Link>
             </div>
             <div className="relative">
               <img
@@ -100,19 +127,17 @@ export default function LayoutHeader() {
                 <div className="absolute top-14 right-0 w-48 bg-white rounded shadow-lg border border-gray-200 z-5">
                   <ul className="text-black">
                     <li className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-all">
-                      <a href="/profile" className="block">
+                      <Link to="/profile" className="block">
                         Profile
-                      </a>
+                      </Link>
                     </li>
                     <li className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-all">
-                      <a href="/settings" className="block">
+                      <Link to="/settings" className="block">
                         Settings
-                      </a>
+                      </Link>
                     </li>
-                    <li className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-all">
-                      <a href="#" className="block">
-                        Logout
-                      </a>
+                    <li className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-all" onClick={handleLogout}>
+                      <span className="block">Logout</span>
                     </li>
                   </ul>
                 </div>
@@ -149,6 +174,15 @@ export default function LayoutHeader() {
               >
                 <User />
                 <span>Members</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/notifications"
+                className="flex items-center space-x-3 text-lg font-medium hover:text-gray-300 transition duration-200"
+              >
+                <Bell />
+                <span>Notifications</span>
               </a>
             </li>
             <li>

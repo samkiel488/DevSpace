@@ -1,8 +1,9 @@
-import { Form, useRouteLoaderData } from "react-router";
+import { Form, useRouteLoaderData, useNavigation } from "react-router";
 import Tools from "./form/tools";
 import Skills from "./form/skills";
 import SocialMedia from "./form/socialMedia";
 import { toast } from "react-toastify";
+import { useState } from "react";
 export default function SettingsForm() {
   const {
     users: { name, email },
@@ -10,8 +11,37 @@ export default function SettingsForm() {
 
   const { profile } = useRouteLoaderData("profile");
 
+  const [errors, setErrors] = useState({});
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === "submitting";
+
+  const validateForm = (formData) => {
+    const newErrors = {};
+    const category = formData.get("category");
+    const bio = formData.get("bio");
+
+    if (!category || category.trim().length < 2) {
+      newErrors.category = "Category must be at least 2 characters";
+    }
+
+    if (!bio || bio.trim().length < 10) {
+      newErrors.bio = "Bio must be at least 10 characters";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    const formData = new FormData(e.target);
+    if (!validateForm(formData)) {
+      e.preventDefault();
+      return;
+    }
+  };
+
   return (
-    <Form method="post">
+    <Form method="post" onSubmit={handleSubmit}>
       <div className="mb-5">
         <label
           htmlFor="name"
@@ -61,9 +91,14 @@ export default function SettingsForm() {
           id="category"
           placeholder="Enter your category"
           defaultValue={profile?.role}
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-black outline-none focus:border-blue-600 focus:shadow-md"
+          className={`w-full rounded-md border bg-white py-3 px-6 text-base font-medium text-black outline-none focus:shadow-md ${
+            errors.category ? "border-red-500 focus:border-red-500" : "border-[#e0e0e0] focus:border-blue-600"
+          }`}
           required
         />
+        {errors.category && (
+          <p className="mt-1 text-sm text-red-600">{errors.category}</p>
+        )}
       </div>
 
       <div className="mb-5">
@@ -78,10 +113,15 @@ export default function SettingsForm() {
           id="bio"
           placeholder="Enter your bio"
           rows={5}
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-black outline-none focus:border-blue-600 focus:shadow-md resize-none"
+          className={`w-full rounded-md border bg-white py-3 px-6 text-base font-medium text-black outline-none focus:shadow-md resize-none ${
+            errors.bio ? "border-red-500 focus:border-red-500" : "border-[#e0e0e0] focus:border-blue-600"
+          }`}
           defaultValue={profile?.bio}
           required
         />
+        {errors.bio && (
+          <p className="mt-1 text-sm text-red-600">{errors.bio}</p>
+        )}
       </div>
 
       <Skills />
@@ -93,9 +133,10 @@ export default function SettingsForm() {
       <div>
         <button
           type="submit"
-          className="hover:shadow-form w-full rounded-md bg-blue-600 py-3 px-8 text-center text-base font-semibold text-white outline-none cursor-pointer"
+          disabled={isSubmitting}
+          className="hover:shadow-form w-full rounded-md bg-blue-600 py-3 px-8 text-center text-base font-semibold text-white outline-none cursor-pointer disabled:bg-blue-400 disabled:cursor-not-allowed"
         >
-          Save Changes
+          {isSubmitting ? "Saving..." : "Save Changes"}
         </button>
       </div>
     </Form>
