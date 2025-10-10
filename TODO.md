@@ -1,37 +1,19 @@
-# TODO: Enhance Authentication, Notifications, and UI
+# TODO: Implement Login and Registration Improvements
 
-## 1. Install Dependencies
-- [ ] Add react-hot-toast to frontend/package.json if needed (using react-toastify for consistency since it's already installed).
-- [ ] Run `npm install` in frontend directory.
+## 1. ✅ Fix Login Form Mobile Layout
+- Update `frontend/src/pages/home/login.jsx` to wrap the form section in a full-height container with centering.
 
-## 2. Backend Updates
-- [ ] Edit Backend/models/auth.models.js: Add profileCompleted field (Boolean, default: false).
-- [ ] Edit Backend/controller/auth.controller.js: Include profileCompleted in SignUp and SignIn responses.
+## 2. ✅ Remove Activation Toast from Login
+- Edit `frontend/src/Componets/Login/form.jsx` to remove profileCompleted check and toast from LoginFormAction.
 
-## 3. Login Experience Updates
-- [ ] Edit frontend/src/Componets/Login/form.jsx:
-  - Add loading state with Loader2 icon.
-  - Implement input validation and error messages.
-  - Update toasts for success/error/network.
-  - Store user data in localStorage on success.
-  - Add profileCompleted check for activation reminder toast and notification addition.
+## 3. ✅ Add Activation Toast to Feeds Page
+- Update `frontend/src/pages/dashboard/index.jsx` to add useEffect that checks user profileCompleted and shows toast + adds notification if false.
 
-## 4. Registration Experience Updates
-- [ ] Edit frontend/src/Componets/Register/registerForm.jsx:
-  - Add loading state with Loader2 icon.
-  - Add input validation (email, password strength, confirm password).
-  - Add Lucide icons to inputs.
-  - Update toasts and redirect to /login.
-  - Add success animation.
+## 4. ✅ Add Welcome Notifications on Registration
+- Modify `frontend/src/Componets/Register/registerForm.jsx` to save welcome notifications in RegisterFormAction.
 
-## 5. Notifications System
-- [x] Create frontend/src/pages/notifications.jsx: Card layout, timestamps, icons, mark all read, animations, localStorage.
-- [x] Edit frontend/src/router.jsx: Add /notifications route under protected feeds.
+## 5. ✅ Update Notifications Page
+- Edit `frontend/src/pages/notifications.jsx` to display title, message, and handle href links in notifications.
 
-## 6. UI Updates
-- [x] Edit frontend/src/Componets/Dashboard/layoutHeader.jsx: Link Bell to /notifications, add unread badge, implement logout with toasts and clear storage.
-- [x] Ensure dark/light mode, responsiveness, and animations across files.
-
-## 7. Followup
-- [ ] Test all flows.
-- [x] Update TODO as steps complete.
+## 6. Test Changes
+- Run the app and test login, registration, and navigation to feeds.

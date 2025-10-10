@@ -1,37 +1,12 @@
-import React, { useState } from "react";
-import { Form, useActionData, useNavigate, useNavigation } from "react-router-dom";
+import { useState } from "react";
+import { Form } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Eye, EyeClosed, Loader2, User, Mail, Lock } from "lucide-react";
-
-const saveWelcomeNotification = (username) => {
-  const newNotification = {
-    id: Date.now(),
-    title: `Welcome to the community, ${username}!`,
-    message: "We’re excited to have you onboard. Please complete your details in the Settings page to verify your account.",
-    href: "/settings",
-    timestamp: new Date().toISOString(),
-    read: false,
-  };
-
-  const existing = JSON.parse(localStorage.getItem("notifications")) || [];
-  localStorage.setItem("notifications", JSON.stringify([newNotification, ...existing]));
-};
+import { Eye, EyeClosed, Loader2, Mail, Lock, User } from "lucide-react";
 
 export default function RegisterForm() {
   const [viewPassword, setViewPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
-  const actionData = useActionData();
-  const navigate = useNavigate();
-  const navigation = useNavigation();
-  const isSubmitting = navigation.state === "submitting";
-
-  React.useEffect(() => {
-    if (actionData?.success) {
-      saveWelcomeNotification(actionData.username);
-      toast.success("Account created successfully! Redirecting to login...");
-      navigate("/login");
-    }
-  }, [actionData, navigate]);
 
   const validateForm = (formData) => {
     const newErrors = {};
@@ -42,24 +17,22 @@ export default function RegisterForm() {
     const confirmPassword = formData.get("confirmPassword");
 
     if (!name || name.trim().length < 2) {
-      newErrors.name = "Name must be at least 2 characters";
+      newErrors.name = "Full name must be at least 2 characters";
     }
 
-    if (!username || username.trim().length < 2) {
-      newErrors.username = "Username must be at least 2 characters";
+    if (!username || username.trim().length < 3) {
+      newErrors.username = "Username must be at least 3 characters";
     }
 
-    if (!email) {
-      newErrors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      newErrors.email = "Email is invalid";
+    if (!email || !email.includes("@")) {
+      newErrors.email = "Please enter a valid email address";
     }
 
-    if (!password || password.length < 8) {
-      newErrors.password = "Password must be at least 8 characters";
+    if (!password || password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters";
     }
 
-    if (!confirmPassword || confirmPassword !== password) {
+    if (password !== confirmPassword) {
       newErrors.confirmPassword = "Passwords do not match";
     }
 
@@ -67,13 +40,15 @@ export default function RegisterForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     const formData = new FormData(e.target);
     if (!validateForm(formData)) {
       e.preventDefault();
       return;
     }
+    setLoading(true);
   };
+
   return (
     <div className="w-full max-w-md bg-white dark:bg-gray-800 py-8 px-4 shadow-xl rounded-xl sm:px-10">
       <div className="text-center mb-8">
@@ -85,103 +60,100 @@ export default function RegisterForm() {
         </p>
       </div>
 
-      <Form method="post" onSubmit={handleSubmit} className="w-full flex flex-col gap-4">
+      <Form method="post" className="w-full flex flex-col gap-4" onSubmit={handleSubmit}>
         <div className="flex items-start flex-col justify-start">
           <label
             htmlFor="name"
-            className="text-sm text-gray-900 dark:text-white flex items-center gap-2"
+            className="text-sm text-gray-900 dark:text-white"
           >
-            <User className="h-4 w-4" />
             Fullname:
           </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Input your Fullname"
-            className={`w-full px-3 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 ${
-              errors.name
-                ? "border-red-500 focus:ring-red-500"
-                : "border-gray-300 dark:border-gray-600 focus:ring-teal-500"
-            }`}
-            required
-          />
+          <div className="mt-1 relative w-full">
+            <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Input your Fullname"
+              className={`w-full pl-10 pr-3 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 ${
+                errors.name ? "border-red-500" : "border-gray-300 dark:border-gray-600"
+              }`}
+              required
+            />
+          </div>
           {errors.name && (
-            <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.name}</p>
+            <p className="mt-1 text-sm text-red-600">{errors.name}</p>
           )}
         </div>
 
         <div className="flex items-start flex-col justify-start">
           <label
             htmlFor="username"
-            className="text-sm text-gray-900 dark:text-white flex items-center gap-2"
+            className="text-sm text-gray-900 dark:text-white"
           >
-            <User className="h-4 w-4" />
             Username:
           </label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Input your Favourite Nickname"
-            className={`w-full px-3 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 ${
-              errors.username
-                ? "border-red-500 focus:ring-red-500"
-                : "border-gray-300 dark:border-gray-600 focus:ring-teal-500"
-            }`}
-            required
-          />
+          <div className="mt-1 relative w-full">
+            <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Input your Favourite Nickname"
+              className={`w-full pl-10 pr-3 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 ${
+                errors.username ? "border-red-500" : "border-gray-300 dark:border-gray-600"
+              }`}
+              required
+            />
+          </div>
           {errors.username && (
-            <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.username}</p>
+            <p className="mt-1 text-sm text-red-600">{errors.username}</p>
           )}
         </div>
 
         <div className="flex items-start flex-col justify-start">
           <label
             htmlFor="email"
-            className="text-sm text-gray-900 dark:text-white flex items-center gap-2"
+            className="text-sm text-gray-900 dark:text-white"
           >
-            <Mail className="h-4 w-4" />
             Email:
           </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Input your Email Address"
-            className={`w-full px-3 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 ${
-              errors.email
-                ? "border-red-500 focus:ring-red-500"
-                : "border-gray-300 dark:border-gray-600 focus:ring-teal-500"
-            }`}
-            required
-          />
+          <div className="mt-1 relative w-full">
+            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Input your Email"
+              className={`w-full pl-10 pr-3 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 ${
+                errors.email ? "border-red-500" : "border-gray-300 dark:border-gray-600"
+              }`}
+              required
+            />
+          </div>
           {errors.email && (
-            <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.email}</p>
+            <p className="mt-1 text-sm text-red-600">{errors.email}</p>
           )}
         </div>
 
-        <div>
+        <div className="flex items-start flex-col justify-start">
           <label
-            className="block text-sm text-gray-900 dark:text-white flex items-center gap-2"
             htmlFor="password"
+            className="text-sm text-gray-900 dark:text-white"
           >
-            <Lock className="h-4 w-4" />
             Password:
           </label>
-          <div className="mt-1 mb-5 relative">
+          <div className="mt-1 mb-5 relative w-full">
+            <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
             <input
               id="password"
               name="password"
               type={viewPassword ? "text" : "password"}
               placeholder="Input your Password"
-              className={`block w-full px-3 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 pr-10 ${
-                errors.password
-                  ? "border-red-500 focus:ring-red-500"
-                  : "border-gray-300 dark:border-gray-600 focus:ring-teal-500"
+              className={`block w-full pl-10 pr-10 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 ${
+                errors.password ? "border-red-500" : "border-gray-300 dark:border-gray-600"
               }`}
               required
-              disabled={isSubmitting}
             />
             <button
               type="button"
@@ -190,49 +162,52 @@ export default function RegisterForm() {
                 setViewPassword(!viewPassword);
               }}
             >
-              {viewPassword ? <EyeClosed className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+              {viewPassword ? <EyeClosed /> : <Eye />}
             </button>
           </div>
           {errors.password && (
-            <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.password}</p>
+            <p className="mt-1 text-sm text-red-600">{errors.password}</p>
           )}
         </div>
 
-        <div>
+        <div className="flex items-start flex-col justify-start">
           <label
-            className="block text-sm text-gray-900 dark:text-white flex items-center gap-2"
             htmlFor="confirmPassword"
+            className="text-sm text-gray-900 dark:text-white"
           >
-            <Lock className="h-4 w-4" />
             Confirm Password:
           </label>
-          <div className="mt-1 mb-5 relative">
+          <div className="mt-1 relative w-full">
+            <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
             <input
               id="confirmPassword"
               name="confirmPassword"
-              type={viewPassword ? "text" : "password"}
+              type="password"
               placeholder="Confirm your Password"
-              className={`block w-full px-3 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 pr-10 ${
-                errors.confirmPassword
-                  ? "border-red-500 focus:ring-red-500"
-                  : "border-gray-300 dark:border-gray-600 focus:ring-teal-500"
+              className={`block w-full pl-10 pr-3 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 ${
+                errors.confirmPassword ? "border-red-500" : "border-gray-300 dark:border-gray-600"
               }`}
               required
-              disabled={isSubmitting}
             />
           </div>
           {errors.confirmPassword && (
-            <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.confirmPassword}</p>
+            <p className="mt-1 text-sm text-red-600">{errors.confirmPassword}</p>
           )}
         </div>
 
         <button
           type="submit"
-          disabled={isSubmitting}
-          className="w-full flex justify-center items-center gap-2 py-2 px-4 border border-transparent rounded-xl shadow-sm text-sm sm:text-base font-medium text-white bg-teal-600 hover:bg-teal-700 disabled:bg-teal-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 hover:cursor-pointer disabled:cursor-not-allowed"
+          disabled={loading}
+          className="bg-teal-600 cursor-pointer hover:bg-teal-700 text-white font-medium py-2 px-4 rounded-xl shadow-sm hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 disabled:bg-teal-400 disabled:cursor-not-allowed disabled:hover:scale-100 flex justify-center items-center"
         >
-          {isSubmitting && <Loader2 className="animate-spin h-5 w-5" />}
-          {isSubmitting ? "Registering..." : "Register"}
+          {loading ? (
+            <>
+              <Loader2 className="animate-spin mr-2 h-5 w-5" />
+              Registering...
+            </>
+          ) : (
+            "Register"
+          )}
         </button>
       </Form>
 
@@ -267,18 +242,41 @@ export async function RegisterFormAction({ request }) {
 
     const response = await req.json();
     if (!response.success) {
-      let errorMessage = response.error;
-      if (errorMessage === "User already exists") {
-        errorMessage = "This email is already registered.";
-      } else if (errorMessage === "Username has been used") {
-        errorMessage = "This username is already taken.";
-      }
-      return toast.error(errorMessage);
+      toast.error(response.error === "User already exists" ? "This email is already registered." : response.error);
+      return null;
     }
 
-    return { success: true, username };
+    // Save welcome notifications
+    const notifications = [
+      {
+        id: Date.now(),
+        title: `Welcome to the community, ${name}!`,
+        message: `We’re excited to have you onboard. Connect with fellow members: `,
+        href: "https://chat.whatsapp.com/L1ka7X2eXL9CR8J0sN41kI",
+        timestamp: new Date().toISOString(),
+        read: false,
+      },
+      {
+        id: Date.now() + 1,
+        title: "Complete your account setup",
+        message: "Visit your Settings page to complete your details and activate your account.",
+        href: "/settings",
+        timestamp: new Date().toISOString(),
+        read: false,
+      },
+    ];
+
+    const existing = JSON.parse(localStorage.getItem("notifications")) || [];
+    localStorage.setItem("notifications", JSON.stringify([...notifications, ...existing]));
+
+    toast.success("Account created successfully! Redirecting to login...");
+    setTimeout(() => {
+      window.location.href = "/login";
+    }, 2000);
+    return null;
   } catch (err) {
     console.log(err);
-    return toast.error("Unable to create account. Please try again.");
+    toast.error("Unable to create account. Please try again.");
+    return null;
   }
 }

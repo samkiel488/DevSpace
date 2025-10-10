@@ -120,10 +120,10 @@ export default function LoginForm() {
         </button>
       </Form>
 
-      <div className="mt-6 text-center space-y-2">
+      <div className="mt-8 text-center space-y-4 px-4">
         <a
           href="#"
-          className="text-sm text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300"
+          className="block text-sm text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 py-2"
         >
           Forgot password?
         </a>
@@ -172,24 +172,11 @@ export async function LoginFormAction({ request }) {
       profileCompleted: user.profileCompleted
     }));
 
-    // Check profileCompleted
-    if (!user.profileCompleted) {
-      toast.warn("Your account isn’t activated yet. Please complete your profile details in the Settings page to activate your account.");
-
-      // Add to notifications
-      const notifications = JSON.parse(localStorage.getItem("notifications") || "[]");
-      notifications.push({
-        id: Date.now(),
-        message: "Your account isn’t activated yet. Please complete your profile details in the Settings page to activate your account.",
-        timestamp: new Date().toISOString(),
-        read: false,
-        type: "system"
-      });
-      localStorage.setItem("notifications", JSON.stringify(notifications));
-    }
-
-    toast.success("Login successful!");
-    return redirect("/feeds");
+    toast.success("Login successful! Redirecting...");
+    setTimeout(() => {
+      window.location.href = "/feeds";
+    }, 2000);
+    return null;
   } catch (err) {
     console.log(err.message);
     toast.error("Connection failed. Please check your internet.");
