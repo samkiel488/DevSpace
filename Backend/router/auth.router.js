@@ -1,12 +1,5 @@
 import { Router } from "express";
-import {
-    isUserLoggedIn,
-    SignIn,
-    SignUp,
-    uploadProfile,
-    uploadBackground,
-    logOut
-} from "../controller/auth.controller.js";
+import { isUserLoggedIn, SignIn, SignUp, uploadProfile, uploadBackground } from "../controller/auth.controller.js";
 import { ProtectMiddleware } from "../middleware/protect.middleware.js";
 import { uploadProfile as uploadProfileMiddleware, uploadBackground as uploadBackgroundMiddleware } from "../middleware/upload.js";
 

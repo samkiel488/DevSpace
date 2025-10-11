@@ -6,7 +6,7 @@ const profileSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
-        unique: true,
+      unique: true,
     },
     role: {
       type: String,
@@ -19,7 +19,7 @@ const profileSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
-      minLength: 20,
+      minLength: 10,
       maxLength: 500,
     },
     skills: {

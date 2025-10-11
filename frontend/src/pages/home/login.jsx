@@ -29,7 +29,7 @@ export default function Login() {
       </div>
 
       {/* Form Section */}
-      <div className="lg:w-1/2 flex items-center justify-center p-4 bg-white dark:bg-gray-900">
+      <div className="lg:w-1/2 min-h-screen flex flex-col justify-center items-center bg-gray-900 p-4">
         <LoginForm />
       </div>
     </div>

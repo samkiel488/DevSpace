@@ -1,1 +1,2 @@
-export const { VITE_API_URL } = import.meta.env;
+const env = import.meta.env;
+export const VITE_API_URL = env.VITE_API_URL || 'http://localhost:5000/api';

@@ -10,7 +10,7 @@ import Share, { ShareLoader } from "./pages/home/share";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomeLayout from "./Componets/HomeLayout";
 import FeedsHome from "./pages/dashboard";
-import { LoginFormAction, LoginLoader } from "./Componets/Login/form";
+import { LoginFormAction } from "./Componets/Login/form";
 import { RegisterFormAction } from "./Componets/Register/registerForm";
 import Layout, { LayoutLoader } from "./Componets/Dashboard/layout";
 import Profile from "./pages/dashboard/profile";
@@ -23,6 +23,9 @@ import Members, { MemberLoader } from "./pages/dashboard/members";
 import ProfileId, {
   ProfileIdLoader,
 } from "./pages/dashboard/profile/profileId";
+import NotificationsPage from "./pages/notifications";
+import ProtectedRoute from "./Componets/Auth/ProtectedRoute";
+import PublicRoute from "./Componets/Auth/PublicRoute";
 
 export default function AppRouter() {
   return (
@@ -39,14 +42,13 @@ export default function AppRouter() {
             { path: "/projects", element: <Project /> },
             {
               path: "/login",
-              element: <Login />,
+              element: <PublicRoute><Login /></PublicRoute>,
               action: LoginFormAction,
-              loader: LoginLoader,
             },
             { path: "/share/:id", element: <Share />, loader: ShareLoader },
             {
               path: "/register",
-              element: <Register />,
+              element: <PublicRoute><Register /></PublicRoute>,
               action: RegisterFormAction,
             },
             { path: "*", element: <Page404 /> },
@@ -55,12 +57,16 @@ export default function AppRouter() {
         {
           path: "/",
           id: "feeds",
-          element: <Layout />,
+          element: <ProtectedRoute><Layout /></ProtectedRoute>,
           loader: LayoutLoader,
           children: [
             {
               path: "/feeds",
               element: <FeedsHome />,
+            },
+            {
+              path: "/notifications",
+              element: <NotificationsPage />,
             },
             {
               path: "/members",

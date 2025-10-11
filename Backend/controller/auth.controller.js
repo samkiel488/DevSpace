@@ -12,9 +12,7 @@ export async function SignUp(req, res, next) {
   try {
     const { name, email, username, password } = req.body;
     const existingUser = await User.findOne({
-      or(array) {
-        [username, email];
-      },
+      $or: [{ username }, { email }]
     });
 
     if (existingUser?.email === email) {
@@ -50,7 +48,8 @@ export async function SignUp(req, res, next) {
     return res.status(201).json({
       success: true,
       data: {
-        user: { id: user._id, name: user.name, username: user.username },
+        user: { id: user._id, name: user.name, username: user.username, profileCompleted: user.profileCompleted },
+        token,
       },
     });
   } catch (err) {
@@ -92,7 +91,8 @@ export async function SignIn(req, res, next) {
     return res.status(200).json({
       success: true,
       data: {
-        user: { id: user._id, name: user.name, username: user.username },
+        user: { id: user._id, name: user.name, username: user.username, profileCompleted: user.profileCompleted },
+        token,
       },
     });
   } catch (err) {
@@ -179,21 +179,6 @@ export async function uploadBackground(req, res, next) {
     });
   } catch (err) {
     console.log(err);
-    next(err);
-  }
-}
-
-export async function logOut(req, res, next) {
-  try {
-    const { id } = req.user;
-    if (!id) {
-      return res
-        .status(401)
-        .json({ success: false, error: "User not logged in" });
-    }
-    res.clearCookie(COOKIES_NAME);
-    return res.status(200).json({success: true , message:"LogOut Successfully"})
-  } catch (err) {
     next(err);
   }
 }
