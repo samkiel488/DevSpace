@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cors(corsOptions));
 app.use(cookieParser());
 
-app.use("/auth", authRouter);
+app.use("/api/auth", authRouter);
 app.use("/projects", projectRouter);
 app.use("/profile", profileRouter);
 app.use("/api/feeds", feedRouter);

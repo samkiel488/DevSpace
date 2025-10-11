@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { Form } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Form, useActionData, useNavigate } from "react-router-dom";
+import { VITE_API_URL } from "../../config";
 import { toast } from "react-toastify";
 import { Eye, EyeClosed, Loader2, Mail, Lock, User } from "lucide-react";
 
@@ -7,6 +8,20 @@ export default function RegisterForm() {
   const [viewPassword, setViewPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
+
+  const actionData = useActionData();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (actionData?.error) {
+      toast.error(actionData.error);
+      setLoading(false);
+    } else if (actionData?.success) {
+      toast.success("Account created successfully! Redirecting to login...");
+      setLoading(false);
+      navigate("/login");
+    }
+  }, [actionData, navigate]);
 
   const validateForm = (formData) => {
     const newErrors = {};
@@ -231,7 +246,7 @@ export async function RegisterFormAction({ request }) {
   const password = formData.get("password");
 
   try {
-    const req = await fetch("http://localhost:3000/auth/signup", {
+    const req = await fetch(`${VITE_API_URL}/auth/signup`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -242,8 +257,7 @@ export async function RegisterFormAction({ request }) {
 
     const response = await req.json();
     if (!response.success) {
-      toast.error(response.error === "User already exists" ? "This email is already registered." : response.error);
-      return null;
+      return { error: response.error === "User already exists" ? "This email is already registered." : response.error };
     }
 
     // Save welcome notifications
@@ -269,14 +283,9 @@ export async function RegisterFormAction({ request }) {
     const existing = JSON.parse(localStorage.getItem("notifications")) || [];
     localStorage.setItem("notifications", JSON.stringify([...notifications, ...existing]));
 
-    toast.success("Account created successfully! Redirecting to login...");
-    setTimeout(() => {
-      window.location.href = "/login";
-    }, 2000);
-    return null;
+    return { success: true };
   } catch (err) {
     console.log(err);
-    toast.error("Unable to create account. Please try again.");
-    return null;
+    return { error: "Unable to create account. Please try again." };
   }
 }

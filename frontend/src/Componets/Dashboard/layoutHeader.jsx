@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Link, useLoaderData, useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import { VITE_API_URL } from "../../config";
 export default function LayoutHeader() {
   const navigate = useNavigate();
   const { users } = useLoaderData();
@@ -39,7 +40,7 @@ export default function LayoutHeader() {
 
   async function HandleLogOut() {
     try {
-      const request = await fetch("http://localhost:3000/auth/logout", {
+      const request = await fetch(`${VITE_API_URL}/auth/logout`, {
         headers: {
           "Content-Type": "application/json",
         },
