@@ -71,7 +71,9 @@ export default function LoginForm() {
               name="emailAddress"
               placeholder="Input your Email Address"
               className={`block w-full pl-10 pr-3 py-2 sm:px-4 sm:py-3 border rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none ${
-                errors.email ? "border-red-500" : "border-gray-300 dark:border-gray-600"
+                errors.email
+                  ? "border-red-500"
+                  : "border-gray-300 dark:border-gray-600"
               }`}
               required
             />
@@ -96,7 +98,9 @@ export default function LoginForm() {
               name="password"
               placeholder="Input your Password"
               className={`block w-full pl-10 pr-10 py-2 sm:px-4 sm:py-3 border rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none ${
-                errors.password ? "border-red-500" : "border-gray-300 dark:border-gray-600"
+                errors.password
+                  ? "border-red-500"
+                  : "border-gray-300 dark:border-gray-600"
               }`}
               required
             />
@@ -157,7 +161,7 @@ export async function LoginFormAction({ request }) {
   const password = formData.get("password");
 
   try {
-    const req = await fetch(`${VITE_API_URL}/auth/signin`, {
+    const req = await fetch(`${VITE_API_URL}/api/auth/signin`, {
       method: "post",
       body: JSON.stringify({ email, password }),
       credentials: "include",
@@ -167,7 +171,12 @@ export async function LoginFormAction({ request }) {
     });
     const response = await req.json();
     if (!response.success) {
-      return { error: response.error === "User does not exists" ? "Incorrect email or password." : response.error };
+      return {
+        error:
+          response.error === "User does not exists"
+            ? "Incorrect email or password."
+            : response.error,
+      };
     }
 
     return redirect("/feeds");
@@ -179,7 +188,7 @@ export async function LoginFormAction({ request }) {
 
 export async function LoginLoader() {
   try {
-    const request = await fetch(`${VITE_API_URL}/auth/loggedIn`, {
+    const request = await fetch(`${VITE_API_URL}/api/auth/loggedIn`, {
       headers: {
         "Content-Type": "application/json",
       },

@@ -75,7 +75,11 @@ export default function RegisterForm() {
         </p>
       </div>
 
-      <Form method="post" className="w-full flex flex-col gap-4" onSubmit={handleSubmit}>
+      <Form
+        method="post"
+        className="w-full flex flex-col gap-4"
+        onSubmit={handleSubmit}
+      >
         <div className="flex items-start flex-col justify-start">
           <label
             htmlFor="name"
@@ -91,7 +95,9 @@ export default function RegisterForm() {
               name="name"
               placeholder="Input your Fullname"
               className={`w-full pl-10 pr-3 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 ${
-                errors.name ? "border-red-500" : "border-gray-300 dark:border-gray-600"
+                errors.name
+                  ? "border-red-500"
+                  : "border-gray-300 dark:border-gray-600"
               }`}
               required
             />
@@ -116,7 +122,9 @@ export default function RegisterForm() {
               name="username"
               placeholder="Input your Favourite Nickname"
               className={`w-full pl-10 pr-3 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 ${
-                errors.username ? "border-red-500" : "border-gray-300 dark:border-gray-600"
+                errors.username
+                  ? "border-red-500"
+                  : "border-gray-300 dark:border-gray-600"
               }`}
               required
             />
@@ -141,7 +149,9 @@ export default function RegisterForm() {
               name="email"
               placeholder="Input your Email"
               className={`w-full pl-10 pr-3 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 ${
-                errors.email ? "border-red-500" : "border-gray-300 dark:border-gray-600"
+                errors.email
+                  ? "border-red-500"
+                  : "border-gray-300 dark:border-gray-600"
               }`}
               required
             />
@@ -166,7 +176,9 @@ export default function RegisterForm() {
               type={viewPassword ? "text" : "password"}
               placeholder="Input your Password"
               className={`block w-full pl-10 pr-10 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 ${
-                errors.password ? "border-red-500" : "border-gray-300 dark:border-gray-600"
+                errors.password
+                  ? "border-red-500"
+                  : "border-gray-300 dark:border-gray-600"
               }`}
               required
             />
@@ -200,13 +212,17 @@ export default function RegisterForm() {
               type="password"
               placeholder="Confirm your Password"
               className={`block w-full pl-10 pr-3 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 ${
-                errors.confirmPassword ? "border-red-500" : "border-gray-300 dark:border-gray-600"
+                errors.confirmPassword
+                  ? "border-red-500"
+                  : "border-gray-300 dark:border-gray-600"
               }`}
               required
             />
           </div>
           {errors.confirmPassword && (
-            <p className="mt-1 text-sm text-red-600">{errors.confirmPassword}</p>
+            <p className="mt-1 text-sm text-red-600">
+              {errors.confirmPassword}
+            </p>
           )}
         </div>
 
@@ -230,7 +246,10 @@ export default function RegisterForm() {
         <span className="text-sm text-gray-600 dark:text-gray-400">
           Already have an account?
         </span>{" "}
-        <a href="/login" className="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300">
+        <a
+          href="/login"
+          className="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300"
+        >
           Login
         </a>
       </div>
@@ -246,7 +265,7 @@ export async function RegisterFormAction({ request }) {
   const password = formData.get("password");
 
   try {
-    const req = await fetch(`${VITE_API_URL}/auth/signup`, {
+    const req = await fetch(`${VITE_API_URL}/api/auth/signup`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -257,7 +276,12 @@ export async function RegisterFormAction({ request }) {
 
     const response = await req.json();
     if (!response.success) {
-      return { error: response.error === "User already exists" ? "This email is already registered." : response.error };
+      return {
+        error:
+          response.error === "User already exists"
+            ? "This email is already registered."
+            : response.error,
+      };
     }
 
     // Save welcome notifications
@@ -273,7 +297,8 @@ export async function RegisterFormAction({ request }) {
       {
         id: Date.now() + 1,
         title: "Complete your account setup",
-        message: "Visit your Settings page to complete your details and activate your account.",
+        message:
+          "Visit your Settings page to complete your details and activate your account.",
         href: "/settings",
         timestamp: new Date().toISOString(),
         read: false,
@@ -281,7 +306,10 @@ export async function RegisterFormAction({ request }) {
     ];
 
     const existing = JSON.parse(localStorage.getItem("notifications")) || [];
-    localStorage.setItem("notifications", JSON.stringify([...notifications, ...existing]));
+    localStorage.setItem(
+      "notifications",
+      JSON.stringify([...notifications, ...existing])
+    );
 
     return { success: true };
   } catch (err) {

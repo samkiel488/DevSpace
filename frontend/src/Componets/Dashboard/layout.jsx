@@ -19,7 +19,7 @@ export default function Layout() {
 
 export async function LayoutLoader() {
   try {
-    const req = await fetch(`${VITE_API_URL}/auth/loggedIn`, {
+    const req = await fetch(`${VITE_API_URL}/api/auth/loggedIn`, {
       method: "get",
       credentials: "include",
     });
