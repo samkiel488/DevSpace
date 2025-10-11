@@ -8,7 +8,6 @@ import ProjectCard from "../../../Componets/projectCard";
 
 export default function ProfileId() {
   const { profile } = useLoaderData();
-  console.log(profile.profile);
 
   return (
     <div className="flex w-full flex-col gap-2 pb-5 bg-white dark:bg-slate-800 dark:text-white text-black">
@@ -43,7 +42,6 @@ export async function ProfileIdLoader({ params }) {
       },
     });
     const response = await request.json();
-    console.log(response);
 
     if (!response.success) {
       return toast.error(response.message);

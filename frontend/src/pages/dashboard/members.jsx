@@ -6,17 +6,22 @@ import { useState } from "react";
 
 export default function Members() {
   const { profile } = useLoaderData();
+  console.log(profile);
+
   const [userProfile, setUserProfile] = useState(profile);
   return (
     <section className="py-10 px-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center gap-4 gap-y-10 dark:bg-slate-800">
       {userProfile.map(
-        ({ bio, role, _id, user: { username, profilePic, name } }, idx) => {
+        (
+          { bio, role, _id, user: { username, profilePic, name, _id: userId } },
+          idx
+        ) => {
           return (
             <MemberCard
               key={idx}
               bio={bio}
               role={role}
-              _id={_id}
+              _id={userId}
               username={username}
               profilePic={profilePic}
               name={name}

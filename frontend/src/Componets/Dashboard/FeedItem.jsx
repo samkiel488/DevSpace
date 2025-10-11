@@ -49,23 +49,40 @@ const FeedItem = ({ feed }) => {
     toast.info("Share feature coming soon");
   };
 
+  const {
+    content,
+    _id,
+    likes,
+    comments,
+    author: { _id: UserId, profilePic, name },
+    createdAt,
+  } = feed;
+
   return (
     <div className="bg-white dark:bg-gray-800 p-2 rounded-2xl shadow-sm mb-3 hover:shadow-md transition-shadow duration-200 w-full">
       <div className="flex space-x-4 justify-between items-center">
         <div className="flex space-x-4 items-center">
           <div className="flex">
             <img
-              src="/images/blank-profile-picture-973460_960_720.webp"
+              src={
+                profilePic
+                  ? profilePic
+                  : "/images/blank-profile-picture-973460_960_720.webp"
+              }
               alt="Profile Picture"
               className="w-10 h-10 rounded-full"
             />
           </div>
           <div className="flex dark:text-white flex-col">
-            <h1 className="text-md font-semibold">Areo Ayomide Philip</h1>
+            <h1 className="text-md font-semibold">
+              <a href={`/profile/${UserId}`} className="hover:underline">
+                {name}
+              </a>
+            </h1>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              {new Date().toLocaleDateString("en-US", {
-                day: "numeric",
-                month: "long",
+              {new Date(createdAt).toLocaleDateString("en-US", {
+                day: "2-digit",
+                month: "short",
                 year: "numeric",
               })}
             </p>
@@ -82,14 +99,7 @@ const FeedItem = ({ feed }) => {
       </div>
       <div className="flex dark:text-white p-2 mt-2 flex-col space-y-2">
         <h1 className="text-[20px] font-[700] ">Having Problem with Next Js</h1>
-        <p className="font-[350] ">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-          laboriosam in consequatur, eligendi impedit ratione ea soluta dolores
-          error deserunt a maxime nesciunt odio eius optio consectetur
-          dignissimos cupiditate, et alias aliquid quae suscipit distinctio
-          placeat incidunt. Exercitationem nulla laborum temporibus iure
-          molestias nam fuga voluptas totam, odio, sint laboriosam.
-        </p>
+        <p className="font-[350] ">{content}</p>
         <div className="flex space-x-2 text-sm text-white dark:text-white">
           <div className="bg-green-500 px-2 rounded-2xl">React JS</div>
           <div className="bg-green-500 px-2 rounded-2xl">Javascript</div>
@@ -98,10 +108,10 @@ const FeedItem = ({ feed }) => {
       </div>
       <div className="flex justify-around text-gray-500 dark:text-gray-400 border-t py-2 mt-2">
         <div className="flex items-center space-x-1">
-          <Heart /> 20
+          <Heart /> {likes.length}
         </div>
         <div className="flex items-center space-x-1">
-          <MessageCircle /> 5
+          <MessageCircle /> {comments.length}
         </div>
         <div className="flex items-center space-x-1" onClick={handleShare}>
           <Share2 />

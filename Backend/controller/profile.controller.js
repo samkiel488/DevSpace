@@ -160,7 +160,7 @@ export async function getProfileByUserId(req, res, next) {
   try {
     const { id } = req.params;
 
-    const profile = await Profile.findById(id).populate(
+    const profile = await Profile.findOne({user: id}).populate(
       "user",
       "name username _id profilePic backgroundPic"
     );
@@ -181,7 +181,7 @@ export async function getAllProfile(req, res, next) {
   try {
     const profile = await Profile.find()
       .select("_id role bio ")
-      .populate("user", "profilePic name username -_id");
+      .populate("user", "profilePic name username _id");
     return res.status(200).json({ success: true, data: { profile } });
   } catch (err) {
     next(err);
