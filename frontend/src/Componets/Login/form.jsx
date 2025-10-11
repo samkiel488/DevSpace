@@ -170,17 +170,6 @@ export async function LoginFormAction({ request }) {
       return { error: response.error === "User does not exists" ? "Incorrect email or password." : response.error };
     }
 
-    // // Store user data in localStorage
-    // const user = response.data.user;
-    // localStorage.setItem("token", response.data.token);
-    // localStorage.setItem("user", JSON.stringify({
-    //   id: user.id,
-    //   name: user.name,
-    //   email,
-    //   username: user.username,
-    //   profileCompleted: user.profileCompleted
-    // }));
-
     return redirect("/feeds");
   } catch (err) {
     console.log(err.message);
