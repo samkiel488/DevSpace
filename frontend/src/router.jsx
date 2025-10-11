@@ -24,6 +24,7 @@ import ProfileId, {
   ProfileIdLoader,
 } from "./pages/dashboard/profile/profileId";
 import NotificationsPage from "./pages/notifications";
+import FeedsId from "./pages/dashboard/feeds/feedsId";
 
 export default function AppRouter() {
   return (
@@ -62,6 +63,10 @@ export default function AppRouter() {
             {
               path: "/feeds",
               element: <FeedsHome />,
+            },
+            {
+              path: "/feed/:id",
+              element: <FeedsId />,
             },
             {
               path: "/notifications",

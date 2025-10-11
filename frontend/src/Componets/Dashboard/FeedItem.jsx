@@ -6,8 +6,6 @@ import { Heart, MessageCircle, MoreHorizontal, Share2 } from "lucide-react";
 const API_URL = "http://localhost:3000/api";
 
 const FeedItem = ({ feed }) => {
-  console.log(feed);
-
   // const [likesCount, setLikesCount] = useState(feed.likes.length);
   // const [isLiked, setIsLiked] = useState(feed.likes.includes(userId));
   // const [comments, setComments] = useState(feed.comments);
@@ -89,7 +87,10 @@ const FeedItem = ({ feed }) => {
           </div>
         </div>
         <div className="flex self-end mt-2">
-          <a className="bg-blue-500 text-white px-3 py-2 rounded-full text-sm hover:bg-blue-600 transition-colors duration-200 cursor-pointer">
+          <a
+            href={`/feed/${_id}`}
+            className="bg-blue-500 text-white px-3 py-2 rounded-full text-sm hover:bg-blue-600 transition-colors duration-200 cursor-pointer"
+          >
             <span className="hidden md:block">Read More</span>
             <span className="md:hidden">
               <MoreHorizontal />
