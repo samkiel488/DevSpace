@@ -58,6 +58,8 @@ export default function FeedsHome() {
       <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8">
         <div className="max-w-md mx-auto w-11/12 sm:w-full">
           <FeedsInput onNewFeed={handleNewFeed} />
+        </div>
+        <div className="flex w-full p-3">
           <FeedList feeds={feeds} />
         </div>
       </div>

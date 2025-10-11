@@ -40,7 +40,7 @@ export default function LayoutHeader() {
 
   async function HandleLogOut() {
     try {
-      const request = await fetch(`${VITE_API_URL}/auth/logout`, {
+      const request = await fetch(`${VITE_API_URL}/api/auth/logout`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -157,7 +157,6 @@ export default function LayoutHeader() {
                     </li>
                     <li className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-all">
                       <a
-                        href="#"
                         className="block"
                         onClick={async () => {
                           await HandleLogOut();
