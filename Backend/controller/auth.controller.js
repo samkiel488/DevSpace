@@ -48,8 +48,7 @@ export async function SignUp(req, res, next) {
     return res.status(201).json({
       success: true,
       data: {
-        user: { id: user._id, name: user.name, username: user.username, profileCompleted: user.profileCompleted },
-        token,
+        user: { id: user._id, name: user.name, username: user.username},
       },
     });
   } catch (err) {
@@ -91,8 +90,7 @@ export async function SignIn(req, res, next) {
     return res.status(200).json({
       success: true,
       data: {
-        user: { id: user._id, name: user.name, username: user.username, profileCompleted: user.profileCompleted },
-        token,
+        user: { id: user._id, name: user.name, username: user.username },
       },
     });
   } catch (err) {
@@ -182,7 +180,6 @@ export async function uploadBackground(req, res, next) {
     next(err);
   }
 }
-
 
 export async function Logout(req, res, next) {
   try {
