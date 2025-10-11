@@ -11,7 +11,7 @@ import {
   User,
   X,
 } from "lucide-react";
-import { useLoaderData, useNavigate } from "react-router";
+import { Link, useLoaderData, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 export default function LayoutHeader() {
   const navigate = useNavigate();

@@ -24,8 +24,6 @@ import ProfileId, {
   ProfileIdLoader,
 } from "./pages/dashboard/profile/profileId";
 import NotificationsPage from "./pages/notifications";
-import ProtectedRoute from "./Componets/Auth/ProtectedRoute";
-import PublicRoute from "./Componets/Auth/PublicRoute";
 
 export default function AppRouter() {
   return (
@@ -42,13 +40,13 @@ export default function AppRouter() {
             { path: "/projects", element: <Project /> },
             {
               path: "/login",
-              element: <PublicRoute><Login /></PublicRoute>,
+              element: <Login />,
               action: LoginFormAction,
             },
             { path: "/share/:id", element: <Share />, loader: ShareLoader },
             {
               path: "/register",
-              element: <PublicRoute><Register /></PublicRoute>,
+              element: <Register />,
               action: RegisterFormAction,
             },
             { path: "*", element: <Page404 /> },
@@ -57,7 +55,7 @@ export default function AppRouter() {
         {
           path: "/",
           id: "feeds",
-          element: <ProtectedRoute><Layout /></ProtectedRoute>,
+          element: <Layout />,
           loader: LayoutLoader,
           children: [
             {

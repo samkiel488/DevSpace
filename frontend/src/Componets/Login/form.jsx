@@ -161,16 +161,16 @@ export async function LoginFormAction({ request }) {
       return null;
     }
 
-    // Store user data in localStorage
-    const user = response.data.user;
-    localStorage.setItem("token", response.data.token);
-    localStorage.setItem("user", JSON.stringify({
-      id: user.id,
-      name: user.name,
-      email,
-      username: user.username,
-      profileCompleted: user.profileCompleted
-    }));
+    // // Store user data in localStorage
+    // const user = response.data.user;
+    // localStorage.setItem("token", response.data.token);
+    // localStorage.setItem("user", JSON.stringify({
+    //   id: user.id,
+    //   name: user.name,
+    //   email,
+    //   username: user.username,
+    //   profileCompleted: user.profileCompleted
+    // }));
 
     toast.success("Login successful! Redirecting...");
     setTimeout(() => {

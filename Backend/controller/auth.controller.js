@@ -182,3 +182,13 @@ export async function uploadBackground(req, res, next) {
     next(err);
   }
 }
+
+
+export async function Logout(req, res, next) {
+  try {
+    res.clearCookie(COOKIES_NAME);
+    return res.status(200).json({ success: true, message: "Logged out successfully" });
+  } catch (err) {
+    next(err);
+  }
+}
