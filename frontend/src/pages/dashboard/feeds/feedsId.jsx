@@ -14,7 +14,7 @@ export default function FeedsId() {
           className="w-[80%]  h-[500px] object-cover rounded-2xl"
         />
       </div>
-      <div className="flex w-full justify-center items-center-safe">
+      <div className="flex w-full flex-col md:flex-row justify-center items-center-safe">
         <div className="flex gap-x-3 justify-center items-center">
           <img
             src="/images/blank-profile-picture-973460_960_720.webp"
@@ -23,7 +23,7 @@ export default function FeedsId() {
           />
           <p className="font-[700]">Areo Ayomide Philip</p>
         </div>
-        <hr className="border-1 h-[20px] mx-3" />
+        <hr className="hidden md:block border-1 h-[20px] mx-3" />
         <div>
           <p>
             {new Date().toLocaleDateString("en-US", {
@@ -34,6 +34,8 @@ export default function FeedsId() {
           </p>
         </div>
       </div>
+
+      
     </div>
   );
 }

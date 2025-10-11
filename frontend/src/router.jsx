@@ -25,6 +25,7 @@ import ProfileId, {
 } from "./pages/dashboard/profile/profileId";
 import NotificationsPage from "./pages/notifications";
 import FeedsId, { FeedsIdLoader } from "./pages/dashboard/feeds/feedsId";
+import FeedsCreate from "./pages/dashboard/feeds/feedsCreate";
 
 export default function AppRouter() {
   return (
@@ -63,6 +64,10 @@ export default function AppRouter() {
             {
               path: "/feeds",
               element: <FeedsHome />,
+            },
+            {
+              path: "/feeds/create",
+              element: <FeedsCreate />,
             },
             {
               path: "/feed/:id",
