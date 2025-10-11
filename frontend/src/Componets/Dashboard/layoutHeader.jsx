@@ -22,16 +22,16 @@ export default function LayoutHeader() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
 
-
-
   useEffect(() => {
     const updateUnread = () => {
-      const notifications = JSON.parse(localStorage.getItem('notifications') || '[]');
-      setUnreadCount(notifications.filter(n => !n.read).length);
+      const notifications = JSON.parse(
+        localStorage.getItem("notifications") || "[]"
+      );
+      setUnreadCount(notifications.filter((n) => !n.read).length);
     };
     updateUnread();
-    window.addEventListener('storage', updateUnread);
-    return () => window.removeEventListener('storage', updateUnread);
+    window.addEventListener("storage", updateUnread);
+    return () => window.removeEventListener("storage", updateUnread);
   }, []);
 
   const toggleDropdown = () => {
@@ -123,7 +123,7 @@ export default function LayoutHeader() {
                 <Bell className="h-6 w-6 cursor-pointer" />
                 {unreadCount > 0 && (
                   <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                    {unreadCount > 99 ? '99+' : unreadCount}
+                    {unreadCount > 99 ? "99+" : unreadCount}
                   </span>
                 )}
               </Link>
@@ -140,7 +140,10 @@ export default function LayoutHeader() {
                 className="w-12 h-12 rounded-full border-2 border-gray-300 cursor-pointer transition-transform transform hover:scale-110"
               />
               {isDropdownOpen && (
-                <div className="absolute top-14 right-0 w-48 bg-white rounded shadow-lg border border-gray-200 z-5">
+                <div
+                  className="absolute top-14 right-0 w-48 bg-white rounded shadow-lg border border-gray-200 z-5"
+                  onMouseLeave={() => setIsDropdownOpen(false)}
+                >
                   <ul className="text-black">
                     <li className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-all">
                       <Link to="/profile" className="block">
