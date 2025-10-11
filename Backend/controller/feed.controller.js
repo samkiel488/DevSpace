@@ -27,7 +27,9 @@ export async function createFeed(req, res, next) {
     const author = req.user.id;
 
     if (!content || content.trim().length === 0) {
-      return res.status(400).json({ success: false, error: "Content is required" });
+      return res
+        .status(400)
+        .json({ success: false, error: "Content is required" });
     }
 
     const feed = await Feed.create({
@@ -89,7 +91,9 @@ export async function addComment(req, res, next) {
     const userId = req.user.id;
 
     if (!text || text.trim().length === 0) {
-      return res.status(400).json({ success: false, error: "Comment text is required" });
+      return res
+        .status(400)
+        .json({ success: false, error: "Comment text is required" });
     }
 
     const feed = await Feed.findById(id);
@@ -117,6 +121,26 @@ export async function addComment(req, res, next) {
       success: true,
       data: populatedFeed,
     });
+  } catch (err) {
+    next(err);
+  }
+}
+
+export async function getFeedsById(req, res, next) {
+  try {
+    const { id } = req.params;
+
+    const feed = await Feed.findById(id)
+      .populate({
+        path: "comments.user",
+        select: "name username profilePic",
+      })
+      .populate("author", "name username profilePic");
+
+    if(!feed){
+        return res.status(404).json({ success: false, error: "Feed not found" });
+    }
+    return  res.status(200).json({success: true, data:{feed}})
   } catch (err) {
     next(err);
   }
