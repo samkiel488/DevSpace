@@ -81,7 +81,7 @@ const FeedItem = ({ feed }) => {
         </div>
       </div>
       <div className="flex dark:text-white p-2 mt-2 flex-col space-y-2">
-        <p>
+        <p className="font-[350] ">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
           laboriosam in consequatur, eligendi impedit ratione ea soluta dolores
           error deserunt a maxime nesciunt odio eius optio consectetur
