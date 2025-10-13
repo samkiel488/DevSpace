@@ -4,15 +4,40 @@ import LayoutHeader from "./layoutHeader";
 import { ToastContainer } from "react-toastify";
 import useLocalStorage from "use-local-storage";
 import Toggle from "../toggle";
+import { useState, useEffect } from "react";
+import LoadingSpinner from "../LoadingSpinner";
+import { AnimatePresence, motion } from "framer-motion";
+
 export default function Layout() {
   const prefences = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [darkMode, setDarkMode] = useLocalStorage("darkMode", prefences);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div data-theme={darkMode ? "dark" : "light"}>
-      <ToastContainer />
-      <LayoutHeader />
-      <Outlet />
-      <Toggle darkMode={darkMode} setDarkMode={setDarkMode} />
+      <AnimatePresence mode="wait">
+        {loading ? (
+          <LoadingSpinner key="spinner" />
+        ) : (
+          <motion.div
+            key="content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ToastContainer />
+            <LayoutHeader />
+            <Outlet />
+            <Toggle darkMode={darkMode} setDarkMode={setDarkMode} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
