@@ -3,7 +3,6 @@ import { redirect, useLoaderData } from "react-router";
 export default function FeedsId() {
   const { feed } = useLoaderData();
   console.log(feed);
-
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8 dark:text-white flex flex-col items-center-safe gap-y-5">
       <h1 className="text-3xl text-center">Having Problem with Next js</h1>
@@ -34,8 +33,6 @@ export default function FeedsId() {
           </p>
         </div>
       </div>
-
-      
     </div>
   );
 }
