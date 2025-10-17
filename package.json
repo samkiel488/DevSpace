@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-"postinstall": "npm --prefix frontend install && npm --prefix frontend run build && npm --prefix backend install",
-    "start": "node backend/index.js",
+    "postinstall": "cd Frontend && npm install && npm run build && cd ../Backend && npm install",
+    "start": "node Backend/index.js",
     "dev": "concurrently \"cd frontend && npm run dev\" \"cd backend && nodemon index.js\""
   },
   "dependencies": {
