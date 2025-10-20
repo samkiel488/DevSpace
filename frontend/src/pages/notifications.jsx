@@ -1,13 +1,18 @@
 import { useState, useEffect } from "react";
-import { CheckCircle, Trash2, Bell } from "lucide-react";
+import { CheckCircle, Trash2, Bell, Loader } from "lucide-react";
 import { toast } from "react-toastify";
 
 export default function Notifications() {
   const [notifications, setNotifications] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem("notifications") || "[]");
-    setNotifications(stored);
+    const timeout = setTimeout(() => {
+      const stored = JSON.parse(localStorage.getItem("notifications") || "[]");
+      setNotifications(stored);
+      setLoading(false);
+    }, 700);
+    return () => clearTimeout(timeout);
   }, []);
 
   const markAsRead = (id) => {
@@ -32,6 +37,14 @@ export default function Notifications() {
   };
 
   const unreadCount = notifications.filter(n => !n.read).length;
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <Loader className="animate-spin text-blue-500 h-10 w-10" />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8 px-4">

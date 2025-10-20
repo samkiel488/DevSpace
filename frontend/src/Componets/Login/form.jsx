@@ -1,6 +1,6 @@
 import { Form, redirect, useActionData } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Eye, EyeClosed, Loader2, Mail, Lock } from "lucide-react";
+import { Eye, EyeClosed, Loader, Mail, Lock } from "lucide-react";
 import { useState, useEffect } from "react";
 import { VITE_API_URL } from "../../config";
 
@@ -125,7 +125,7 @@ export default function LoginForm() {
         >
           {loading ? (
             <>
-              <Loader2 className="animate-spin mr-2 h-5 w-5" />
+              <Loader className="animate-spin mr-2 h-5 w-5" />
               Signing in...
             </>
           ) : (

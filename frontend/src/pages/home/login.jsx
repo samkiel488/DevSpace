@@ -1,6 +1,22 @@
 import LoginForm from "../../Componets/Login/form";
+import { useState, useEffect } from "react";
+import { Loader } from "lucide-react";
 
 export default function Login() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setLoading(false), 700);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <Loader className="animate-spin text-blue-500 h-10 w-10" />
+      </div>
+    );
+  }
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
       {/* Hero Image Section */}

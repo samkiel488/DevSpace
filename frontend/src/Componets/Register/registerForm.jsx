@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Form, useActionData, useNavigate } from "react-router-dom";
 import { VITE_API_URL } from "../../config";
 import { toast } from "react-toastify";
-import { Eye, EyeClosed, Loader2, Mail, Lock, User } from "lucide-react";
+import { Eye, EyeClosed, Loader, Mail, Lock, User } from "lucide-react";
 
 export default function RegisterForm() {
   const [viewPassword, setViewPassword] = useState(false);
@@ -233,7 +233,7 @@ export default function RegisterForm() {
         >
           {loading ? (
             <>
-              <Loader2 className="animate-spin mr-2 h-5 w-5" />
+              <Loader className="animate-spin mr-2 h-5 w-5" />
               Registering...
             </>
           ) : (

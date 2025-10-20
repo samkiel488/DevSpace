@@ -4,14 +4,19 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import FeedsInput from "../../Componets/Dashboard/FeedsInput";
 import FeedList from "../../Componets/Dashboard/FeedList";
+import { Loader } from "lucide-react";
 
 const API_URL = "http://localhost:3000/api";
 
 export default function FeedsHome() {
   const [feeds, setFeeds] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchFeeds();
+    const timeout = setTimeout(() => {
+      fetchFeeds();
+    }, 700);
+    return () => clearTimeout(timeout);
   }, []);
 
   const fetchFeeds = async () => {
@@ -20,14 +25,24 @@ export default function FeedsHome() {
         withCredentials: true,
       });
       setFeeds(res.data.data);
+      setLoading(false);
     } catch {
       toast.error("Failed to load feeds");
+      setLoading(false);
     }
   };
 
   const handleNewFeed = (newFeed) => {
     setFeeds([newFeed, ...feeds]);
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <Loader className="animate-spin text-blue-500 h-10 w-10" />
+      </div>
+    );
+  }
 
   return (
     <>

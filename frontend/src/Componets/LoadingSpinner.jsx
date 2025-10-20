@@ -1,4 +1,4 @@
-import { Loader2 } from "lucide-react";
+import { Loader } from "lucide-react";
 import { motion } from "framer-motion";
 
 const LoadingSpinner = () => (
@@ -9,7 +9,7 @@ const LoadingSpinner = () => (
     exit={{ opacity: 0 }}
     transition={{ duration: 0.3 }}
   >
-    <Loader2 className="animate-spin text-blue-500 h-10 w-10" />
+    <Loader className="animate-spin text-blue-500 h-10 w-10" />
   </motion.div>
 );
 
