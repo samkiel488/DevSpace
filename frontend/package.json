@@ -1,7 +1,7 @@
 {
-  "name": "my-vue-app",
+  "name": "devspace",
   "private": true,
-  "version": "0.0.0",
+  "version": "2.3.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
